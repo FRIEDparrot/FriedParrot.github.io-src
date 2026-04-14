@@ -1,0 +1,15 @@
+{
+  "name": "friedparrot.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "FriedParrot personal site powered by VitePress",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}

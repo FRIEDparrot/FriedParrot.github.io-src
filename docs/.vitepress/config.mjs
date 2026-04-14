@@ -10,7 +10,6 @@ export default defineConfig({
   lang: 'en-US',
   appearance: true,
   themeConfig: {
-    logo: '/favicon.ico',
     nav: [
       { text: 'Posts', link: '/posts/' },
       { text: 'Projects', link: '/projects' },

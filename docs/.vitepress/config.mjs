@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { sidebar } from './generated/content-data.mjs'
+import { convertObsidianLinksInText } from '../../scripts/content-utils.mjs'
 
 export default defineConfig({
   title: 'FriedParrot',
@@ -27,20 +28,7 @@ export default defineConfig({
     lineNumbers: true,
     config(md) {
       md.core.ruler.before('normalize', 'obsidian-links', (state) => {
-        state.src = state.src.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_full, rawTarget, rawAlias) => {
-          const target = rawTarget.trim()
-          const alias = (rawAlias || rawTarget).trim()
-
-          if (!target) return _full
-          if (/^(https?:)?\/\//.test(target)) return `[${alias}](${target})`
-
-          const normalizedTarget = target.replace(/\.md$/i, '').replace(/^\/+/, '')
-          const link = normalizedTarget.startsWith('posts/')
-            ? `/${normalizedTarget}`
-            : `/posts/${normalizedTarget}`
-
-          return `[${alias}](${link})`
-        })
+        state.src = convertObsidianLinksInText(state.src)
       })
     }
   }

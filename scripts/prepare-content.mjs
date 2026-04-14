@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { convertObsidianLinksInText } from './content-utils.mjs'
 
 const repoRoot = process.cwd()
 const docsRoot = path.join(repoRoot, 'docs')
@@ -86,32 +87,13 @@ function slugifyTag(tag) {
     .replace(/\s+/g, '-')
 }
 
-function convertObsidianLinks(content) {
-  return content.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_full, rawTarget, rawAlias) => {
-    const target = rawTarget.trim()
-    const alias = (rawAlias || rawTarget).trim()
-
-    if (!target) return _full
-
-    if (/^(https?:)?\/\//.test(target)) {
-      return `[${alias}](${target})`
-    }
-
-    const normalizedTarget = target.replace(/\.md$/i, '').replace(/^\/+/, '')
-    const link = normalizedTarget.startsWith('posts/')
-      ? `/${normalizedTarget}`
-      : `/posts/${normalizedTarget}`
-    return `[${alias}](${link})`
-  })
-}
-
-const postFiles = getMarkdownFiles(postsRoot).filter((file) => path.basename(file) !== 'index.md')
+const nonIndexPostFiles = getMarkdownFiles(postsRoot).filter((file) => path.basename(file) !== 'index.md')
 const posts = []
 const tagsMap = new Map()
 
-for (const file of postFiles) {
+for (const file of nonIndexPostFiles) {
   const originalRaw = fs.readFileSync(file, 'utf8')
-  const convertedRaw = convertObsidianLinks(originalRaw)
+  const convertedRaw = convertObsidianLinksInText(originalRaw)
 
   const { frontmatter, body } = splitFrontmatter(convertedRaw)
   const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
@@ -142,24 +124,15 @@ function makeSidebar(postsList) {
   const root = {}
 
   for (const post of postsList) {
-    let node = root
+    let categoryNode = root
     for (const category of post.categories) {
-      if (!node[category]) {
-        node[category] = { children: {}, posts: [] }
+      if (!categoryNode[category]) {
+        categoryNode[category] = { children: {} }
       }
-      node = node[category].children
+      categoryNode = categoryNode[category].children
     }
-
-    const leaf = (() => {
-      let current = root
-      for (const category of post.categories) {
-        current = current[category].children
-      }
-      return current
-    })()
-
-    if (!leaf.__posts) leaf.__posts = []
-    leaf.__posts.push({ text: post.title, link: post.route })
+    categoryNode.__posts = categoryNode.__posts || []
+    categoryNode.__posts.push({ text: post.title, link: post.route })
   }
 
   function buildItems(treeNode) {

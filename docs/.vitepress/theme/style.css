@@ -1,0 +1,113 @@
+:root {
+  --vp-c-brand-1: #1f4e79;
+  --vp-c-brand-2: #245a8d;
+  --vp-c-brand-3: #2a65a0;
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-soft: #f5f7fa;
+  --vp-c-text-1: #0c1a2b;
+}
+
+.dark {
+  --vp-c-brand-1: #6ca9ff;
+  --vp-c-brand-2: #89baff;
+  --vp-c-brand-3: #a6cbff;
+  --vp-c-bg: #05070c;
+  --vp-c-bg-soft: #0b1120;
+  --vp-c-text-1: #eef4ff;
+}
+
+.vp-doc .vp-nav-disabled,
+.vp-nav-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.home-hero {
+  padding: 2rem 0;
+}
+
+.home-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.featured-card {
+  margin-top: 1.25rem;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.category-layout {
+  position: relative;
+}
+
+.category-fab {
+  position: fixed;
+  left: 1rem;
+  top: 5.5rem;
+  z-index: 30;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.category-sidebar {
+  position: fixed;
+  left: 1rem;
+  top: 8.5rem;
+  width: min(300px, calc(100vw - 2rem));
+  max-height: calc(100vh - 10rem);
+  overflow: auto;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 92%, transparent);
+  backdrop-filter: blur(10px);
+  padding: 0.9rem;
+  z-index: 20;
+}
+
+.category-content {
+  margin-left: 340px;
+}
+
+.category-tree,
+.category-tree ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0.75rem;
+}
+
+.category-tree details > summary {
+  cursor: pointer;
+}
+
+.category-chip,
+.tag-chip {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 960px) {
+  .category-content {
+    margin-left: 0;
+  }
+
+  .category-sidebar {
+    top: 7rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+  }
+}

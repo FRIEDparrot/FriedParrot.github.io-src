@@ -23,3 +23,15 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.VPHome .VPHero .container {
+  text-align: center;
+}
+
+.VPHome .VPHero .main {
+  margin: 0 auto;
+}
+
+.VPHome .VPHero .actions {
+  justify-content: center;
+}

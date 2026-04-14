@@ -168,7 +168,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#archive">Archive</a></li>
                 <li><a href="#about">About</a></li>
-                <li><button id="theme-toggle" class="toggle" type="button" aria-label="Toggle dark and light mode" title="Toggle dark and light mode">🌙</button></li>
+                <li><button id="theme-toggle" class="toggle" type="button" aria-label="Toggle dark and light mode" title="Toggle dark and light mode">☀️</button></li>
             </ul>
         </div>
     </header>
@@ -234,7 +234,7 @@
             function applyTheme(theme) {
                 const isDarkTheme = theme === 'dark';
                 root.setAttribute('data-theme', theme);
-                toggle.textContent = isDarkTheme ? '🌙' : '☀️';
+                toggle.textContent = isDarkTheme ? '☀️' : '🌙';
                 toggle.setAttribute('aria-label', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
                 toggle.setAttribute('title', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
             }

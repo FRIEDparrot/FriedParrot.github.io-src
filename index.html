@@ -97,6 +97,10 @@
             line-height: 1;
         }
 
+        .toggle--hidden {
+            visibility: hidden;
+        }
+
         .nav-list a:hover,
         .toggle:hover {
             color: var(--text);
@@ -168,7 +172,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#archive">Archive</a></li>
                 <li><a href="#about">About</a></li>
-                <li><button id="theme-toggle" class="toggle" type="button" aria-label="Toggle theme" title="Toggle theme">☀️</button></li>
+                <li><button id="theme-toggle" class="toggle toggle--hidden" type="button" aria-label="Toggle theme" title="Toggle theme"></button></li>
             </ul>
         </div>
     </header>
@@ -237,6 +241,7 @@
                 toggle.textContent = isDarkTheme ? '☀️' : '🌙';
                 toggle.setAttribute('aria-label', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
                 toggle.setAttribute('title', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
+                toggle.classList.remove('toggle--hidden');
             }
 
             applyTheme(initialTheme);

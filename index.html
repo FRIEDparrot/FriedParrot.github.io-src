@@ -249,10 +249,11 @@
 
             function applyTheme(theme) {
                 const isDarkTheme = theme === 'dark';
+                const nextThemeLabel = isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode';
                 root.setAttribute('data-theme', theme);
                 toggle.innerHTML = isDarkTheme ? sunIcon : moonIcon;
-                toggle.setAttribute('aria-label', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
-                toggle.setAttribute('title', isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode');
+                toggle.setAttribute('aria-label', nextThemeLabel);
+                toggle.setAttribute('title', nextThemeLabel);
                 toggle.classList.remove('toggle--hidden');
             }
 

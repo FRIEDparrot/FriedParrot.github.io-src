@@ -127,7 +127,14 @@ const markdownFiles = import.meta.glob('../../../posts/**/*.md', {
 
 const posts: PostItem[] = Object.entries(markdownFiles)
   .map(([fullPath, source]) => {
-    const relative = fullPath.replace(/^\.\.\/\.\.\/\.\.\/posts\//, '').replace(/^\/home\/runner\/work\/FriedParrot\.github\.io\/FriedParrot\.github\.io\/docs\/posts\//, '').replace(/\.md$/, '')
+    const normalizedPath = fullPath.replace(/\\/g, '/')
+    const marker = '/posts/'
+    const markerIndex = normalizedPath.lastIndexOf(marker)
+    if (markerIndex < 0) {
+      return null
+    }
+
+    const relative = normalizedPath.slice(markerIndex + marker.length).replace(/\.md$/, '')
     if (relative === 'index') {
       return null
     }

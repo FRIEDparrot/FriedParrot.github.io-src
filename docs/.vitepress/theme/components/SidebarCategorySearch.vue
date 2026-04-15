@@ -15,19 +15,22 @@ function normalize(text) {
 }
 
 function getSidebarItemLabel(item) {
-  return normalize(item.querySelector(':scope > .item > .text')?.textContent || '')
+  const textElement = item.querySelector(':scope > .item > .text')
+  if (!textElement) return null
+  return normalize(textElement.textContent || '')
 }
 
 function getSubcategoryItems(item) {
-  return Array.from(item.querySelectorAll('.VPSidebarItem')).filter(
-    (nestedItem) => nestedItem !== item && nestedItem.querySelector(':scope > .items')
-  )
+  return Array.from(item.querySelectorAll(':scope > .items .VPSidebarItem.collapsible'))
 }
 
 function expandToItem(item, rootItem) {
+  const rootBoundary = rootItem.parentElement
+  if (!rootBoundary) return
+
   let current = item
 
-  while (current && current !== rootItem.parentElement) {
+  while (current && current !== rootBoundary) {
     if (current.classList.contains('collapsible') && current.classList.contains('collapsed')) {
       current.querySelector(':scope > .item > .caret')?.click()
     }
@@ -61,11 +64,16 @@ function applyFilter() {
   items.forEach((item) => {
     const categoryLabel = getSidebarItemLabel(item)
     const subcategories = getSubcategoryItems(item)
-    const matchedSubcategories = subcategories.filter((subcategory) =>
-      getSidebarItemLabel(subcategory).includes(normalizedQuery)
-    )
+    const matchedSubcategories = normalizedQuery
+      ? subcategories.filter((subcategory) => {
+          const subcategoryLabel = getSidebarItemLabel(subcategory)
+          return subcategoryLabel && subcategoryLabel.includes(normalizedQuery)
+        })
+      : []
     const isVisible =
-      !normalizedQuery || categoryLabel.includes(normalizedQuery) || matchedSubcategories.length > 0
+      !normalizedQuery ||
+      (categoryLabel && categoryLabel.includes(normalizedQuery)) ||
+      matchedSubcategories.length > 0
     item.style.display = isVisible ? '' : 'none'
 
     if (isVisible) {

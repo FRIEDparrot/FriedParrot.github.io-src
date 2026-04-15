@@ -5,7 +5,7 @@ import { useRoute } from 'vitepress'
 const route = useRoute()
 const query = ref('')
 const visibleCount = ref(0)
-let observer
+let sidebarObserver
 
 function normalize(text) {
   return text.trim().toLowerCase()
@@ -23,17 +23,17 @@ function getCategoryItems() {
 function applyFilter() {
   const items = getCategoryItems()
   const normalizedQuery = normalize(query.value)
-  let count = 0
+  let visibleCategoryCount = 0
 
   items.forEach((item) => {
     const label = normalize(item.querySelector('.text')?.textContent || '')
     const isVisible = !normalizedQuery || label.includes(normalizedQuery)
     item.style.display = isVisible ? '' : 'none'
 
-    if (isVisible) count += 1
+    if (isVisible) visibleCategoryCount += 1
   })
 
-  visibleCount.value = count
+  visibleCount.value = visibleCategoryCount
 }
 
 watch(query, async () => {
@@ -56,13 +56,13 @@ onMounted(async () => {
 
   const sidebar = document.querySelector('.VPSidebar')
   if (sidebar) {
-    observer = new MutationObserver(() => applyFilter())
-    observer.observe(sidebar, { childList: true, subtree: true })
+    sidebarObserver = new MutationObserver(() => applyFilter())
+    sidebarObserver.observe(sidebar, { childList: true, subtree: true })
   }
 })
 
 onBeforeUnmount(() => {
-  observer?.disconnect()
+  sidebarObserver?.disconnect()
 })
 </script>
 

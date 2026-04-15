@@ -7,10 +7,8 @@ const docsRoot = path.join(repoRoot, 'docs')
 const postsRoot = path.join(docsRoot, 'posts')
 const generatedDir = path.join(docsRoot, '.vitepress', 'generated')
 const generatedModulePath = path.join(generatedDir, 'content-data.mjs')
-const tagsRoot = path.join(docsRoot, 'tags')
 
 fs.mkdirSync(generatedDir, { recursive: true })
-fs.mkdirSync(tagsRoot, { recursive: true })
 
 function getMarkdownFiles(dir) {
   if (!fs.existsSync(dir)) return []
@@ -77,14 +75,6 @@ function parseTitle(frontmatter, body, filename) {
   }
 
   return filename.replace(/\.md$/, '')
-}
-
-function slugifyTag(tag) {
-  return tag
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
 }
 
 const nonIndexPostFiles = getMarkdownFiles(postsRoot).filter((file) => path.basename(file) !== 'index.md')
@@ -154,13 +144,7 @@ function makeSidebar(postsList) {
     return items.sort((a, b) => a.text.localeCompare(b.text))
   }
 
-  return [
-    {
-      text: 'Post Categories',
-      collapsed: false,
-      items: buildItems(root)
-    }
-  ]
+  return buildItems(root)
 }
 
 const sidebar = makeSidebar(posts)
@@ -170,33 +154,6 @@ for (const [tag, list] of tagsMap.entries()) {
 }
 
 const allTags = [...tagsMap.keys()].sort((a, b) => a.localeCompare(b))
-
-const tagsIndexLines = [
-  '# Tags',
-  '',
-  allTags.length ? 'Browse posts by tag:' : 'No tags found yet.',
-  ''
-]
-
-for (const existingTagFile of fs.readdirSync(tagsRoot)) {
-  if (existingTagFile.endsWith('.md')) {
-    fs.unlinkSync(path.join(tagsRoot, existingTagFile))
-  }
-}
-
-for (const tag of allTags) {
-  tagsIndexLines.push(`- [#${tag}](/tags/${slugifyTag(tag)})`)
-}
-
-fs.writeFileSync(path.join(tagsRoot, 'index.md'), `${tagsIndexLines.join('\n')}\n`)
-
-for (const tag of allTags) {
-  const tagPageLines = [`# #${tag}`, '', 'Posts with this tag:', '']
-  for (const post of tagsMap.get(tag)) {
-    tagPageLines.push(`- [${post.title}](${post.route})`)
-  }
-  fs.writeFileSync(path.join(tagsRoot, `${slugifyTag(tag)}.md`), `${tagPageLines.join('\n')}\n`)
-}
 
 const moduleContent = `export const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const sidebar = ${JSON.stringify(sidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
 

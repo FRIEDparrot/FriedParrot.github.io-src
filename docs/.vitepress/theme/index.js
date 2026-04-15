@@ -15,7 +15,7 @@ export default {
       {
         class: [
           isPostsHome ? 'show-posts-sidebar' : 'hide-posts-sidebar',
-          isPostArticle ? 'is-post-article' : 'not-post-article'
+          { 'is-post-article': isPostArticle }
         ]
       },
       h(DefaultTheme.Layout)

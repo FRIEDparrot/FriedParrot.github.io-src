@@ -14,6 +14,31 @@ function normalize(text) {
   return text.trim().toLowerCase()
 }
 
+function getSidebarItemLabel(item) {
+  const textElement = item.querySelector(':scope > .item > .text')
+  if (!textElement) return null
+  return normalize(textElement.textContent || '')
+}
+
+function getSubcategoryItems(item) {
+  return Array.from(item.querySelectorAll(':scope > .items .VPSidebarItem.collapsible'))
+}
+
+function expandToItem(item, rootItem) {
+  const rootBoundary = rootItem.parentElement
+  if (!rootBoundary) return
+
+  let current = item
+
+  while (current && current !== rootBoundary) {
+    if (current.classList.contains('collapsible') && current.classList.contains('collapsed')) {
+      current.querySelector(':scope > .item > .caret')?.click()
+    }
+
+    current = current.parentElement?.closest('.VPSidebarItem')
+  }
+}
+
 function getCategoryItems() {
   const sidebar = document.querySelector('.VPSidebar')
   if (!sidebar) return []
@@ -37,11 +62,26 @@ function applyFilter() {
   let visibleCategoryCount = 0
 
   items.forEach((item) => {
-    const label = normalize(item.querySelector('.text')?.textContent || '')
-    const isVisible = !normalizedQuery || label.includes(normalizedQuery)
+    const categoryLabel = getSidebarItemLabel(item)
+    const subcategories = getSubcategoryItems(item)
+    const matchedSubcategories = normalizedQuery
+      ? subcategories.filter((subcategory) => {
+          const subcategoryLabel = getSidebarItemLabel(subcategory)
+          return subcategoryLabel && subcategoryLabel.includes(normalizedQuery)
+        })
+      : []
+    const isVisible =
+      !normalizedQuery ||
+      (categoryLabel && categoryLabel.includes(normalizedQuery)) ||
+      matchedSubcategories.length > 0
     item.style.display = isVisible ? '' : 'none'
 
-    if (isVisible) visibleCategoryCount += 1
+    if (isVisible) {
+      visibleCategoryCount += 1
+      if (normalizedQuery && matchedSubcategories.length > 0) {
+        matchedSubcategories.forEach((subcategory) => expandToItem(subcategory, item))
+      }
+    }
   })
 
   visibleCount.value = visibleCategoryCount

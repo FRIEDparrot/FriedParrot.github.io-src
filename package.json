@@ -21,5 +21,8 @@
   "homepage": "https://github.com/FRIEDparrot/FriedParrot.github.io#readme",
   "devDependencies": {
     "vitepress": "1.6.4"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
   }
 }

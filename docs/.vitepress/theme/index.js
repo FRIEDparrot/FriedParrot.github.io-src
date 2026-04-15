@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import SidebarCategorySearch from './components/SidebarCategorySearch.vue'
+import { injectSpeedInsights } from '@vercel/speed-insights'
 import './custom.css'
 
 export default {

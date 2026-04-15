@@ -2,6 +2,8 @@
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 
+const OBSERVER_DEBOUNCE_DELAY_MS = 50
+
 const route = useRoute()
 const query = ref('')
 const visibleCount = ref(0)
@@ -25,6 +27,11 @@ function getCategoryItems() {
 
 function applyFilter() {
   const items = getCategoryItems()
+  if (!items.length) {
+    visibleCount.value = 0
+    return
+  }
+
   const normalizedQuery = normalize(query.value)
   let visibleCategoryCount = 0
 
@@ -61,7 +68,7 @@ onMounted(async () => {
   if (sidebar) {
     sidebarMutationObserver = new MutationObserver(() => {
       window.clearTimeout(observerDebounceTimer)
-      observerDebounceTimer = window.setTimeout(() => applyFilter(), 50)
+      observerDebounceTimer = window.setTimeout(() => applyFilter(), OBSERVER_DEBOUNCE_DELAY_MS)
     })
     sidebarMutationObserver.observe(sidebar, { childList: true, subtree: true })
   }

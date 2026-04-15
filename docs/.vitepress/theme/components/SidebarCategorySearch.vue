@@ -19,6 +19,7 @@ function getCategoryItems() {
   if (!sidebar) return []
 
   // Depends on VitePress internal sidebar DOM class names, which may change in future versions.
+  // Tested with VitePress v1.6.4.
   // If VitePress updates sidebar markup, this selector logic may need to be updated.
   return Array.from(sidebar.querySelectorAll('.VPSidebarItem.level-0')).filter((item) =>
     item.querySelector('.items')

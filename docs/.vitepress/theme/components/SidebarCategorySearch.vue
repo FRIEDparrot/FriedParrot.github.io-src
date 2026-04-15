@@ -5,7 +5,7 @@ import { useRoute } from 'vitepress'
 const route = useRoute()
 const query = ref('')
 const visibleCount = ref(0)
-let sidebarObserver
+let sidebarMutationObserver
 let observerDebounceTimer
 
 function normalize(text) {
@@ -16,7 +16,8 @@ function getCategoryItems() {
   const sidebar = document.querySelector('.VPSidebar')
   if (!sidebar) return []
 
-  // Depends on current VitePress sidebar DOM class names for category nodes.
+  // Depends on VitePress internal sidebar DOM class names, which may change in future versions.
+  // If VitePress updates sidebar markup, this selector logic may need to be updated.
   return Array.from(sidebar.querySelectorAll('.VPSidebarItem.level-0')).filter((item) =>
     item.querySelector('.items')
   )
@@ -58,17 +59,17 @@ onMounted(async () => {
 
   const sidebar = document.querySelector('.VPSidebar')
   if (sidebar) {
-    sidebarObserver = new MutationObserver(() => {
+    sidebarMutationObserver = new MutationObserver(() => {
       window.clearTimeout(observerDebounceTimer)
       observerDebounceTimer = window.setTimeout(() => applyFilter(), 50)
     })
-    sidebarObserver.observe(sidebar, { childList: true, subtree: true })
+    sidebarMutationObserver.observe(sidebar, { childList: true, subtree: true })
   }
 })
 
 onBeforeUnmount(() => {
   window.clearTimeout(observerDebounceTimer)
-  sidebarObserver?.disconnect()
+  sidebarMutationObserver?.disconnect()
 })
 </script>
 

@@ -1,0 +1,25 @@
+{
+  "name": "friedparrot.github.io",
+  "version": "1.0.0",
+  "description": "FriedParrot personal site built with VitePress",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:content": "node scripts/prepare-content.mjs",
+    "docs:dev": "npm run prepare:content && vitepress dev docs",
+    "docs:build": "npm run prepare:content && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FRIEDparrot/FriedParrot.github.io.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FRIEDparrot/FriedParrot.github.io/issues"
+  },
+  "homepage": "https://github.com/FRIEDparrot/FriedParrot.github.io#readme",
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}

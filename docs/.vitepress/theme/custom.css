@@ -1,0 +1,44 @@
+:root {
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #1e40af;
+}
+
+.dark {
+  --vp-c-bg: #020617;
+  --vp-c-bg-soft: #0f172a;
+  --vp-c-bg-alt: #111827;
+}
+
+.hide-posts-sidebar .VPSidebar {
+  display: none !important;
+}
+
+.hide-posts-sidebar .VPContent.has-sidebar,
+.hide-posts-sidebar .VPDoc.has-sidebar .content-container {
+  padding-left: 0 !important;
+}
+
+.muted-link {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.VPHome .VPHero .container {
+  text-align: center;
+}
+
+.VPHome .VPHero .main {
+  margin: 0 auto;
+}
+
+.VPHome .VPHero .actions {
+  justify-content: center;
+}
+
+.VPHome .VPHero .name,
+.VPHome .VPHero .text,
+.VPHome .VPHero .tagline {
+  margin-left: auto;
+  margin-right: auto;
+}

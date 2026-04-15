@@ -10,25 +10,6 @@
   --vp-c-bg-alt: #111827;
 }
 
-.hide-posts-sidebar .VPSidebar {
-  display: none !important;
-}
-
-.hide-posts-sidebar .VPContent.has-sidebar,
-.hide-posts-sidebar .VPDoc.has-sidebar .content-container {
-  padding-left: 0 !important;
-}
-
-.is-post-article .VPDoc .container,
-.is-post-article .VPDoc .content-container {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.is-post-article .VPDocAside {
-  display: block;
-}
-
 .muted-link {
   opacity: 0.5;
   cursor: not-allowed;

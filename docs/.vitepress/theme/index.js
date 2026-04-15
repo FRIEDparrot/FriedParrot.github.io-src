@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import { useRoute } from 'vitepress'
+import SidebarCategorySearch from './components/SidebarCategorySearch.vue'
 import './custom.css'
 
 export default {
@@ -18,7 +19,13 @@ export default {
           { 'is-post-article': isPostArticle }
         ]
       },
-      h(DefaultTheme.Layout)
+      h(
+        DefaultTheme.Layout,
+        null,
+        {
+          'sidebar-nav-before': () => h(SidebarCategorySearch)
+        }
+      )
     )
   }
 }

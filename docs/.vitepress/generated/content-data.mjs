@@ -3,6 +3,8 @@ export const posts = [
     "title": "Obsidian Link Example",
     "route": "/posts/knowledge/ai/obsidian-links",
     "tags": [
+      "ai",
+      "knowledge",
       "notes",
       "wiki"
     ],
@@ -14,7 +16,10 @@ export const posts = [
   {
     "title": "Project Summary",
     "route": "/posts/dev/project-summary",
-    "tags": [],
+    "tags": [
+      "docs",
+      "projects"
+    ],
     "categories": [
       "dev"
     ]
@@ -22,7 +27,10 @@ export const posts = [
   {
     "title": "Welcome",
     "route": "/posts/welcome",
-    "tags": [],
+    "tags": [
+      "blog",
+      "intro"
+    ],
     "categories": [
       "Unclassified"
     ]
@@ -69,6 +77,12 @@ export const sidebar = [
 ]
 
 export const tags = [
+  "ai",
+  "blog",
+  "docs",
+  "intro",
+  "knowledge",
   "notes",
+  "projects",
   "wiki"
 ]

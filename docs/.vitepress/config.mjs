@@ -18,6 +18,8 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+    outline: [1, 3],
+    outlineTitle: 'Outline',
     sidebar: {
       '/posts/': sidebar
     },

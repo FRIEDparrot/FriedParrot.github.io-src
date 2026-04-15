@@ -7,11 +7,17 @@ export default {
   extends: DefaultTheme,
   Layout() {
     const route = useRoute()
-    const showPostsSidebar = route.path === '/posts/'
+    const isPostsHome = route.path === '/posts/'
+    const isPostArticle = route.path.startsWith('/posts/') && !isPostsHome
 
     return h(
       'div',
-      { class: showPostsSidebar ? 'show-posts-sidebar' : 'hide-posts-sidebar' },
+      {
+        class: [
+          isPostsHome ? 'show-posts-sidebar' : 'hide-posts-sidebar',
+          isPostArticle ? 'is-post-article' : 'not-post-article'
+        ]
+      },
       h(DefaultTheme.Layout)
     )
   }

@@ -35,3 +35,10 @@
 .VPHome .VPHero .actions {
   justify-content: center;
 }
+
+.VPHome .VPHero .name,
+.VPHome .VPHero .text,
+.VPHome .VPHero .tagline {
+  margin-left: auto;
+  margin-right: auto;
+}

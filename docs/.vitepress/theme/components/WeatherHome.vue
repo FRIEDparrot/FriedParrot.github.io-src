@@ -1,12 +1,22 @@
 <template>
   <main
     class="weather-home"
-    :class="[`weather-${scene.kind}`, scene.rainLevel ? `rain-${scene.rainLevel}` : '']"
+    :class="[
+      `weather-${scene.kind}`,
+      scene.rainLevel ? `rain-${scene.rainLevel}` : '',
+      scene.snowLevel ? `snow-${scene.snowLevel}` : ''
+    ]"
   >
     <canvas ref="canvasRef" class="weather-canvas" aria-hidden="true"></canvas>
     <div v-if="scene.kind === 'storm'" class="lightning-layer" aria-hidden="true"></div>
-    <div v-if="scene.kind === 'clouds' || scene.kind === 'mist'" class="cloud-layer" aria-hidden="true">
+    <div v-if="scene.kind === 'clouds'" class="cloud-layer" aria-hidden="true">
       <span v-for="cloud in clouds" :key="cloud.id" :style="cloud.style"></span>
+    </div>
+    <div v-if="scene.kind === 'overcast'" class="overcast-layer" aria-hidden="true">
+      <span v-for="cloud in overcastClouds" :key="cloud.id" :style="cloud.style"></span>
+    </div>
+    <div v-if="scene.kind === 'mist'" class="mist-layer" :class="`mist-${scene.mistLevel || 'moderate'}`" aria-hidden="true">
+      <span v-for="band in mistBands" :key="band.id" :style="band.style"></span>
     </div>
 
     <div v-if="testerVisible" ref="weatherSwitcherRef" class="weather-switcher" aria-label="Weather preview">
@@ -85,25 +95,20 @@
       <p class="hero-copy">
         Minimalist blog, project notes, and practical technical references.
       </p>
-
-      <div class="hero-actions">
-        <a class="hero-button hero-button-primary" href="/posts/">Read Posts</a>
-        <a class="hero-button hero-button-secondary" href="/projects">View Projects</a>
-      </div>
     </section>
 
     <section class="home-panels" aria-label="Site sections">
       <a class="feature-panel" href="/posts/">
-        <span>Posts</span>
-        <strong>Writing, references, and implementation notes.</strong>
+        <span>Explore my knowledge base</span>
+        <strong>I built this knowledge base to organize learning, develop better thinking and share with everyone.</strong>
+      </a>
+      <a class="feature-panel" href="/daily-posts/">
+        <span>Post</span>
+        <strong>Short daily articles and notes separated from the knowledge base.</strong>
       </a>
       <a class="feature-panel" href="/projects">
         <span>Projects</span>
         <strong>Active work and useful build documentation.</strong>
-      </a>
-      <a class="feature-panel" href="/about">
-        <span>About</span>
-        <strong>Contact details and a compact profile.</strong>
       </a>
     </section>
   </main>
@@ -113,7 +118,7 @@
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 
 const WEATHER_CURRENT_FIELDS =
-  'temperature_2m,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,wind_speed_10m'
+  'temperature_2m,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,visibility,wind_speed_10m'
 const LOCATION_UNAVAILABLE_LABEL = 'Location unavailable'
 const WEATHER_STORAGE_KEY = 'friedparrot.weatherLocation.v1'
 const WEATHER_STORAGE_TTL_MS = 7 * 24 * 60 * 60 * 1000
@@ -145,12 +150,17 @@ const previewOptions = [
   { id: 'auto', kind: 'auto', label: 'Auto' },
   { id: 'clear', kind: 'clear', label: 'Clear' },
   { id: 'clouds', kind: 'clouds', label: 'Clouds' },
+  { id: 'overcast', kind: 'overcast', label: 'Overcast' },
   { id: 'rain-light', kind: 'rain', label: 'Light Rain', rainLevel: 'light' },
   { id: 'rain-moderate', kind: 'rain', label: 'Moderate Rain', rainLevel: 'moderate' },
   { id: 'rain-heavy', kind: 'rain', label: 'Heavy Rain', rainLevel: 'heavy' },
   { id: 'storm', kind: 'storm', label: 'Storm', rainLevel: 'heavy' },
-  { id: 'snow', kind: 'snow', label: 'Snow' },
-  { id: 'mist', kind: 'mist', label: 'Mist' }
+  { id: 'snow-light', kind: 'snow', label: 'Light Snow', snowLevel: 'light' },
+  { id: 'snow-moderate', kind: 'snow', label: 'Snow', snowLevel: 'moderate' },
+  { id: 'snow-heavy', kind: 'snow', label: 'Heavy Snow', snowLevel: 'heavy' },
+  { id: 'mist-light', kind: 'mist', label: 'Light Mist', mistLevel: 'light' },
+  { id: 'mist-moderate', kind: 'mist', label: 'Mist', mistLevel: 'moderate' },
+  { id: 'mist-heavy', kind: 'mist', label: 'Heavy Mist', mistLevel: 'heavy' }
 ]
 
 const clouds = Array.from({ length: 6 }, (_, index) => ({
@@ -161,6 +171,33 @@ const clouds = Array.from({ length: 6 }, (_, index) => ({
     '--cloud-scale': `${0.8 + (index % 3) * 0.16}`,
     '--cloud-speed': `${32 + index * 7}s`,
     '--cloud-delay': `${index * -6}s`
+  }
+}))
+
+const overcastClouds = Array.from({ length: 12 }, (_, index) => ({
+  id: index,
+  style: {
+    '--cloud-top': `${3 + (index % 6) * 12}%`,
+    '--cloud-left': `${-36 + index * 12}%`,
+    '--cloud-scale': `${1.08 + (index % 4) * 0.12}`,
+    '--cloud-speed': `${48 + index * 4}s`,
+    '--cloud-delay': `${index * -7}s`
+  }
+}))
+
+const mistBands = Array.from({ length: 14 }, (_, index) => ({
+  id: index,
+  style: {
+    '--mist-top': `${8 + ((index * 17) % 76)}%`,
+    '--mist-left': `${-72 + ((index * 29) % 126)}vw`,
+    '--mist-width': `${42 + ((index * 11) % 38)}vw`,
+    '--mist-height': `${24 + ((index * 7) % 22)}px`,
+    '--mist-speed': `${32 + ((index * 5) % 24)}s`,
+    '--mist-delay': `${index * -6.5}s`,
+    '--mist-drift-x': `${92 + ((index * 13) % 48)}vw`,
+    '--mist-drift-y': `${index % 3 === 0 ? 14 : index % 3 === 1 ? -10 : 5}px`,
+    '--mist-band-opacity': `${0.72 + (index % 4) * 0.08}`,
+    '--mist-scale': `${0.82 + (index % 5) * 0.1}`
   }
 }))
 
@@ -187,17 +224,43 @@ function resolveScene(data) {
   const rain = Number(data?.rain ?? 0) + Number(data?.showers ?? 0)
   const snow = Number(data?.snowfall ?? 0)
   const cloudCover = Number(data?.cloud_cover ?? 0)
+  const visibility = Number(data?.visibility)
 
   if ([95, 96, 99].includes(code)) return { kind: 'storm', label: 'Lightning', code, rainLevel: 'heavy' }
-  if ([71, 73, 75, 77, 85, 86].includes(code) || snow > 0) return { kind: 'snow', label: 'Snow', code }
+  if ([71, 73, 75, 77, 85, 86].includes(code) || snow > 0) {
+    const snowLevel = resolveSnowLevel(code, snow)
+    const label = snowLevel === 'heavy' ? 'Heavy Snow' : snowLevel === 'moderate' ? 'Snow' : 'Light Snow'
+    return { kind: 'snow', label, code, snowLevel }
+  }
   if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code) || rain > 0) {
     const rainLevel = resolveRainLevel(code, rain)
     const label = rainLevel === 'heavy' ? 'Heavy Rain' : rainLevel === 'moderate' ? 'Moderate Rain' : 'Light Rain'
     return { kind: 'rain', label, code, rainLevel }
   }
-  if ([45, 48].includes(code)) return { kind: 'mist', label: 'Mist', code }
-  if ([1, 2, 3].includes(code) || cloudCover > 55) return { kind: 'clouds', label: 'Clouds', code }
+  if ([45, 48].includes(code)) {
+    const mistLevel = resolveMistLevel(code, visibility)
+    const label = mistLevel === 'heavy' ? 'Heavy Mist' : mistLevel === 'moderate' ? 'Mist' : 'Light Mist'
+    return { kind: 'mist', label, code, mistLevel }
+  }
+  if (code === 3 || cloudCover >= 85) return { kind: 'overcast', label: 'Overcast', code }
+  if ([1, 2].includes(code) || cloudCover > 55) return { kind: 'clouds', label: 'Clouds', code }
   return { kind: 'clear', label: 'Clear', code }
+}
+
+function resolveMistLevel(code, visibility) {
+  if (Number.isFinite(visibility)) {
+    if (visibility <= 250) return 'heavy'
+    if (visibility <= 1000) return 'moderate'
+    return 'light'
+  }
+
+  return code === 48 ? 'heavy' : 'moderate'
+}
+
+function resolveSnowLevel(code, snow) {
+  if ([75, 77, 86].includes(code) || snow >= 2.5) return 'heavy'
+  if ([73, 85].includes(code) || snow >= 0.7) return 'moderate'
+  return 'light'
 }
 
 function resolveRainLevel(code, rain) {
@@ -434,7 +497,9 @@ function setPreview(option) {
     kind: option.kind,
     label: option.label,
     code: undefined,
-    rainLevel: option.rainLevel
+    rainLevel: option.rainLevel,
+    snowLevel: option.snowLevel,
+    mistLevel: option.mistLevel
   }
 }
 
@@ -524,6 +589,12 @@ function setupCanvas() {
     return Math.round(baseCount * scale)
   }
 
+  function scaledSnowCount(baseCount) {
+    const baseArea = 1280 * 720
+    const scale = Math.min(Math.max((width * height) / baseArea, 0.85), 2.1)
+    return Math.round(baseCount * scale)
+  }
+
   function getRainProfile(kind) {
     if (kind === 'storm') {
       return { count: scaledRainCount(170), minLength: 14, maxLength: 32, minSpeed: 6.4, maxSpeed: 11.2, minOpacity: 0.72, maxOpacity: 0.86 }
@@ -538,6 +609,51 @@ function setupCanvas() {
     }
 
     return { count: scaledRainCount(66), minLength: 9, maxLength: 20, minSpeed: 4.2, maxSpeed: 7, minOpacity: 0.72, maxOpacity: 0.86 }
+  }
+
+  function getSnowProfile() {
+    if (scene.value.snowLevel === 'heavy') {
+      return {
+        count: scaledSnowCount(170),
+        minRadius: 1.2,
+        maxRadius: 4.2,
+        minDrift: -1.2,
+        maxDrift: 1.1,
+        minSpeed: 0.85,
+        maxSpeed: 2.3,
+        minOpacity: 0.28,
+        maxOpacity: 0.68,
+        gust: 0.42
+      }
+    }
+
+    if (scene.value.snowLevel === 'moderate') {
+      return {
+        count: scaledSnowCount(105),
+        minRadius: 1.1,
+        maxRadius: 3.6,
+        minDrift: -0.8,
+        maxDrift: 0.8,
+        minSpeed: 0.55,
+        maxSpeed: 1.55,
+        minOpacity: 0.2,
+        maxOpacity: 0.52,
+        gust: 0.28
+      }
+    }
+
+    return {
+      count: scaledSnowCount(52),
+      minRadius: 0.9,
+      maxRadius: 2.8,
+      minDrift: -0.45,
+      maxDrift: 0.55,
+      minSpeed: 0.32,
+      maxSpeed: 0.95,
+      minOpacity: 0.14,
+      maxOpacity: 0.36,
+      gust: 0.18
+    }
   }
 
   function resize() {
@@ -566,14 +682,16 @@ function setupCanvas() {
     }
 
     if (kind === 'snow') {
-      return Array.from({ length: 86 }, () => ({
+      const profile = getSnowProfile()
+      return Array.from({ length: profile.count }, () => ({
         x: random(0, width),
         y: random(-height, height),
-        radius: random(1.1, 3.6),
-        drift: random(-0.7, 0.7),
-        speed: random(0.45, 1.4),
+        radius: random(profile.minRadius, profile.maxRadius),
+        drift: random(profile.minDrift, profile.maxDrift),
+        speed: random(profile.minSpeed, profile.maxSpeed),
         phase: random(0, Math.PI * 2),
-        opacity: random(0.16, 0.46)
+        opacity: random(profile.minOpacity, profile.maxOpacity),
+        gust: random(profile.gust * 0.35, profile.gust)
       }))
     }
 
@@ -650,13 +768,15 @@ function setupCanvas() {
 
   function drawSnow() {
     particles.forEach((flake) => {
-      flake.phase += 0.018
-      flake.x += flake.drift + Math.sin(flake.phase) * 0.25
+      flake.phase += 0.014 + flake.speed * 0.006
+      flake.x += flake.drift + Math.sin(flake.phase) * flake.gust
       flake.y += flake.speed
       if (flake.y > height + 10) {
         flake.x = random(0, width)
         flake.y = random(-60, -10)
       }
+      if (flake.x < -20) flake.x = width + 20
+      if (flake.x > width + 20) flake.x = -20
       context.beginPath()
       context.fillStyle = isDarkMode.value
         ? `rgba(235, 248, 255, ${flake.opacity})`
@@ -664,20 +784,6 @@ function setupCanvas() {
       context.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2)
       context.fill()
     })
-  }
-
-  function drawMist() {
-    const time = Date.now() * 0.00008
-    for (let i = 0; i < 8; i += 1) {
-      const y = height * (0.16 + i * 0.095)
-      const x = ((time * (32 + i * 4) + i * 180) % (width + 360)) - 180
-      const gradient = context.createLinearGradient(x - 160, y, x + 160, y)
-      gradient.addColorStop(0, 'rgba(180, 195, 205, 0)')
-      gradient.addColorStop(0.5, 'rgba(180, 195, 205, 0.12)')
-      gradient.addColorStop(1, 'rgba(180, 195, 205, 0)')
-      context.fillStyle = gradient
-      context.fillRect(x - 170, y, 340, 26)
-    }
   }
 
   function makeLightning() {
@@ -796,16 +902,23 @@ function setupCanvas() {
   function animate() {
     context.clearRect(0, 0, width, height)
 
-    if (lastScene !== `${scene.value.kind}-${scene.value.rainLevel ?? 'none'}-${isDarkMode.value}`) {
-      lastScene = `${scene.value.kind}-${scene.value.rainLevel ?? 'none'}-${isDarkMode.value}`
+    const sceneKey = [
+      scene.value.kind,
+      scene.value.rainLevel ?? 'none',
+      scene.value.snowLevel ?? 'none',
+      scene.value.mistLevel ?? 'none',
+      isDarkMode.value
+    ].join('-')
+
+    if (lastScene !== sceneKey) {
+      lastScene = sceneKey
       particles = createParticles(scene.value.kind)
       ripples = []
     }
 
     if (scene.value.kind === 'rain' || scene.value.kind === 'storm') drawRain(scene.value.kind)
     else if (scene.value.kind === 'snow') drawSnow()
-    else if (scene.value.kind === 'mist') drawMist()
-    else drawClear()
+    else if (scene.value.kind === 'clear' || scene.value.kind === 'clouds') drawClear()
 
     if (scene.value.kind === 'storm') drawLightning()
     else {

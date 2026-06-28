@@ -68,6 +68,30 @@ export const sidebar = [
   }
 ]
 
+export const dailyPosts = [
+  {
+    "title": "Welcome",
+    "route": "/daily-posts/welcome",
+    "tags": [],
+    "categories": [
+      "Unclassified"
+    ]
+  }
+]
+
+export const dailyPostsSidebar = [
+  {
+    "text": "Unclassified",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Welcome",
+        "link": "/daily-posts/welcome"
+      }
+    ]
+  }
+]
+
 export const tags = [
   "notes",
   "wiki"

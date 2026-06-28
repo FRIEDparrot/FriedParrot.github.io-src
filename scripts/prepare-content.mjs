@@ -5,6 +5,7 @@ import { convertObsidianLinksInText } from './content-utils.mjs'
 const repoRoot = process.cwd()
 const docsRoot = path.join(repoRoot, 'docs')
 const postsRoot = path.join(docsRoot, 'posts')
+const dailyPostsRoot = path.join(docsRoot, 'daily-posts')
 const generatedDir = path.join(docsRoot, '.vitepress', 'generated')
 const generatedModulePath = path.join(generatedDir, 'content-data.mjs')
 
@@ -77,38 +78,47 @@ function parseTitle(frontmatter, body, filename) {
   return filename.replace(/\.md$/, '')
 }
 
-const nonIndexPostFiles = getMarkdownFiles(postsRoot).filter((file) => path.basename(file) !== 'index.md')
+function collectMarkdownEntries(rootDir) {
+  const files = getMarkdownFiles(rootDir).filter((file) => path.basename(file) !== 'index.md')
+  const entries = []
+
+  for (const file of files) {
+    const originalRaw = fs.readFileSync(file, 'utf8')
+    const convertedRaw = convertObsidianLinksInText(originalRaw)
+
+    const { frontmatter, body } = splitFrontmatter(convertedRaw)
+    const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
+    const route = `/${rel.replace(/\.md$/, '')}`
+
+    const tags = parseTags(frontmatter, body)
+    const title = parseTitle(frontmatter, body, path.basename(file))
+
+    const relativeToRoot = path.relative(rootDir, file)
+    const folderPath = path.dirname(relativeToRoot)
+    const categories =
+      folderPath === '.'
+        ? ['Unclassified']
+        : folderPath.split(path.sep).map((segment) => segment.replace(/[-_]/g, ' '))
+
+    entries.push({ title, route, tags, categories })
+  }
+
+  entries.sort((a, b) => a.title.localeCompare(b.title))
+  return entries
+}
+
 const posts = []
 const tagsMap = new Map()
+const postEntries = collectMarkdownEntries(postsRoot)
 
-for (const file of nonIndexPostFiles) {
-  const originalRaw = fs.readFileSync(file, 'utf8')
-  const convertedRaw = convertObsidianLinksInText(originalRaw)
-
-  const { frontmatter, body } = splitFrontmatter(convertedRaw)
-  const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
-  const route = `/${rel.replace(/\.md$/, '')}`
-
-  const tags = parseTags(frontmatter, body)
-  const title = parseTitle(frontmatter, body, path.basename(file))
-
-  const relativeToPosts = path.relative(postsRoot, file)
-  const folderPath = path.dirname(relativeToPosts)
-  const categories =
-    folderPath === '.'
-      ? ['Unclassified']
-      : folderPath.split(path.sep).map((segment) => segment.replace(/[-_]/g, ' '))
-
-  const post = { title, route, tags, categories }
+for (const post of postEntries) {
   posts.push(post)
 
-  for (const tag of tags) {
+  for (const tag of post.tags) {
     if (!tagsMap.has(tag)) tagsMap.set(tag, [])
     tagsMap.get(tag).push(post)
   }
 }
-
-posts.sort((a, b) => a.title.localeCompare(b.title))
 
 function makeSidebar(postsList) {
   const root = {}
@@ -148,6 +158,8 @@ function makeSidebar(postsList) {
 }
 
 const sidebar = makeSidebar(posts)
+const dailyPosts = collectMarkdownEntries(dailyPostsRoot)
+const dailyPostsSidebar = makeSidebar(dailyPosts)
 
 for (const [tag, list] of tagsMap.entries()) {
   list.sort((a, b) => a.title.localeCompare(b.title))
@@ -155,6 +167,6 @@ for (const [tag, list] of tagsMap.entries()) {
 
 const allTags = [...tagsMap.keys()].sort((a, b) => a.localeCompare(b))
 
-const moduleContent = `export const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const sidebar = ${JSON.stringify(sidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
+const moduleContent = `export const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const sidebar = ${JSON.stringify(sidebar, null, 2)}\n\nexport const dailyPosts = ${JSON.stringify(dailyPosts, null, 2)}\n\nexport const dailyPostsSidebar = ${JSON.stringify(dailyPostsSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
 
 fs.writeFileSync(generatedModulePath, moduleContent)

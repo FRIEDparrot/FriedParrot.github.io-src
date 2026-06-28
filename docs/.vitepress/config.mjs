@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { sidebar } from './generated/content-data.mjs'
+import { dailyPostsSidebar, sidebar } from './generated/content-data.mjs'
 import { convertObsidianLinksInText } from '../../scripts/content-utils.mjs'
 
 export default defineConfig({
@@ -11,7 +11,8 @@ export default defineConfig({
   appearance: true,
   themeConfig: {
     nav: [
-      { text: 'Posts', link: '/posts/' },
+      { text: 'Knowledge Base', link: '/posts/' },
+      { text: 'Posts', link: '/daily-posts/' },
       { text: 'Projects', link: '/projects' },
       { text: 'About Me', link: '/about' }
     ],
@@ -21,7 +22,8 @@ export default defineConfig({
     outline: [1, 3],
     outlineTitle: 'Outline',
     sidebar: {
-      '/posts/': sidebar
+      '/posts/': sidebar,
+      '/daily-posts/': dailyPostsSidebar
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/FRIEDparrot' }]
   },

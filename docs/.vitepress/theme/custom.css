@@ -138,7 +138,9 @@ html:not(.dark) .Layout:has(.weather-home.weather-overcast) .VPNavBar .divider-l
   --home-text: #172033;
   --home-muted: #506079;
   --home-panel: rgba(255, 255, 255, 0.68);
-  --home-feature-panel: rgba(255, 255, 255, 0.38);
+  --home-feature-panel: rgba(255, 255, 255, 0.12);
+  --home-feature-panel-hover: rgba(255, 255, 255, 0.9);
+  --home-feature-panel-hover-filter: blur(12px) brightness(0.82);
   --home-panel-border: rgba(82, 100, 129, 0.18);
   --home-accent: #2563eb;
   position: relative;
@@ -162,7 +164,9 @@ html:not(.dark) .Layout:has(.weather-home.weather-overcast) .VPNavBar .divider-l
   --home-text: #edf5ff;
   --home-muted: #a6b8cf;
   --home-panel: rgba(12, 21, 37, 0.58);
-  --home-feature-panel: rgba(12, 21, 37, 0.4);
+  --home-feature-panel: rgba(12, 21, 37, 0.12);
+  --home-feature-panel-hover: rgba(12, 21, 37, 0.9);
+  --home-feature-panel-hover-filter: blur(12px) brightness(0.7);
   --home-panel-border: rgba(179, 205, 239, 0.2);
   --home-accent: #8ab4ff;
   background:
@@ -717,17 +721,24 @@ html:not(.dark) .Layout:has(.weather-home.weather-overcast) .VPNavBar .divider-l
   padding: 18px;
   color: var(--home-text);
   background: var(--home-feature-panel);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   text-decoration: none;
   transition:
     border-color 0.2s ease,
     transform 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    backdrop-filter 0.2s ease;
 }
 
-.feature-panel:hover {
+.feature-panel:hover,
+.feature-panel:focus-visible {
   border-color: rgba(37, 99, 235, 0.42);
   transform: translateY(-2px);
+  background: var(--home-feature-panel-hover);
+  -webkit-backdrop-filter: var(--home-feature-panel-hover-filter);
+  backdrop-filter: var(--home-feature-panel-hover-filter);
+  outline: none;
   text-decoration: none;
 }
 

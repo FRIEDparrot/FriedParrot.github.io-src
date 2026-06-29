@@ -14,3 +14,5 @@ npm run docs:dev
 ```bash
 npm run docs:build
 ```
+
+`docs:dev` and `docs:build` run `prepare:content` first. That step rebuilds the generated content index, sidebars, and tag pages from markdown under `docs/knowledge-base`.

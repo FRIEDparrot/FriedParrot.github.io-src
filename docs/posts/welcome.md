@@ -1,10 +1,4 @@
----
-title: Welcome
-tags: [intro, blog]
----
-
 # Welcome
 
-This is the first post in the **Unclassified** category.
+This folder stores short daily posts.
 
-I keep quick notes and links for projects here.

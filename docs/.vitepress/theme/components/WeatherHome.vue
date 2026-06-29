@@ -7,7 +7,7 @@
       scene.snowLevel ? `snow-${scene.snowLevel}` : ''
     ]"
   >
-    <canvas ref="canvasRef" class="weather-canvas" aria-hidden="true"></canvas>
+    <canvas ref="canvasRef" class="weather-canvas"></canvas>
     <div v-if="scene.kind === 'storm'" class="lightning-layer" aria-hidden="true"></div>
     <div v-if="scene.kind === 'clouds'" class="cloud-layer" aria-hidden="true">
       <span v-for="cloud in clouds" :key="cloud.id" :style="cloud.style"></span>
@@ -68,6 +68,7 @@
             type="search"
             placeholder="Search Your City"
             autocomplete="off"
+            id="citySearchInput"
             @input="queueCitySearch"
             @keydown.escape="closeCityPanel"
           />
@@ -98,13 +99,13 @@
     </section>
 
     <section class="home-panels" aria-label="Site sections">
-      <a class="feature-panel" href="/posts/">
-        <span>Explore my knowledge base</span>
+      <a class="feature-panel" href="/knowledge-base/">
+        <span>Knowledge base</span>
         <strong>I built this knowledge base to organize learning, develop better thinking and share with everyone.</strong>
       </a>
-      <a class="feature-panel" href="/daily-posts/">
+      <a class="feature-panel" href="/posts/">
         <span>Post</span>
-        <strong>Short daily articles and notes separated from the knowledge base.</strong>
+        <strong>Short articles and informal essays for my daily life, experience and occasional inspirations</strong>
       </a>
       <a class="feature-panel" href="/projects">
         <span>Projects</span>

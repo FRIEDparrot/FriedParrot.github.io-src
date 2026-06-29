@@ -10,14 +10,13 @@
 const repos = [
   { repo: 'FRIEDparrot/obsidian-equation-citator', language: 'TypeScript', page: true },
   { repo: 'FRIEDparrot/zh_pinyin_decoder', language: 'C', page: false },
-  { repo: 'FRIEDparrot/ClassReview', page: false },
+  { repo: 'FRIEDparrot/ClassReview', language: 'C',  page: false },
   { repo: 'FRIEDparrot/FriedParrot.github.io-src', language: 'Vue', page: false },
   { repo: 'FRIEDparrot/fish-segmentation', language: 'Python', page: false },
   { repo: 'FRIEDparrot/cifar10-diffusion-practice', language: 'Python', page: false },
   { repo: 'FRIEDparrot/ml_data_fitting', language: 'Python', page: false },
   { repo: 'FRIEDparrot/fenicsx_cell_homogenization', language: 'Python', page: false },
   { repo: 'FRIEDparrot/matlab_reliability_examples', language: 'MATLAB', page: false },
-  { repo: 'FRIEDparrot/mesh_to_stl', language: 'Python', page: false },
   { repo: 'FRIEDparrot/RecommendSystem_practice', language: 'Python', page: false }
 ]
 

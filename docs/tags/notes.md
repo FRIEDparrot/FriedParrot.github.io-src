@@ -1,5 +1,5 @@
 # #notes
 
-Posts with this tag:
+Knowledge-base notes with this tag:
 
-- [Obsidian Link Example](/posts/knowledge/ai/obsidian-links)
+- [obsidian-links](/knowledge-base/knowledge/ai/obsidian-links)

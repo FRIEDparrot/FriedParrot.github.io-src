@@ -1,8 +1,21 @@
-export const posts = [
+export const knowledgeBase = [
   {
-    "title": "Obsidian Link Example",
-    "route": "/posts/knowledge/ai/obsidian-links",
+    "title": "KMP algorithm for sub-sequence-search",
+    "route": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search",
     "tags": [
+      "algorithms/KMP",
+      "sequence-search"
+    ],
+    "categories": [
+      "Algorithms"
+    ]
+  },
+  {
+    "title": "obsidian-links",
+    "route": "/knowledge-base/knowledge/ai/obsidian-links",
+    "tags": [
+      "ai",
+      "knowledge",
       "notes",
       "wiki"
     ],
@@ -12,16 +25,19 @@ export const posts = [
     ]
   },
   {
-    "title": "Project Summary",
-    "route": "/posts/dev/project-summary",
-    "tags": [],
+    "title": "project-summary",
+    "route": "/knowledge-base/dev/project-summary",
+    "tags": [
+      "docs",
+      "projects"
+    ],
     "categories": [
       "dev"
     ]
   },
   {
-    "title": "Welcome",
-    "route": "/posts/welcome",
+    "title": "welcome",
+    "route": "/knowledge-base/welcome",
     "tags": [],
     "categories": [
       "Unclassified"
@@ -29,14 +45,24 @@ export const posts = [
   }
 ]
 
-export const sidebar = [
+export const knowledgeBaseSidebar = [
+  {
+    "text": "Algorithms",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "KMP algorithm for sub-sequence-search",
+        "link": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search"
+      }
+    ]
+  },
   {
     "text": "dev",
     "collapsed": true,
     "items": [
       {
-        "text": "Project Summary",
-        "link": "/posts/dev/project-summary"
+        "text": "project-summary",
+        "link": "/knowledge-base/dev/project-summary"
       }
     ]
   },
@@ -49,8 +75,8 @@ export const sidebar = [
         "collapsed": true,
         "items": [
           {
-            "text": "Obsidian Link Example",
-            "link": "/posts/knowledge/ai/obsidian-links"
+            "text": "obsidian-links",
+            "link": "/knowledge-base/knowledge/ai/obsidian-links"
           }
         ]
       }
@@ -61,17 +87,17 @@ export const sidebar = [
     "collapsed": true,
     "items": [
       {
-        "text": "Welcome",
-        "link": "/posts/welcome"
+        "text": "welcome",
+        "link": "/knowledge-base/welcome"
       }
     ]
   }
 ]
 
-export const dailyPosts = [
+export const posts = [
   {
-    "title": "Welcome",
-    "route": "/daily-posts/welcome",
+    "title": "welcome",
+    "route": "/posts/welcome",
     "tags": [],
     "categories": [
       "Unclassified"
@@ -79,20 +105,26 @@ export const dailyPosts = [
   }
 ]
 
-export const dailyPostsSidebar = [
+export const postsSidebar = [
   {
     "text": "Unclassified",
     "collapsed": true,
     "items": [
       {
-        "text": "Welcome",
-        "link": "/daily-posts/welcome"
+        "text": "welcome",
+        "link": "/posts/welcome"
       }
     ]
   }
 ]
 
 export const tags = [
+  "ai",
+  "algorithms/KMP",
+  "docs",
+  "knowledge",
   "notes",
+  "projects",
+  "sequence-search",
   "wiki"
 ]

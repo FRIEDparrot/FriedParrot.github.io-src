@@ -4,8 +4,9 @@ import { convertObsidianLinksInText } from './content-utils.mjs'
 
 const repoRoot = process.cwd()
 const docsRoot = path.join(repoRoot, 'docs')
+const knowledgeBaseRoot = path.join(docsRoot, 'knowledge-base')
 const postsRoot = path.join(docsRoot, 'posts')
-const dailyPostsRoot = path.join(docsRoot, 'daily-posts')
+const tagsRoot = path.join(docsRoot, 'tags')
 const generatedDir = path.join(docsRoot, '.vitepress', 'generated')
 const generatedModulePath = path.join(generatedDir, 'content-data.mjs')
 
@@ -20,6 +21,7 @@ function getMarkdownFiles(dir) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
+      if (['assets', '.obsidian', '.git'].includes(entry.name)) continue
       files.push(...getMarkdownFiles(fullPath))
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
       files.push(fullPath)
@@ -30,18 +32,19 @@ function getMarkdownFiles(dir) {
 }
 
 function splitFrontmatter(raw) {
-  if (!raw.startsWith('---\n')) {
+  const normalized = raw.replace(/\r\n/g, '\n')
+  if (!normalized.startsWith('---\n')) {
     return { frontmatter: '', body: raw }
   }
 
-  const end = raw.indexOf('\n---\n', 4)
+  const end = normalized.indexOf('\n---\n', 4)
   if (end < 0) {
     return { frontmatter: '', body: raw }
   }
 
   return {
-    frontmatter: raw.slice(4, end),
-    body: raw.slice(end + 5)
+    frontmatter: normalized.slice(4, end),
+    body: normalized.slice(end + 5)
   }
 }
 
@@ -55,7 +58,15 @@ function parseTags(frontmatter, body) {
     }
   }
 
-  const hashtagMatches = body.match(/(^|\s)#([A-Za-z0-9][\w-]*)/g) || []
+  const blockTags = frontmatter.match(/(?:^|\n)tags:\s*\n((?:\s+-\s*.+(?:\n|$))+)/m)
+  if (blockTags?.[1]) {
+    for (const tag of blockTags[1].split('\n')) {
+      const cleaned = tag.replace(/^\s+-\s*/, '').trim().replace(/^['"]|['"]$/g, '')
+      if (cleaned) tags.add(cleaned)
+    }
+  }
+
+  const hashtagMatches = body.match(/(^|\s)#([A-Za-z][\w-]*)/g) || []
   for (const match of hashtagMatches) {
     const tag = match.trim().slice(1)
     if (tag) tags.add(tag)
@@ -65,16 +76,6 @@ function parseTags(frontmatter, body) {
 }
 
 function parseTitle(frontmatter, body, filename) {
-  const fromFrontmatter = frontmatter.match(/(?:^|\n)title:\s*(.+)/)
-  if (fromFrontmatter?.[1]) {
-    return fromFrontmatter[1].trim().replace(/^['"]|['"]$/g, '')
-  }
-
-  const fromHeading = body.match(/^#\s+(.+)$/m)
-  if (fromHeading?.[1]) {
-    return fromHeading[1].trim()
-  }
-
   return filename.replace(/\.md$/, '')
 }
 
@@ -107,12 +108,12 @@ function collectMarkdownEntries(rootDir) {
   return entries
 }
 
-const posts = []
+const knowledgeBase = []
 const tagsMap = new Map()
-const postEntries = collectMarkdownEntries(postsRoot)
+const postEntries = collectMarkdownEntries(knowledgeBaseRoot)
 
 for (const post of postEntries) {
-  posts.push(post)
+  knowledgeBase.push(post)
 
   for (const tag of post.tags) {
     if (!tagsMap.has(tag)) tagsMap.set(tag, [])
@@ -157,9 +158,9 @@ function makeSidebar(postsList) {
   return buildItems(root)
 }
 
-const sidebar = makeSidebar(posts)
-const dailyPosts = collectMarkdownEntries(dailyPostsRoot)
-const dailyPostsSidebar = makeSidebar(dailyPosts)
+const knowledgeBaseSidebar = makeSidebar(knowledgeBase)
+const posts = collectMarkdownEntries(postsRoot)
+const postsSidebar = makeSidebar(posts)
 
 for (const [tag, list] of tagsMap.entries()) {
   list.sort((a, b) => a.title.localeCompare(b.title))
@@ -167,6 +168,39 @@ for (const [tag, list] of tagsMap.entries()) {
 
 const allTags = [...tagsMap.keys()].sort((a, b) => a.localeCompare(b))
 
-const moduleContent = `export const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const sidebar = ${JSON.stringify(sidebar, null, 2)}\n\nexport const dailyPosts = ${JSON.stringify(dailyPosts, null, 2)}\n\nexport const dailyPostsSidebar = ${JSON.stringify(dailyPostsSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
+function tagPagePath(tag) {
+  return path.join(tagsRoot, ...tag.split(/[\\/]/).filter(Boolean)) + '.md'
+}
+
+function tagPageRoute(tag) {
+  return `/tags/${tag.split(/[\\/]/).filter(Boolean).map((segment) => encodeURIComponent(segment)).join('/')}`
+}
+
+function writeGeneratedTagPages() {
+  fs.rmSync(tagsRoot, { recursive: true, force: true })
+  fs.mkdirSync(tagsRoot, { recursive: true })
+
+  const indexLines = ['# Tags', '', 'Browse knowledge-base notes by tag:', '']
+
+  for (const tag of allTags) {
+    indexLines.push(`- [#${tag}](${tagPageRoute(tag)})`)
+
+    const entries = tagsMap.get(tag) || []
+    const tagLines = [`# #${tag}`, '', 'Knowledge-base notes with this tag:', '']
+    for (const entry of entries) {
+      tagLines.push(`- [${entry.title}](${entry.route})`)
+    }
+
+    const filePath = tagPagePath(tag)
+    fs.mkdirSync(path.dirname(filePath), { recursive: true })
+    fs.writeFileSync(filePath, `${tagLines.join('\n')}\n`)
+  }
+
+  fs.writeFileSync(path.join(tagsRoot, 'index.md'), `${indexLines.join('\n')}\n`)
+}
+
+writeGeneratedTagPages()
+
+const moduleContent = `export const knowledgeBase = ${JSON.stringify(knowledgeBase, null, 2)}\n\nexport const knowledgeBaseSidebar = ${JSON.stringify(knowledgeBaseSidebar, null, 2)}\n\nexport const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const postsSidebar = ${JSON.stringify(postsSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
 
 fs.writeFileSync(generatedModulePath, moduleContent)

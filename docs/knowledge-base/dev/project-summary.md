@@ -1,5 +1,4 @@
 ---
-title: Project Summary
 tags: [projects, docs]
 ---
 

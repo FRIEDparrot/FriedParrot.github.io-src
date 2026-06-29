@@ -1,5 +1,4 @@
 ---
-title: Obsidian Link Example
 tags: [knowledge, ai]
 ---
 

@@ -1,4 +1,4 @@
-# #wiki
+# #knowledge
 
 Knowledge-base notes with this tag:
 

@@ -1,5 +1,4 @@
-# Knowledge Base
+# Posts
 
-Browse knowledge base notes by category in the left sidebar tree.
+Short daily articles separated from the knowledge base.
 
-You can also browse by [Tags](/tags/).

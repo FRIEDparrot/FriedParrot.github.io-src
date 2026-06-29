@@ -1,4 +1,4 @@
-# #wiki
+# #ai
 
 Knowledge-base notes with this tag:
 

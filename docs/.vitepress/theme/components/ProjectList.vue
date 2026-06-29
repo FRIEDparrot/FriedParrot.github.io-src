@@ -100,6 +100,13 @@
 
     <div class="project-main">
       <div class="project-toolbar">
+        <div class="project-total-stars" :aria-label="loading ? 'Total stars loading' : `${totalStars} total stars`">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/>
+          </svg>
+          <span>Total Stars</span>
+          <strong>{{ loading ? '...' : formatNumber(totalStars) }}</strong>
+        </div>
         <div class="project-sort" aria-label="Sort projects">
           <button
             v-for="option in sortOptions"
@@ -572,6 +579,8 @@ const sortedProjects = computed(() => {
   })
 })
 
+const totalStars = computed(() => enrichedProjects.value.reduce((sum, project) => sum + (project.stars ?? 0), 0))
+
 const visibleSections = computed(() => {
   if (selectedTag.value) {
     return sortedProjects.value.length
@@ -690,9 +699,38 @@ onMounted(async () => {
 
 .project-toolbar {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   min-height: 34px;
   margin-bottom: 16px;
+}
+
+.project-total-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  border: 1px solid color-mix(in srgb, #f6c85f 45%, var(--vp-c-divider));
+  border-radius: 999px;
+  padding: 0 12px;
+  color: var(--vp-c-text-2);
+  background: color-mix(in srgb, #f6c85f 10%, var(--vp-c-bg-soft));
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.project-total-stars svg {
+  width: 14px;
+  height: 14px;
+  fill: #f6c85f;
+}
+
+.project-total-stars strong {
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .project-filter-list {
@@ -1058,6 +1096,10 @@ onMounted(async () => {
   .project-toolbar,
   .project-sort {
     justify-content: flex-start;
+  }
+
+  .project-toolbar {
+    flex-wrap: wrap;
   }
 }
 

@@ -15,6 +15,45 @@
   cursor: not-allowed;
 }
 
+.knowledge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 34px;
+}
+
+.knowledge-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  border: 1px solid color-mix(in srgb, var(--tag-color) 34%, var(--vp-c-divider));
+  border-radius: 4px;
+  padding: 3px 11px;
+  color: color-mix(in srgb, var(--tag-color) 78%, var(--vp-c-text-1));
+  background: color-mix(in srgb, var(--tag-color) 13%, var(--vp-c-bg-soft));
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.knowledge-tag:hover {
+  border-color: color-mix(in srgb, var(--tag-color) 68%, var(--vp-c-divider));
+  color: color-mix(in srgb, var(--tag-color) 88%, var(--vp-c-text-1));
+  background: color-mix(in srgb, var(--tag-color) 19%, var(--vp-c-bg-soft));
+  text-decoration: none;
+}
+
+.tag-tone-0 { --tag-color: #2563eb; }
+.tag-tone-1 { --tag-color: #0f766e; }
+.tag-tone-2 { --tag-color: #b45309; }
+.tag-tone-3 { --tag-color: #7c3aed; }
+.tag-tone-4 { --tag-color: #be123c; }
+.tag-tone-5 { --tag-color: #047857; }
+.tag-tone-6 { --tag-color: #c2410c; }
+.tag-tone-7 { --tag-color: #4338ca; }
+
 .VPHome .VPHero .container {
   text-align: center;
 }

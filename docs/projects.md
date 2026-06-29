@@ -1,9 +1,10 @@
 ---
 layout: ProjectIndexLayout
 ---
+### My Github Projects
 
-# Projects
+I constantly make new projects, although they focus on different subjects and programming languages, high-quality projects are always collected here, with documentation available for collaborative work. 
 
-A concise index of active repositories, sorted and filtered with live GitHub metadata.
+Appreciate very much for every feature, issue, star and collaboration. 
 
 <ProjectList />

@@ -1,5 +1,7 @@
+<!-- AUTO-GENERATED: knowledge-base-listing -->
 # #wiki
 
-Knowledge-base notes with this tag:
+## Notes
 
 - [obsidian-links](/knowledge-base/knowledge/ai/obsidian-links)
+

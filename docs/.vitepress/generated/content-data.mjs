@@ -8,6 +8,9 @@ export const knowledgeBase = [
     ],
     "categories": [
       "Algorithms"
+    ],
+    "categorySegments": [
+      "Algorithms"
     ]
   },
   {
@@ -22,6 +25,10 @@ export const knowledgeBase = [
     "categories": [
       "knowledge",
       "ai"
+    ],
+    "categorySegments": [
+      "knowledge",
+      "ai"
     ]
   },
   {
@@ -33,6 +40,9 @@ export const knowledgeBase = [
     ],
     "categories": [
       "dev"
+    ],
+    "categorySegments": [
+      "dev"
     ]
   },
   {
@@ -41,13 +51,15 @@ export const knowledgeBase = [
     "tags": [],
     "categories": [
       "Unclassified"
-    ]
+    ],
+    "categorySegments": []
   }
 ]
 
 export const knowledgeBaseSidebar = [
   {
     "text": "Algorithms",
+    "link": "/knowledge-base/Algorithms/",
     "collapsed": true,
     "items": [
       {
@@ -58,6 +70,7 @@ export const knowledgeBaseSidebar = [
   },
   {
     "text": "dev",
+    "link": "/knowledge-base/dev/",
     "collapsed": true,
     "items": [
       {
@@ -68,10 +81,12 @@ export const knowledgeBaseSidebar = [
   },
   {
     "text": "knowledge",
+    "link": "/knowledge-base/knowledge/",
     "collapsed": true,
     "items": [
       {
         "text": "ai",
+        "link": "/knowledge-base/knowledge/ai/",
         "collapsed": true,
         "items": [
           {
@@ -94,6 +109,104 @@ export const knowledgeBaseSidebar = [
   }
 ]
 
+export const knowledgeBaseTagSidebar = [
+  {
+    "text": "ai",
+    "link": "/knowledge-base/_tags/ai/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "obsidian-links",
+        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+      }
+    ]
+  },
+  {
+    "text": "algorithms",
+    "link": "/knowledge-base/_tags/algorithms/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "KMP",
+        "link": "/knowledge-base/_tags/algorithms/KMP/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "KMP algorithm for sub-sequence-search",
+            "link": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "docs",
+    "link": "/knowledge-base/_tags/docs/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "project-summary",
+        "link": "/knowledge-base/dev/project-summary"
+      }
+    ]
+  },
+  {
+    "text": "knowledge",
+    "link": "/knowledge-base/_tags/knowledge/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "obsidian-links",
+        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+      }
+    ]
+  },
+  {
+    "text": "notes",
+    "link": "/knowledge-base/_tags/notes/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "obsidian-links",
+        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+      }
+    ]
+  },
+  {
+    "text": "projects",
+    "link": "/knowledge-base/_tags/projects/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "project-summary",
+        "link": "/knowledge-base/dev/project-summary"
+      }
+    ]
+  },
+  {
+    "text": "sequence-search",
+    "link": "/knowledge-base/_tags/sequence-search/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "KMP algorithm for sub-sequence-search",
+        "link": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search"
+      }
+    ]
+  },
+  {
+    "text": "wiki",
+    "link": "/knowledge-base/_tags/wiki/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "obsidian-links",
+        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+      }
+    ]
+  }
+]
+
 export const posts = [
   {
     "title": "welcome",
@@ -101,7 +214,8 @@ export const posts = [
     "tags": [],
     "categories": [
       "Unclassified"
-    ]
+    ],
+    "categorySegments": []
   }
 ]
 

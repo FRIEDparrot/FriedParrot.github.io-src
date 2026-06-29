@@ -1,170 +1,303 @@
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, h, ref } from 'vue'
 import { useRoute } from 'vitepress'
-
-const OBSERVER_DEBOUNCE_DELAY_MS = 50
+import { knowledgeBaseSidebar, knowledgeBaseTagSidebar } from '../../generated/content-data.mjs'
 
 const route = useRoute()
+const activeMode = ref('classified')
 const query = ref('')
-const visibleCount = ref(0)
-let sidebarMutationObserver
-let observerDebounceTimer
+const openKeys = ref(new Set())
+
+const isKnowledgeBase = computed(() => route.path.startsWith('/knowledge-base/'))
+const activeTree = computed(() => activeMode.value === 'tags' ? knowledgeBaseTagSidebar : knowledgeBaseSidebar)
+const modeLabel = computed(() => activeMode.value === 'tags' ? 'tags' : 'classified folders')
+const placeholder = computed(() => activeMode.value === 'tags' ? 'Search tags...' : 'Search folders...')
+const visibleTree = computed(() => visibleItems(activeTree.value))
 
 function normalize(text) {
   return text.trim().toLowerCase()
 }
 
-function getSidebarItemLabel(item) {
-  const textElement = item.querySelector(':scope > .item > .text')
-  if (!textElement) return null
-  return normalize(textElement.textContent || '')
+function itemKey(item, parentKey = '') {
+  return `${parentKey}/${item.text}`
 }
 
-function getSubcategoryItems(item) {
-  return Array.from(item.querySelectorAll(':scope > .items .VPSidebarItem.collapsible'))
+function isActive(link) {
+  return Boolean(link && route.path === link)
 }
 
-function expandToItem(item, rootItem) {
-  const rootBoundary = rootItem.parentElement
-  if (!rootBoundary) return
-
-  let current = item
-
-  while (current && current !== rootBoundary) {
-    if (current.classList.contains('collapsible') && current.classList.contains('collapsed')) {
-      current.querySelector(':scope > .item > .caret')?.click()
-    }
-
-    current = current.parentElement?.closest('.VPSidebarItem')
-  }
+function itemMatches(item, normalizedQuery) {
+  if (!normalizedQuery) return true
+  if (normalize(item.text).includes(normalizedQuery)) return true
+  return Boolean(item.items?.some((child) => itemMatches(child, normalizedQuery)))
 }
 
-function getCategoryItems() {
-  const sidebar = document.querySelector('.VPSidebar')
-  if (!sidebar) return []
-
-  // Depends on VitePress internal sidebar DOM class names, which may change in future versions.
-  // Tested with VitePress v1.6.4.
-  // If VitePress updates sidebar markup, this selector logic may need to be updated.
-  return Array.from(sidebar.querySelectorAll('.VPSidebarItem.level-0')).filter((item) =>
-    item.querySelector('.items')
-  )
-}
-
-function applyFilter() {
-  const items = getCategoryItems()
-  if (!items.length) {
-    visibleCount.value = 0
-    return
-  }
-
+function visibleItems(items) {
   const normalizedQuery = normalize(query.value)
-  let visibleCategoryCount = 0
-
-  items.forEach((item) => {
-    const categoryLabel = getSidebarItemLabel(item)
-    const subcategories = getSubcategoryItems(item)
-    const matchedSubcategories = normalizedQuery
-      ? subcategories.filter((subcategory) => {
-          const subcategoryLabel = getSidebarItemLabel(subcategory)
-          return subcategoryLabel && subcategoryLabel.includes(normalizedQuery)
-        })
-      : []
-    const isVisible =
-      !normalizedQuery ||
-      (categoryLabel && categoryLabel.includes(normalizedQuery)) ||
-      matchedSubcategories.length > 0
-    item.style.display = isVisible ? '' : 'none'
-
-    if (isVisible) {
-      visibleCategoryCount += 1
-      if (normalizedQuery && matchedSubcategories.length > 0) {
-        matchedSubcategories.forEach((subcategory) => expandToItem(subcategory, item))
-      }
-    }
-  })
-
-  visibleCount.value = visibleCategoryCount
+  if (!normalizedQuery) return items
+  return items.filter((item) => itemMatches(item, normalizedQuery))
 }
 
-watch(query, async () => {
-  await nextTick()
-  applyFilter()
-})
+function hasActiveDescendant(item) {
+  return Boolean(item.items?.some((child) => isActive(child.link) || hasActiveDescendant(child)))
+}
 
-watch(
-  () => route.path,
-  async () => {
-    query.value = ''
-    await nextTick()
-    applyFilter()
-  }
-)
+function isOpen(item, key) {
+  return Boolean(query.value || openKeys.value.has(key) || hasActiveDescendant(item))
+}
 
-onMounted(async () => {
-  await nextTick()
-  applyFilter()
+function toggleItem(key) {
+  const next = new Set(openKeys.value)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  openKeys.value = next
+}
 
-  const sidebar = document.querySelector('.VPSidebar')
-  if (sidebar) {
-    sidebarMutationObserver = new MutationObserver(() => {
-      window.clearTimeout(observerDebounceTimer)
-      observerDebounceTimer = window.setTimeout(() => applyFilter(), OBSERVER_DEBOUNCE_DELAY_MS)
-    })
-    sidebarMutationObserver.observe(sidebar, { childList: true, subtree: true })
-  }
-})
+function setMode(mode) {
+  activeMode.value = mode
+  query.value = ''
+  openKeys.value = new Set()
+}
 
-onBeforeUnmount(() => {
-  window.clearTimeout(observerDebounceTimer)
-  sidebarMutationObserver?.disconnect()
-})
+function renderTree(items, parentKey = '') {
+  return h('ul', { class: 'knowledge-sidebar__list' }, visibleItems(items).map((item) => {
+    const key = itemKey(item, parentKey)
+    const hasChildren = Boolean(item.items?.length)
+
+    const content = hasChildren
+      ? [
+          h('div', {
+            class: 'knowledge-sidebar__folder',
+            'aria-expanded': isOpen(item, key)
+          }, [
+            h('button', {
+              type: 'button',
+              class: 'knowledge-sidebar__toggle',
+              'aria-label': `${isOpen(item, key) ? 'Collapse' : 'Expand'} ${item.text}`,
+              onClick: () => toggleItem(key)
+            }),
+            item.link
+              ? h('a', {
+                  class: ['knowledge-sidebar__folder-link', { active: isActive(item.link) }],
+                  href: item.link
+                }, item.text)
+              : h('button', {
+                  type: 'button',
+                  class: 'knowledge-sidebar__folder-link',
+                  onClick: () => toggleItem(key)
+                }, item.text)
+          ]),
+          isOpen(item, key) ? renderTree(item.items, key) : null
+        ]
+      : [
+          h('a', {
+            class: ['knowledge-sidebar__link', { active: isActive(item.link) }],
+            href: item.link
+          }, item.text)
+        ]
+
+    return h('li', {
+      key,
+      class: ['knowledge-sidebar__item', { 'has-children': hasChildren }]
+    }, content)
+  }))
+}
 </script>
 
 <template>
-  <div v-if="route.path.startsWith('/posts/')" class="category-search">
-    <label class="category-search__label" for="category-search-input">Search categories</label>
+  <div v-if="isKnowledgeBase" class="knowledge-sidebar">
+    <div class="knowledge-sidebar__switch" aria-label="Knowledge base sidebar mode">
+      <button
+        type="button"
+        :class="{ active: activeMode === 'classified' }"
+        @click="setMode('classified')"
+      >
+        Classified
+      </button>
+      <button
+        type="button"
+        :class="{ active: activeMode === 'tags' }"
+        @click="setMode('tags')"
+      >
+        Tags
+      </button>
+    </div>
+
     <input
-      id="category-search-input"
       v-model="query"
-      class="category-search__input"
+      class="knowledge-sidebar__search"
       type="search"
-      placeholder="Type category name..."
+      :placeholder="placeholder"
       autocomplete="off"
+      :aria-label="`Search ${modeLabel}`"
     />
-    <p v-if="query && visibleCount === 0" class="category-search__empty">No matching categories.</p>
+
+    <nav class="knowledge-sidebar__tree" :aria-label="`Knowledge base ${modeLabel}`">
+      <component :is="renderTree(visibleTree)" />
+      <p v-if="query && !visibleTree.length" class="knowledge-sidebar__empty">
+        No matching {{ modeLabel }}.
+      </p>
+    </nav>
   </div>
 </template>
 
-<style scoped>
-.category-search {
-  margin: 8px 12px 12px;
+<style>
+.VPSidebar:has(.knowledge-sidebar) .nav > .group {
+  display: none;
 }
 
-.category-search__label {
-  display: block;
-  margin-bottom: 6px;
+.VPSidebar:has(.knowledge-sidebar) .curtain {
+  display: none;
+}
+
+.knowledge-sidebar__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.knowledge-sidebar__list .knowledge-sidebar__list {
+  margin: 3px 0 3px 12px;
+  padding-left: 10px;
+  border-left: 1px solid var(--vp-c-divider);
+}
+
+.knowledge-sidebar__item + .knowledge-sidebar__item {
+  margin-top: 2px;
+}
+
+.knowledge-sidebar__link {
+  display: flex;
+  width: 100%;
+  min-height: 28px;
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 4px 8px;
   color: var(--vp-c-text-2);
-  font-size: 12px;
-  font-weight: 600;
+  background: transparent;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.category-search__input {
+.knowledge-sidebar__folder {
+  display: flex;
+  width: 100%;
+  min-height: 28px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  color: var(--vp-c-text-2);
+}
+
+.knowledge-sidebar__toggle {
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  margin-left: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  border-top: 0;
+  border-left: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(-45deg);
+  transition: transform 0.16s ease;
+}
+
+.knowledge-sidebar__folder[aria-expanded='true'] .knowledge-sidebar__toggle {
+  transform: rotate(45deg) translateY(-1px);
+}
+
+.knowledge-sidebar__folder-link {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 5px;
+  padding: 4px 8px 4px 0;
+  color: inherit;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.knowledge-sidebar__folder:hover,
+.knowledge-sidebar__folder:has(.knowledge-sidebar__folder-link.active),
+.knowledge-sidebar__link:hover,
+.knowledge-sidebar__link.active {
+  color: var(--vp-c-brand-1);
+  background: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
+  text-decoration: none;
+}
+
+.knowledge-sidebar__folder-link.active,
+.knowledge-sidebar__link.active {
+  font-weight: 700;
+}
+</style>
+
+<style scoped>
+.knowledge-sidebar {
+  margin: 8px 12px 14px;
+}
+
+.knowledge-sidebar__switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  padding: 3px;
+  background: var(--vp-c-bg-soft);
+}
+
+.knowledge-sidebar__switch button {
+  min-height: 28px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.knowledge-sidebar__switch button.active {
+  color: #ffffff;
+  background: var(--vp-c-brand-1);
+}
+
+.knowledge-sidebar__search {
   width: 100%;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  padding: 6px 10px;
+  border-radius: 6px;
+  padding: 6px 9px;
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
+  font-size: 13px;
 }
 
-.category-search__input:focus {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: 1px;
+.knowledge-sidebar__search:focus {
+  border-color: var(--vp-c-brand-1);
+  outline: none;
 }
 
-.category-search__empty {
-  margin-top: 6px;
+.knowledge-sidebar__tree {
+  margin-top: 12px;
+}
+
+.knowledge-sidebar__empty {
+  margin: 10px 0 0;
   color: var(--vp-c-text-2);
   font-size: 12px;
 }

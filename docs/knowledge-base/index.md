@@ -1,5 +1,15 @@
+<!-- AUTO-GENERATED: knowledge-base-listing -->
 # Knowledge Base
 
-Browse knowledge base notes by category in the left sidebar tree.
+Browse knowledge base notes from the left sidebar by folder or tag.
 
-You can also browse by [Tags](/tags/).
+## Folders
+
+- [Algorithms](Algorithms/)
+- [dev](dev/)
+- [knowledge](knowledge/)
+
+## unclassified
+
+- [welcome](/knowledge-base/welcome)
+

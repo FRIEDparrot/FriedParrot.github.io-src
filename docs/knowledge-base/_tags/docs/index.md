@@ -1,5 +1,7 @@
+<!-- AUTO-GENERATED: knowledge-base-listing -->
 # #docs
 
-Knowledge-base notes with this tag:
+## Notes
 
 - [project-summary](/knowledge-base/dev/project-summary)
+

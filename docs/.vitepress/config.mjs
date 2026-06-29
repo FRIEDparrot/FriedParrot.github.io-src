@@ -45,10 +45,6 @@ function parseTags(frontmatterContent = '') {
   return [...tags].sort((a, b) => a.localeCompare(b))
 }
 
-function tagPageRoute(tag) {
-  return `/tags/${tag.split(/[\\/]/).filter(Boolean).map((segment) => encodeURIComponent(segment)).join('/')}`
-}
-
 function tagTone(tag) {
   let hash = 0
   for (const char of tag) {
@@ -57,11 +53,15 @@ function tagTone(tag) {
   return hash % 8
 }
 
+function tagListingRoute(tag) {
+  return `/knowledge-base/_tags/${tag.split(/[\\/]/).filter(Boolean).map((segment) => encodeURIComponent(segment)).join('/')}/`
+}
+
 function renderKnowledgeBaseTags(tags) {
   if (!tags.length) return ''
 
   const badges = tags
-    .map((tag) => `<a class="knowledge-tag tag-tone-${tagTone(tag)}" href="${tagPageRoute(tag)}">#${tag}</a>`)
+    .map((tag) => `<a class="knowledge-tag tag-tone-${tagTone(tag)}" href="${tagListingRoute(tag)}">#${tag}</a>`)
     .join('')
 
   return `<div class="knowledge-tags">${badges}</div>\n\n`

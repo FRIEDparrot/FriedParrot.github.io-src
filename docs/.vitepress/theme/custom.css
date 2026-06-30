@@ -54,6 +54,51 @@
 .tag-tone-6 { --tag-color: #c2410c; }
 .tag-tone-7 { --tag-color: #4338ca; }
 
+.vp-doc mjx-container[display="true"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100%;
+  min-width: 0;
+  max-height: none !important;
+  box-sizing: border-box;
+  padding-bottom: 12px;
+  text-align: left !important;
+  overflow-x: auto;
+  overflow-y: hidden !important;
+  overscroll-behavior-x: contain;
+  scrollbar-color: rgba(148, 163, 184, 0.42) transparent;
+  scrollbar-width: thin;
+}
+
+.vp-doc mjx-container[display="true"] svg {
+  display: block;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: visible;
+}
+
+
+.vp-doc mjx-container[display="true"]::-webkit-scrollbar {
+  height: 8px;
+}
+
+.vp-doc mjx-container[display="true"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vp-doc mjx-container[display="true"]::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.34);
+  background-clip: content-box;
+}
+
+.vp-doc mjx-container[display="true"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.52);
+  background-clip: content-box;
+}
+
 .VPHome .VPHero .container {
   text-align: center;
 }

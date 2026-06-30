@@ -4,14 +4,11 @@ tags:
   - peclet-number
 ---
 ## 1. Introduction  
-**Diffusion model** is firstly introduced in  [^1], also [^2] gives a 3D u-net structure, which contains  diffusion model as a basic. 
+**Diffusion model** is firstly introduced, also 3D u-net structure contains diffusion model as a basic. 
 
 The <b><mark style='background: transparent; color: orange'>central idea of diffusion model</mark></b> is **to systematically and slowly destroy structure** in a data distribution through an <b><mark style='background: transparent; color: orange'>iterative forward diffusion process</mark></b>. 
 
 Then we use a <b><mark style='background: transparent; color: red'>reverse diffusion process that restores the structure in data</mark></b>. Yielding  **a highly flexible and tractable generative model of data**.  
-
-> [!PDF|note] [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Deep Unsupervised Learning using Noneqilibrium Thermodynamics.pdf#page=1&selection=74,39,77,46&color=note|Deep Unsupervised Learning using Noneqilibrium Thermodynamics, p.1]]
-> >  This approach allows us to rapidly learn, sample from, and evaluate probabilities in deep generative models with thousands of layers or time steps,
 
 ### (1) Limitation of Model   
 Firstly, models are <b><mark style='background: transparent; color: orange'>suffering from a tradeoff between  tractability and flexibility</mark></b>. Models that are tractable can be analytically evaluated and easily fit to data (e.g. a Gaussian or Laplace, but the complexity of model can be  not good to tract the rich dataset (i.e., not flexible enough). 
@@ -22,14 +19,11 @@ p(x) = \frac{\phi(x)}{Z} \tag{1.1.1}
 $$
 But the computation of $Z$ is intractable. And flexible model can require expensive Monte Carlo Process. 
 
-The meliorate analysis  don't remove such trade off. (One direction is Mean-Field Theory [^6], but e.g. trade off is between mean-field theory  and its expansion). 
+The meliorate analysis  don't remove such trade off. (One direction is Mean-Field Theory, but e.g. trade off is between mean-field theory  and its expansion). 
 
 Also,  Non-parametric  methods **can be seen as transitioning smoothly between tractable and flexible model**. 
 
-> [!PDF|red] [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Deep Unsupervised Learning using Noneqilibrium Thermodynamics.pdf#page=1&selection=191,0,194,51&color=red|Deep Unsupervised Learning using Noneqilibrium Thermodynamics, p.1]]
-> For instance, a non-parametric Gaussian mixture model will represent a small amount of data using a single Gaussian, but may represent infinite data as a mixture of an infinite number of Gaussians
-
-For gaussian mixture distribution, see [^13]. 
+For gaussian mixture distribution, see Gaussian mixture distribution. 
 
 ### (2) Diffusion Probabilistic Model 
 The diffusion probability model allows : 
@@ -48,33 +42,24 @@ Also, learning in this framework involves <b><mark style='background: transparen
 For the simple example, we can train high-log-likelihood model  for the MNIST and CIFAR 10 for data generation. 
 
 ### (3) Inspiration Knowledges  
-For **training inference** and **generative  probabilistic models**, see [^7].   
+For **training inference** and **generative  probabilistic models**, see training inference and generative probabilistic models.   
 
-Also  some basic knowledges can be found at *Physic quasi-static process*[^8][^9] and *Annealed importance sampling*[^10] (AIS) 
-
-> [!PDF|note] [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Deep Unsupervised Learning using Noneqilibrium Thermodynamics.pdf#page=3&selection=134,32,136,4&color=note|Deep Unsupervised Learning using Noneqilibrium Thermodynamics, p.3]]
-> >  In (Burda et al., 2014), it is shown that AIS can also be performed using the reverse rather than forward trajectory
-> 
-> 
+Also  some basic knowledges can be found at *Physic quasi-static process* and *Annealed importance sampling* (AIS) 
 
 We note <b><mark style='background: transparent; color: orange'>The diffusion process is firstly  proposed in</mark></b> <b><mark style='background: transparent; color: red'>Langevin dynamics</mark></b> (Langevin, 1908) 
 
 Another very important concept is <b><mark style='background: transparent; color: orange'>Kolmogorov forward and backward equation</mark></b> (Feller, 1949).  
-Kolmogorov forward and backward equations [^14] 
+Kolmogorov forward and backward equations.
 
-> [!PDF|red] [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Deep Unsupervised Learning using Noneqilibrium Thermodynamics.pdf#page=3&selection=144,22,148,43&color=red|Deep Unsupervised Learning using Noneqilibrium Thermodynamics, p.3]]
-> > The Kolmogorov forward equation corresponds to the **Fokker-Planck equation**, while the Kolmogorov backward equation **describes the time-reversal of this diffusion process**, but **requires knowing gradients of the density function as a function of time**.
-> 
+For Fokker-Planck Equation (also called Kolmogorov forward equation), see Fokker-Planck equation, for **Kolmogorov backward equation**, see Kolmogorov backward equation. 
 
-For Fokker-Planck Equation (also called Kolmogorov forward equation), see [^15] and [^16], for **Kolmogorov backward equation**, see [^14]. 
-
-Also, basic diffusion can be referred from [^18] as <span style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.2.8</span>)</span>[^18]: 
+Also, basic diffusion can be referred from <span style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.2.8</span>)</span>: 
 $$\Large
 \boxed{\frac{ \partial \rho (x,t) }{ \partial t }  = D \cdot  \frac{ \partial^{2} \rho(x,t) }{ \partial x^{2} } } \tag{1.3.1}
 $$
 This is known as <b><mark style='background: transparent; color: red'>diffusion equation</mark></b>, where $D$ is **diffusivity**.  
 
-We note from [^21], we know  the **diffusion length** is calculated as : 
+We know  the **diffusion length** is calculated as : 
 $$
 L_{d} = \sqrt{4 D t} \tag{1.3.2}
 $$
@@ -92,7 +77,7 @@ where $t_{res}$ is residence time in region, and $U$ is fluid velocity.
 ### (4) Features  of the Diffusion model  
 Also in diffusion process, its easy to multiply the distribution with another probability distribution. Which is convenient for making posterior probability.  
 
-In [^11], <b><mark style='background: transparent; color: orange'>the inference model can  be  particularly challenging</mark></b> (For inference model and generative model, see [^12]), but here provide a solution for it. 
+The <b><mark style='background: transparent; color: orange'>inference model can  be  particularly challenging</mark></b> (For inference model and generative model, see Variational Autoencoder), but here provide a solution for it. 
 
 Diffusion model **needs the training of model with thousands of layers with  upper and lower bounds on entropy production in each layer**. 
 
@@ -104,11 +89,6 @@ $$
 \text{complex data distribution} \overset{\text{diffusion forward}}{\longrightarrow} \text{simple distribution} \overset{\text{reversal}}{\longrightarrow} \dots \tag{2.1}
 $$
 we learn the  reversal of the model. 
-
-> [!PDF|note] [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Deep Unsupervised Learning using Noneqilibrium Thermodynamics.pdf#page=3&selection=156,41,163,58&color=note|Deep Unsupervised Learning using Noneqilibrium Thermodynamics, p.3]]
-> > We first **describe the forward, inference diffusion process. We then show how the reverse, generative diffusion process can be trained and used to evaluate probabilities.** We also derive entropy bounds for the reverse process, and show how the **learned distributions can be multiplied by any second distribution**
-> 
-> 
 
 ### (1) Forward Trajectory 
 Firstly, we introduce the simplest gaussian diffusion,  which is **defined as** : 
@@ -208,7 +188,7 @@ where $p(x^{(0)})$ is calculated by <span style="cursor: default; color: #4199e1
 $$
 L = \int q(x^{(0)}) \log_{} \left[  \int dx^{(1\dots T)} q(x^{(1\dots T)} |  x^{(0)})  p(x^{(T)})  \prod_{t=1}^{T} \frac{p(x^{(t-1)} | x^{(t)})}{q(x^{(1\dots \space T)} | x^{(0)})}\right] dx^{(0)} \tag{2.4.2}
 $$
-Note the lower bound is provided   by **Jensen's inequality** [^17], which gives for convex function : 
+Note the lower bound is provided   by **Jensen's inequality**, which gives for convex function : 
 $$ f \left( \sum_{i} \alpha_{i} x_{i} \right) \leq   \sum_{i} \alpha_{i} f(x_{i}) \tag{2.4.3} $$
 We took following as the coefficient : 
 $$ q(x^{(1\dots T)} | x^{(0)})dx^{(1\dots  T)} \tag{2.4.4} $$
@@ -241,47 +221,4 @@ $$
 \beta_{t} = (T - t + 1) \tag{2.4.9}
 $$
 
-For training methods, see [^20] 
-
-
-[^1]: Sohl-Dickstein, Jascha, Eric A. Weiss, Niru Maheswaranathan, and Surya Ganguli. _Deep Unsupervised Learning Using Nonequilibrium Thermodynamics_. n.d.
-
-[^2]: Çiçek, Özgün, Ahmed Abdulkadir, Soeren S. Lienkamp, Thomas Brox, and Olaf Ronneberger. “3D U-Net: Learning Dense Volumetric Segmentation from Sparse Annotation.” arXiv:1606.06650. Preprint, arXiv, June 21, 2016. [https://doi.org/10.48550/arXiv.1606.06650](https://doi.org/10.48550/arXiv.1606.06650). 
-
-[^3]: [Understanding 3D Diffusion Models](https://isamu-website.medium.com/understanding-3d-diffusion-models-64e1cadc0cff)
-
-[^4]: [learnopencv.com/denoising-diffusion-probabilistic-models/](https://learnopencv.com/denoising-diffusion-probabilistic-models/)
-
-[^5]: [lilianweng's blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process)
-
-[^6]: [[📖Basic Knowledges/➕Mathematics/📈 Diff & Variational Theory/5. Mean-Field Approximation in Variational Inference|5. Mean-Field Approximation in Variational Inference]] 
-
-[^7]: [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/The wake-sleep algorithm.pdf|The wake-sleep algorithm]]
-
-[^8]: [en.wikipedia.org/wiki/Quasistatic_process](https://en.wikipedia.org/wiki/Quasistatic_process)
-
-[^9]: [[📖Basic Knowledges/➕Mathematics/Quasi-static process|Quasi-static process]]
-
-[^10]: [[📃Essays/⛈️Random Process/Anneled Importance Sampling.pdf|Anneled Importance Sampling]]
-
-[^11]: [[📃Essays/➕Mathematics Theory/Variational Bayes Inference.pdf|Variational Bayes Inference]]
-
-[^12]: [[📖Basic Knowledges/🧑🏻‍🏫Deep Learning/2. Variational Autoencoder (VAE)#3. Variational Autoencoder|2. Variational Autoencoder (VAE)]]
-
-[^13]: [[📖Basic Knowledges/➕Mathematics/🔮Probability Theory & Random Process/2. Gaussian Mixture Distributions|2. Gaussian Mixture Distributions]]
-
-[^14]: [[📖Basic Knowledges/➕Mathematics/🔮Probability Theory & Random Process/6. Kolmogorov backward diffusion equation|6. Kolmogorov backward diffusion equation]]
-
-[^15]: https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
-
-[^16]: [[📖Basic Knowledges/➕Mathematics/🔮Probability Theory & Random Process/5. Fokker-Planck equation (Kolmogorov forward equation)|5. Fokker-Planck equation (Kolmogorov forward equation)]]
-
-[^17]: Jensen's inequality,  DeepLearning Optimization Algorithm, Deep Learning, Chapter 9  
-
-[^18]: [[📖Basic Knowledges/➕Mathematics/🔮Probability Theory & Random Process/4. Stochastic Integration and Ito Calculus|4. Stochastic Integration and Ito Calculus]]
-
-[^19]: [[📃Essays/👨🏻‍🎓Deep Learning/🧺Basic Network Structures/Generative Networks/Diffusion_appendix.pdf|Diffusion_appendix]]
-
-[^20]: [[📖Basic Knowledges/🧑🏻‍🏫Deep Learning/💨Diffusion Model/8. Diffusion Model Training Method|8. Diffusion Model Training Method]]
-
-[^21]: https://www.enigmatic-consulting.com/semiconductor_processing/CVD_Fundamentals/xprt/diffusion_length.html 
+For training methods, see Diffusion Model Training Method. 

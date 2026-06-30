@@ -89,10 +89,10 @@ function collectMarkdownEntries(rootDir) {
     const originalRaw = fs.readFileSync(file, 'utf8')
     if (originalRaw.startsWith(generatedListingMarker)) continue
 
-    const convertedRaw = convertObsidianLinksInText(originalRaw)
+    const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
+    const convertedRaw = convertObsidianLinksInText(originalRaw, { relativePath: rel })
 
     const { frontmatter, body } = splitFrontmatter(convertedRaw)
-    const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
     const route = `/${rel.replace(/\.md$/, '')}`
 
     const tags = parseTags(frontmatter, body)

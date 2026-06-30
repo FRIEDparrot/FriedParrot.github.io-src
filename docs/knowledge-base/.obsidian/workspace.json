@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "918339f9a81847e3",
+        "id": "3f64da2a64acfbcb",
         "type": "tabs",
         "children": [
           {
-            "id": "f2317bdc250d4aa7",
+            "id": "9c1ce47e5ab25325",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ModelTraining/Concepts of Diffusion Model.md",
+                "file": "knowledge/Quick Start.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Concepts of Diffusion Model"
+              "title": "Quick Start"
             }
           }
         ]
@@ -174,17 +174,30 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "equation-citator:Auto-number current file equations": false,
+      "equation-citator:Auto-number current file figures": false,
+      "equation-citator:Open equation manage panel": false
     }
   },
-  "active": "f2317bdc250d4aa7",
+  "active": "9c1ce47e5ab25325",
   "lastOpenFiles": [
+    "knowledge/Quick Start.md",
+    "knowledge/Excalidraw Support.png",
+    "_tags/excalidraw/index.md",
+    "_tags/excalidraw",
+    "assets/Pasted image 20260630221754.png",
+    "knowledge/Excalidraw Support.md",
+    "knowledge/Excalidraw logo.svg",
+    "knowledge/test_image.png",
+    "ModelTraining/Concepts of Diffusion Model.md",
     "_tags/deeplearning/diffusion-model/index.md",
     "_tags/deeplearning/index.md",
     "_tags/deeplearning/diffusion-model",
@@ -195,7 +208,6 @@
     "_tags/diffusion-model",
     "ModelTraining/index.md",
     "Algorithms/KMP algorithm for sub-sequence-search.md",
-    "ModelTraining/Concepts of Diffusion Model.md",
     "ModelTraining",
     "New folder",
     "_tags/algorithms/KMP/index.md",
@@ -210,14 +222,11 @@
     "_tags/ai/index.md",
     "_tags/wiki",
     "_tags/sequence-search",
-    "_tags/projects",
     "dev/index.md",
     "knowledge/ai/index.md",
     "knowledge/index.md",
     "Algorithms/index.md",
     "Algorithms/1. Sub Sequence Search-KMP algorithm.md",
-    "Algorithms/KMP algorithm for sub-sequence search.md",
-    "assets/Pasted image 20260629090315.png",
-    "Algorithm/1. Sub Sequence Search-KMP algorithm.md"
+    "assets/Pasted image 20260629090315.png"
   ]
 }

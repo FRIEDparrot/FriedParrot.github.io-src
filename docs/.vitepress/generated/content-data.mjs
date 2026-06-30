@@ -60,6 +60,17 @@ export const knowledgeBase = [
     ]
   },
   {
+    "title": "Quick Start",
+    "route": "/knowledge-base/knowledge/Quick Start",
+    "tags": [],
+    "categories": [
+      "knowledge"
+    ],
+    "categorySegments": [
+      "knowledge"
+    ]
+  },
+  {
     "title": "welcome",
     "route": "/knowledge-base/welcome",
     "tags": [],
@@ -98,6 +109,10 @@ export const knowledgeBaseSidebar = [
     "link": "/knowledge-base/knowledge/",
     "collapsed": true,
     "items": [
+      {
+        "text": "Quick Start",
+        "link": "/knowledge-base/knowledge/Quick Start"
+      },
       {
         "text": "ai",
         "link": "/knowledge-base/knowledge/ai/",

@@ -59,16 +59,18 @@
 .tag-tone-6 { --tag-color: #c2410c; }
 .tag-tone-7 { --tag-color: #4338ca; }
 
-.vp-doc .equation-citator-equation {
+.vp-doc .equation-citator-target {
   display: block;
   width: 100%;
   inline-size: 100%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
+  scroll-margin-top: calc(var(--vp-nav-height) + 16px);
+}
+
+.vp-doc .equation-citator-target:has(mjx-container[display="true"]) {
+  text-align: center;
   padding-bottom: 3px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -77,7 +79,7 @@
   scrollbar-width: thin;
 }
 
-.vp-doc .equation-citator-equation mjx-container[display="true"] {
+.vp-doc .equation-citator-target mjx-container[display="true"] {
   display: block;
   width: 100%;
   min-width: 100%;
@@ -87,7 +89,7 @@
   overflow: visible !important;
 }
 
-.vp-doc .equation-citator-equation mjx-container[display="true"] svg {
+.vp-doc .equation-citator-target mjx-container[display="true"] svg {
   display: inline-block;
   max-width: none;
   margin-right: auto;
@@ -95,23 +97,71 @@
   overflow: visible;
 }
 
+.vp-doc .equation-citator-figure-wrapper {
+  margin: 24px 0;
+  text-align: center;
+}
 
-.vp-doc .equation-citator-equation::-webkit-scrollbar {
+.vp-doc .equation-citator-figure-wrapper p {
+  margin: 8px 0;
+}
+
+.vp-doc .equation-citator-figure-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.vp-doc .obsidian-link-placeholder {
+  color: var(--vp-c-text-2);
+  text-decoration-style: dashed;
+}
+
+.vp-doc .equation-citator-section-reference {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.vp-doc .equation-citator-section-reference:hover {
+  border-color: var(--vp-c-brand-2);
+  color: var(--vp-c-brand-2);
+  text-decoration: none;
+}
+
+.vp-doc span.equation-citator-target,
+.vp-doc .ec-pdf-figure-title-marker,
+.vp-doc .ec-pdf-figure-desc-marker {
+  display: none;
+}
+
+.vp-doc .equation-citator-target:has(mjx-container[display="true"])::-webkit-scrollbar {
   height: 8px;
 }
 
-.vp-doc .equation-citator-equation::-webkit-scrollbar-track {
+.vp-doc .equation-citator-target:has(mjx-container[display="true"])::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.vp-doc .equation-citator-equation::-webkit-scrollbar-thumb {
+.vp-doc .equation-citator-target:has(mjx-container[display="true"])::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background: rgba(148, 163, 184, 0.34);
   background-clip: content-box;
 }
 
-.vp-doc .equation-citator-equation::-webkit-scrollbar-thumb:hover {
+.vp-doc .equation-citator-target:has(mjx-container[display="true"])::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.52);
   background-clip: content-box;
 }

@@ -138,6 +138,7 @@ export default defineConfig({
   },
   markdown: {
     lineNumbers: true,
+    math: true,
     config(md) {
       md.core.ruler.before('normalize', 'knowledge-base-title', (state) => {
         state.src = ensureKnowledgeBaseTitle(state.src, state.env.relativePath, state.env.frontmatter)

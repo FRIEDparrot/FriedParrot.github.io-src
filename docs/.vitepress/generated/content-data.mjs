@@ -1,5 +1,19 @@
 export const knowledgeBase = [
   {
+    "title": "Concepts of Diffusion Model",
+    "route": "/knowledge-base/ModelTraining/Concepts of Diffusion Model",
+    "tags": [
+      "diffusion-model",
+      "peclet-number"
+    ],
+    "categories": [
+      "ModelTraining"
+    ],
+    "categorySegments": [
+      "ModelTraining"
+    ]
+  },
+  {
     "title": "KMP algorithm for sub-sequence-search",
     "route": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search",
     "tags": [
@@ -98,6 +112,17 @@ export const knowledgeBaseSidebar = [
     ]
   },
   {
+    "text": "ModelTraining",
+    "link": "/knowledge-base/ModelTraining/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Concepts of Diffusion Model",
+        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
+      }
+    ]
+  },
+  {
     "text": "Unclassified",
     "collapsed": true,
     "items": [
@@ -140,6 +165,17 @@ export const knowledgeBaseTagSidebar = [
     ]
   },
   {
+    "text": "diffusion-model",
+    "link": "/knowledge-base/_tags/diffusion-model/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Concepts of Diffusion Model",
+        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
+      }
+    ]
+  },
+  {
     "text": "docs",
     "link": "/knowledge-base/_tags/docs/",
     "collapsed": true,
@@ -169,6 +205,17 @@ export const knowledgeBaseTagSidebar = [
       {
         "text": "obsidian-links",
         "link": "/knowledge-base/knowledge/ai/obsidian-links"
+      }
+    ]
+  },
+  {
+    "text": "peclet-number",
+    "link": "/knowledge-base/_tags/peclet-number/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Concepts of Diffusion Model",
+        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
       }
     ]
   },
@@ -235,9 +282,11 @@ export const postsSidebar = [
 export const tags = [
   "ai",
   "algorithms/KMP",
+  "diffusion-model",
   "docs",
   "knowledge",
   "notes",
+  "peclet-number",
   "projects",
   "sequence-search",
   "wiki"

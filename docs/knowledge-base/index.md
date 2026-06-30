@@ -8,6 +8,7 @@ Browse knowledge base notes from the left sidebar by folder or tag.
 - [Algorithms](Algorithms/)
 - [dev](dev/)
 - [knowledge](knowledge/)
+- [ModelTraining](ModelTraining/)
 
 ## unclassified
 

@@ -1,5 +1,9 @@
 <!-- AUTO-GENERATED: knowledge-base-listing -->
-# #diffusion-model
+# #deeplearning
+
+## Tags
+
+- [#deeplearning/diffusion-model](diffusion-model/)
 
 ## Notes
 

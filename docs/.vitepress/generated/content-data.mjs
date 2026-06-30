@@ -3,7 +3,7 @@ export const knowledgeBase = [
     "title": "Concepts of Diffusion Model",
     "route": "/knowledge-base/ModelTraining/Concepts of Diffusion Model",
     "tags": [
-      "diffusion-model",
+      "deeplearning/diffusion-model",
       "peclet-number"
     ],
     "categories": [
@@ -165,13 +165,20 @@ export const knowledgeBaseTagSidebar = [
     ]
   },
   {
-    "text": "diffusion-model",
-    "link": "/knowledge-base/_tags/diffusion-model/",
+    "text": "deeplearning",
+    "link": "/knowledge-base/_tags/deeplearning/",
     "collapsed": true,
     "items": [
       {
-        "text": "Concepts of Diffusion Model",
-        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
+        "text": "diffusion-model",
+        "link": "/knowledge-base/_tags/deeplearning/diffusion-model/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "Concepts of Diffusion Model",
+            "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
+          }
+        ]
       }
     ]
   },
@@ -282,7 +289,7 @@ export const postsSidebar = [
 export const tags = [
   "ai",
   "algorithms/KMP",
-  "diffusion-model",
+  "deeplearning/diffusion-model",
   "docs",
   "knowledge",
   "notes",

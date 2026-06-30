@@ -74,6 +74,34 @@ function normalizeTags(value) {
     : []
 }
 
+function escapeHtmlAttribute(value = '') {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
+function equationTagClass(content = '') {
+  const tag = content.match(/\\tag\s*\{([^{}]+)\}/)?.[1]?.trim()
+  if (!tag) return ''
+
+  return ` equation-citator-eqn-${escapeHtmlAttribute(tag.replace(/\s+/g, '-'))}`
+}
+
+function wrapEquationBlocks(md) {
+  const renderMathBlock = md.renderer.rules.math_block
+  if (!renderMathBlock) return
+
+  md.renderer.rules.math_block = (tokens, idx, options, env, self) => {
+    const rendered = renderMathBlock(tokens, idx, options, env, self)
+    if (!env.relativePath?.startsWith('knowledge-base/')) return rendered
+
+    const classes = `equation-citator-equation${equationTagClass(tokens[idx].content)}`
+    return `<div class="${classes}">${rendered}</div>`
+  }
+}
+
 function hasTopLevelHeading(source) {
   let inFence = false
 
@@ -104,7 +132,7 @@ function ensureKnowledgeBaseTitle(source, relativePath = '', frontmatterData = {
     return `${frontmatter}${body.replace(/^(#\s+\S.*\n+)/m, `$1\n${tagMarkup}`)}`
   }
 
-  return `${frontmatter}# ${titleFromRelativePath(relativePath)}\n\n${tagMarkup}${body.trimStart()}`
+  return `${frontmatter}<h1 class="knowledge-page-title">${escapeHtmlAttribute(titleFromRelativePath(relativePath))}</h1>\n\n${tagMarkup}${body.trimStart()}`
 }
 
 export default defineConfig({
@@ -140,6 +168,7 @@ export default defineConfig({
     lineNumbers: true,
     math: true,
     config(md) {
+      wrapEquationBlocks(md)
       md.core.ruler.before('normalize', 'knowledge-base-title', (state) => {
         state.src = ensureKnowledgeBaseTitle(state.src, state.env.relativePath, state.env.frontmatter)
       })

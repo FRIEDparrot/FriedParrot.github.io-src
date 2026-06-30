@@ -1,6 +1,6 @@
 ---
 tags:
-  - diffusion-model
+  - deeplearning/diffusion-model
   - peclet-number
 ---
 ## 1. Introduction  
@@ -15,7 +15,7 @@ Firstly, models are <b><mark style='background: transparent; color: orange'>suff
 
 We can **define models in terms of any non-negative function** $\phi(x)$, this yield 
 $$
-p(x) = \frac{\phi(x)}{Z} \tag{1.1.1}
+p(x) = \frac{\phi(x)}{Z} 
 $$
 But the computation of $Z$ is intractable. And flexible model can require expensive Monte Carlo Process. 
 

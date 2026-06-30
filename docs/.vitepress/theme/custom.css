@@ -23,6 +23,11 @@
   margin: 10px 0 34px;
 }
 
+.vp-doc .knowledge-page-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .knowledge-tag {
   display: inline-flex;
   align-items: center;
@@ -54,47 +59,59 @@
 .tag-tone-6 { --tag-color: #c2410c; }
 .tag-tone-7 { --tag-color: #4338ca; }
 
-.vp-doc mjx-container[display="true"] {
-  display: block !important;
-  width: 100% !important;
+.vp-doc .equation-citator-equation {
+  display: block;
+  width: 100%;
+  inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   max-width: 100%;
   min-width: 0;
-  max-height: none !important;
   box-sizing: border-box;
-  padding-bottom: 12px;
-  text-align: left !important;
+  padding-bottom: 3px;
   overflow-x: auto;
-  overflow-y: hidden !important;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
   scrollbar-color: rgba(148, 163, 184, 0.42) transparent;
   scrollbar-width: thin;
 }
 
-.vp-doc mjx-container[display="true"] svg {
+.vp-doc .equation-citator-equation mjx-container[display="true"] {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: none;
+  max-height: none !important;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+.vp-doc .equation-citator-equation mjx-container[display="true"] svg {
+  display: inline-block;
+  max-width: none;
   margin-right: auto;
   margin-left: auto;
   overflow: visible;
 }
 
 
-.vp-doc mjx-container[display="true"]::-webkit-scrollbar {
+.vp-doc .equation-citator-equation::-webkit-scrollbar {
   height: 8px;
 }
 
-.vp-doc mjx-container[display="true"]::-webkit-scrollbar-track {
+.vp-doc .equation-citator-equation::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.vp-doc mjx-container[display="true"]::-webkit-scrollbar-thumb {
+.vp-doc .equation-citator-equation::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background: rgba(148, 163, 184, 0.34);
   background-clip: content-box;
 }
 
-.vp-doc mjx-container[display="true"]::-webkit-scrollbar-thumb:hover {
+.vp-doc .equation-citator-equation::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.52);
   background-clip: content-box;
 }

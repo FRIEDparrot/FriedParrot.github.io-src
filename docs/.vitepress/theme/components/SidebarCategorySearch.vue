@@ -1,12 +1,19 @@
 <script setup>
-import { computed, h, ref } from 'vue'
+import { computed, h, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import { knowledgeBaseSidebar, knowledgeBaseTagSidebar } from '../../generated/content-data.mjs'
+
+const sidebarWidthStorageKey = 'knowledge-sidebar-width'
+const defaultSidebarWidth = 272
+const minSidebarWidth = 220
+const maxSidebarWidth = 440
 
 const route = useRoute()
 const activeMode = ref('classified')
 const query = ref('')
 const openKeys = ref(new Set())
+const isResizing = ref(false)
+let activePointerId = null
 
 const isKnowledgeBase = computed(() => route.path.startsWith('/knowledge-base/'))
 const activeTree = computed(() => activeMode.value === 'tags' ? knowledgeBaseTagSidebar : knowledgeBaseSidebar)
@@ -59,6 +66,61 @@ function setMode(mode) {
   openKeys.value = new Set()
 }
 
+function clampSidebarWidth(width) {
+  return Math.min(maxSidebarWidth, Math.max(minSidebarWidth, Math.round(width)))
+}
+
+function applySidebarWidth(width) {
+  if (typeof document === 'undefined') return
+
+  const nextWidth = clampSidebarWidth(width)
+  document.documentElement.style.setProperty('--vp-sidebar-width', `${nextWidth}px`)
+  localStorage.setItem(sidebarWidthStorageKey, String(nextWidth))
+}
+
+function loadSidebarWidth() {
+  if (typeof localStorage === 'undefined') return defaultSidebarWidth
+
+  const storedWidth = Number(localStorage.getItem(sidebarWidthStorageKey))
+  return Number.isFinite(storedWidth) ? storedWidth : defaultSidebarWidth
+}
+
+function sidebarStartOffset() {
+  const layoutMaxWidth = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vp-layout-max-width'))
+  if (!Number.isFinite(layoutMaxWidth) || window.innerWidth < 1440) return 0
+
+  return Math.max(0, (window.innerWidth - layoutMaxWidth) / 2)
+}
+
+function finishResizing() {
+  if (!isResizing.value) return
+
+  isResizing.value = false
+  activePointerId = null
+  document.body.classList.remove('knowledge-sidebar-resizing')
+  window.removeEventListener('pointermove', handleResizeMove)
+  window.removeEventListener('pointerup', finishResizing)
+  window.removeEventListener('pointercancel', finishResizing)
+}
+
+function handleResizeMove(event) {
+  if (activePointerId !== null && event.pointerId !== activePointerId) return
+
+  applySidebarWidth(event.clientX - sidebarStartOffset())
+}
+
+function startResizing(event) {
+  if (window.matchMedia('(max-width: 959px)').matches) return
+
+  activePointerId = event.pointerId
+  isResizing.value = true
+  document.body.classList.add('knowledge-sidebar-resizing')
+  event.currentTarget.setPointerCapture?.(event.pointerId)
+  window.addEventListener('pointermove', handleResizeMove)
+  window.addEventListener('pointerup', finishResizing)
+  window.addEventListener('pointercancel', finishResizing)
+}
+
 function renderTree(items, parentKey = '') {
   return h('ul', { class: 'knowledge-sidebar__list' }, visibleItems(items).map((item) => {
     const key = itemKey(item, parentKey)
@@ -102,6 +164,19 @@ function renderTree(items, parentKey = '') {
     }, content)
   }))
 }
+
+onMounted(() => {
+  applySidebarWidth(loadSidebarWidth())
+})
+
+onBeforeUnmount(() => {
+  finishResizing()
+})
+
+watch(isKnowledgeBase, (active) => {
+  if (active) applySidebarWidth(loadSidebarWidth())
+  else finishResizing()
+})
 </script>
 
 <template>
@@ -139,6 +214,16 @@ function renderTree(items, parentKey = '') {
       </p>
     </nav>
   </div>
+  <button
+    v-if="isKnowledgeBase"
+    type="button"
+    class="knowledge-sidebar-resizer"
+    :class="{ active: isResizing }"
+    aria-label="Resize knowledge base sidebar"
+    title="Resize sidebar"
+    @pointerdown.prevent="startResizing"
+    @dblclick="applySidebarWidth(defaultSidebarWidth)"
+  />
 </template>
 
 <style>
@@ -148,6 +233,15 @@ function renderTree(items, parentKey = '') {
 
 .VPSidebar:has(.knowledge-sidebar) .curtain {
   display: none;
+}
+
+.knowledge-sidebar-resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.knowledge-sidebar-resizing * {
+  cursor: col-resize !important;
 }
 
 .knowledge-sidebar__list {
@@ -243,6 +337,18 @@ function renderTree(items, parentKey = '') {
 .knowledge-sidebar__link.active {
   font-weight: 700;
 }
+
+@media (min-width: 960px) {
+  .VPSidebar:has(.knowledge-sidebar) {
+    overflow: visible;
+  }
+
+  .VPSidebar:has(.knowledge-sidebar) .nav {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
 </style>
 
 <style scoped>
@@ -300,5 +406,54 @@ function renderTree(items, parentKey = '') {
   margin: 10px 0 0;
   color: var(--vp-c-text-2);
   font-size: 12px;
+}
+
+.knowledge-sidebar-resizer {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .knowledge-sidebar-resizer {
+    position: fixed;
+    z-index: calc(var(--vp-z-index-sidebar) + 1);
+    top: var(--vp-nav-height);
+    bottom: 0;
+    left: calc(var(--vp-sidebar-width) - 5px);
+    display: block;
+    width: 10px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: col-resize;
+  }
+
+  .knowledge-sidebar-resizer::before {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    bottom: 0;
+    width: 1px;
+    background: var(--vp-c-divider);
+    content: "";
+    opacity: 0;
+    transition: opacity 0.16s ease, background-color 0.16s ease;
+  }
+
+  .knowledge-sidebar-resizer:hover::before,
+  .knowledge-sidebar-resizer:focus-visible::before,
+  .knowledge-sidebar-resizer.active::before {
+    background: var(--vp-c-brand-1);
+    opacity: 1;
+  }
+
+  .knowledge-sidebar-resizer:focus-visible {
+    outline: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .knowledge-sidebar-resizer {
+    left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) - 5px);
+  }
 }
 </style>

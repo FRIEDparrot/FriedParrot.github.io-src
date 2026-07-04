@@ -60,6 +60,333 @@
 .tag-tone-6 { --tag-color: #c2410c; }
 .tag-tone-7 { --tag-color: #4338ca; }
 
+/* ---- footnote styles ---- */
+
+.vp-doc sup.footnote-ref {
+  font-size: 0.8em;
+  line-height: 1;
+  vertical-align: super;
+}
+
+.vp-doc .footnote-ref a {
+  color: var(--vp-c-brand-1) !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+
+.vp-doc .footnote-ref a:hover {
+  color: var(--vp-c-brand-2) !important;
+}
+
+.vp-doc .footnotes-sep {
+  margin-top: 40px;
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc .footnotes-list {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: footnote-counter;
+  font-size: 0.9em;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc .footnote-item {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+  counter-increment: footnote-counter;
+}
+
+.vp-doc .footnote-item::before {
+  content: "[" counter(footnote-counter) "]";
+  flex-shrink: 0;
+  min-width: 22px;
+  color: var(--vp-c-brand-1);
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.vp-doc .footnote-item p {
+  margin: 0;
+  display: inline;
+}
+
+.vp-doc .footnote-item .footnote-backref {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 18px;
+  height: 18px;
+  margin: 0 2px;
+  border-radius: 3px;
+  padding: 0 4px;
+  color: var(--vp-c-brand-1) !important;
+  background: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none !important;
+  vertical-align: middle;
+}
+
+.vp-doc .footnote-item .footnote-backref:hover {
+  color: var(--vp-c-brand-2) !important;
+  background: color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
+}
+
+/* ---- /footnote styles ---- */
+
+/* ---- callout styles ---- */
+
+.vp-doc .callout {
+  margin: 16px 0;
+  border-left: 4px solid var(--callout-color);
+  border-radius: 6px;
+  padding: 14px 18px;
+  background: color-mix(in srgb, var(--callout-color) 9%, transparent);
+}
+
+/* default title bar (when no custom title on the [!TYPE] line) */
+.vp-doc .callout:not([data-callout-has-title])::before {
+  content: var(--callout-icon) " " var(--callout-label);
+  display: block;
+  margin-bottom: 6px;
+  color: var(--callout-color);
+  font-size: 0.94em;
+  font-weight: 700;
+}
+
+/* custom title — the text that followed [!TYPE] on the same line */
+.vp-doc .callout[data-callout-has-title] > p:first-child {
+  margin-top: 0;
+  color: var(--callout-color);
+  font-weight: 700;
+}
+
+.vp-doc .callout[data-callout-has-title] > p:first-child::before {
+  content: var(--callout-icon);
+  margin-right: 6px;
+}
+
+.vp-doc .callout > p {
+  margin: 6px 0;
+}
+
+.vp-doc .callout > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── colour groups (light) ───────────────────── */
+
+.callout-note {
+  --callout-color: #3b82f6;
+  --callout-icon:  "✎";
+  --callout-label: "Note";
+}
+
+.callout-abstract,
+.callout-summary,
+.callout-tldr {
+  --callout-color: #0d9488;
+  --callout-icon:  "▣";
+  --callout-label: "Summary";
+}
+
+.callout-info,
+.callout-todo {
+  --callout-color: #0891b2;
+  --callout-icon:  "ℹ";
+  --callout-label: "Info";
+}
+
+.callout-tip,
+.callout-hint,
+.callout-important {
+  --callout-color: #059669;
+  --callout-icon:  "✦";
+  --callout-label: "Tip";
+}
+
+.callout-success,
+.callout-check,
+.callout-done {
+  --callout-color: #16a34a;
+  --callout-icon:  "✔";
+  --callout-label: "Success";
+}
+
+.callout-question,
+.callout-help,
+.callout-faq {
+  --callout-color: #d97706;
+  --callout-icon:  "?";
+  --callout-label: "Question";
+}
+
+.callout-warning,
+.callout-caution,
+.callout-attention {
+  --callout-color: #ea580c;
+  --callout-icon:  "⚠";
+  --callout-label: "Warning";
+}
+
+.callout-failure,
+.callout-fail,
+.callout-missing {
+  --callout-color: #dc2626;
+  --callout-icon:  "✕";
+  --callout-label: "Failure";
+}
+
+.callout-danger,
+.callout-error,
+.callout-bug {
+  --callout-color: #e11d48;
+  --callout-icon:  "⚡";
+  --callout-label: "Danger";
+}
+
+.callout-example {
+  --callout-color: #7c3aed;
+  --callout-icon:  "◇";
+  --callout-label: "Example";
+}
+
+.callout-quote,
+.callout-cite {
+  --callout-color: #6b7280;
+  --callout-icon:  “””;
+  --callout-label: “Quote”;
+}
+
+/* ── equation-citator callout kinds ─────────── */
+
+.callout-table {
+  --callout-color: #0891b2;
+  --callout-icon:  “⊞”;
+  --callout-label: “Table”;
+}
+
+.callout-eq,
+.callout-equation {
+  --callout-color: #2563eb;
+  --callout-icon:  “∑”;
+  --callout-label: “Equation”;
+}
+
+.callout-thm,
+.callout-theorem {
+  --callout-color: #7c3aed;
+  --callout-icon:  “⊡”;
+  --callout-label: “Theorem”;
+}
+
+.callout-lemma {
+  --callout-color: #0d9488;
+  --callout-icon:  “≺”;
+  --callout-label: “Lemma”;
+}
+
+.callout-def,
+.callout-definition {
+  --callout-color: #059669;
+  --callout-icon:  “≝”;
+  --callout-label: “Definition”;
+}
+
+.callout-prop,
+.callout-proposition {
+  --callout-color: #d97706;
+  --callout-icon:  “⊢”;
+  --callout-label: “Proposition”;
+}
+
+.callout-cor,
+.callout-corollary {
+  --callout-color: #ea580c;
+  --callout-icon:  “∴”;
+  --callout-label: “Corollary”;
+}
+
+.callout-axiom {
+  --callout-color: #dc2626;
+  --callout-icon:  “⊕”;
+  --callout-label: “Axiom”;
+}
+
+.callout-proof {
+  --callout-color: #6b7280;
+  --callout-icon:  “⊢”;
+  --callout-label: “Proof”;
+}
+
+.callout-remark {
+  --callout-color: #9333ea;
+  --callout-icon:  “✧”;
+  --callout-label: “Remark”;
+}
+
+/* unrecognised equation-citator callout kind — soft teal fallback */
+.ec-callout:not(.callout-table):not(.callout-eq):not(.callout-equation):not(.callout-thm):not(.callout-theorem):not(.callout-lemma):not(.callout-def):not(.callout-definition):not(.callout-prop):not(.callout-proposition):not(.callout-cor):not(.callout-corollary):not(.callout-axiom):not(.callout-proof):not(.callout-remark) {
+  --callout-color: #0d9488;
+  --callout-icon:  “”;
+  --callout-label: “Callout”;
+}
+
+/* ── dark-mode colour overrides ──────────────── */
+
+.dark .callout-note                              { --callout-color: #60a5fa; }
+.dark .callout-abstract,
+.dark .callout-summary,
+.dark .callout-tldr                              { --callout-color: #2dd4bf; }
+.dark .callout-info,
+.dark .callout-todo                              { --callout-color: #22d3ee; }
+.dark .callout-tip,
+.dark .callout-hint,
+.dark .callout-important                         { --callout-color: #34d399; }
+.dark .callout-success,
+.dark .callout-check,
+.dark .callout-done                              { --callout-color: #4ade80; }
+.dark .callout-question,
+.dark .callout-help,
+.dark .callout-faq                               { --callout-color: #fbbf24; }
+.dark .callout-warning,
+.dark .callout-caution,
+.dark .callout-attention                         { --callout-color: #fb923c; }
+.dark .callout-failure,
+.dark .callout-fail,
+.dark .callout-missing                           { --callout-color: #f87171; }
+.dark .callout-danger,
+.dark .callout-error,
+.dark .callout-bug                               { --callout-color: #fb7185; }
+.dark .callout-example                           { --callout-color: #a78bfa; }
+.dark .callout-quote,
+.dark .callout-cite                              { --callout-color: #9ca3af; }
+
+.dark .callout-table                             { --callout-color: #22d3ee; }
+.dark .callout-eq,
+.dark .callout-equation                          { --callout-color: #60a5fa; }
+.dark .callout-thm,
+.dark .callout-theorem                           { --callout-color: #a78bfa; }
+.dark .callout-lemma                             { --callout-color: #2dd4bf; }
+.dark .callout-def,
+.dark .callout-definition                        { --callout-color: #34d399; }
+.dark .callout-prop,
+.dark .callout-proposition                       { --callout-color: #fbbf24; }
+.dark .callout-cor,
+.dark .callout-corollary                         { --callout-color: #fb923c; }
+.dark .callout-axiom                             { --callout-color: #f87171; }
+.dark .callout-proof                             { --callout-color: #9ca3af; }
+.dark .callout-remark                            { --callout-color: #c084fc; }
+
+/* ---- /callout styles ---- */
+
 .vp-doc .equation-citator-target {
   display: block;
   width: 100%;
@@ -119,6 +446,27 @@
   margin: 0 auto;
 }
 
+.vp-doc .figure-caption {
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.vp-doc .figure-caption .figure-title {
+  display: block;
+  color: var(--vp-c-text-1);
+  font-size: 0.88em;
+  font-weight: 700;
+}
+
+.vp-doc .figure-caption .figure-desc {
+  display: block;
+  margin-top: 4px;
+  color: var(--vp-c-text-2);
+  font-size: 0.82em;
+  font-style: italic;
+}
+
 .vp-doc .equation-citator-citation {
   color: var(--vp-c-brand-1) !important;
   cursor: default !important;
@@ -170,6 +518,31 @@
 .equation-citator-preview-popover img {
   max-width: 100%;
   height: auto;
+}
+
+/* figure caption inside citation preview popover */
+.equation-citator-preview .figure-caption,
+.equation-citator-preview-popover .figure-caption {
+  margin-top: 8px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.equation-citator-preview .figure-title,
+.equation-citator-preview-popover .figure-title {
+  display: block;
+  color: var(--vp-c-text-1);
+  font-size: 0.82em;
+  font-weight: 700;
+}
+
+.equation-citator-preview .figure-desc,
+.equation-citator-preview-popover .figure-desc {
+  display: block;
+  margin-top: 2px;
+  color: var(--vp-c-text-2);
+  font-size: 0.78em;
+  font-style: italic;
 }
 
 .equation-citator-preview > .equation-citator-target + .equation-citator-target {

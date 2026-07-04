@@ -345,6 +345,8 @@ export const postsSidebar = [
   }
 ]
 
+export const postsTagSidebar = []
+
 export const tags = [
   "ai",
   "algorithms/KMP",

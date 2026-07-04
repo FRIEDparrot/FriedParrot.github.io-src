@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { knowledgeBaseSidebar, postsSidebar } from './generated/content-data.mjs'
 import { convertObsidianLinksInText } from '../../scripts/content-utils.mjs'
+import markdownItFootnote from 'markdown-it-footnote'
 
 function titleFromRelativePath(relativePath = '') {
   const filename = relativePath.split('/').pop() || ''
@@ -194,11 +195,13 @@ function parseEquationCitatorCalloutLabel(raw = '') {
 
   return {
     title: match[2] || '',
+    kind: kind.toLowerCase(),
     attrs: {
-      class: 'equation-citator-target equation-citator-callout',
+      class: `equation-citator-target equation-citator-callout ec-callout callout callout-${kind.toLowerCase()}`,
       'data-ec-kind': kind.toLowerCase(),
       'data-ec-callout-kind': kind,
-      'data-ec-tag': tag
+      'data-ec-tag': tag,
+      'data-callout-type': kind.toLowerCase()
     }
   }
 }
@@ -402,6 +405,12 @@ function wrapExportedCallout(tokens, markerOpenIndex, attrs) {
     if (token.type === 'blockquote_close') return false
     if (token.type !== 'blockquote_open') continue
 
+    const kind = (attrs['data-ec-kind'] || '').toLowerCase()
+    if (kind) {
+      attrs['data-callout-type'] = kind
+      token.attrJoin('class', `callout callout-${kind}`)
+    }
+    token.attrJoin('class', 'ec-callout')
     addMarkerAttrs(token, attrs, 'equation-citator-callout-wrapper')
     removeParagraphAt(tokens, markerOpenIndex)
     return true
@@ -452,9 +461,100 @@ function wrapParsedCallout(tokens, blockquoteOpenIndex, Token) {
 
   if (!inline.content.trim() && !(inline.children || []).length) {
     removeParagraphAt(tokens, blockquoteOpenIndex + 1)
+  } else {
+    tokens[blockquoteOpenIndex].attrSet('data-callout-has-title', '')
   }
 
   return true
+}
+
+// Obsidian callout types — blockquotes that start with [!TYPE] (no colon)
+// Colon-syntax types like [!eq:tag] / [!table:ts] / [!thm:s2] stay in the
+// equation-citator path (wrapEquationCitatorExports).
+const OBSIDIAN_CALLOUT_TYPES = {
+  note:      { title: 'Note' },
+  abstract:  { title: 'Abstract' },
+  summary:   { title: 'Summary' },
+  tldr:      { title: 'TL;DR' },
+  info:      { title: 'Info' },
+  todo:      { title: 'Todo' },
+  tip:       { title: 'Tip' },
+  hint:      { title: 'Hint' },
+  important: { title: 'Important' },
+  success:   { title: 'Success' },
+  check:     { title: 'Check' },
+  done:      { title: 'Done' },
+  question:  { title: 'Question' },
+  help:      { title: 'Help' },
+  faq:       { title: 'FAQ' },
+  warning:   { title: 'Warning' },
+  caution:   { title: 'Caution' },
+  attention: { title: 'Attention' },
+  failure:   { title: 'Failure' },
+  fail:      { title: 'Fail' },
+  missing:   { title: 'Missing' },
+  danger:    { title: 'Danger' },
+  error:     { title: 'Error' },
+  bug:       { title: 'Bug' },
+  example:   { title: 'Example' },
+  quote:     { title: 'Quote' },
+  cite:      { title: 'Cite' },
+}
+
+function parseObsidianCalloutLabel(raw = '') {
+  const match = String(raw).match(/^\s*\[!([A-Za-z][\w-]*)\](?:[ \t]*(.*))?$/s)
+  if (!match) return null
+
+  const type = match[1].toLowerCase()
+  const def = OBSIDIAN_CALLOUT_TYPES[type]
+  if (!def) return null
+
+  return { type, title: match[2]?.trim() || def.title }
+}
+
+function isEquationCitatorCallout(raw = '') {
+  return /^\s*\[![A-Za-z][\w-]*:/.test(String(raw))
+}
+
+// Transform blockquotes like > [!note] / > [!warning] … into styled callout boxes.
+// Equation-citator callouts (those with a colon like [!eq:tag]) are left untouched
+// here — they are handled later by wrapEquationCitatorExports.
+function wrapObsidianCallouts(md) {
+  md.core.ruler.after('block', 'obsidian-callouts', (state) => {
+    const { tokens, Token } = state
+
+    for (let index = 0; index < tokens.length; index += 1) {
+      if (tokens[index]?.type !== 'blockquote_open') continue
+
+      const inline = paragraphInlineAt(tokens, index + 1)
+      if (!inline) continue
+
+      // Only handle plain Obsidian callouts (no colon)
+      if (isEquationCitatorCallout(inline.content)) continue
+
+      const parsed = parseObsidianCalloutLabel(inline.content)
+      if (!parsed) continue
+
+      // Mark the blockquote as a styled callout
+      tokens[index].attrJoin('class', `callout callout-${parsed.type}`)
+      tokens[index].attrSet('data-callout-type', parsed.type)
+
+      // Remove the [!TYPE] label from the first line
+      removeCalloutLabel(inline, Token)
+
+      // Clear children so the inline parser regenerates them from the
+      // updated content — prevents duplication from stale child tokens.
+      inline.children = []
+
+      // If nothing remains in the first paragraph, drop it entirely.
+      // Otherwise use the remaining text as a custom title.
+      if (inline.content.trim()) {
+        tokens[index].attrSet('data-callout-has-title', '')
+      } else {
+        removeParagraphAt(tokens, index + 1)
+      }
+    }
+  })
 }
 
 function wrapEquationCitatorExports(md) {
@@ -495,6 +595,31 @@ function wrapEquationCitatorExports(md) {
       }
     }
   })
+}
+
+function wrapFigureCaptions(md) {
+  md.renderer.rules.equation_citator_figure_close = (tokens, idx, _options, _env, self) => {
+    // Walk back to find the matching open token and read its data-title / data-desc.
+    let title = ''
+    let desc = ''
+    for (let i = idx; i >= 0; i -= 1) {
+      if (tokens[i].type === 'equation_citator_figure_open') {
+        title = tokens[i].attrGet('data-title') || ''
+        desc = tokens[i].attrGet('data-desc') || ''
+        break
+      }
+    }
+
+    let caption = ''
+    if (title || desc) {
+      caption = '<figcaption class="figure-caption">'
+      if (title) caption += `<span class="figure-title">${md.utils.escapeHtml(title)}</span>`
+      if (desc) caption += `<span class="figure-desc">${md.utils.escapeHtml(desc)}</span>`
+      caption += '</figcaption>'
+    }
+
+    return `${caption}</figure>`
+  }
 }
 
 function wrapEquationBlocks(md) {
@@ -575,6 +700,9 @@ export default defineConfig({
     lineNumbers: true,
     math: true,
     config(md) {
+      md.use(markdownItFootnote)
+      wrapObsidianCallouts(md)
+      wrapFigureCaptions(md)
       wrapEquationBlocks(md)
       wrapEquationCitatorExports(md)
       md.core.ruler.before('normalize', 'knowledge-base-title', (state) => {

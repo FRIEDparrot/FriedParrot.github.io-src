@@ -135,11 +135,6 @@ function markdownLinkTarget(link) {
   return link.split('/').map((segment) => encodeURIComponent(segment)).join('/')
 }
 
-function tagFolderRoute(segments) {
-  const encodedSegments = segments.map((segment) => encodeURIComponent(segment)).join('/')
-  return `/knowledge-base/_tags/${encodedSegments}/`
-}
-
 function makeSidebar(postsList, routeRoot) {
   const root = {}
 
@@ -183,7 +178,7 @@ function makeSidebar(postsList, routeRoot) {
   return buildItems(root)
 }
 
-function makeTagSidebar(postsList) {
+function makeTagSidebar(postsList, tagRouteRoot = '/knowledge-base/_tags') {
   const root = {}
 
   for (const post of postsList) {
@@ -196,7 +191,7 @@ function makeTagSidebar(postsList) {
           if (!tagNode[segment]) {
             tagNode[segment] = {
               children: {},
-              link: tagFolderRoute(segments.slice(0, index + 1))
+              link: tagRouteRoot ? folderRoute(tagRouteRoot, segments.slice(0, index + 1)) : undefined
             }
           }
           tagNode = tagNode[segment].children
@@ -238,6 +233,7 @@ const knowledgeBaseSidebar = makeSidebar(knowledgeBase, '/knowledge-base')
 const knowledgeBaseTagSidebar = makeTagSidebar(knowledgeBase)
 const posts = collectMarkdownEntries(postsRoot)
 const postsSidebar = makeSidebar(posts, '/posts')
+const postsTagSidebar = makeTagSidebar(posts, null)
 
 for (const [tag, list] of tagsMap.entries()) {
   list.sort((a, b) => a.title.localeCompare(b.title))
@@ -418,6 +414,6 @@ writeKnowledgeBaseIndex(knowledgeBase)
 writeKnowledgeBaseFolderPages(knowledgeBase)
 writeKnowledgeBaseTagPages(knowledgeBase)
 
-const moduleContent = `export const knowledgeBase = ${JSON.stringify(knowledgeBase, null, 2)}\n\nexport const knowledgeBaseSidebar = ${JSON.stringify(knowledgeBaseSidebar, null, 2)}\n\nexport const knowledgeBaseTagSidebar = ${JSON.stringify(knowledgeBaseTagSidebar, null, 2)}\n\nexport const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const postsSidebar = ${JSON.stringify(postsSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
+const moduleContent = `export const knowledgeBase = ${JSON.stringify(knowledgeBase, null, 2)}\n\nexport const knowledgeBaseSidebar = ${JSON.stringify(knowledgeBaseSidebar, null, 2)}\n\nexport const knowledgeBaseTagSidebar = ${JSON.stringify(knowledgeBaseTagSidebar, null, 2)}\n\nexport const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const postsSidebar = ${JSON.stringify(postsSidebar, null, 2)}\n\nexport const postsTagSidebar = ${JSON.stringify(postsTagSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`
 
 fs.writeFileSync(generatedModulePath, moduleContent)

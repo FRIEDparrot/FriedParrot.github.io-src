@@ -18,7 +18,8 @@ The Equation Citator plugin transforms Obsidian into a powerful academic writing
 - **Drag & Drop Citations** (New in v1.3.0): Drag equations from the management panel
 
 > [!tip]
-> **Typst Mode support** : This plugin also support [obsidian typst mate](https://github.com/azyarashi/obsidian-typst-mate), you can set `settings > Display (Categorical) > Others > enable typst mode` make it compatible with typst syntax.
+> **Typst Mode support** :  This plugin also support [obsidian-typst-mate](https://github.com/azyarashi/obsidian-typst-mate), you can set `settings > Display (Categorical) > Others > enable typst mode` make it compatible with typst syntax.
+>
 
 ## 👋🏻 Before Everything start 
 There are some very simple writing guidelines you should follow : 

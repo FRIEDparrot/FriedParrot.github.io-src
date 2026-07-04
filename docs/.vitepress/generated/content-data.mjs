@@ -61,13 +61,35 @@ export const knowledgeBase = [
   },
   {
     "title": "Quick Start",
-    "route": "/knowledge-base/knowledge/Quick Start",
+    "route": "/knowledge-base/Equation-Citator-Tutorial/Quick Start",
     "tags": [],
     "categories": [
-      "knowledge"
+      "Equation Citator Tutorial"
     ],
     "categorySegments": [
-      "knowledge"
+      "Equation-Citator-Tutorial"
+    ]
+  },
+  {
+    "title": "Quick Start",
+    "route": "/knowledge-base/tutorial/Quick Start",
+    "tags": [],
+    "categories": [
+      "tutorial"
+    ],
+    "categorySegments": [
+      "tutorial"
+    ]
+  },
+  {
+    "title": "Useful Tricks & techniques",
+    "route": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks & techniques",
+    "tags": [],
+    "categories": [
+      "Equation Citator Tutorial"
+    ],
+    "categorySegments": [
+      "Equation-Citator-Tutorial"
     ]
   },
   {
@@ -105,14 +127,25 @@ export const knowledgeBaseSidebar = [
     ]
   },
   {
-    "text": "knowledge",
-    "link": "/knowledge-base/knowledge/",
+    "text": "Equation Citator Tutorial",
+    "link": "/knowledge-base/Equation-Citator-Tutorial/",
     "collapsed": true,
     "items": [
       {
         "text": "Quick Start",
-        "link": "/knowledge-base/knowledge/Quick Start"
+        "link": "/knowledge-base/Equation-Citator-Tutorial/Quick Start"
       },
+      {
+        "text": "Useful Tricks & techniques",
+        "link": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks & techniques"
+      }
+    ]
+  },
+  {
+    "text": "knowledge",
+    "link": "/knowledge-base/knowledge/",
+    "collapsed": true,
+    "items": [
       {
         "text": "ai",
         "link": "/knowledge-base/knowledge/ai/",
@@ -134,6 +167,17 @@ export const knowledgeBaseSidebar = [
       {
         "text": "Concepts of Diffusion Model",
         "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
+      }
+    ]
+  },
+  {
+    "text": "tutorial",
+    "link": "/knowledge-base/tutorial/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Quick Start",
+        "link": "/knowledge-base/tutorial/Quick Start"
       }
     ]
   },

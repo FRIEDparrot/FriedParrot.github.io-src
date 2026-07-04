@@ -2,6 +2,7 @@
   --vp-c-brand-1: #2563eb;
   --vp-c-brand-2: #1d4ed8;
   --vp-c-brand-3: #1e40af;
+  --vp-sidebar-width: 296px;
 }
 
 .dark {
@@ -97,6 +98,11 @@
   overflow: visible;
 }
 
+.vp-doc .equation-citator-target.equation-citator-figure {
+  width: 100% !important;  /* center the images  */
+  text-align: center;
+}
+
 .vp-doc .equation-citator-figure-wrapper {
   margin: 24px 0;
   text-align: center;
@@ -111,6 +117,65 @@
   max-width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+.vp-doc .equation-citator-citation {
+  color: var(--vp-c-brand-1) !important;
+  cursor: default !important;
+  text-decoration: none !important;
+}
+
+.vp-doc .equation-citator-citation span {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.vp-doc .equation-citator-citation:hover,
+.vp-doc .equation-citator-citation:focus,
+.vp-doc .equation-citator-citation:focus-visible {
+  color: var(--vp-c-brand-2) !important;
+  text-decoration: none !important;
+}
+
+.vp-doc .equation-citator-citation:hover span,
+.vp-doc .equation-citator-citation:focus span,
+.vp-doc .equation-citator-citation:focus-visible span {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.vp-doc .equation-citator-citation:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--vp-c-brand-2);
+  outline-offset: 2px;
+}
+
+.equation-citator-preview,
+.equation-citator-preview-popover {
+  max-width: min(520px, calc(100vw - 32px));
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  padding: 12px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+}
+
+.dark .equation-citator-preview,
+.dark .equation-citator-preview-popover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.34);
+}
+
+.equation-citator-preview img,
+.equation-citator-preview-popover img {
+  max-width: 100%;
+  height: auto;
+}
+
+.equation-citator-preview > .equation-citator-target + .equation-citator-target {
+  margin-top: 12px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 12px;
 }
 
 .vp-doc .obsidian-link-placeholder {

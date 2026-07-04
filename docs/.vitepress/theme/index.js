@@ -5,15 +5,17 @@ import WeatherHome from './components/WeatherHome.vue'
 import ProjectList from './components/ProjectList.vue'
 import ProjectPage from './components/ProjectPage.vue'
 import ProjectIndexLayout from './components/ProjectIndexLayout.vue'
+import { install as installEquationCitatorPreviews } from './equationCitator.js'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
     app.component('WeatherHome', WeatherHome)
     app.component('ProjectList', ProjectList)
     app.component('ProjectPage', ProjectPage)
     app.component('ProjectIndexLayout', ProjectIndexLayout)
+    installEquationCitatorPreviews({ router })
   },
   Layout() {
     return h(DefaultTheme.Layout, null, {

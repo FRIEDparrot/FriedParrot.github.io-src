@@ -4,16 +4,44 @@
     "type": "split",
     "children": [
       {
-        "id": "3f64da2a64acfbcb",
+        "id": "d56ff58d6e1f9e86",
         "type": "tabs",
         "children": [
           {
-            "id": "9c1ce47e5ab25325",
+            "id": "19c38c6b03411ac0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledge/Quick Start.md",
+                "file": "Equation-Citator-Tutorial/Useful Tricks & techniques.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Useful Tricks & techniques"
+            }
+          },
+          {
+            "id": "86d73d31915f5428",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tutorial/Quick Start.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Quick Start"
+            }
+          },
+          {
+            "id": "414537bc8fd850ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Equation-Citator-Tutorial/Quick Start.md",
                 "mode": "source",
                 "source": false
               },
@@ -21,7 +49,8 @@
               "title": "Quick Start"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithms/KMP algorithm for sub-sequence-search.md",
+                "file": "Equation-Citator-Tutorial/Quick Start.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for KMP algorithm for sub-sequence-search"
+              "title": "Backlinks for Quick Start"
             }
           },
           {
@@ -113,12 +142,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algorithms/KMP algorithm for sub-sequence-search.md",
+                "file": "Equation-Citator-Tutorial/Quick Start.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from KMP algorithm for sub-sequence-search"
+              "title": "Outgoing links from Quick Start"
             }
           },
           {
@@ -164,17 +193,26 @@
               "icon": "lucide-list",
               "title": "Outline of KMP algorithm for sub-sequence-search"
             }
+          },
+          {
+            "id": "928dff58b72f703f",
+            "type": "leaf",
+            "state": {
+              "type": "equation-arrange-panel",
+              "state": {},
+              "icon": "square-pi",
+              "title": "Equations arrange panel"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 403.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -182,51 +220,59 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
       "equation-citator:Auto-number current file equations": false,
       "equation-citator:Auto-number current file figures": false,
       "equation-citator:Open equation manage panel": false
     }
   },
-  "active": "9c1ce47e5ab25325",
+  "active": "414537bc8fd850ce",
   "lastOpenFiles": [
+    "tutorial/Quick Start.md",
+    "Equation-Citator-Tutorial/Quick Start.md",
+    "Equation-Citator-Tutorial/Quick Start.md",
+    "Equation-Citator-Tutorial/index.md",
+    "Equation-Citator-Tutorial/Useful Tricks & techniques.md",
+    "tutorial/index.md",
+    "tutorial",
+    "Equation-Citator-Tutorial/assets/panel_toolbars.png",
+    "Equation-Citator-Tutorial/assets",
+    "Equation-Citator-Tutorial/Quick Start - Ori-exported.md",
+    "Equation-Citator-Tutorial/tutorials/img/test_image.png",
+    "Equation-Citator-Tutorial/tutorials/img/panel_toolbars.png",
+    "Equation-Citator-Tutorial/tutorials/img/Excalidraw Support.png",
+    "Equation-Citator-Tutorial/tutorials/img/Equation Citator Logo.png",
+    "Equation-Citator-Tutorial/tutorials/img",
+    "Equation-Citator-Tutorial/tutorials/test_image.png",
+    "Equation-Citator-Tutorial/tutorials/panel_toolbars.png",
+    "Equation-Citator-Tutorial/tutorials/Excalidraw Support.md",
+    "Equation-Citator-Tutorial/tutorials/Excalidraw logo.svg",
+    "Equation-Citator-Tutorial/tutorials/Equation Citator Logo.excalidraw.md",
+    "Equation-Citator-Tutorial/tutorials",
+    "Equation-Citator-Tutorial/Quick Start - Ori.md",
+    "Equation-Citator-Tutorial/Quick Start - Copy.md",
+    "Excalidraw Support.md",
+    "welcome.md",
+    "index.md",
+    "assets/Pasted image 20260630221754.png",
+    "assets/bak",
+    "Equation-Citator-Tutorial/assets/Excalidraw Support.png",
+    "Equation-Citator-Tutorial/Equation Citator Logo.excalidraw.md",
+    "Equation-Citator-Tutorial/Excalidraw Support.md",
     "knowledge/Quick Start.md",
-    "knowledge/Excalidraw Support.png",
+    "Equation-Citator-Tutorial/img",
+    "Equation-Citator-Tutorial/New folder",
+    "Equation-Citator-Tutorial",
     "_tags/excalidraw/index.md",
     "_tags/excalidraw",
-    "assets/Pasted image 20260630221754.png",
     "knowledge/Excalidraw Support.md",
-    "knowledge/Excalidraw logo.svg",
-    "knowledge/test_image.png",
     "ModelTraining/Concepts of Diffusion Model.md",
     "_tags/deeplearning/diffusion-model/index.md",
     "_tags/deeplearning/index.md",
     "_tags/deeplearning/diffusion-model",
-    "_tags/deeplearning",
     "_tags/peclet-number/index.md",
-    "_tags/peclet-number",
     "_tags/diffusion-model/index.md",
-    "_tags/diffusion-model",
     "ModelTraining/index.md",
-    "Algorithms/KMP algorithm for sub-sequence-search.md",
-    "ModelTraining",
-    "New folder",
-    "_tags/algorithms/KMP/index.md",
-    "_tags/wiki/index.md",
-    "_tags/sequence-search/index.md",
-    "_tags/projects/index.md",
-    "_tags/notes/index.md",
-    "_tags/knowledge/index.md",
-    "_tags/docs/index.md",
-    "_tags/algorithms/KMP",
-    "_tags/algorithms/index.md",
-    "_tags/ai/index.md",
-    "_tags/wiki",
-    "_tags/sequence-search",
-    "dev/index.md",
-    "knowledge/ai/index.md",
-    "knowledge/index.md",
-    "Algorithms/index.md",
-    "Algorithms/1. Sub Sequence Search-KMP algorithm.md",
-    "assets/Pasted image 20260629090315.png"
+    "Algorithms/KMP algorithm for sub-sequence-search.md"
   ]
 }

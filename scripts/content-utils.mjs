@@ -23,7 +23,7 @@ function parseEmbedMetadata(rawAlias = '', fallbackLabel = '') {
   }
 
   for (const part of parts) {
-    const figureMatch = part.match(/^fig\s*:\s*(.+)$/i)
+    const figureMatch = part.match(/^(?:fig|figure)\s*:\s*(.+)$/i)
     if (figureMatch) {
       metadata.figureTag = figureMatch[1].trim()
       continue
@@ -57,7 +57,7 @@ function renderFigureMetadataAttributes(metadata) {
 
   const attrs = [
     'class="equation-citator-target equation-citator-figure"',
-    'data-ec-kind="figure"',
+    'data-ec-kind="fig"',
     `data-ec-tag="${escapeHtmlAttribute(metadata.figureTag)}"`
   ]
 
@@ -76,7 +76,7 @@ function renderFigureWrapperAttributes(metadata) {
 
   const attrs = [
     'class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper"',
-    'data-ec-kind="figure"',
+    'data-ec-kind="fig"',
     `data-ec-tag="${escapeHtmlAttribute(metadata.figureTag)}"`
   ]
 
@@ -123,7 +123,8 @@ function docsPathExists(targetPath) {
 }
 
 function resolveEmbedTargetPath(target, relativePath = '') {
-  const normalizedTarget = target.replace(/^\/+/, '')
+  const [targetWithoutHash, hash = ''] = target.split('#')
+  const normalizedTarget = targetWithoutHash.replace(/^\/+/, '')
   if (/^(https?:)?\/\//.test(target)) return target
   if (normalizedTarget.startsWith('knowledge-base/')) return normalizedTarget
 
@@ -142,17 +143,23 @@ function resolveEmbedTargetPath(target, relativePath = '') {
   }
 
   const existing = candidates.find((candidate) => docsPathExists(candidate))
-  return existing || candidates[0]
+  const resolved = existing || candidates[0]
+  return hash ? `${resolved}#${hash}` : resolved
 }
 
 function encodedDocsLink(targetPath) {
   if (/^(https?:)?\/\//.test(targetPath)) return targetPath
 
-  const link = targetPath.startsWith('knowledge-base/')
-    ? `/${targetPath}`
-    : `/knowledge-base/${targetPath}`
+  const [pathWithoutHash, hash = ''] = targetPath.split('#')
+  const link = pathWithoutHash.startsWith('knowledge-base/')
+    ? `/${pathWithoutHash}`
+    : `/knowledge-base/${pathWithoutHash}`
+  const encodedPath = link.split('/').map((part) => encodeURIComponent(part)).join('/')
 
-  return link.split('/').map((part) => encodeURIComponent(part)).join('/')
+  if (!hash) return encodedPath
+
+  const slug = headingSlug(hash)
+  return slug ? `${encodedPath}#${slug}` : `${encodedPath}#`
 }
 
 function relativeMarkdownLink(fromRelativePath = '', targetPath = '') {
@@ -238,12 +245,12 @@ export function convertObsidianLinksInText(content, options = {}) {
     const encodedLink = encodedDocsLink(targetPath)
 
     if (!localKnowledgeBasePageExists(targetPath)) {
-      const href = target.startsWith('#') ? encodeURI(target) : encodedLink
+      const href = target.startsWith('#') ? sectionHrefFromTarget(target) : encodedLink
       return `${rawEmbed}<a class="obsidian-link-placeholder" href="${escapeHtmlAttribute(href)}">${escapeHtmlAttribute(alias)}</a>`
     }
 
     if (target.startsWith('#')) {
-      return `${rawEmbed}<a href="${escapeHtmlAttribute(encodeURI(target))}">${escapeHtmlAttribute(alias)}</a>`
+      return `${rawEmbed}<a href="${escapeHtmlAttribute(sectionHrefFromTarget(target))}">${escapeHtmlAttribute(alias)}</a>`
     }
 
     return `${rawEmbed}[${alias}](${encodedLink})`

@@ -4,7 +4,7 @@ import { useRoute } from 'vitepress'
 import { knowledgeBaseSidebar, knowledgeBaseTagSidebar } from '../../generated/content-data.mjs'
 
 const sidebarWidthStorageKey = 'knowledge-sidebar-width'
-const defaultSidebarWidth = 272
+const defaultSidebarWidth = 296
 const minSidebarWidth = 220
 const maxSidebarWidth = 440
 
@@ -289,11 +289,12 @@ watch(isKnowledgeBase, (active) => {
 
 .knowledge-sidebar__toggle {
   flex: 0 0 auto;
-  width: 6px;
-  height: 6px;
-  margin-left: 8px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
+  width: 8px;
+  height: 8px;
+  margin-left: 7px;
+  margin-right: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
   border-top: 0;
   border-left: 0;
   padding: 0;
@@ -353,7 +354,7 @@ watch(isKnowledgeBase, (active) => {
 
 <style scoped>
 .knowledge-sidebar {
-  margin: 8px 12px 14px;
+  margin: 0;
 }
 
 .knowledge-sidebar__switch {
@@ -418,23 +419,25 @@ watch(isKnowledgeBase, (active) => {
     z-index: calc(var(--vp-z-index-sidebar) + 1);
     top: var(--vp-nav-height);
     bottom: 0;
-    left: calc(var(--vp-sidebar-width) - 5px);
+    left: var(--vp-sidebar-width);
     display: block;
     width: 10px;
     border: 0;
     padding: 0;
     background: transparent;
     cursor: col-resize;
+    transform: translateX(-50%);
   }
 
   .knowledge-sidebar-resizer::before {
     position: absolute;
     top: 0;
-    right: 4px;
+    left: 50%;
     bottom: 0;
     width: 1px;
     background: var(--vp-c-divider);
     content: "";
+    transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.16s ease, background-color 0.16s ease;
   }
@@ -453,7 +456,7 @@ watch(isKnowledgeBase, (active) => {
 
 @media (min-width: 1440px) {
   .knowledge-sidebar-resizer {
-    left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) - 5px);
+    left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
   }
 }
 </style>

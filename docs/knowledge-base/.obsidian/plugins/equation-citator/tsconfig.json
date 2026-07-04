@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "types": ["node", "jest", "obsidian-typings"],
+    "inlineSourceMap": true,
+    "inlineSources": true, 
+    "jsx": "react",
+    "module": "ESNext",
+    "target": "ES6",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noImplicitAny": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true, 
+    "lib": ["ESNext", "DOM"],
+    "paths": {
+      "@/*": ["./src/*"],
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "*.test.ts",
+    "*.test.tsx",
+  ]
+}

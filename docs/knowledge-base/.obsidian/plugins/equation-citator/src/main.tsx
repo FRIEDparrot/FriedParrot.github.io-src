@@ -1,0 +1,237 @@
+import {
+    Plugin, MarkdownView, WorkspaceLeaf,
+    MarkdownPostProcessorContext,
+    Editor, Platform
+} from 'obsidian';
+import { cleanUpStyles, loadStyles, SettingsTabView } from "@/settings/SettingsTab";
+import { DEFAULT_SETTINGS, EquationCitatorSettings } from "@/settings/defaultSettings";
+import { Extension, Compartment, StateField } from '@codemirror/state';
+import registerCommands from '@/commands/command_list';
+import registerRibbonButton from '@/ui/ribbon';
+import {
+    createMathCitationExtension,
+    mathCitationPostProcessor,
+    calloutCitationPostProcessor,
+    createImageCaptionExtension,
+    imageCaptionPostProcessor,
+    EditorSelectionInfo,
+} from '@/views/widgets/citation_render';
+import { EquationCache } from '@/cache/equationCache';
+import { CitationCache } from '@/cache/citationCache';
+import { FootNoteCache } from '@/cache/footnoteCache';
+import { ImageCache } from '@/cache/imageCache';
+import { CalloutCache } from '@/cache/calloutCache';
+import { EquationServices } from '@/services/equation_services';
+import { FigureServices } from '@/services/figure_services';
+import { CalloutServices } from '@/services/callout_services';
+import { TagService } from '@/services/tag_service';
+import { FigureTagService } from '@/services/fig_tag_service';
+import { AutoCompleteSuggest } from '@/views/auto_complete_suggest';
+import { registerRightClickHandler } from '@/handlers/rightButtonHandler';
+import { LineHashCache } from '@/cache/lineHashCache';
+import { EquationArrangePanel, EQUATION_MANAGE_PANEL_TYPE } from '@/ui/panels/equationManagePanel/mainPanel';
+import Debugger from './debug/debugger';
+import { dropCursorField } from '@/utils/workspace/drag_drop_event';
+
+
+export default class EquationCitator extends Plugin {
+    public settings!: EquationCitatorSettings;
+    public tagService!: TagService;
+    public figureTagService!: FigureTagService;
+    public equationServices!: EquationServices;
+    public figureServices!: FigureServices;
+    public calloutServices!: CalloutServices;
+    public readonly extensions: Extension[] = [];
+    
+    public tagSelectedField!: StateField<EditorSelectionInfo>;
+
+    // initialize caches
+    public citationCache!: CitationCache;   // citation cache instance
+    public equationCache!: EquationCache;     // equation cache instance
+    public footnoteCache!: FootNoteCache;     // footnote cache instance
+    public imageCache!: ImageCache;           // image cache instance
+    public calloutCache!: CalloutCache;       // callout cache instance
+    public lineHashCache!: LineHashCache;     // line hash cache instance 
+
+    private autoCompleteSuggest!: AutoCompleteSuggest;
+    private readonly mathCitationCompartment = new Compartment();
+    private readonly imageCaptionCompartment = new Compartment();
+
+    async loadSettings() {
+        this.settings = { ...DEFAULT_SETTINGS, ...await this.loadData() };
+        Debugger.debugMode = this.settings.debugMode;  // set debug mode from settings 
+        loadStyles();
+        this.upDateEditorExtensions();
+    }
+
+    async onload() {
+        await this.loadSettings();
+        this.addSettingTab(new SettingsTabView(this.app, this));
+
+        // initialize caches
+        this.loadCaches();
+
+        this.registerViews();
+        // load caches and register services class
+        this.registerServices();
+
+        // Register Live Preview extension and Reading Mode extension 
+        // Register auto-complete suggestion widget
+        this.autoCompleteSuggest = new AutoCompleteSuggest(this);
+
+        this.loadEditorExtensions();
+        this.loadReadingModeExtensions();
+        this.registerEditorSuggest(this.autoCompleteSuggest);
+
+        // register ribbon button and commands 
+        registerRibbonButton(this);
+        registerRightClickHandler(this);
+        registerCommands(this);
+
+        Debugger.log("Equation Citator plugin loaded successfully", Platform.isMobile ? "(Mobile)" : "(Desktop)");
+    }
+
+    onunload() {
+        cleanUpStyles();
+        this.destroyCaches();
+    }
+
+    loadCaches() {
+        this.citationCache = new CitationCache(this);
+        this.equationCache = new EquationCache(this);
+        this.footnoteCache = new FootNoteCache(this);
+        this.imageCache = new ImageCache(this);
+        this.calloutCache = new CalloutCache(this);
+        this.lineHashCache = new LineHashCache(this);
+    }
+
+    clearCaches() {
+        this.citationCache.clear();
+        this.equationCache.clear();
+        this.footnoteCache.clear();
+        this.imageCache.clear();
+        this.calloutCache.clear();
+        this.lineHashCache.clear();
+    }
+
+    destroyCaches() {
+        this.citationCache?.destroy();
+        this.equationCache?.destroy();
+        this.footnoteCache?.destroy();
+        this.imageCache?.destroy();
+        this.calloutCache?.destroy();
+        this.lineHashCache?.destroy();
+    }
+
+    registerViews() {
+        this.registerView(
+            EQUATION_MANAGE_PANEL_TYPE,
+            (leaf: WorkspaceLeaf) => {
+                return new EquationArrangePanel(this, leaf);
+            }
+        )
+    }
+
+    registerServices() {
+        // sheared services instance
+        this.equationServices = new EquationServices(this);
+        this.figureServices = new FigureServices(this);
+        this.calloutServices = new CalloutServices(this);
+        this.tagService = new TagService(this);
+        this.figureTagService = new FigureTagService(this);
+    }
+
+    loadEditorExtensions() {
+        this.registerEditorExtension(
+            this.mathCitationCompartment.of(
+                createMathCitationExtension(this)
+            )
+        );
+        this.registerEditorExtension(
+            this.imageCaptionCompartment.of(
+                createImageCaptionExtension(this)
+            )
+        );
+        // Register drag cursor field for equation drag-drop visual feedback (desktop only)
+        if (!Platform.isMobile) {
+            this.registerEditorExtension(dropCursorField);
+        }
+    }
+
+    loadReadingModeExtensions() {
+        this.registerMarkdownPostProcessor(
+            async (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
+                const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+                if (!activeView) return;
+                // also register in live preview mode to render citations in link preview
+                await mathCitationPostProcessor(this, el, ctx, this.citationCache);
+
+                if (this.settings.enableCiteWithCodeBlockInCallout) {
+                    // wait for the callout to be rendered
+                    calloutCitationPostProcessor(this, el, ctx, this.citationCache);
+                }
+
+                // Render image captions
+                await imageCaptionPostProcessor(this, el, ctx);
+            }
+        )
+    }
+
+    async saveSettings() {
+        await this.saveData(this.settings);
+        this.upDateEditorExtensions();
+    }
+
+    /**
+     * Updates the CodeMirror editor extensions for all open views in the workspace.
+     *
+     * This method creates a new math citation extension using the current settings,
+     * then iterates over all workspace leaves to update their CodeMirror instances
+     * with the new extension. It also dispatches an empty change to trigger a refresh
+     * of each editor.
+     *
+     * @remarks
+     * - Assumes that each view's editor exposes a `cm` property referencing the CodeMirror instance.
+     * - Uses a compartment to reconfigure the extension dynamically.
+     */
+    upDateEditorExtensions() {
+        // create a new extension with the new settings
+        const newMathExt = createMathCitationExtension(this);
+        const newImageExt = createImageCaptionExtension(this);
+        // iterate over all the views and update the extensions
+        this.app.workspace.iterateAllLeaves((leaf) => {
+            const view = leaf.view;
+			if (!("editor" in view)) {
+                return;
+            }
+            
+            try {
+                const editor = view?.editor as Editor | undefined;
+                if (!editor?.cm) {
+                    return;
+                }
+                const cm = editor.cm;
+                // @ts-expect-error destroyed property is private
+                if (cm.state.destroyed) {
+                    return;
+                }
+
+                // reload the extension for each view
+                cm.dispatch({
+                    effects: [
+                        this.mathCitationCompartment.reconfigure(newMathExt),
+                        this.imageCaptionCompartment.reconfigure(newImageExt),
+                    ],
+                });
+                cm.dispatch({
+                    // empty operation to trigger a refresh of the editor
+                    changes: { from: 0, to: 0, insert: "" },
+                });
+            }
+            catch (e) {
+                Debugger.log("Failed to get editor from view during extension update:", e);
+                return;
+            }
+        });
+    }
+}

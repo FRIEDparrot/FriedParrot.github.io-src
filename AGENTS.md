@@ -22,6 +22,8 @@ Use ES modules for JavaScript and Vue-related files, matching the existing `.mjs
 
 Validate content and theme changes with `npm run docs:build` before committing. For visual or navigation changes, also run `npm run docs:dev` and check affected pages, sidebars, search behavior, Obsidian-style links, and generated tag routes. Do not manually edit generated outputs in `docs/.vitepress/dist/`, `docs/.vitepress/cache/`, or `docs/knowledge-base/_tags/`.
 
+For Equation Citator interactions, distinguish citation elements from preview elements. Citation elements are inline spans with `.equation-citator-citation`; hovering them may change color and show a preview, but must never scroll, jump, push a hash, or open a tab. Preview elements are cloned target blocks inside `#equation-citator-preview` with `.equation-citator-preview-item`; only these preview elements handle navigation: double-click jumps in the current tab, and Ctrl/Cmd + double-click opens another tab.
+
 ## Commit & Pull Request Guidelines
 
 Recent commit messages are short, imperative or past-tense summaries, for example `changed panel transparency` and `first blog post`. Keep commits focused on one content or site change. Pull requests should describe the affected pages or scripts, mention validation performed (`npm run docs:build`), link related issues when available, and include screenshots for visible layout or theme changes.

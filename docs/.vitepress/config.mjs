@@ -86,7 +86,8 @@ function equationTagAttribute(content = '') {
   const tag = content.match(/\\tag\s*\{([^{}]+)\}/)?.[1]?.trim()
   if (!tag) return ''
 
-  return ` data-tag="${escapeHtmlAttribute(tag)}"`
+  const escapedTag = escapeHtmlAttribute(tag)
+  return ` data-ec-tag="${escapedTag}" data-tag="${escapedTag}"`
 }
 
 function parseHtmlAttributes(raw = '') {
@@ -145,7 +146,7 @@ function parseEquationCitatorFigureLabel(raw = '') {
 function figureAttrsFromMetadata(metadata) {
   const attrs = {
     class: 'equation-citator-target equation-citator-figure',
-    'data-ec-kind': 'figure',
+    'data-ec-kind': 'fig',
     'data-ec-tag': metadata.tag
   }
 
@@ -160,11 +161,11 @@ function figureAttrsFromMetadata(metadata) {
 }
 
 function normalizeFigureAttrs(attrs = {}) {
-  if (attrs['data-ec-kind'] !== 'figure' || !attrs['data-ec-tag']) return null
+  if (!['fig', 'figure'].includes(attrs['data-ec-kind']) || !attrs['data-ec-tag']) return null
 
   const normalized = {
     class: 'equation-citator-target equation-citator-figure',
-    'data-ec-kind': 'figure',
+    'data-ec-kind': 'fig',
     'data-ec-tag': attrs['data-ec-tag']
   }
 
@@ -194,8 +195,9 @@ function parseEquationCitatorCalloutLabel(raw = '') {
   return {
     title: match[2] || '',
     attrs: {
-      class: 'equation-citator-target',
+      class: 'equation-citator-target equation-citator-callout',
       'data-ec-kind': kind.toLowerCase(),
+      'data-ec-callout-kind': kind,
       'data-ec-tag': tag
     }
   }
@@ -460,6 +462,8 @@ function wrapEquationCitatorExports(md) {
     if (!state.env.relativePath?.startsWith('knowledge-base/')) return
 
     const { tokens, Token } = state
+    const figureKinds = ['fig', 'figure']
+    const nonCalloutKinds = ['eq', 'equation', ...figureKinds]
     for (let index = 0; index < tokens.length; index += 1) {
       if (wrapParsedCallout(tokens, index, Token)) {
         continue
@@ -468,7 +472,7 @@ function wrapEquationCitatorExports(md) {
       const inline = paragraphInlineAt(tokens, index)
       const marker = findEquationCitatorMarker(inline)
       if (marker) {
-        if (marker['data-ec-kind'] === 'figure') {
+        if (figureKinds.includes(marker['data-ec-kind'])) {
           const consumed = wrapExportedFigure(tokens, index, marker, Token)
           if (consumed) {
             index += consumed - 1
@@ -476,7 +480,9 @@ function wrapEquationCitatorExports(md) {
           }
         }
 
-        if (marker['data-ec-kind'] === 'callout' && wrapExportedCallout(tokens, index, marker)) {
+        const isCalloutMarker = /\bequation-citator-callout\b/.test(marker.class || '') ||
+          !nonCalloutKinds.includes(marker['data-ec-kind'])
+        if (isCalloutMarker && wrapExportedCallout(tokens, index, marker)) {
           index -= 1
           continue
         }
@@ -499,7 +505,7 @@ function wrapEquationBlocks(md) {
     const rendered = renderMathBlock(tokens, idx, options, env, self)
     if (!env.relativePath?.startsWith('knowledge-base/')) return rendered
 
-    return `<div class="equation-citator-target"${equationTagAttribute(tokens[idx].content)}>${rendered}</div>`
+    return `<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq" ${equationTagAttribute(tokens[idx].content)}>${rendered}</div>`
   }
 }
 
@@ -537,7 +543,7 @@ function ensureKnowledgeBaseTitle(source, relativePath = '', frontmatterData = {
 }
 
 export default defineConfig({
-  title: 'FriedParrot',
+  title: "FriedParrot's Website",
   description: 'Personal blog and project knowledge base',
   lastUpdated: true,
   base: '/',

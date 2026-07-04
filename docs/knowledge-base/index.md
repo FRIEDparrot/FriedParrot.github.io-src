@@ -7,8 +7,10 @@ Browse knowledge base notes from the left sidebar by folder or tag.
 
 - [Algorithms](Algorithms/)
 - [dev](dev/)
+- [Equation Citator Tutorial](Equation-Citator-Tutorial/)
 - [knowledge](knowledge/)
 - [ModelTraining](ModelTraining/)
+- [tutorial](tutorial/)
 
 ## unclassified
 

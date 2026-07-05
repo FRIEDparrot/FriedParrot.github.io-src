@@ -1,7 +1,9 @@
-const CITATION_SELECTOR = '.equation-citator-citation[data-ec-kind][data-ec-refs]'
+﻿const CITATION_SELECTOR = '.equation-citator-citation[data-ec-kind][data-ec-refs]'
 const TARGET_SELECTOR = '.equation-citator-target[data-ec-kind]'
 const STYLE_ID = 'equation-citator-theme-module-style'
 const CLEANUP_KEY = '__equationCitatorThemeCleanup'
+
+import { pathMappings } from './equationCitator.config.js'
 
 const pageCache = new Map()
 
@@ -9,6 +11,11 @@ let popover = null
 let activeCitation = null
 let hideTimer = 0
 let hoverToken = 0
+
+// Preview panel state
+let previewTargets = []          // resolved targets for the active citation
+let previewIndex = 0             // which target the iframe is currently showing
+let previewLoadingFrame = null   // hidden iframe used by fetchPageDynamically
 
 function escapeCssValue(value = '') {
   if (typeof CSS !== 'undefined' && typeof CSS.escape === 'function') {
@@ -24,7 +31,7 @@ function slugPart(value = '') {
     .toLowerCase()
     .replace(/&amp;/g, 'and')
     .replace(/&/g, 'and')
-    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-')
+    .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
   return slug || 'target'
@@ -44,12 +51,35 @@ function targetTag(target) {
   return (target?.dataset?.ecTag || target?.dataset?.tag || '').trim()
 }
 
+function normalizedEquationTag(tag) {
+  return String(tag || '').trim().replace(/^eq:/i, '')
+}
+
 function kindsMatch(citationKind, targetKind) {
   return String(citationKind || '').trim().toLowerCase() ===
     String(targetKind || '').trim().toLowerCase()
 }
 
+function tagsMatch(kind, citationTag, targetTagValue) {
+  if (targetTagValue === citationTag) return true
+
+  return String(kind || '').trim().toLowerCase() === 'eq' &&
+    normalizedEquationTag(targetTagValue) === normalizedEquationTag(citationTag)
+}
+
+function targetIdTag(kind, tag) {
+  if (String(kind || '').trim().toLowerCase() === 'eq') {
+    return normalizedEquationTag(tag)
+  }
+
+  return tag
+}
+
 function stableTargetId(kind, tag) {
+  return `equation-citator-${slugPart(kind)}-${slugPart(targetIdTag(kind, tag))}`
+}
+
+function legacyStableTargetId(kind, tag) {
   return `equation-citator-${slugPart(kind)}-${slugPart(tag)}`
 }
 
@@ -58,10 +88,12 @@ function elementOwnerDocument(element) {
 }
 
 function ensureTargetId(target, kind, tag) {
-  if (target.id) return target.id
-
   const ownerDocument = elementOwnerDocument(target)
   const baseId = stableTargetId(kind, tag)
+  const legacyId = legacyStableTargetId(kind, tag)
+
+  if (target.id && target.id !== legacyId) return target.id
+
   const existing = ownerDocument.getElementById(baseId)
   if (!existing || existing === target) {
     target.id = baseId
@@ -83,7 +115,7 @@ function ensureTargetId(target, kind, tag) {
 
 function assignStableTargetIds(root = document) {
   root.querySelectorAll(TARGET_SELECTOR).forEach((target) => {
-    if (target.closest('#equation-citator-preview')) return
+    if (target.closest('.equation-citator-preview')) return
 
     const tag = targetTag(target)
     if (!tag) return
@@ -107,7 +139,7 @@ function findMatchingTarget(root, kind, tag) {
 
   return [...root.querySelectorAll(TARGET_SELECTOR)].find((target) =>
     kindsMatch(kind, target.dataset.ecKind) &&
-    targetTag(target) === wantedTag
+    tagsMatch(kind, wantedTag, targetTag(target))
   ) || null
 }
 
@@ -138,7 +170,8 @@ function findFootnoteDefinition(root, fileId) {
 function hrefLooksLikeKnowledgeBase(href = '') {
   try {
     const url = new URL(href, window.location.href)
-    return url.origin === window.location.origin && url.pathname.includes('/knowledge-base/')
+    if (url.origin !== window.location.origin) return false
+    return pathMappings.some(({ urlPattern }) => url.pathname.includes(urlPattern))
   } catch {
     return false
   }
@@ -159,103 +192,162 @@ function definitionKnowledgeBaseHref(definition) {
   return link?.getAttribute('href') || ''
 }
 
+// Build a URL path from a route-path string.
+// Encodes each segment individually so special characters are safe.
+function encodedRoutePath(routePath) {
+  return `/${String(routePath || '')
+    .replace(/^\/+/, '')
+    .split('/')
+    .map((part) => encodeURIComponent(decodeURIComponent(part)))
+    .join('/')}`
+}
+
+function currentPageDirectoryPath() {
+  const pathname = decodeURIComponent(window.location.pathname)
+    .replace(/\/index\.html$/i, '/')
+    .replace(/\.html$/i, '')
+
+  return pathname.endsWith('/')
+    ? pathname.replace(/\/$/, '')
+    : pathname.replace(/\/[^/]*$/, '')
+}
+
+function resolveFileUrlCandidates(filePath) {
+  const cleaned = String(filePath || '')
+    .trim()
+    .replace(/\\/g, '/')
+    .replace(/^\.?\//, '')
+    .replace(/\.md$/i, '')
+  if (!cleaned) return []
+
+  const currentPathname = window.location.pathname
+  const candidates = []
+  const addCandidate = (routePath) => {
+    if (!routePath) return
+    candidates.push(encodedRoutePath(routePath.replace(/\/+/g, '/')))
+  }
+
+  // Collect candidates from every matching path mapping
+  for (const { urlPattern, baseUrl } of pathMappings) {
+    if (currentPathname.includes(urlPattern)) {
+      const base = String(baseUrl || '').replace(/\/+$/, '')
+      addCandidate(`${base}/${cleaned}`)
+    }
+  }
+
+  // Also try the cleaned path as-is (covers the case where the file path
+  // already starts with a known prefix)
+  if (!candidates.length || cleaned.includes('/')) {
+    addCandidate(cleaned)
+  }
+
+  // Fallback: relative to the current page's directory.
+  // Avoid duplicating a shared prefix (e.g. current dir is
+  // /kb/Equation-Citator-Tutorial and cleaned already starts with
+  const pageDir = currentPageDirectoryPath()
+  if (pageDir) {
+    const dirLast = pageDir.split('/').pop() || ''
+    const fallbackRel = dirLast && cleaned.startsWith(`${dirLast}/`)
+      ? cleaned.slice(dirLast.length + 1)
+      : cleaned
+    addCandidate(`${pageDir}/${fallbackRel}`)
+  }
+
+  return [...new Set(candidates)]
+}
+
+function resolveFileUrl(filePath) {
+  return resolveFileUrlCandidates(filePath)[0] || ''
+}
+
 function resolveFootnoteHref(citation, fileId) {
   const definition = findFootnoteDefinition(document, fileId)
   const href = definitionKnowledgeBaseHref(definition)
   if (href) return href
 
+  // Fallback: look for a footnote ref immediately after the citation element
   const nearbyRef = citation.nextElementSibling?.matches?.('.footnote-ref, sup')
     ? citation.nextElementSibling.querySelector('a[href^="#"]')
     : null
   const targetId = nearbyRef?.getAttribute('href')?.slice(1)
   const nearbyDefinition = targetId ? document.getElementById(decodeURIComponent(targetId)) : null
+  const nearbyHref = definitionKnowledgeBaseHref(nearbyDefinition)
+  if (nearbyHref) return nearbyHref
 
-  return definitionKnowledgeBaseHref(nearbyDefinition)
+  console.warn(
+    '[equation-citator] resolveFootnoteHref failed:',
+    `footnoteId="${fileId}"`,
+    `| definition found by ID: ${definition ? 'yes' : 'no'}`,
+    `| definition had KB link: ${href ? 'yes' : 'no'}`,
+    `| nearbyRef found: ${nearbyRef ? 'yes' : 'no'}`,
+    `| nearbyDefinition found: ${nearbyDefinition ? 'yes' : 'no'}`,
+    `| nearbyDefinition had KB link: ${nearbyHref ? 'yes' : 'no'}`,
+    `| Citation next sibling:`,
+    citation.nextElementSibling
+  )
+  return ''
 }
 
-function htmlFetchCandidates(href) {
-  const url = new URL(href, window.location.href)
-  url.hash = ''
 
-  const candidates = [url.href]
-  const pathname = url.pathname
-  const hasExtension = /\.[a-z0-9]+$/i.test(pathname)
+function fetchPageDynamically(href) {
+  return new Promise((resolve) => {
+    const iframe = document.createElement('iframe')
+    iframe.style.position = 'absolute'
+    iframe.style.width = '0'
+    iframe.style.height = '0'
+    iframe.style.border = 'none'
+    iframe.style.visibility = 'hidden'
+    iframe.src = href
 
-  if (!hasExtension && !pathname.endsWith('/')) {
-    const htmlUrl = new URL(url.href)
-    htmlUrl.pathname = `${pathname}.html`
-    candidates.push(htmlUrl.href)
-  }
+    iframe.onload = () => {
+      try {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document
 
-  if (pathname.endsWith('/')) {
-    const indexUrl = new URL(url.href)
-    indexUrl.pathname = `${pathname}index.html`
-    candidates.push(indexUrl.href)
-  } else if (!hasExtension) {
-    const slashUrl = new URL(url.href)
-    slashUrl.pathname = `${pathname}/`
-    candidates.push(slashUrl.href)
+        // Poll briefly for VitePress to finish client-side hydration
+        const checkRendered = setInterval(() => {
+          const appContainer = iframeDoc.getElementById('app')
 
-    const indexUrl = new URL(url.href)
-    indexUrl.pathname = `${pathname}/index.html`
-    candidates.push(indexUrl.href)
-  }
+          if (appContainer && appContainer.children.length > 0) {
+            clearInterval(checkRendered)
+            assignStableTargetIds(iframeDoc)
+            resolve({
+              document: iframeDoc,
+              url: iframe.contentWindow.location.href,
+              cleanup: () => iframe.remove()
+            })
+          }
+        }, 50)
 
-  return [...new Set(candidates)]
+        // Fallback timeout if rendering doesn't complete
+        setTimeout(() => {
+          clearInterval(checkRendered)
+          resolve({
+            document: iframeDoc,
+            url: href,
+            cleanup: () => iframe.remove()
+          })
+        }, 2000)
+
+      } catch (err) {
+        console.error('[equation-citator] Failed to read iframe contents:', err)
+        iframe.remove()
+        resolve(null)
+      }
+    }
+
+    document.body.appendChild(iframe)
+  })
 }
 
 async function fetchPage(href) {
   const cacheKey = new URL(href, window.location.href).href.replace(/#.*$/, '')
   if (pageCache.has(cacheKey)) return pageCache.get(cacheKey)
 
-  const promise = (async () => {
-    for (const candidate of htmlFetchCandidates(href)) {
-      try {
-        const response = await fetch(candidate, { credentials: 'same-origin' })
-        if (!response.ok) continue
-
-        const html = await response.text()
-        const parsed = new DOMParser().parseFromString(html, 'text/html')
-        assignStableTargetIds(parsed)
-
-        return {
-          document: parsed,
-          url: response.url || candidate
-        }
-      } catch {
-        // Try the next route shape.
-      }
-    }
-
-    return null
-  })()
-
+  const promise = fetchPageDynamically(href)
   pageCache.set(cacheKey, promise)
   return promise
 }
 
-function rewriteRelativeUrls(container, pageUrl) {
-  const attributes = [
-    ['a[href]', 'href'],
-    ['img[src]', 'src'],
-    ['source[src]', 'src'],
-    ['video[src]', 'src'],
-    ['audio[src]', 'src']
-  ]
-
-  for (const [selector, attribute] of attributes) {
-    container.querySelectorAll(selector).forEach((element) => {
-      const value = element.getAttribute(attribute)
-      if (!value || value.startsWith('#') || /^(data:|mailto:|tel:|javascript:)/i.test(value)) return
-
-      try {
-        element.setAttribute(attribute, new URL(value, pageUrl).href)
-      } catch {
-        // Leave malformed URLs untouched.
-      }
-    })
-  }
-}
 
 async function resolveTargets(citation, stopAfterFirst = false) {
   const kind = citation.dataset.ecKind
@@ -273,42 +365,121 @@ async function resolveTargets(citation, stopAfterFirst = false) {
           kind,
           tag,
           target,
-          samePage: true,
           url: window.location.href.replace(/#.*$/, '')
         })
         if (stopAfterFirst) return resolved
+      } else {
+        console.warn(
+          '[equation-citator] Same-page target not found:',
+          `kind="${kind}", tag="${tag}"`,
+          `| Current page: ${window.location.href}`
+        )
       }
 
       continue
     }
 
-    const href = resolveFootnoteHref(citation, ref.file)
-    if (!href) continue
+    // Build the target page URL directly from the relative file path.
+    const hrefs = resolveFileUrlCandidates(ref.file)
+    if (!hrefs.length) {
+      const footnoteId = ref.crossFile;
+      const href = resolveFootnoteHref(citation, footnoteId)
+      if (href) hrefs.push(href)
+    }
 
-    const page = await fetchPage(href)
-    if (!page) continue
+    if (!hrefs.length) {
+      const refsDebug = JSON.stringify({ file: ref.file, crossFile: ref.crossFile, tag })
+      console.warn(
+        '[equation-citator] Could not resolve target URL for cross-file citation:',
+        `kind="${kind}", tag="${tag}"`,
+        `| ref data: ${refsDebug}`,
+        `| direct URL from file path: "${resolveFileUrl(ref.file)}"`,
+        `| Citation element:`,
+        citation
+      )
+      continue
+    }
 
-    const target = findMatchingTarget(page.document, kind, tag)
-    if (target) {
-      resolved.push({
-        kind,
-        tag,
-        target,
-        samePage: false,
-        url: page.url
-      })
-      if (stopAfterFirst) return resolved
+    let fetchedAnyPage = false
+    let foundTarget = false
+
+    for (const href of hrefs) {
+      const page = await fetchPage(href)
+      if (!page) {
+        console.warn(
+          '[equation-citator] Failed to fetch target page for cross-file citation:',
+          `kind="${kind}", tag="${tag}"`,
+          `| href: "${href}"`
+        )
+        continue
+      }
+      fetchedAnyPage = true
+
+      const target = findMatchingTarget(page.document, kind, tag)
+      if (target) {
+        foundTarget = true
+        resolved.push({
+          kind,
+          tag,
+          target,
+          samePage: false,
+          url: page.url
+        })
+        if (stopAfterFirst) return resolved
+        break
+      }
+
+      console.warn(
+        '[equation-citator] Target not found on fetched page:',
+        `kind="${kind}", tag="${tag}"`,
+        `| Fetched page: ${page.url}`,
+        `| Available targets on page:`,
+        [...page.document.querySelectorAll('[data-ec-kind]')].map((el) => ({
+          kind: el.dataset.ecKind,
+          tag: el.dataset.ecTag || el.dataset.tag,
+          id: el.id
+        }))
+      )
+    }
+
+    if (!fetchedAnyPage) {
+      console.warn(
+        '[equation-citator] Failed to fetch target page for cross-file citation:',
+        `kind="${kind}", tag="${tag}"`,
+        `| href candidates: ${hrefs.map((href) => `"${href}"`).join(', ')}`
+      )
+      continue
+    }
+
+    if (!foundTarget) {
+      const footnoteId = ref.crossFile || ref.file
+      const href = resolveFootnoteHref(citation, footnoteId)
+      if (href && !hrefs.includes(href)) {
+        const page = await fetchPage(href)
+        const target = page ? findMatchingTarget(page.document, kind, tag) : null
+        if (target) {
+          resolved.push({
+            kind,
+            tag,
+            target,
+            samePage: false,
+            url: page.url
+          })
+          if (stopAfterFirst) return resolved
+        }
+      }
     }
   }
 
   return resolved
 }
 
+
 function ensurePopover() {
   if (popover) return popover
 
   popover = document.createElement('div')
-  popover.id = 'equation-citator-preview'
+  popover.classList.add('equation-citator-preview')
   popover.setAttribute('role', 'tooltip')
   popover.hidden = true
   popover.addEventListener('mouseenter', () => {
@@ -346,60 +517,385 @@ function positionPopover(anchor) {
   popoverElement.style.left = `${left}px`
 }
 
-function renderLoading(citation) {
+function ensurePreviewIframe() {
+  return ensurePreviewShell().iframe
+}
+
+function previewKindLabel(kind = '') {
+  const normalized = String(kind || '').trim().toLowerCase()
+  const labels = {
+    eq: 'Equation',
+    fig: 'Figure',
+    table: 'Table',
+    thm: 'Theorem',
+    theorem: 'Theorem',
+    lemma: 'Lemma',
+    def: 'Definition',
+    definition: 'Definition',
+    prop: 'Proposition',
+    proposition: 'Proposition',
+    cor: 'Corollary',
+    corollary: 'Corollary'
+  }
+
+  return labels[normalized] || (normalized ? normalized[0].toUpperCase() + normalized.slice(1) : 'Citation')
+}
+
+function previewTitle(resolved) {
+  if (!resolved) return 'Citation preview'
+
+  const tag = String(resolved.tag || '').trim()
+  const label = previewKindLabel(resolved.kind)
+  return tag ? `${label} ${tag}` : `${label} preview`
+}
+
+function ensurePreviewShell() {
+  const el = ensurePopover()
+  let header = el.querySelector('.ec-preview-header')
+  let titleRow = el.querySelector('.ec-preview-title-row')
+  let title = el.querySelector('.ec-preview-title')
+  let counter = el.querySelector('.ec-preview-counter')
+  let actions = el.querySelector('.ec-preview-actions')
+  let prev = el.querySelector('.ec-preview-arrow.ec-preview-prev')
+  let next = el.querySelector('.ec-preview-arrow.ec-preview-next')
+  let jump = el.querySelector('.ec-preview-jump')
+  let body = el.querySelector('.ec-preview-body')
+  let iframe = el.querySelector('.equation-citator-preview-iframe')
+
+  if (!header) {
+    header = document.createElement('div')
+    header.className = 'ec-preview-header'
+    el.appendChild(header)
+  }
+
+  if (!titleRow) {
+    titleRow = document.createElement('div')
+    titleRow.className = 'ec-preview-title-row'
+    header.appendChild(titleRow)
+  }
+
+  if (!title) {
+    title = document.createElement('span')
+    title.className = 'ec-preview-title'
+    titleRow.appendChild(title)
+  }
+
+  if (!counter) {
+    counter = document.createElement('span')
+    counter.className = 'ec-preview-counter'
+    titleRow.appendChild(counter)
+  }
+
+  if (!actions) {
+    actions = document.createElement('div')
+    actions.className = 'ec-preview-actions'
+    header.appendChild(actions)
+  }
+
+  if (!prev) {
+    prev = document.createElement('button')
+    prev.className = 'ec-preview-arrow ec-preview-prev'
+    prev.setAttribute('aria-label', 'Previous citation')
+    prev.type = 'button'
+    prev.textContent = '<'
+    prev.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      navigatePreview(-1)
+    })
+  }
+  actions.appendChild(prev)
+
+  if (!next) {
+    next = document.createElement('button')
+    next.className = 'ec-preview-arrow ec-preview-next'
+    next.setAttribute('aria-label', 'Next citation')
+    next.type = 'button'
+    next.textContent = '>'
+    next.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      navigatePreview(1)
+    })
+  }
+  actions.appendChild(next)
+
+  if (!jump) {
+    jump = document.createElement('button')
+    jump.className = 'ec-preview-jump'
+    jump.type = 'button'
+    jump.innerHTML = '&nearr;'
+    jump.title = 'Open target. Ctrl/Cmd-click opens in a new tab.'
+    jump.setAttribute('aria-label', 'Open citation target')
+    jump.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      openActivePreviewTarget(e)
+    })
+    jump.addEventListener('auxclick', (e) => {
+      if (e.button !== 1) return
+      e.preventDefault()
+      e.stopPropagation()
+      openActivePreviewTarget(e)
+    })
+  }
+
+  if (!body) {
+    body = document.createElement('div')
+    body.className = 'ec-preview-body'
+    el.appendChild(body)
+  }
+
+  if (!iframe) {
+    iframe = document.createElement('iframe')
+    iframe.className = 'equation-citator-preview-iframe'
+    iframe.setAttribute('tabindex', '-1')
+    iframe.setAttribute('aria-hidden', 'true')
+    body.appendChild(iframe)
+  } else if (iframe.parentElement !== body) {
+    body.appendChild(iframe)
+  }
+
+  body.appendChild(jump)
+
+  return { prev, next, counter, title, jump, iframe }
+}
+
+function ensureNavControls() {
+  return ensurePreviewShell()
+}
+
+function updateNavControls() {
+  const { prev, next, counter, title, jump } = ensureNavControls()
+  const count = previewTargets.length
+  const show = count > 1
+  const activeTarget = previewTargets[previewIndex]
+
+  prev.hidden = !show
+  next.hidden = !show
+  counter.hidden = !show
+  jump.disabled = !activeTarget
+  title.textContent = previewTitle(activeTarget)
+
+  if (show) {
+    counter.textContent = `(${previewIndex + 1} of ${count})`
+  } else {
+    counter.textContent = ''
+  }
+}
+
+function navigatePreview(delta) {
+  const count = previewTargets.length
+  if (count < 2) return
+
+  previewIndex = (previewIndex + delta + count) % count
+  loadPreviewTarget(previewTargets[previewIndex])
+  updateNavControls()
+}
+
+function buildPreviewUrl(resolved) {
+  const targetId = ensureTargetId(resolved.target, resolved.kind, resolved.tag)
+  const targetUrl = new URL(resolved.url, window.location.href)
+  targetUrl.hash = targetId
+  return targetUrl.href
+}
+
+function openActivePreviewTarget(event = {}) {
+  const resolved = previewTargets[previewIndex]
+  if (!resolved) return
+
+  const targetHref = buildPreviewUrl(resolved)
+  const openInNewTab = event.ctrlKey || event.metaKey || event.button === 1
+
+  if (openInNewTab) {
+    window.open(targetHref, '_blank', 'noopener')
+    return
+  }
+
+  const targetUrl = new URL(targetHref, window.location.href)
+  const currentUrl = new URL(window.location.href)
+  if (
+    targetUrl.origin === currentUrl.origin &&
+    targetUrl.pathname === currentUrl.pathname &&
+    targetUrl.search === currentUrl.search
+  ) {
+    window.location.hash = targetUrl.hash
+    refreshTargetsAndScrollToHash()
+  } else {
+    window.location.href = targetHref
+  }
+
+  hidePopover()
+}
+
+function applyPreviewIframeStyles(iframeDocument) {
+  let style = iframeDocument.getElementById('equation-citator-preview-iframe-style')
+  if (!style) {
+    style = iframeDocument.createElement('style')
+    style.id = 'equation-citator-preview-iframe-style'
+    iframeDocument.head.appendChild(style)
+  }
+
+  style.textContent = `
+    html,
+    body {
+      background: var(--vp-c-bg) !important;
+      overscroll-behavior: contain;
+    }
+
+    .VPNav,
+    .VPLocalNav,
+    .VPSidebar,
+    .VPDocAside,
+    .VPFooter,
+    .VPDocFooter,
+    .prev-next {
+      display: none !important;
+    }
+
+    .Layout,
+    .VPContent,
+    .VPDoc {
+      min-height: auto !important;
+      padding: 0 !important;
+    }
+
+    .VPDoc .container,
+    .VPDoc .content,
+    .VPDoc .content-container,
+    .VPDoc .main {
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .vp-doc {
+      max-width: none !important;
+      padding: 18px 20px 28px !important;
+    }
+
+    .vp-doc h1,
+    .vp-doc h2,
+    .vp-doc h3 {
+      font-size: 15px !important;
+      line-height: 1.35 !important;
+    }
+
+    .equation-citator-preview-current,
+    .equation-citator-target:target {
+      border-radius: 8px;
+      outline: 2px solid color-mix(in srgb, var(--vp-c-brand-1) 34%, transparent);
+      outline-offset: 6px;
+      background: color-mix(in srgb, var(--vp-c-brand-1) 5%, transparent);
+    }
+  `
+}
+
+function suppressPreviewIframeEvents(iframeDocument) {
+  if (iframeDocument.__equationCitatorPreviewEventsBlocked) return
+  iframeDocument.__equationCitatorPreviewEventsBlocked = true
+
+  const blockEvent = (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
+  ;['click', 'dblclick', 'auxclick', 'mousedown', 'mouseup', 'mouseover'].forEach((type) => {
+    iframeDocument.addEventListener(type, blockEvent, true)
+  })
+}
+
+function preparePreviewIframe(iframe, resolved) {
+  const run = () => {
+    try {
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document
+      if (!iframeDocument) return false
+
+      applyPreviewIframeStyles(iframeDocument)
+      suppressPreviewIframeEvents(iframeDocument)
+      assignStableTargetIds(iframeDocument)
+
+      iframeDocument
+        .querySelectorAll('.equation-citator-preview-current')
+        .forEach((target) => target.classList.remove('equation-citator-preview-current'))
+
+      const target = findMatchingTarget(iframeDocument, resolved.kind, resolved.tag)
+      if (!target) return false
+
+      ensureTargetId(target, resolved.kind, resolved.tag)
+      target.classList.add('equation-citator-preview-current')
+      target.scrollIntoView({ block: 'center', inline: 'nearest' })
+      return true
+    } catch (err) {
+      console.warn('[equation-citator] Failed to prepare preview iframe:', err)
+      return true
+    }
+  }
+
+  if (run()) return
+  ;[120, 360, 800].forEach((delay) => {
+    window.setTimeout(run, delay)
+  })
+}
+
+function loadPreviewTarget(resolved) {
+  const iframe = ensurePreviewIframe()
+  iframe.onload = () => preparePreviewIframe(iframe, resolved)
+  iframe.src = buildPreviewUrl(resolved)
+  window.setTimeout(() => preparePreviewIframe(iframe, resolved), 120)
+}
+
+function renderPreviewPanel(citation, resolvedTargets) {
+  previewTargets = resolvedTargets
+  previewIndex = 0
+
   const popoverElement = ensurePopover()
-  popoverElement.className = 'equation-citator-preview is-loading'
-  popoverElement.textContent = 'Loading preview...'
+  popoverElement.className = 'equation-citator-preview'
+
+  ensurePreviewShell()
+
+  loadPreviewTarget(resolvedTargets[0])
+  updateNavControls()
   positionPopover(citation)
 }
 
-function renderNoPreview(citation) {
+function renderEmpty(citation) {
   const popoverElement = ensurePopover()
   popoverElement.className = 'equation-citator-preview is-empty'
   popoverElement.textContent = 'No matching citation target found.'
   positionPopover(citation)
 }
 
-function renderPreview(citation, resolvedTargets) {
+function showLoadingState(citation) {
   const popoverElement = ensurePopover()
-  const clones = resolvedTargets.map((resolved) => {
-    const targetId = ensureTargetId(resolved.target, resolved.kind, resolved.tag)
-    const targetUrl = new URL(resolved.url, window.location.href)
-    targetUrl.hash = targetId
-
-    const clone = resolved.target.cloneNode(true)
-    clone.removeAttribute('id')
-    clone.classList.add('equation-citator-preview-item')
-    clone.dataset.ecPreviewHref = targetUrl.href
-    rewriteRelativeUrls(clone, resolved.url)
-    return clone
-  })
-
-  popoverElement.className = 'equation-citator-preview'
-  popoverElement.replaceChildren(...clones)
-  positionPopover(citation)
+  popoverElement.className = 'equation-citator-preview is-loading'
+  popoverElement.hidden = true
 }
+
 
 async function showForCitation(citation) {
   const token = ++hoverToken
   activeCitation = citation
   window.clearTimeout(hideTimer)
-  renderLoading(citation)
+  showLoadingState(citation)
 
   const resolved = await resolveTargets(citation)
   if (token !== hoverToken || activeCitation !== citation) return
 
   if (!resolved.length) {
-    renderNoPreview(citation)
+    renderEmpty(citation)
     return
   }
 
-  renderPreview(citation, resolved)
+  renderPreviewPanel(citation, resolved)
 }
 
 function hidePopover() {
   activeCitation = null
   hoverToken += 1
+  previewTargets = []
+  previewIndex = 0
+
   if (popover) popover.hidden = true
 }
 
@@ -408,16 +904,10 @@ function scheduleHide() {
   hideTimer = window.setTimeout(hidePopover, 120)
 }
 
+
 function citationFromEvent(event) {
   const target = event.target
   return target instanceof Element ? target.closest(CITATION_SELECTOR) : null
-}
-
-function previewItemFromEvent(event) {
-  const target = event.target
-  return target instanceof Element
-    ? target.closest('#equation-citator-preview .equation-citator-preview-item[data-ec-preview-href]')
-    : null
 }
 
 function onMouseOver(event) {
@@ -435,36 +925,6 @@ function onMouseOut(event) {
   scheduleHide()
 }
 
-function onPreviewDoubleClick(event) {
-  const previewItem = previewItemFromEvent(event)
-  if (!previewItem) return
-
-  event.preventDefault()
-  event.stopPropagation()
-
-  const href = previewItem.dataset.ecPreviewHref
-  if (!href) return
-
-  if (event.ctrlKey || event.metaKey) {
-    window.open(href, '_blank', 'noopener')
-    return
-  }
-
-  const url = new URL(href, window.location.href)
-  const samePage =
-    url.origin === window.location.origin &&
-    url.pathname === window.location.pathname &&
-    url.search === window.location.search
-
-  if (!samePage) {
-    window.location.href = url.href
-    return
-  }
-
-  window.history.pushState(null, '', `${url.pathname}${url.search}${url.hash}`)
-  scrollToCurrentHash()
-  hidePopover()
-}
 
 function scrollToCurrentHash() {
   if (!window.location.hash) return
@@ -491,61 +951,9 @@ function injectStyles() {
 
   const style = document.createElement('style')
   style.id = STYLE_ID
-  style.textContent = `
-    #equation-citator-preview {
-      position: fixed;
-      z-index: 1000;
-      box-sizing: border-box;
-      max-height: min(420px, calc(100vh - 24px));
-      overflow: auto;
-      border: 1px solid var(--vp-c-divider);
-      border-radius: 8px;
-      padding: 12px 14px;
-      color: var(--vp-c-text-1);
-      background: var(--vp-c-bg);
-      box-shadow: var(--vp-shadow-3);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    #equation-citator-preview[hidden] {
-      display: none;
-    }
-
-    #equation-citator-preview.is-loading,
-    #equation-citator-preview.is-empty {
-      color: var(--vp-c-text-2);
-    }
-
-    #equation-citator-preview .equation-citator-target {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-    }
-
-    #equation-citator-preview .equation-citator-preview-item {
-      border-radius: 6px;
-      padding: 8px;
-      cursor: pointer;
-      transition: background-color 0.16s ease;
-    }
-
-    #equation-citator-preview .equation-citator-preview-item:hover,
-    #equation-citator-preview .equation-citator-preview-item:focus-within {
-      background: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
-    }
-
-    #equation-citator-preview mjx-container[display="true"] {
-      overflow: visible !important;
-    }
-
-    .equation-citator-citation {
-      cursor: default;
-    }
-  `
-
   document.head.appendChild(style)
 }
+
 
 export function installEquationCitatorPreviews({ router } = {}) {
   if (typeof window === 'undefined' || typeof document === 'undefined') return
@@ -557,7 +965,6 @@ export function installEquationCitatorPreviews({ router } = {}) {
 
   document.addEventListener('mouseover', onMouseOver)
   document.addEventListener('mouseout', onMouseOut)
-  document.addEventListener('dblclick', onPreviewDoubleClick, true)
   window.addEventListener('scroll', scheduleHide, { passive: true })
   window.addEventListener('resize', scheduleHide, { passive: true })
   window.addEventListener('hashchange', refreshTargetsAndScrollToHash)
@@ -581,7 +988,6 @@ export function installEquationCitatorPreviews({ router } = {}) {
   window[CLEANUP_KEY] = () => {
     document.removeEventListener('mouseover', onMouseOver)
     document.removeEventListener('mouseout', onMouseOut)
-    document.removeEventListener('dblclick', onPreviewDoubleClick, true)
     window.removeEventListener('scroll', scheduleHide)
     window.removeEventListener('resize', scheduleHide)
     window.removeEventListener('hashchange', refreshTargetsAndScrollToHash)
@@ -590,6 +996,7 @@ export function installEquationCitatorPreviews({ router } = {}) {
     observer.disconnect()
 
     if (router) router.onAfterRouteChanged = previousRouteChanged
+    hidePopover()
     if (popover) {
       popover.remove()
       popover = null

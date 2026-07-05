@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --vp-c-brand-1: #2563eb;
   --vp-c-brand-2: #1d4ed8;
   --vp-c-brand-3: #1e40af;
@@ -151,7 +151,6 @@
   background: color-mix(in srgb, var(--callout-color) 9%, transparent);
 }
 
-/* default title bar (when no custom title on the [!TYPE] line) */
 .vp-doc .callout:not([data-callout-has-title])::before {
   content: var(--callout-icon) " " var(--callout-label);
   display: block;
@@ -161,7 +160,6 @@
   font-weight: 700;
 }
 
-/* custom title — the text that followed [!TYPE] on the same line */
 .vp-doc .callout[data-callout-has-title] > p:first-child {
   margin-top: 0;
   color: var(--callout-color);
@@ -181,209 +179,98 @@
   margin-bottom: 0;
 }
 
-/* ── colour groups (light) ───────────────────── */
-
-.callout-note {
-  --callout-color: #3b82f6;
-  --callout-icon:  "✎";
-  --callout-label: "Note";
-}
-
+.callout-note { --callout-color: #3b82f6; --callout-icon: "i"; --callout-label: "Note"; }
 .callout-abstract,
 .callout-summary,
-.callout-tldr {
-  --callout-color: #0d9488;
-  --callout-icon:  "▣";
-  --callout-label: "Summary";
-}
-
+.callout-tldr { --callout-color: #0d9488; --callout-icon: "#"; --callout-label: "Summary"; }
 .callout-info,
-.callout-todo {
-  --callout-color: #0891b2;
-  --callout-icon:  "ℹ";
-  --callout-label: "Info";
-}
-
+.callout-todo { --callout-color: #0891b2; --callout-icon: "i"; --callout-label: "Info"; }
 .callout-tip,
 .callout-hint,
-.callout-important {
-  --callout-color: #059669;
-  --callout-icon:  "✦";
-  --callout-label: "Tip";
-}
-
+.callout-important { --callout-color: #059669; --callout-icon: "+"; --callout-label: "Tip"; }
 .callout-success,
 .callout-check,
-.callout-done {
-  --callout-color: #16a34a;
-  --callout-icon:  "✔";
-  --callout-label: "Success";
-}
-
+.callout-done { --callout-color: #16a34a; --callout-icon: "+"; --callout-label: "Success"; }
 .callout-question,
 .callout-help,
-.callout-faq {
-  --callout-color: #d97706;
-  --callout-icon:  "?";
-  --callout-label: "Question";
-}
-
+.callout-faq { --callout-color: #d97706; --callout-icon: "?"; --callout-label: "Question"; }
 .callout-warning,
 .callout-caution,
-.callout-attention {
-  --callout-color: #ea580c;
-  --callout-icon:  "⚠";
-  --callout-label: "Warning";
-}
-
+.callout-attention { --callout-color: #ea580c; --callout-icon: "!"; --callout-label: "Warning"; }
 .callout-failure,
 .callout-fail,
-.callout-missing {
-  --callout-color: #dc2626;
-  --callout-icon:  "✕";
-  --callout-label: "Failure";
-}
-
+.callout-missing { --callout-color: #dc2626; --callout-icon: "x"; --callout-label: "Failure"; }
 .callout-danger,
 .callout-error,
-.callout-bug {
-  --callout-color: #e11d48;
-  --callout-icon:  "⚡";
-  --callout-label: "Danger";
-}
-
-.callout-example {
-  --callout-color: #7c3aed;
-  --callout-icon:  "◇";
-  --callout-label: "Example";
-}
-
+.callout-bug { --callout-color: #e11d48; --callout-icon: "!"; --callout-label: "Danger"; }
+.callout-example { --callout-color: #7c3aed; --callout-icon: "*"; --callout-label: "Example"; }
 .callout-quote,
-.callout-cite {
-  --callout-color: #6b7280;
-  --callout-icon:  “””;
-  --callout-label: “Quote”;
-}
+.callout-cite { --callout-color: #6b7280; --callout-icon: ">"; --callout-label: "Quote"; }
 
-/* ── equation-citator callout kinds ─────────── */
-
-.callout-table {
-  --callout-color: #0891b2;
-  --callout-icon:  “⊞”;
-  --callout-label: “Table”;
-}
-
+.callout-table { --callout-color: #0891b2; --callout-icon: "#"; --callout-label: "Table"; }
 .callout-eq,
-.callout-equation {
-  --callout-color: #2563eb;
-  --callout-icon:  “∑”;
-  --callout-label: “Equation”;
-}
-
+.callout-equation { --callout-color: #2563eb; --callout-icon: "="; --callout-label: "Equation"; }
 .callout-thm,
-.callout-theorem {
-  --callout-color: #7c3aed;
-  --callout-icon:  “⊡”;
-  --callout-label: “Theorem”;
-}
-
-.callout-lemma {
-  --callout-color: #0d9488;
-  --callout-icon:  “≺”;
-  --callout-label: “Lemma”;
-}
-
+.callout-theorem { --callout-color: #7c3aed; --callout-icon: "T"; --callout-label: "Theorem"; }
+.callout-lemma { --callout-color: #0d9488; --callout-icon: "L"; --callout-label: "Lemma"; }
 .callout-def,
-.callout-definition {
-  --callout-color: #059669;
-  --callout-icon:  “≝”;
-  --callout-label: “Definition”;
-}
-
+.callout-definition { --callout-color: #059669; --callout-icon: "D"; --callout-label: "Definition"; }
 .callout-prop,
-.callout-proposition {
-  --callout-color: #d97706;
-  --callout-icon:  “⊢”;
-  --callout-label: “Proposition”;
-}
-
+.callout-proposition { --callout-color: #d97706; --callout-icon: "P"; --callout-label: "Proposition"; }
 .callout-cor,
-.callout-corollary {
-  --callout-color: #ea580c;
-  --callout-icon:  “∴”;
-  --callout-label: “Corollary”;
-}
+.callout-corollary { --callout-color: #ea580c; --callout-icon: "C"; --callout-label: "Corollary"; }
+.callout-axiom { --callout-color: #dc2626; --callout-icon: "A"; --callout-label: "Axiom"; }
+.callout-proof { --callout-color: #6b7280; --callout-icon: "P"; --callout-label: "Proof"; }
+.callout-remark { --callout-color: #9333ea; --callout-icon: "R"; --callout-label: "Remark"; }
 
-.callout-axiom {
-  --callout-color: #dc2626;
-  --callout-icon:  “⊕”;
-  --callout-label: “Axiom”;
-}
-
-.callout-proof {
-  --callout-color: #6b7280;
-  --callout-icon:  “⊢”;
-  --callout-label: “Proof”;
-}
-
-.callout-remark {
-  --callout-color: #9333ea;
-  --callout-icon:  “✧”;
-  --callout-label: “Remark”;
-}
-
-/* unrecognised equation-citator callout kind — soft teal fallback */
 .ec-callout:not(.callout-table):not(.callout-eq):not(.callout-equation):not(.callout-thm):not(.callout-theorem):not(.callout-lemma):not(.callout-def):not(.callout-definition):not(.callout-prop):not(.callout-proposition):not(.callout-cor):not(.callout-corollary):not(.callout-axiom):not(.callout-proof):not(.callout-remark) {
   --callout-color: #0d9488;
-  --callout-icon:  “”;
-  --callout-label: “Callout”;
+  --callout-icon: ">";
+  --callout-label: "Callout";
 }
 
-/* ── dark-mode colour overrides ──────────────── */
-
-.dark .callout-note                              { --callout-color: #60a5fa; }
+.dark .callout-note { --callout-color: #60a5fa; }
 .dark .callout-abstract,
 .dark .callout-summary,
-.dark .callout-tldr                              { --callout-color: #2dd4bf; }
+.dark .callout-tldr { --callout-color: #2dd4bf; }
 .dark .callout-info,
-.dark .callout-todo                              { --callout-color: #22d3ee; }
+.dark .callout-todo { --callout-color: #22d3ee; }
 .dark .callout-tip,
 .dark .callout-hint,
-.dark .callout-important                         { --callout-color: #34d399; }
+.dark .callout-important { --callout-color: #34d399; }
 .dark .callout-success,
 .dark .callout-check,
-.dark .callout-done                              { --callout-color: #4ade80; }
+.dark .callout-done { --callout-color: #4ade80; }
 .dark .callout-question,
 .dark .callout-help,
-.dark .callout-faq                               { --callout-color: #fbbf24; }
+.dark .callout-faq { --callout-color: #fbbf24; }
 .dark .callout-warning,
 .dark .callout-caution,
-.dark .callout-attention                         { --callout-color: #fb923c; }
+.dark .callout-attention { --callout-color: #fb923c; }
 .dark .callout-failure,
 .dark .callout-fail,
-.dark .callout-missing                           { --callout-color: #f87171; }
+.dark .callout-missing { --callout-color: #f87171; }
 .dark .callout-danger,
 .dark .callout-error,
-.dark .callout-bug                               { --callout-color: #fb7185; }
-.dark .callout-example                           { --callout-color: #a78bfa; }
+.dark .callout-bug { --callout-color: #fb7185; }
+.dark .callout-example { --callout-color: #a78bfa; }
 .dark .callout-quote,
-.dark .callout-cite                              { --callout-color: #9ca3af; }
-
-.dark .callout-table                             { --callout-color: #22d3ee; }
+.dark .callout-cite { --callout-color: #9ca3af; }
+.dark .callout-table { --callout-color: #22d3ee; }
 .dark .callout-eq,
-.dark .callout-equation                          { --callout-color: #60a5fa; }
+.dark .callout-equation { --callout-color: #60a5fa; }
 .dark .callout-thm,
-.dark .callout-theorem                           { --callout-color: #a78bfa; }
-.dark .callout-lemma                             { --callout-color: #2dd4bf; }
+.dark .callout-theorem { --callout-color: #a78bfa; }
+.dark .callout-lemma { --callout-color: #2dd4bf; }
 .dark .callout-def,
-.dark .callout-definition                        { --callout-color: #34d399; }
+.dark .callout-definition { --callout-color: #34d399; }
 .dark .callout-prop,
-.dark .callout-proposition                       { --callout-color: #fbbf24; }
+.dark .callout-proposition { --callout-color: #fbbf24; }
 .dark .callout-cor,
-.dark .callout-corollary                         { --callout-color: #fb923c; }
-.dark .callout-axiom                             { --callout-color: #f87171; }
-.dark .callout-proof                             { --callout-color: #9ca3af; }
-.dark .callout-remark                            { --callout-color: #c084fc; }
+.dark .callout-corollary { --callout-color: #fb923c; }
+.dark .callout-axiom { --callout-color: #f87171; }
+.dark .callout-proof { --callout-color: #9ca3af; }
+.dark .callout-remark { --callout-color: #c084fc; }
 
 /* ---- /callout styles ---- */
 
@@ -426,7 +313,7 @@
 }
 
 .vp-doc .equation-citator-target.equation-citator-figure {
-  width: 100% !important;  /* center the images  */
+  width: 100% !important;
   text-align: center;
 }
 
@@ -467,9 +354,11 @@
   font-style: italic;
 }
 
+/********* citation styles ***********/
+
 .vp-doc .equation-citator-citation {
   color: var(--vp-c-brand-1) !important;
-  cursor: default !important;
+  cursor: pointer !important;
   text-decoration: none !important;
 }
 
@@ -498,7 +387,176 @@
   outline-offset: 2px;
 }
 
-.equation-citator-preview,
+.equation-citator-preview {
+  position: fixed;
+  z-index: 1000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: min(640px, calc(100vw - 32px));
+  height: min(460px, calc(100vh - 80px));
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.18);
+}
+
+.dark .equation-citator-preview {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.44);
+}
+
+.equation-citator-preview[hidden] {
+  display: none;
+}
+
+.equation-citator-preview.is-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 72px;
+  padding: 24px;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+}
+
+.ec-preview-header {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 92px;
+  flex: 0 0 auto;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding: 0 14px;
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 76%, var(--vp-c-bg));
+}
+
+.ec-preview-title-row {
+  display: flex;
+  min-width: 0;
+  grid-column: 2;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.ec-preview-title {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ec-preview-actions {
+  display: flex;
+  flex: 0 0 auto;
+  grid-column: 3;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.ec-preview-body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--vp-c-bg);
+}
+
+.equation-citator-preview-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--vp-c-bg);
+}
+
+.ec-preview-arrow {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  padding: 0;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.ec-preview-jump {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  z-index: 2;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--vp-c-divider) 78%, transparent);
+  border-radius: 6px;
+  padding: 0;
+  color: var(--vp-c-text-1);
+  background: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.92;
+  transition: opacity 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.ec-preview-arrow:hover,
+.ec-preview-jump:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 50%, var(--vp-c-divider));
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  opacity: 1;
+}
+
+.ec-preview-jump:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.ec-preview-counter {
+  flex: 0 0 auto;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ec-preview-arrow[hidden],
+.ec-preview-counter[hidden] {
+  display: none;
+}
+
+.equation-citator-preview .equation-citator-target {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.equation-citator-preview mjx-container[display="true"] {
+  overflow: visible !important;
+}
+
 .equation-citator-preview-popover {
   max-width: min(520px, calc(100vw - 32px));
   border: 1px solid var(--vp-c-divider);
@@ -509,18 +567,15 @@
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
 }
 
-.dark .equation-citator-preview,
 .dark .equation-citator-preview-popover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.34);
 }
 
-.equation-citator-preview img,
 .equation-citator-preview-popover img {
   max-width: 100%;
   height: auto;
 }
 
-/* figure caption inside citation preview popover */
 .equation-citator-preview .figure-caption,
 .equation-citator-preview-popover .figure-caption {
   margin-top: 8px;
@@ -543,12 +598,6 @@
   color: var(--vp-c-text-2);
   font-size: 0.78em;
   font-style: italic;
-}
-
-.equation-citator-preview > .equation-citator-target + .equation-citator-target {
-  margin-top: 12px;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 12px;
 }
 
 .vp-doc .obsidian-link-placeholder {
@@ -603,7 +652,6 @@
   background: rgba(148, 163, 184, 0.52);
   background-clip: content-box;
 }
-
 .VPHome .VPHero .container {
   text-align: center;
 }

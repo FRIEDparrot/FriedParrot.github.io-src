@@ -1,19 +1,5 @@
 export const knowledgeBase = [
   {
-    "title": "Concepts of Diffusion Model",
-    "route": "/knowledge-base/ModelTraining/Concepts of Diffusion Model",
-    "tags": [
-      "deeplearning/diffusion-model",
-      "peclet-number"
-    ],
-    "categories": [
-      "ModelTraining"
-    ],
-    "categorySegments": [
-      "ModelTraining"
-    ]
-  },
-  {
     "title": "KMP algorithm for sub-sequence-search",
     "route": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search",
     "tags": [
@@ -71,19 +57,8 @@ export const knowledgeBase = [
     ]
   },
   {
-    "title": "Quick Start",
-    "route": "/knowledge-base/tutorial/Quick Start",
-    "tags": [],
-    "categories": [
-      "tutorial"
-    ],
-    "categorySegments": [
-      "tutorial"
-    ]
-  },
-  {
-    "title": "Useful Tricks & techniques",
-    "route": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks & techniques",
+    "title": "Useful Tricks and techniques",
+    "route": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks and techniques",
     "tags": [],
     "categories": [
       "Equation Citator Tutorial"
@@ -91,15 +66,6 @@ export const knowledgeBase = [
     "categorySegments": [
       "Equation-Citator-Tutorial"
     ]
-  },
-  {
-    "title": "welcome",
-    "route": "/knowledge-base/welcome",
-    "tags": [],
-    "categories": [
-      "Unclassified"
-    ],
-    "categorySegments": []
   }
 ]
 
@@ -136,8 +102,8 @@ export const knowledgeBaseSidebar = [
         "link": "/knowledge-base/Equation-Citator-Tutorial/Quick Start"
       },
       {
-        "text": "Useful Tricks & techniques",
-        "link": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks & techniques"
+        "text": "Useful Tricks and techniques",
+        "link": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks and techniques"
       }
     ]
   },
@@ -156,38 +122,6 @@ export const knowledgeBaseSidebar = [
             "link": "/knowledge-base/knowledge/ai/obsidian-links"
           }
         ]
-      }
-    ]
-  },
-  {
-    "text": "ModelTraining",
-    "link": "/knowledge-base/ModelTraining/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Concepts of Diffusion Model",
-        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
-      }
-    ]
-  },
-  {
-    "text": "tutorial",
-    "link": "/knowledge-base/tutorial/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Quick Start",
-        "link": "/knowledge-base/tutorial/Quick Start"
-      }
-    ]
-  },
-  {
-    "text": "Unclassified",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "welcome",
-        "link": "/knowledge-base/welcome"
       }
     ]
   }
@@ -224,24 +158,6 @@ export const knowledgeBaseTagSidebar = [
     ]
   },
   {
-    "text": "deeplearning",
-    "link": "/knowledge-base/_tags/deeplearning/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "diffusion-model",
-        "link": "/knowledge-base/_tags/deeplearning/diffusion-model/",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "Concepts of Diffusion Model",
-            "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "text": "docs",
     "link": "/knowledge-base/_tags/docs/",
     "collapsed": true,
@@ -271,17 +187,6 @@ export const knowledgeBaseTagSidebar = [
       {
         "text": "obsidian-links",
         "link": "/knowledge-base/knowledge/ai/obsidian-links"
-      }
-    ]
-  },
-  {
-    "text": "peclet-number",
-    "link": "/knowledge-base/_tags/peclet-number/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Concepts of Diffusion Model",
-        "link": "/knowledge-base/ModelTraining/Concepts of Diffusion Model"
       }
     ]
   },
@@ -350,11 +255,9 @@ export const postsTagSidebar = []
 export const tags = [
   "ai",
   "algorithms/KMP",
-  "deeplearning/diffusion-model",
   "docs",
   "knowledge",
   "notes",
-  "peclet-number",
   "projects",
   "sequence-search",
   "wiki"

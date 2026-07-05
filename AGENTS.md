@@ -22,7 +22,7 @@ Use ES modules for JavaScript and Vue-related files, matching the existing `.mjs
 
 Validate content and theme changes with `npm run docs:build` before committing. For visual or navigation changes, also run `npm run docs:dev` and check affected pages, sidebars, search behavior, Obsidian-style links, and generated tag routes. Do not manually edit generated outputs in `docs/.vitepress/dist/`, `docs/.vitepress/cache/`, or `docs/knowledge-base/_tags/`.
 
-For Equation Citator interactions, distinguish citation elements from preview elements. Citation elements are inline spans with `.equation-citator-citation`; hovering them may change color and show a preview, but must never scroll, jump, push a hash, or open a tab. Preview elements are cloned target blocks inside `#equation-citator-preview` with `.equation-citator-preview-item`; only these preview elements handle navigation: double-click jumps in the current tab, and Ctrl/Cmd + double-click opens another tab.
+For Equation Citator interactions, distinguish citation elements from preview elements. Citation elements are inline spans with `.equation-citator-citation`; hovering them may change color and show a preview, but must never scroll, jump, push a hash, or open a tab. Preview elements are cloned target blocks inside `.equation-citator-preview` with `.equation-citator-preview-item`; only these preview elements handle navigation: double-click jumps in the current tab, and Ctrl/Cmd + double-click opens another tab.
 
 ## Commit & Pull Request Guidelines
 
@@ -31,3 +31,13 @@ Recent commit messages are short, imperative or past-tense summaries, for exampl
 ## Security & Configuration Tips
 
 Do not commit local logs, secrets, or generated build artifacts. GitHub Pages deployment is configured in `.github/workflows/deploy-pages.yml`; changes to build commands should stay aligned with that workflow.
+
+## Equation Citator cross-file URL configuration
+
+Cross-file citations resolve target file paths to URLs using mappings in `docs/.vitepress/theme/equationCitator.config.js`. The `pathMappings` array maps URL path patterns to base URL prefixes. When a citation references a target in another file, the citator checks the current browser URL against each entry's `urlPattern` and resolves the relative file path against the matching `baseUrl`.
+
+To add cross-file resolution for a new section of the site (e.g., posts, projects), add an entry to `pathMappings` in that file.
+
+## Markdown source 
+
+The markdown file to build the knowledge base and posts are provided in the `markdown/` folder. For most of the cases, including rendering issues and html tag issue. Not use the file searched under this folder, since it's not a built version. For the built one, you can often found under /docs. 

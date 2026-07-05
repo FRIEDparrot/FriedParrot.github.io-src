@@ -173,6 +173,15 @@ let holdTimer = 0
 let citySearchTimer = 0
 let citySearchRequestId = 0
 
+interface PreviewOption {
+  id: string;
+  kind: PreviewKind; // Enforces your type here
+  label: string;
+  rainLevel?: 'light' | 'moderate' | 'heavy';
+  snowLevel?: 'light' | 'moderate' | 'heavy';
+  mistLevel?: 'light' | 'moderate' | 'heavy';
+}
+
 const previewOptions = [
   { id: 'auto', kind: 'auto', label: 'Auto' },
   { id: 'clear', kind: 'clear', label: 'Clear' },
@@ -188,7 +197,7 @@ const previewOptions = [
   { id: 'mist-light', kind: 'mist', label: 'Light Mist', mistLevel: 'light' },
   { id: 'mist-moderate', kind: 'mist', label: 'Mist', mistLevel: 'moderate' },
   { id: 'mist-heavy', kind: 'mist', label: 'Heavy Mist', mistLevel: 'heavy' }
-]
+] satisfies PreviewOption[]
 
 const clouds: StyledLayerItem[] = Array.from({ length: 6 }, (_, index) => ({
   id: index,
@@ -706,6 +715,7 @@ function setupCanvas(): () => void {
 
   function resize(): void {
     const ratio = window.devicePixelRatio || 1
+    if (!canvas || !context) return;
     const rect = canvas.getBoundingClientRect()
     const parentRect = canvas.parentElement?.getBoundingClientRect()
     width = rect.width || parentRect?.width || window.innerWidth
@@ -769,6 +779,7 @@ function setupCanvas(): () => void {
   function drawClear(): void {
     const starColor = isDarkMode.value ? '255, 221, 116' : '121, 141, 174'
     const glowColor = isDarkMode.value ? '255, 214, 102' : '247, 188, 76'
+    if (!context) return;
     particles.forEach((star) => {
       star.phase += star.speed
       const pulse = 0.45 + Math.sin(star.phase) * 0.28
@@ -783,6 +794,7 @@ function setupCanvas(): () => void {
   function drawRain(kind: 'rain' | 'storm'): void {
     const rippleStrength = scene.value.rainLevel === 'light' ? 0.72 : 1
     const visibility = isDarkMode.value ? 1.08 : 1.32
+    if (!context) return;
     context.lineWidth = kind === 'storm' || scene.value.rainLevel === 'heavy' ? 0.9 : 0.82
     context.strokeStyle = kind === 'storm'
       ? isDarkMode.value ? 'rgba(205, 225, 255, 0.46)' : 'rgba(84, 125, 190, 0.72)'
@@ -837,6 +849,7 @@ function setupCanvas(): () => void {
       }
       if (flake.x < -20) flake.x = width + 20
       if (flake.x > width + 20) flake.x = -20
+      if (!context) return;
       context.beginPath()
       context.fillStyle = isDarkMode.value
         ? `rgba(235, 248, 255, ${flake.opacity})`
@@ -893,6 +906,7 @@ function setupCanvas(): () => void {
   }
 
   function strokePath(points: Point[]): void {
+    if (!context) return;
     context.beginPath()
     points.forEach((point, index) => {
       if (index === 0) context.moveTo(point.x, point.y)
@@ -919,7 +933,7 @@ function setupCanvas(): () => void {
     const flicker = age < 45 || (age > 82 && age < 130) ? 1 : 0.38
     const alpha = lightning.glow * flicker * (1 - age / lightning.duration)
     const glowColor = isDarkMode.value ? 'rgba(167, 205, 255,' : 'rgba(88, 125, 180,'
-
+    if (!context) return;
     context.save()
     context.globalCompositeOperation = isDarkMode.value ? 'screen' : 'source-over'
     context.lineCap = 'round'
@@ -961,6 +975,7 @@ function setupCanvas(): () => void {
   }
 
   function animate(): void {
+    if (!context) return;
     context.clearRect(0, 0, width, height)
 
     const sceneKey = [

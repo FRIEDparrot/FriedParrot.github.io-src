@@ -17,7 +17,6 @@ This fix is described in 1.2.4 : Fix [bug #31](https://github.com/FRIEDparrot/o
 In the case that we want to find a sequence `target` from `pattern`.   
 
 When comparing a pattern : 
-
 ![[Algorithms/assets/Pasted image 20260629090315.png|402]]
 
 1. firstly, compare all the pattern sequence 

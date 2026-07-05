@@ -121,7 +121,7 @@ $$
 \Large\boxed{E = mc^2} \tag{1.1}
 $$
 
-To cite this equation, type `\ref{eq:1.1}` which renders as: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1</span>)</span>
+To cite this equation, type `\ref{eq:1.1}` which renders as: $\ref{eq:1.1}$
 
 **Quick Commands** (use ctrl + p to search and add a hotkey to that😄!):  
 - `Insert a citation in cursor position` : Quickly insert `\ref{}`
@@ -139,11 +139,11 @@ To cite this equation, type `\ref{eq:1.1}` which renders as: <span class="equati
 > You can **only cite 1 type** of either  equation, figure or callout in a citation, such as `$\ref{eq:1.1, 1.2, 1.3}$` or `$\ref{fig:1.1, 1.2, 1.3}$`,  and it will take the begin from `ref{` as the prefix to mark which type you cite. So mixed citation `\ref{eq:1.1, fig:1.2, table:1.3}` is not allowed.  
 
 ### 1.2 Multiple Citations
-Cite multiple equations with commas: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span> 
+Cite multiple equations with commas: $\ref{eq:1.1, 1.2, 1.3}$ 
 $$\boxed{F = ma} \tag{1.2}$$
 $$\boxed{p = mv} \tag{1.3}$$
 
-**Continuous Citations**: Enable in settings to render `$\ref{eq:1.1, 1.2, 1.3}$` as <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span> 
+**Continuous Citations**: Enable in settings to render `$\ref{eq:1.1, 1.2, 1.3}$` as $\ref{eq:1.1~3}$ 
 
 ### 1.3 Cross-file Citations  
 
@@ -154,7 +154,7 @@ The cross-file citation **relies on the built-in footnote system of obsidian** :
 [^2]: [[Document_B|Report B]]
 ```
 
-The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;M1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">eq:M1</span>)</span>[^1]  and  <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;test-table&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">test-table</span></span>[^1] 
+The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite $\ref{eq:1^{eq:M1}}$  and  $\ref{table:1^{test-table}}$ 
 
 ### 1.4 Interactive Features
 The following interactive features are really useful for you to quickly check and manage your equations, supports are listed in following table :
@@ -191,7 +191,7 @@ We support both wiki link and markdown link format.
 
 ![[Equation-Citator-Tutorial/assets/minecraft-test-image.png|fig:1.3|title:minecraft|desc:a test minecraft picture example|200]]
 
-We can use <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.3</span></span> to cite the above **figure**. 
+We can use $\ref{fig:1.3}$ to cite the above **figure**. 
 
 This will create :
 - A figure with label `fig:1.3`
@@ -201,12 +201,11 @@ This will create :
 #### 2. Support for Excalidraw and section preview
 
 ![[Equation-Citator-Tutorial/assets/Excalidraw Support.png|fig:1.5|348]]
-
-Also, after `v1.3.3`, we can also cite the `excalidraw` image with same syntax  <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.5&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.5</span></span>. 
+Also, after `v1.3.3`, we can also cite the `excalidraw` image with same syntax  $\ref{fig:1.5, }$. 
 
 Note the `excalidraw` and `excalidraw.md` should be included in the `settings > Display (Categorical) > Others > Extension names using Markdown renderer`, the extension `excalidraw.md` must be added. 
 
-But **since the grammar of external file link view `![[#(3) Citing Clarity|fig:1.6]]` is same as image**, we still reckon it a valid image. So when `md` is in the `Extension names using Markdown renderer` setting, we can even cite the section preview as <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.6&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.6</span></span> (but there would be no caption) :
+But **since the grammar of external file link view `![[#(3) Citing Clarity|fig:1.6]]` is same as image**, we still reckon it a valid image. So when `md` is in the `Extension names using Markdown renderer` setting, we can even cite the section preview as $\ref{fig:1.6, }$ (but there would be no caption) :
 
 ![[#(3) Citing Clarity|fig:1.6]]
 
@@ -218,7 +217,7 @@ To rename figure tags, you can right-click image to select the whole, and select
 
 #### 4. Limitations 
 
-> Note this plugin doesn't support creating caption for markdown link format images from web-link. But you can still cite it with <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.7&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.7</span></span>. 
+> Note this plugin doesn't support creating caption for markdown link format images from web-link. But you can still cite it with $\ref{fig:1.7}$. 
 > 
 > **Why we not support** : We add caption inside class `.internal-embed image-embed`, and web-link image is rendered as `<img>` without this wrapper class. Creating element outside those images would cause some issue in editing. You can simply use `copy image` in your browser and paste it to make it a local image file.
 
@@ -239,7 +238,7 @@ So here we give an example  for how to cite a table :
 > | Widget A | $100K | +15% |
 > | Widget B | $150K | +22% |
 
-Cite the table using: `$\ref{table:2.1}$`, rendered as <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;2.1&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">2.1</span></span>  
+Cite the table using: `$\ref{table:2.1}$`, rendered as $\ref{table:2.1}$  
 
 > [!hint] Edit table in callouts 
 > Put table in callout makes it hard to edit. But we have a trick to edit it quicker. 
@@ -288,7 +287,6 @@ By default, the panel uses a **reliable rendering method** that ensures equation
 Equation Manage panel is one of the most powerful feature of v1.3.0, it allows you to cite and search equation fast and easy, **No need to scroll or remember syntax or equation numbers!** 
 
 #### 3.1 Usage of buttons on panel toolbar 
-
 ![[Equation-Citator-Tutorial/assets/panel_toolbars.png|244]]
 
 We use the button on `outline` mode for tutorial, The main panel includes following buttons :  

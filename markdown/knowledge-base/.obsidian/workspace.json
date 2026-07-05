@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "79d1ec717e3e2f57",
+    "id": "a6c5fc5d3b04928d",
     "type": "split",
     "children": [
       {
-        "id": "69c0f0d2f60448ee",
+        "id": "d56ff58d6e1f9e86",
         "type": "tabs",
         "children": [
           {
-            "id": "364ae931852d5285",
+            "id": "19c38c6b03411ac0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,34 +22,35 @@
             }
           },
           {
-            "id": "19e2c77e48125c00",
+            "id": "e095dd18c09695fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Equation-Citator-Tutorial/Useful Tricks & techniques.md",
+                "file": "Equation-Citator-Tutorial/Useful Tricks and techniques.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Useful Tricks & techniques"
+              "title": "Useful Tricks and techniques"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "7110bc3a031ba578",
+    "id": "4b180c5902ed075c",
     "type": "split",
     "children": [
       {
-        "id": "6ed449d59fc85e5e",
+        "id": "121b075a90b32769",
         "type": "tabs",
         "children": [
           {
-            "id": "cb41c9e87b90622b",
+            "id": "b40ed2e708f3b3bf",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -62,7 +63,7 @@
             }
           },
           {
-            "id": "9dbb534371cd39ef",
+            "id": "5cf986d148f8083c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -79,7 +80,7 @@
             }
           },
           {
-            "id": "74143be45c57cfac",
+            "id": "918f2e65bee02578",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -92,22 +93,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 234.5
   },
   "right": {
-    "id": "efb5d495a46848ac",
+    "id": "72ae3551721f50a7",
     "type": "split",
     "children": [
       {
-        "id": "5c91483a1c349f80",
+        "id": "8df1470f9a8b65b5",
         "type": "tabs",
         "children": [
           {
-            "id": "06c82ac3eb3a0483",
+            "id": "327e2ba7e00f4d19",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Equation-Citator-Tutorial/Quick Start.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,24 +119,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Quick Start"
             }
           },
           {
-            "id": "4bfb2ae4c6a9b3c2",
+            "id": "a734149ff22bd6ed",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Equation-Citator-Tutorial/Quick Start.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Quick Start"
             }
           },
           {
-            "id": "cd815ce2d7e086e7",
+            "id": "4d18667387f577c1",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -149,7 +152,7 @@
             }
           },
           {
-            "id": "eae5abd21d4e69ac",
+            "id": "01d8862eef0a2c8e",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -163,24 +166,36 @@
             }
           },
           {
-            "id": "3166e94c62b6572f",
+            "id": "d75d9d6ecc0a0c5d",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "Algorithms/KMP algorithm for sub-sequence-search.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of KMP algorithm for sub-sequence-search"
+            }
+          },
+          {
+            "id": "928dff58b72f703f",
+            "type": "leaf",
+            "state": {
+              "type": "equation-arrange-panel",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "equation-arrange-panel"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 403.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -191,12 +206,60 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "equation-citator:Auto-number current file equations": false,
+      "equation-citator:Auto-number current file figures": false,
+      "equation-citator:Open equation manage panel": false
     }
   },
-  "active": "364ae931852d5285",
+  "active": "e095dd18c09695fb",
   "lastOpenFiles": [
-    "Equation-Citator-Tutorial/Useful Tricks & techniques.md",
-    "Equation-Citator-Tutorial/Quick Start.md"
+    "Equation-Citator-Tutorial/Quick Start.md",
+    "Algorithms/KMP algorithm for sub-sequence-search.md",
+    "Equation-Citator-Tutorial/Useful Tricks and techniques.md",
+    "Equation-Citator-Tutorial/Test1.md",
+    "welcome.md",
+    "ModelTraining/index.md",
+    "ModelTraining/Concepts of Diffusion Model.md",
+    "knowledge/index.md",
+    "knowledge/ai/index.md",
+    "Equation-Citator-Tutorial/index.md",
+    "Algorithms/index.md",
+    "tutorial/index.md",
+    "tutorial",
+    "Equation-Citator-Tutorial/assets/panel_toolbars.png",
+    "Equation-Citator-Tutorial/assets",
+    "Equation-Citator-Tutorial/Quick Start - Ori-exported.md",
+    "Equation-Citator-Tutorial/tutorials/img/test_image.png",
+    "Equation-Citator-Tutorial/tutorials/img/panel_toolbars.png",
+    "Equation-Citator-Tutorial/tutorials/img/Excalidraw Support.png",
+    "Equation-Citator-Tutorial/tutorials/img/Equation Citator Logo.png",
+    "Equation-Citator-Tutorial/tutorials/img",
+    "Equation-Citator-Tutorial/tutorials/test_image.png",
+    "Equation-Citator-Tutorial/tutorials/panel_toolbars.png",
+    "Equation-Citator-Tutorial/tutorials/Excalidraw Support.md",
+    "Equation-Citator-Tutorial/tutorials/Excalidraw logo.svg",
+    "Equation-Citator-Tutorial/tutorials/Equation Citator Logo.excalidraw.md",
+    "Equation-Citator-Tutorial/tutorials",
+    "Equation-Citator-Tutorial/Quick Start - Ori.md",
+    "Equation-Citator-Tutorial/Quick Start - Copy.md",
+    "Excalidraw Support.md",
+    "index.md",
+    "assets/Pasted image 20260630221754.png",
+    "assets/bak",
+    "Equation-Citator-Tutorial/assets/Excalidraw Support.png",
+    "Equation-Citator-Tutorial/Equation Citator Logo.excalidraw.md",
+    "Equation-Citator-Tutorial/Excalidraw Support.md",
+    "knowledge/Quick Start.md",
+    "Equation-Citator-Tutorial/img",
+    "Equation-Citator-Tutorial/New folder",
+    "Equation-Citator-Tutorial",
+    "_tags/excalidraw/index.md",
+    "_tags/excalidraw",
+    "knowledge/Excalidraw Support.md",
+    "_tags/deeplearning/diffusion-model/index.md",
+    "_tags/deeplearning/index.md",
+    "_tags/deeplearning/diffusion-model"
   ]
 }

@@ -1,6 +1,18 @@
 ---
-title: obsidian-equation-citator
-description: Obsidian plugin for Latex-like equation citations
+title: Equation Citator 1.3.4 Documentation
+description: A Powerful, Convenient & Elegant Academic Tool for Citation.
 ---
 
-<ProjectPage repo="FRIEDparrot/obsidian-equation-citator" />
+<p class="equation-citator-doc-logo">
+  <img src="/equation-citator-logo.png" alt="Equation Citator logo" width="180">
+</p>
+
+# Equation Citator 1.3.4 Documentation
+
+A Powerful, Convenient & Elegant Academic Tool for Citation.
+
+## Tutorials
+
+## Change Logs
+
+## API Documentations

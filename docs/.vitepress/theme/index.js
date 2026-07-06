@@ -5,7 +5,7 @@ import WeatherHome from './components/WeatherHome.vue'
 import ProjectList from './components/ProjectList.vue'
 import ProjectPage from './components/ProjectPage.vue'
 import ProjectIndexLayout from './components/ProjectIndexLayout.vue'
-import { install as installEquationCitatorPreviews } from './equationCitator.js'
+import { install as installEquationCitatorPreviews } from '../plugins/equation-citator.js'
 import './custom.css'
 
 export default {

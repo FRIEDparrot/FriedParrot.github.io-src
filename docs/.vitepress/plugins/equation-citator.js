@@ -3,7 +3,7 @@ const TARGET_SELECTOR = '.equation-citator-target[data-ec-kind]'
 const STYLE_ID = 'equation-citator-theme-module-style'
 const CLEANUP_KEY = '__equationCitatorThemeCleanup'
 
-import { pathMappings } from './equationCitator.config.js'
+import { pathMappings } from '../../../equation-citator.config.js'
 
 const pageCache = new Map()
 
@@ -946,23 +946,12 @@ function refreshTargetsAndScrollToHash() {
   scrollToCurrentHash()
 }
 
-function injectStyles() {
-  if (document.getElementById(STYLE_ID)) return
-
-  const style = document.createElement('style')
-  style.id = STYLE_ID
-  document.head.appendChild(style)
-}
-
-
 export function installEquationCitatorPreviews({ router } = {}) {
   if (typeof window === 'undefined' || typeof document === 'undefined') return
 
   window[CLEANUP_KEY]?.()
-
-  injectStyles()
   refreshTargetsAndScrollToHash()
-
+  
   document.addEventListener('mouseover', onMouseOver)
   document.addEventListener('mouseout', onMouseOut)
   window.addEventListener('scroll', scheduleHide, { passive: true })

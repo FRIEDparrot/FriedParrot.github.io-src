@@ -17,5 +17,14 @@
       ],
       "key": " "
     }
+  ],
+  "equation-citator:box-current-equation": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Q"
+    }
   ]
 }

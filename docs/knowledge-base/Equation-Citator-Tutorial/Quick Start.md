@@ -154,7 +154,7 @@ The cross-file citation **relies on the built-in footnote system of obsidian** :
 [^2]: [[Document_B|Report B]]
 ```
 
-The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;M1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">eq:M1</span>)</span>[^1]  and  <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;test-table&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">test-table</span></span>[^1] 
+The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;eq:M1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">eq:M1</span>)</span>[^1]  and  <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;test-table&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">test-table</span></span>[^1] 
 
 ### 1.4 Interactive Features
 The following interactive features are really useful for you to quickly check and manage your equations, supports are listed in following table :
@@ -200,13 +200,13 @@ This will create :
 
 #### 2. Support for Excalidraw and section preview
 
-![[Equation-Citator-Tutorial/assets/Excalidraw Support.png|fig:1.5|348]]
+![[Equation-Citator-Tutorial/assets/Excalidraw Support.png|fig:1.5|357]]
 
 Also, after `v1.3.3`, we can also cite the `excalidraw` image with same syntax  <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.5&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.5</span></span>. 
 
 Note the `excalidraw` and `excalidraw.md` should be included in the `settings > Display (Categorical) > Others > Extension names using Markdown renderer`, the extension `excalidraw.md` must be added. 
 
-But **since the grammar of external file link view `![[#(3) Citing Clarity|fig:1.6]]` is same as image**, we still reckon it a valid image. So when `md` is in the `Extension names using Markdown renderer` setting, we can even cite the section preview as <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.6&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.6</span></span> (but there would be no caption) :
+But **since the grammar of external file link view `![[#(3) Citing Clarity|fig:1.6]]` is same as image**, we still reckon it a valid image. So when `md` is in the `Extension names using Markdown renderer` setting, we can even cite the section preview as <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.6&quot;}]' style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.6</span></span> (but there would be no caption) :<span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;2.1&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">2.1</span></span> 
 
 ![[#(3) Citing Clarity|fig:1.6]]
 
@@ -289,7 +289,7 @@ Equation Manage panel is one of the most powerful feature of v1.3.0, it allows y
 
 #### 3.1 Usage of buttons on panel toolbar 
 
-![[Equation-Citator-Tutorial/assets/panel_toolbars.png|244]]
+![[Equation-Citator-Tutorial/assets/panel_toolbars.png|234]]
 
 We use the button on `outline` mode for tutorial, The main panel includes following buttons :  
 1. Preview item select : select between `equations`, `figures` and `callouts` to preview in the panel.

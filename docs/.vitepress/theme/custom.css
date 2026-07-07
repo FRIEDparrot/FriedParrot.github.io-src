@@ -420,6 +420,7 @@
   padding: 24px;
   color: var(--vp-c-text-2);
   font-size: 14px;
+  pointer-events: none;
 }
 
 .ec-preview-header {

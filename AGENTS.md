@@ -18,6 +18,10 @@ There is no dedicated test command; use `npm run docs:build` as the primary vali
 
 Use ES modules for JavaScript and Vue-related files, matching the existing `.mjs` and `.js` files. Keep indentation at two spaces in JavaScript, Vue, JSON, and Markdown examples. Prefer descriptive kebab-case filenames for Markdown routes, such as `docs/projects/fish-segmentation.md`; preserve existing filenames when editing current pages. Use frontmatter `tags` for knowledge-base classification, either as an inline array or YAML list.
 
+## Documentation & Comments
+
+When adding or changing code, document functions whose behavior is not easy to infer from their name and local code. As a rule of thumb, add a short JSDoc or focused inline comments when a function has high cognitive complexity, roughly above 18, or when it coordinates parsing, path resolution, DOM navigation, markdown token rewriting, cross-file citation behavior, or other non-obvious control flow. Explain the intent, inputs, output shape, and important edge cases; avoid comments that merely restate individual lines.
+
 ## Testing Guidelines
 
 Validate content and theme changes with `npm run docs:build` before committing. For visual or navigation changes, also run `npm run docs:dev` and check affected pages, sidebars, search behavior, Obsidian-style links, and generated tag routes. Do not manually edit generated outputs in `docs/.vitepress/dist/`, `docs/.vitepress/cache/`, or `docs/knowledge-base/_tags/`.
@@ -47,3 +51,7 @@ The generated `id` attributes are still used after a target has been resolved. `
 ## Markdown source 
 
 The markdown file to build the knowledge base and posts are provided in the `markdown/` folder. For most of the cases, including rendering issues and html tag issue. Not use the file searched under this folder, since it's not a built version. For the built one, you can often found under /docs. 
+
+
+
+# In packages/equation citator 

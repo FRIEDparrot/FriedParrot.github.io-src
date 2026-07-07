@@ -189,6 +189,10 @@ export default defineConfig({
       md.use(markdownItFootnote)
       md.use(equationCitatorMarkdownIt, {
         enableObsidianCallouts: true,
+        pathMapping: [{ '/knowledge-base': '/src/docs/knowledge-base' }]
+      })
+      md.core.ruler.before('inline', 'repo-markdown-path', (state) => {
+        state.env.markdownPath = state.env.relativePath ? `/src/docs/${state.env.relativePath}` : ''
       })
       md.core.ruler.before('normalize', 'knowledge-base-title', (state) => {
         state.src = ensureKnowledgeBaseTitle(state.src, state.env.relativePath, state.env.frontmatter)

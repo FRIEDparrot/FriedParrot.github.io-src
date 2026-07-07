@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { convertObsidianLinksInText } from './content-utils.mjs'
 
 const repoRoot = process.cwd()
 const docsRoot = path.join(repoRoot, 'docs')
@@ -90,9 +89,8 @@ function collectMarkdownEntries(rootDir) {
     if (originalRaw.startsWith(generatedListingMarker)) continue
 
     const rel = path.relative(docsRoot, file).replace(/\\/g, '/')
-    const convertedRaw = convertObsidianLinksInText(originalRaw, { relativePath: rel })
 
-    const { frontmatter, body } = splitFrontmatter(convertedRaw)
+    const { frontmatter, body } = splitFrontmatter(originalRaw)
     const route = `/${rel.replace(/\.md$/, '')}`
 
     const tags = parseTags(frontmatter, body)

@@ -38,6 +38,12 @@ Cross-file citations resolve target file paths to URLs using mappings in `docs/.
 
 To add cross-file resolution for a new section of the site (e.g., posts, projects), add an entry to `pathMappings` in that file.
 
+## Equation Citator target IDs and navigation
+
+Equation Citator does not use generated `id` attributes as the primary way to decide which equation, figure, or callout a citation references. The markdown plugin wraps targets with `.equation-citator-target` and writes semantic data attributes such as `data-ec-kind`, `data-ec-tag`, and `data-tag`. At runtime, `findMatchingTarget()` searches `.equation-citator-target[data-ec-kind]` elements and matches citation references by kind and tag. Equation tags are normalized so `eq:1.1` and `1.1` can match for equation targets.
+
+The generated `id` attributes are still used after a target has been resolved. `assignStableTargetIds()`/`ensureTargetId()` assigns stable ids like `equation-citator-eq-1-1`, preserving a non-legacy existing id when present and adding a hashed fallback when duplicate targets would otherwise collide. Preview and jump navigation then call `buildPreviewUrl()`, put the resolved target id into the URL hash, and use `scrollToCurrentHash()` with `document.getElementById(...)` plus `scrollIntoView(...)` to move to that target. In short: `data-ec-kind` and tag attributes identify targets; `id` attributes provide stable hash links and scrolling once the target is known.
+
 ## Markdown source 
 
 The markdown file to build the knowledge base and posts are provided in the `markdown/` folder. For most of the cases, including rendering issues and html tag issue. Not use the file searched under this folder, since it's not a built version. For the built one, you can often found under /docs. 

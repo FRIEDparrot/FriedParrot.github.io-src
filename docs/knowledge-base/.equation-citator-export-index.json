@@ -1,18 +1,18 @@
 {
   "_comment": "this file is created to track the exported files by equation citator last time.",
   "version": 1,
-  "generatedAt": "2026-07-06T02:22:21.220Z",
+  "generatedAt": "2026-07-07T18:15:23.651Z",
   "files": [
-    "Algorithms/KMP algorithm for sub-sequence-search.md",
     "Algorithms/assets/Pasted image 20260629090315.png",
-    "Equation-Citator-Tutorial/Quick Start.md",
-    "Equation-Citator-Tutorial/Useful Tricks and techniques.md",
+    "Algorithms/KMP algorithm for sub-sequence-search.md",
+    "dev/index.md",
+    "dev/project-summary.md",
     "Equation-Citator-Tutorial/assets/Equation Citator Logo.png",
     "Equation-Citator-Tutorial/assets/Excalidraw Support.png",
     "Equation-Citator-Tutorial/assets/minecraft-test-image.png",
     "Equation-Citator-Tutorial/assets/panel_toolbars.png",
-    "dev/index.md",
-    "dev/project-summary.md",
+    "Equation-Citator-Tutorial/Quick Start.md",
+    "Equation-Citator-Tutorial/Useful Tricks and techniques.md",
     "knowledge/ai/obsidian-links.md"
   ]
 }

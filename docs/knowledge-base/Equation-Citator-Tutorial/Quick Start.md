@@ -7,8 +7,14 @@
 
 ![[Equation-Citator-Tutorial/assets/Equation Citator Logo.png|fig:1|title:Equation Citator|250]]
 
+$$
+test \tag{P1}
+$$
 ### ✨ Core Features
 
+$$
+test \tag{1.1}
+$$
 The Equation Citator plugin transforms Obsidian into a powerful academic writing environment with LaTeX-style citations. Making referencing in the vault easier than ever. The core features includes : 
 - **Equation Citations**: Tag and reference equations with `\tag{}` and `\ref{}` 
 - **Auto-numbering**: Automatically number equations for easy-management 
@@ -21,7 +27,8 @@ The Equation Citator plugin transforms Obsidian into a powerful academic writing
 > **Typst Mode support** : This plugin also support [obsidian typst mate](https://github.com/azyarashi/obsidian-typst-mate), you can set `settings > Display (Categorical) > Others > enable typst mode` make it compatible with typst syntax.
 
 ## 👋🏻 Before Everything start 
-There are some very simple writing guidelines you should follow : 
+There are some very simple writing guidelines you should follow :  
+$$test \tag{2.1} $$
 ### (1) Code block format 
 Always use 3 backticks for code block like following (other numbers are not recommended) :  
 ```latex
@@ -118,10 +125,9 @@ The citation syntax are summarized as following table,  if you think these are v
 ### 1.1 Creating and Citing Equations 
 Add a tag to any equation using `\tag{label}`: 
 $$
-\Large\boxed{E = mc^2} \tag{1.1}
+\boxed{\Large E = mc^2 } \tag{4.1.1}
 $$
-
-To cite this equation, type `\ref{eq:1.1}` which renders as: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1</span>)</span>
+To cite this equation, type `\ref{eq:1.1}` which renders as: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.1.1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">4.1.1</span>)</span>
 
 **Quick Commands** (use ctrl + p to search and add a hotkey to that😄!):  
 - `Insert a citation in cursor position` : Quickly insert `\ref{}`
@@ -139,11 +145,11 @@ To cite this equation, type `\ref{eq:1.1}` which renders as: <span class="equati
 > You can **only cite 1 type** of either  equation, figure or callout in a citation, such as `$\ref{eq:1.1, 1.2, 1.3}$` or `$\ref{fig:1.1, 1.2, 1.3}$`,  and it will take the begin from `ref{` as the prefix to mark which type you cite. So mixed citation `\ref{eq:1.1, fig:1.2, table:1.3}` is not allowed.  
 
 ### 1.2 Multiple Citations
-Cite multiple equations with commas: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span> 
-$$\boxed{F = ma} \tag{1.2}$$
-$$\boxed{p = mv} \tag{1.3}$$
+Cite multiple equations with commas: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.1.1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">4.1.1</span>)</span>, <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.2.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.2.2&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">4.2.1~2</span>)</span> 
+$$\boxed{F = ma } \tag{4.2.1} $$
+$$\boxed{p = mv} \tag{4.2.2} $$
 
-**Continuous Citations**: Enable in settings to render `$\ref{eq:1.1, 1.2, 1.3}$` as <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span> 
+**Continuous Citations**: Enable in settings to render `$\ref{eq:1.1, 1.2, 1.3}$` as <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.1.1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">4.1.1</span>)</span>, <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.2.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;4.2.2&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">4.2.1~2</span>)</span> 
 
 ### 1.3 Cross-file Citations  
 
@@ -154,7 +160,7 @@ The cross-file citation **relies on the built-in footnote system of obsidian** :
 [^2]: [[Document_B|Report B]]
 ```
 
-The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;eq:M1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">eq:M1</span>)</span>[^1]  and  <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;test-table&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">test-table</span></span>[^1] 
+The syntax is: `$\ref{eq:footnote^{tag}}$`,  For example, we can cite <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;M1&quot;}]' style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">M1</span>)</span>[^1]  and  <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs='[{&quot;file&quot;:&quot;Equation-Citator-Tutorial/Useful Tricks and techniques.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;test-table&quot;}]' style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">test-table</span></span>[^1] 
 
 ### 1.4 Interactive Features
 The following interactive features are really useful for you to quickly check and manage your equations, supports are listed in following table :
@@ -179,14 +185,23 @@ Select the `\tag{}` in the equation you want to rename, then right-click and sel
 #### 1. Grammar  
 We use the enhanced image syntax to make figures citable : 
 
+$$
+Hekko \tag{5.1.1}
+$$
+
 ```markdown
 %%wiki link format%%
 ![[James_Lovell.jpg|fig:3.1|desc:description]]
+
+## This is a false  heading 
 
 %%markdown link format%%
 ![fig:1.3|title:test|desc:Optional description](images.png) 
 ```
 
+$$
+Hekko \tag{5.1.2}
+$$
 We support both wiki link and markdown link format.
 
 ![[Equation-Citator-Tutorial/assets/minecraft-test-image.png|fig:1.3|title:minecraft|desc:a test minecraft picture example|200]]
@@ -197,6 +212,13 @@ This will create :
 - A figure with label `fig:1.3`
 - A caption displayed below the image
 - A description for extended context 
+
+> 
+>
+>>>>>>>>>>>>>>>>>>>>>>>`````````````
+>>>>>>>>>>>>>>>>>>>>> ```
+>>>>>>>>>>>>>>>>>>>>> ```
+
 
 #### 2. Support for Excalidraw and section preview
 

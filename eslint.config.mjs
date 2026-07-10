@@ -5,8 +5,6 @@ export default [
       'docs/.vitepress/cache/**',
       'docs/.vitepress/dist/**',
       'docs/.vitepress/generated/**',
-      'packages/equation-citator/dist/**',
-      'packages/equation-citator/node_modules/**'
     ]
   },
   {

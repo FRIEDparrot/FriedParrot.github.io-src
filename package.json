@@ -26,6 +26,7 @@
     "vue": "^3.5.39"
   },
   "dependencies": {
+    "@friedparrot/equation-citator": "file:../equation-citator-webnote",
     "@vercel/speed-insights": "^2.0.0"
   }
 }

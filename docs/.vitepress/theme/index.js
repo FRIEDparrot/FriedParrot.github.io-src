@@ -4,7 +4,7 @@ import SidebarCategorySearch from './components/SidebarCategorySearch.vue'
 import WeatherHome from './components/WeatherHome.vue'
 import ProjectList from './components/ProjectList.vue'
 import ProjectIndexLayout from './components/ProjectIndexLayout.vue'
-import { installEquationCitatorPreviews } from '../../../packages/equation-citator/dist/runtime.js'
+import { installEquationCitatorPreviews } from '@friedparrot/equation-citator/runtime'
 import './custom.css'
 
 function redirectSlashNotFoundToIndex(router) {

@@ -52,6 +52,3 @@ The generated `id` attributes are still used after a target has been resolved. `
 
 The markdown file to build the knowledge base and posts are provided in the `markdown/` folder. For most of the cases, including rendering issues and html tag issue. Not use the file searched under this folder, since it's not a built version. For the built one, you can often found under /docs. 
 
-
-
-# In packages/equation citator 

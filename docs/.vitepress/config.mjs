@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { knowledgeBaseSidebar, postsSidebar } from './generated/content-data.mjs'
-import equationCitatorMarkdownIt from '../../packages/equation-citator/dist/markdown-it.js'
+import equationCitatorMarkdownIt from '@friedparrot/equation-citator'
 import markdownItFootnote from 'markdown-it-footnote'
 
 const KNOWLEDGE_BASE_ROUTE_PREFIX = 'knowledge-base/'

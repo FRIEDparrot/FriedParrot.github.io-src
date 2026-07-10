@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHANGELOG 1.2.X | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/en/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>CHANGELOG 1.2.X</h1></div>
+        <h3 id="version-1-2-0">Version 1.2.0</h3>
+<p>Version 1.2.0 - functionally improvements.</p>
+<p>🐛 Fixed Bugs :</p>
+<ul>
+<li>Now auto-complete will not show up in source mode if <code>enableInSourceMode</code> setting is disabled. (fixed in release edit of 1.1.0)</li>
+<li>Equation Auto-complete will now add space after the delimiter in single-line equation block case.</li>
+<li>Now if no alias (label) is provided for a footnote, it will use the file name as the alias.</li>
+<li>Fix some blank line problem in tutorial. also add tutorials for new features.</li>
+<li>Refactor the equation utils functions, combine several fucntions into one.</li>
+</ul>
+<blockquote>
+<p>Release Patch : Provide an option to enable/disable citation update when auto-numbering equations.</p>
+</blockquote>
+<p>✨ New Features :</p>
+<ol>
+<li>
+<p><strong>Link Jump</strong> : <strong>Double click</strong> to jump to equation.  <strong>Ctrl + double click</strong> to create an adjacent window and jump to the equation. (Only support in Live preview mode)</p>
+</li>
+<li>
+<p><strong>Rename Tags</strong> : Now you can select tags and right-click to rename it. The citations will be updated automatically.</p>
+</li>
+<li>
+<p><strong>Equation Auto-numbering</strong> : Now equation auto-numbering will automatically update the relevant citations to ensure the numbering is consistent.</p>
+</li>
+</ol>
+<h3 id="version-1-2-1">Version 1.2.1</h3>
+<p>Version 1.2.1 - bug fixes and minor improvements.</p>
+<p>🐛 Fixed Bugs :</p>
+<ul>
+<li>Auto-number may not work correctly when there are spaces before the code block</li>
+<li>Fixed Equation Jump issue <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/6">BUG #6</a>, now ctrl + double click jump correctly.</li>
+<li>When there are multiple views and hover on an non-active view, now double-click will also jump correctly (also <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/6">BUG #6</a>).</li>
+<li>Possible deletion bug when renaming tags with <code>delete unused tags</code> on (also imporve the efficiency of renaming tags)</li>
+<li>Fixed the bug when auto-numbering equations, citations in the original file not updated correctly.</li>
+<li>Fixed some equation citation issues in tutorial.</li>
+</ul>
+<blockquote>
+<p>Release Patch :  fix bug : rename tag will fail if show repeat prompt</p>
+</blockquote>
+<p>🚀 Optimizations :</p>
+<ul>
+<li>Auto Number and tag renaming now show informations of renamed citations.</li>
+</ul>
+<p>✨ New Features :</p>
+<ul>
+<li><strong>(Beta Feature) Cite with inline code in callout</strong> : Add this feature to render citations in callout block. (for <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/4">bug #4</a>). For limitations, see <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/tutorials/Equation%20Citator%20Tutorial.md">Tutorial</a></li>
+</ul>
+<h3 id="version-1-2-2">Version 1.2.2</h3>
+<p>Version 1.2.2 - many critical bug fixes and significant improvements for user experience.</p>
+<p>🐛 Fixed Bugs &amp; Optimizations :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(Critical Bug Fix)</strong> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/14">Bug #14</a>, and now the current file will be auto-numbered correctly even with 1-line tags. (Now note will not become a mass after auto-numbering😅)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/15">Bug #15</a>, now citations will be rendered in LiveEditor preview Widget.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/16">Bug #16</a>, now auto-complete will work correctly and not  create redundant space</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/17">Bug #17</a>,  citation suggest will work normally when complete in mid position.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix multiple same equations render processing, now it will auto matically be combined, <code>$\ref{eq:1.1.1, 1.1.1, 1.1.2, 1.1.2, 1.1.3, 1.1.4, 1.1.6,  }$</code>  now should be rendered as  <code>(1.1.1~4), (1.1.6)</code>, which is rendered as <code>(1.1.1~2), (1.1.2~4), (1.1.6)</code> in previous versions.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix the citation not rendered correctly when there are spaces between ref brace and citation prefix (e.g. <code>ref{ eq:1.1}</code> will not be rendered correctly)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix PDF export issue : The markdown prepend the path name instead of creating it under the same folder.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <code>enableAutoNumberGlobalPrefix</code> settings is not used, and toggle it has no effect. Now this setting is removed.</li>
+</ul>
+<p>✨ New Features :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(Significant Improvement)</strong> Cross-File Citation now support use inner braces in citation (A large refactor has been made for this, PDF support and autocomplete are also updated to support this feature).</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Optimize the tutorial and readme file, add new features, remove unnecessary parts and duplicates. Moved rules part from readme to tutorial.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(slight improvement)</strong> Optimize user experience : Now if type a space after citation, the plugin stop suggesting.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(User Experience Improvement)</strong>  Add a new command for inserting tag with auto-number. (allows quick insertion of tags more easily)</li>
+</ul>
+<pre><code class="language-markdown">$\ref{eq:2^{1.1}}$    // inner braces in citation 
+</code></pre>
+<h3 id="version-1-2-3">Version 1.2.3</h3>
+<p>Version 1.2.3 - improvements and some minor bug fixes.</p>
+<p>🐛 Fixed Bugs :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/24">Bug #24</a>, now insert command replace selection by insert content.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Better footnote recognition (writing <code>#</code> and <code>^</code> in pure footnote format) is supported now.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix style problem <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/23">glitch #23</a></p>
+</li>
+</ul>
+<p>🚀 improvements :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> When tag is repeated, auto-number only update the citation of the first tag occurrence, which enables you to append a part with repeated tags into note and then use auto-number normally.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> More precise tag location when inserting tag in equations.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> add how to add this plugin tutorial in readme.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(main improvement)</strong> Build plugin using production mode((use <code>npm run build</code>) in this version, reducing the size of the plugin and improves the performance, the size of the plugin reduced from 593kb to 73kb)</p>
+</li>
+</ul>
+<p>✨ New Features :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Citation file superscript now render the footnote in popover when hover on it.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Add support for text-only and web-link format footnote in superscript popover render</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Customize the width of equation popover in settings Tab</p>
+</li>
+</ul>
+<p>🛠️ Release Patch :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Now using brace <code>{}</code> as delimiter in settings is prohibited.</li>
+</ul>
+<h3 id="version-1-2-4">Version 1.2.4</h3>
+<p>Version 1.2.4 - bug fixes and minor improvements.</p>
+<p>🐛 Fixed Bugs :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/34">bug #34</a> now amrkdonw export can work correctly for escaped dollar sign.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>(Critical)</strong> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/35">Critical #35</a>, when no tag to rename and delete unused tags is enabled, the plugin will delete unused tags normally😅.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/31">bug #31</a>, now citations can rendered correctly both in outline preview and embedded link preview.</p>
+</li>
+</ul>
+<p>🚀 Enhancements :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> add <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/32">enhancement #32</a>, file superscripts will be rendered as footnotes in pdf export. Also change default citation color as same as file superscript color.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> open the exported file after export pdf command.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> set default equation widget width to 500px.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> better empty citation rendering (now empty citations will be rendered as <code>()</code> instead of ``)</p>
+</li>
+</ul>
+<p>🛠️ Tooling :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Add Copilot instruction file for default base branch policy [copilot]</li>
+</ul>
+<h3 id="version-1-2-5">Version 1.2.5</h3>
+<p>Version 1.2.5 - bug fixes and a bit improvements.</p>
+<p>🐛 Fixed Bugs :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix auto-number function: In 1.2.4 Auto-number still may incorrectly pushes the second and third tag renaming case, Now it will always correctly update only the first occurrence of tag.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> (<strong>Critical</strong>) Fix citation update issue <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/53">bug #53</a>, now citations in the current file will be updated correctly after auto-numbering.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> (<strong>Critical</strong>) Fix problem in citations updating<a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/54">bug #54</a>, delete unused citations now only affect citations of the same file.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Press <code>enter</code> key in renaming tag widget will now accept renaming tag.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Better prefix settings check (not allow brace and dollar or leave it blank), also dollar is now prohibited in delimiter since its unsafe.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix style problem <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/51">#51</a>, add margin and now limit the maximum alias rending width to 380 px.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix description for PDF citation color <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/49">#49</a></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix escaped dollar problem <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/40">#40</a></li>
+</ul>
+<p>🚀 Enhancements:</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> add enhancement <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/52">#52</a>, now will use mutli-citaion-delimiter + space by default (set in settings tab) for better render.</li>
+</ul>
+<h3 id="version-1-2-6">Version 1.2.6</h3>
+<p>Version 1.2.6 - bug fixes</p>
+<p>🐛 Fixed Bugs :</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> (Critical) Fix Bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/63">#63</a>, Now multiple citations in a row can update correctly</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix bug  <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/60">#60</a>, auto-number now correctly number with not enough depth in absolute numbering method.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/56">#56</a>,  width settings will be correctly rendered.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Fix bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/64">#64</a> Auto complelte will also parse unclosed citation, and complete it now.</li>
+</ul>
+<p>🚀 Enhancements:</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Add enhancement <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/61">#61</a>, enhancement when autocomplete in continuous citations.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Add enhancement <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/62">#62</a>, add option to manually clear cache in settings tab.</li>
+</ul>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#version-1-2-0"><span>Version 1.2.0</span></a><a href="#version-1-2-1"><span>Version 1.2.1</span></a><a href="#version-1-2-2"><span>Version 1.2.2</span></a><a href="#version-1-2-3"><span>Version 1.2.3</span></a><a href="#version-1-2-4"><span>Version 1.2.4</span></a><a href="#version-1-2-5"><span>Version 1.2.5</span></a><a href="#version-1-2-6"><span>Version 1.2.6</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/en/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html" selected>English</option><option value="/projects/obsidian-equation-citator/changelogs/zh-CN/CHANGELOG-1.2.x/index.html">简体中文</option></select>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/1.%20Get%20Started/index.html">1. Get Started</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/2.%20Cross%20File%20Citation%20Feature/index.html">2. Cross File Citation Feature</a></section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.1.x/index.html">CHANGELOG 1.1.X</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html">CHANGELOG 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.3.x/index.html">CHANGELOG 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -22,10 +22,10 @@
   "devDependencies": {
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "1.6.4"
+    "vitepress": "1.6.4",
+    "vue": "^3.5.39"
   },
   "dependencies": {
-    "@vercel/speed-insights": "^2.0.0",
-    "vue": "^3.5.39"
+    "@vercel/speed-insights": "^2.0.0"
   }
 }

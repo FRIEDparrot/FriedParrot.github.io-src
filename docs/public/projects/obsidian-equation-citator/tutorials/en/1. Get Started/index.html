@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. Get Started | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/en/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>1. Get Started</h1></div>
+        <blockquote class="callout callout-summary" data-callout-type="summary">
+<ol>
+<li>This tutorial covers all the essential features, basic grammars to get you started with this plugin.</li>
+<li>For more special needs like essay drafting, you may check <a href="/projects/obsidian-equation-citator/tutorials/en/Useful%20Tricks%20%26%20techniques/index.html">en/Useful Tricks &amp; techniques</a> for more practical tricks that can be commonly used in this plugin.</li>
+<li>There are also several useful css snippets in the <code>tutorials/useful css snippets/</code> folder. You can also check them out.</li>
+</ol>
+</blockquote>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1" data-title="Equation Citator" data-width="250"><p><img src="/projects/obsidian-equation-citator/tutorials/en/img/Equation%20Citator%20Logo.png" alt="Equation Citator" title="Equation Citator" width="250"></p>
+<figcaption class="figure-caption"><span class="figure-title">Equation Citator</span></figcaption></figure><h3 id="core-features">✨ Core Features</h3>
+<p>The Equation Citator plugin transforms Obsidian into a powerful academic writing environment with LaTeX-style citations. Making referencing in the vault easier than ever. The core features includes :</p>
+<ul>
+<li><strong>Equation Citations</strong>: Tag and reference equations with <code>\tag{}</code> and <code>\ref{}</code></li>
+<li><strong>Auto-numbering</strong>: Automatically number equations for easy-management</li>
+<li><strong>Cross-file Citations</strong>: Reference content across multiple documents</li>
+<li><strong>PDF Export</strong>: Generate properly formatted documents for publishing</li>
+<li><strong>Figure &amp; Table Citations</strong> (New in v1.3.0): Cite images and tables with custom syntax</li>
+<li><strong>Drag &amp; Drop Citations</strong> (New in v1.3.0): Drag equations from the management panel</li>
+</ul>
+<blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
+<p><strong>Typst Mode support</strong> : This plugin also support <a href="https://github.com/azyarashi/obsidian-typst-mate">obsidian typst mate</a>, you can set <code>settings &gt; Display (Categorical) &gt; Others &gt; enable typst mode</code> make it compatible with typst syntax.</p>
+</blockquote>
+<h2 id="before-everything-start">👋🏻 Before Everything start</h2>
+<p>There are some very simple writing guidelines you should follow :</p>
+<h3 id="_1-code-block-format">(1) Code block format</h3>
+<p>Always use 3 backticks for code block like following (other numbers are not recommended) :</p>
+<pre><code class="language-latex">Code block 
+</code></pre>
+<h3 id="_2-equation-block">(2) Equation block</h3>
+<ol>
+<li>We only cite equation blocks, not cite inline equations.</li>
+<li>For a correct-written equation block,  <strong>NOT WRITE ANY OTHER CONTENT IN THE  LINE OF EQUATION BLOCK</strong> (except the quote sign before it). e.g. :</li>
+</ol>
+<p>✅ CORRECT EXAMPLES :</p>
+<pre><code class="language-latex">%1-line equation block format%  
+$$ \Large \boxed{dg = - s dT+v dp } $$  
+
+%multi-line equation block format%
+$$
+\Large \boxed{dg = - s dT+v dp }
+$$
+
+%or write equation freely in multi-line%
+$$ du = \left(\frac{\partial u}{\partial s}\right)_v ds +\left( \frac{\partial u}{\partial v}\right)_s dv \rightarrow
+\quad \boxed{T = \left( \frac{\partial u}{\partial s}\right)_v, \quad p = - \left(\frac{\partial u}{\partial v} \right)_s} \tag{3.1.1} $$
+</code></pre>
+<p>❌ NOT SUPPORTED EXAMPLES :</p>
+<pre><code class="language-Latex">%% not write text before first $$, This will cause issue! just not do it!!!%%
+this  is an $$ equation 1         # # text before equation block 
+$$ 
+
+%% not write text after $$, this will stop auto-numbering%% 
+$$
+Equation 2
+$$ block  # text after equation block
+</code></pre>
+<p><strong>Q : Why we don’t support this</strong>?</p>
+<p>A : Deliberately writing text after equation block can cause equation render problem in reading mode (also cause issue in our auto-number). In that case, we will stop auto-number and give you a warning. You can open reading mode to check where this problem is. (You can go to <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/74">bug #74</a> for clarification)</p>
+<p>When this case happens, auto number will automatically fail and you’ll get a notice <code>Detected illegal nested $$ in equation block at line xxx</code>.  You can enable <code>settings &gt; Editor &gt; Line Numbers</code> to fix it. So just not do that in your notes.</p>
+<h3 id="_3-citing-clarity">(3) Citing Clarity</h3>
+<ol>
+<li>Avoid using <code>\}</code> in your tag or citation (this will cause the tag recognized incorrectly)</li>
+<li>Use number (1,2,3,… ) for footnotes, not use characters.</li>
+<li>To <strong>cite a callout</strong> after v1.3 :<br>
+You can <strong>select content and use command <code>insert callout</code> to quickly make content a callout</strong>. For these callout <strong>Every line should start with greater sign</strong> <code>&gt;</code>. Implicit callout line with no <code>&gt;</code> sign would be neglected.</li>
+</ol>
+<h3 id="_4-autonumber-only-when-all-contents-correctly-rendered">(4) Autonumber only when all contents correctly rendered</h3>
+<p>You should autonumber all equations of file <strong>Only when all contents correctly rendered and your markdown syntax is correct</strong>.</p>
+<pre><code class="language-markdown">$$
+\text{equation content} 
+# malicious heading 
+\text{other content}
+$$
+</code></pre>
+<p>This will cause heading dismatch in Auto-numbering, and <code># title</code> grammar is prohibit in equations (in that case equation render incorrectly). So only auto-nuber when all your content are correctly rendered.</p>
+<blockquote>
+<p><strong>Also do not write any heading or code block-like content in equations</strong></p>
+</blockquote>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p>You should follow above rules if you use this plugin. Issues caused by not following above rules may be closed without being fixed.</p>
+</blockquote>
+<h2 id="how-to-use-settings-tab">⚙️ How to use Settings Tab</h2>
+<p>There are 3 different display options in settings Tab, including :</p>
+<ol>
+<li>Concise : only show important settings</li>
+<li>Categorical : categorized settings.</li>
+<li>List : displays all settings, use this mode mainly for search settings.</li>
+</ol>
+<p><strong>IMPORTANT</strong> : You will <strong>not find all settings in concise mode since some settings are hidden in both “basic” and “advanced” section</strong>, you need to enable it in “Customize Display sections” or <strong>switch to “Categorical”</strong> or <strong>List</strong> mode to find all settings.</p>
+<h2 id="_1-basic-equation-citations">1. Basic Equation Citations</h2>
+<p>The citation syntax are summarized as following table,  if you think these are very simple, you can jump to <a href="#_3-equations-manage-panel-new-in-v1-3-0">Manage Panel Tutorial</a> directly.</p>
+<blockquote class="callout callout-summary" data-callout-type="summary" data-callout-has-title="">
+<p>Citation Syntax Table of below</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Syntax</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equation Tag</td>
+<td><code>\tag{label}</code></td>
+<td><code>\tag{2.1}</code></td>
+</tr>
+<tr>
+<td>Equation Cite</td>
+<td><code>$\ref{eq:label}$</code></td>
+<td><code>$\ref{eq:2.1}$</code></td>
+</tr>
+<tr>
+<td>Figure</td>
+<td><code>![Caption|fig:label|desc:text](img)</code></td>
+<td><code>![Graph|fig:3.1](graph.png)</code></td>
+</tr>
+<tr>
+<td>Table</td>
+<td><code>&gt; [!table:label] Title</code></td>
+<td><code>&gt; [!table:3.1] Results</code></td>
+</tr>
+<tr>
+<td>Cross-file</td>
+<td><code>$\ref{eq:footnote^{label}}$</code></td>
+<td><code>$\ref{eq:1^{2.3}}$</code></td>
+</tr>
+<tr>
+<td>Multiple</td>
+<td><code>$\ref{eq:1.1, 2.1}$</code></td>
+<td>cite multiple equations</td>
+</tr>
+<tr>
+<td>Continuous</td>
+<td><code>$\ref{eq:1.1~3}$</code></td>
+<td>Range notation</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="_1-1-creating-and-citing-equations">1.1 Creating and Citing Equations</h3>
+<p>Add a tag to any equation using <code>\tag{label}</code>:</p>
+<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.1" data-tag="1.1"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mstyle mathsize="1.44em"><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow></mstyle></mstyle></mstyle></menclose></mstyle></mtd><mtd width="50%"></mtd><mtd><mtext>(1.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\Large\boxed{E = mc^2} \tag{1.1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.2184em;vertical-align:-0.4896em;"></span><span class="mord sizing reset-size6 size8"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2005em;"><span style="top:-3.5405em;"><span class="pstrut" style="height:3.5405em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8605em;"><span style="top:-3.413em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.2005em;"><span class="pstrut" style="height:3.5405em;"></span><span class="stretchy fbox" style="height:1.5405em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:2.2184em;vertical-align:-0.4896em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.1</span></span><span class="mord">)</span></span></span></span></span></span></div></div><p>To cite this equation, type <code>\ref{eq:1.1}</code> which renders as: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;}]" style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1</span>)</span></p>
+<p><strong>Quick Commands</strong> (use ctrl + p to search and add a hotkey to that😄!):</p>
+<ul>
+<li><code>Insert a citation in cursor position</code> : Quickly insert <code>\ref{}</code></li>
+<li><code>Insert equation citation on cursor position</code>: Quickly insert <code>\ref{eq:}</code></li>
+<li><code>Insert tag on cursor position with auto-number</code>: Add tags with automatic numbering when cursor is in an equation block.</li>
+</ul>
+<blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
+<p><strong>Auto-Complete Feature</strong> : just inserting <code>\ref{eq:}</code> and typing is much faster than dragging citations, since we support auto-complete for all types of citations.</p>
+<p>For equations, just select what you want to insert in auto-complete panel.</p>
+<p><strong>Concise/Rich autocomplete mode</strong>: for figures and callouts, by default only tag and title will show. You can preview contents by hovering your mouse on option. Or you can use <code>settings &gt; citation &gt; show full preview in autocomplete</code> to show full picture/callout in autocomplete options.</p>
+</blockquote>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p>You can <strong>only cite 1 type</strong> of either  equation, figure or callout in a citation, such as <code>$\ref{eq:1.1, 1.2, 1.3}$</code> or <code>$\ref{fig:1.1, 1.2, 1.3}$</code>,  and it will take the begin from <code>ref{</code> as the prefix to mark which type you cite. So mixed citation <code>\ref{eq:1.1, fig:1.2, table:1.3}</code> is not allowed.</p>
+</blockquote>
+<h3 id="_1-2-multiple-citations">1.2 Multiple Citations</h3>
+<p>Cite multiple equations with commas: <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span></p>
+<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.2" data-tag="1.2"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>F</mi><mo>=</mo><mi>m</mi><mi>a</mi></mrow></mstyle></mstyle></mstyle></menclose></mtd><mtd width="50%"></mtd><mtd><mtext>(1.2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\boxed{F = ma} \tag{1.2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3633em;vertical-align:-0.34em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0233em;"><span style="top:-3.3633em;"><span class="pstrut" style="height:3.3633em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">ma</span></span></span></span></span><span style="top:-3.0233em;"><span class="pstrut" style="height:3.3633em;"></span><span class="stretchy fbox" style="height:1.3633em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.3633em;vertical-align:-0.34em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.2</span></span><span class="mord">)</span></span></span></span></span></span></div></div><div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.3" data-tag="1.3"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>p</mi><mo>=</mo><mi>m</mi><mi>v</mi></mrow></mstyle></mstyle></mstyle></menclose></mtd><mtd width="50%"></mtd><mtd><mtext>(1.3)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\boxed{p = mv} \tag{1.3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.305em;vertical-align:-0.5344em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7706em;"><span style="top:-3.305em;"><span class="pstrut" style="height:3.305em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></span><span style="top:-2.7706em;"><span class="pstrut" style="height:3.305em;"></span><span class="stretchy fbox" style="height:1.305em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5344em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.305em;vertical-align:-0.5344em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.3</span></span><span class="mord">)</span></span></span></span></span></span></div></div><p><strong>Continuous Citations</strong>: Enable in settings to render <code>$\ref{eq:1.1, 1.2, 1.3}$</code> as <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">1.1~3</span>)</span></p>
+<h3 id="_1-3-cross-file-citations">1.3 Cross-file Citations</h3>
+<p>The cross-file citation <strong>relies on the built-in footnote system of obsidian</strong> : so you can create footnote using following syntax :</p>
+<pre><code class="language-markdown">[^1]: [[Document_A|Paper A]]
+[^2]: [[Document_B|Report B]]
+</code></pre>
+<p>The syntax is: <code>$\ref{eq:footnote^{tag}}$</code>,  For example,  As shown in equation <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:&quot;en/2. Cross File Citation Feature.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;2.3.1&quot;,&quot;local&quot;:&quot;/projects/obsidian-equation-citator/tutorials/en/2.%20Cross%20File%20Citation%20Feature/index.html&quot;}]" style="cursor: default; color: #4199df;">(<span style="text-decoration: none; cursor: pointer; color: #4199df;">2.3.1</span>)</span><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> from Paper A<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup>.</p>
+<h3 id="_1-4-interactive-features">1.4 Interactive Features</h3>
+<p>The following interactive features are really useful for you to quickly check and manage your equations, supports are listed in following table :</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Editor Popover</th>
+<th>Equation Panel</th>
+<th>Equations</th>
+<th>Figures</th>
+<th>Callouts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Preview</strong> (Hold <code>Ctrl</code> + hover)</td>
+<td>✅</td>
+<td>already</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Jump to Source</strong> (<code>Double-click</code>)</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Open in Split</strong> (<code>Ctrl + Double-click</code>)</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Rename Tag</strong> (<code>Right-click</code> on tag)</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Right-Click Copy</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅<br></td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>For <strong>Open in Split</strong>, if more than one editor is already open, it will reuse the existing adjacent editor rather than opening a new one</li>
+<li>Select <code>\tag{}</code> to rename equation tag, select entire image <code>![[image.png|fig:1.1]]</code> to rename figure tag.</li>
+<li>You can customize what to copy in <code>settings &gt; Display (Categorical) &gt; Equation Panel &gt; Equation widget right click copy content</code>, choose whether to copy the equation content with tag/braces</li>
+</ul>
+<h3 id="_1-5-rename-equation-tags">1.5 Rename equation tags</h3>
+<p>Select the <code>\tag{}</code> in the equation you want to rename, then right-click and select <code>Rename equation tag</code>. Citations will be automatically updated to match the new tag.</p>
+<h2 id="_2-figure-and-callout-citations-new-in-v1-3-0">2. Figure and Callout Citations (New in v1.3.0)</h2>
+<h3 id="_1-figure-citations">1) Figure Citations</h3>
+<h4 id="_1-grammar">1. Grammar</h4>
+<p>We use the enhanced image syntax to make figures citable :</p>
+<pre><code class="language-markdown">%%wiki link format%%
+![[James_Lovell.jpg|fig:3.1|desc:description]]
+
+%%markdown link format%%
+![fig:1.3|title:test|desc:Optional description](images.png) 
+</code></pre>
+<p>We support both wiki link and markdown link format.</p>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1.3" data-title="minecraft" data-desc="a test minecraft picture example" data-width="241"><p><img src="/projects/obsidian-equation-citator/tutorials/en/img/test_image.png" alt="minecraft" title="minecraft" width="241"></p>
+<figcaption class="figure-caption"><span class="figure-title">minecraft</span><span class="figure-desc">a test minecraft picture example</span></figcaption></figure><p>We can use <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.3</span></span> to cite the above <strong>figure</strong>.</p>
+<p>This will create :</p>
+<ul>
+<li>A figure with label <code>fig:1.3</code></li>
+<li>A caption displayed below the image</li>
+<li>A description for extended context</li>
+</ul>
+<h4 id="_2-support-for-excalidraw-and-section-preview">2. Support for Excalidraw and section preview</h4>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1.5" data-width="414"><p><img src="/projects/obsidian-equation-citator/tutorials/en/img/Excalidraw%20Support.png" alt="1.5" width="414"></p>
+</figure><p>Also, after <code>v1.3.3</code>, we can also cite the <code>excalidraw</code> image with same syntax  <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.5&quot;}]" style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.5</span></span>.</p>
+<p>Note the <code>excalidraw</code> and <code>excalidraw.md</code> should be included in the <code>settings &gt; Display (Categorical) &gt; Others &gt; Extension names using Markdown renderer</code>, the extension <code>excalidraw.md</code> must be added.</p>
+<p>But <strong>since the grammar of external file link view <code>![[#(3) Citing Clarity|fig:1.6]]</code> is same as image</strong>, we still reckon it a valid image. So when <code>md</code> is in the <code>Extension names using Markdown renderer</code> setting, we can even cite the section preview as <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.6&quot;}]" style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.6</span></span> (but there would be no caption) :</p>
+<p><a href="#_3-citing-clarity" class="equation-citator-section-reference">Click here to jump to #(3) Citing Clarity</a></p>
+<h4 id="_3-auto-numbering-figures-and-rename-tags">3. Auto-numbering Figures and rename tags</h4>
+<p>This plugin also support <strong>autonumber for figures</strong> after v1.3.3, so you can use the ribbon button or command <code>auto-number current file figures</code> to auto-number all figures in current file.</p>
+<p>To rename figure tags, you can right-click image to select the whole, and select <code>Rename tag for this picture</code>, then input new tag name.</p>
+<h4 id="_4-limitations">4. Limitations</h4>
+<blockquote>
+<p>Note this plugin doesn’t support creating caption for markdown link format images from web-link. But you can still cite it with <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.7&quot;}]" style="cursor: default; color: #4199df;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199df;">1.7</span></span>.</p>
+<p><strong>Why we not support</strong> : We add caption inside class <code>.internal-embed image-embed</code>, and web-link image is rendered as <code>&lt;img&gt;</code> without this wrapper class. Creating element outside those images would cause some issue in editing. You can simply use <code>copy image</code> in your browser and paste it to make it a local image file.</p>
+</blockquote>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1.7" data-width="200"><p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJUGwUw60NYwnmZEKiGJtoRXpa56J1Ko0QjA&amp;s" alt="1.7" width="200"></p>
+</figure><h3 id="_2-callout-citations">2) Callout Citations</h3>
+<h4 id="_1-grammar-2">1. grammar</h4>
+<p>The plugin support citing callouts with customized types, <strong>this give us flexibility to cite tables, theorems and any customized pieces</strong>.</p>
+<p>You can configure customized prefix in <code>Callout/Quote Citation Prefixes</code> settings, by default <code>table:</code> are enabled</p>
+<p>So here we give an example  for how to cite a table :</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="2.1" data-callout-type="table" data-callout-has-title="">
+<p>Sales Data Q4 2024</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Revenue</th>
+<th>Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Widget A</td>
+<td>$100K</td>
+<td>+15%</td>
+</tr>
+<tr>
+<td>Widget B</td>
+<td>$150K</td>
+<td>+22%</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Cite the table using: <code>$\ref{table:2.1}$</code>, rendered as <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;2.1&quot;}]" style="cursor: default; color: #4199df;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199df;">2.1</span></span></p>
+<blockquote class="callout callout-hint" data-callout-type="hint" data-callout-has-title="">
+<p>Edit table in callouts
+Put table in callout makes it hard to edit. But we have a trick to edit it quicker.</p>
+<p>See <a href="/projects/obsidian-equation-citator/tutorials/en/Useful%20Tricks%20%26%20techniques/index.html#_1-editing-a-table-inside-a-callout-more-easily">en/Useful Tricks &amp; techniques#(1) Editing a Table Inside a Callout More Easily</a> for details</p>
+</blockquote>
+<p>Citation inside callouts must match case exactly. Example:</p>
+<ul>
+<li>Callout tag: <code>&gt; [!NOTE:1]</code></li>
+<li>Cite with: <code>$\ref:{NOTE:1}$</code> (case-sensitive)</li>
+</ul>
+<p>All figure and callout citations support syntax and interactive features in <a href="#_1-basic-equation-citations">#1. Basic Equation Citations</a>.</p>
+<h4 id="_2-custom-callout-colors">2. Custom Callout Colors</h4>
+<p>We also support customize callout colors by adding <a href="https://gist.github.com/LucasOe/0bed268951b90e897002ee1e31479c9c">callout.css</a> to <code>Settings &gt; Apperance &gt; CSS Snippets</code>, so you can write a beautiful callout like this (this take effect after adding this snippet):</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="1.1" data-callout-type="table" data-callout-has-title="">
+<p>Sales Data Q4 2024</p>
+<p>This is a red callout table</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Revenue</th>
+<th>Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Widget A</td>
+<td>00K</td>
+<td>+15%</td>
+</tr>
+<tr>
+<td>Widget B</td>
+<td>150K</td>
+<td>+22%</td>
+</tr>
+<tr>
+<td>Widget C</td>
+<td>200K</td>
+<td>+33%</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="_3-limitations">3. Limitations</h4>
+<ol>
+<li>
+<p>Currently the plugin don’t support autonumber and rename for callouts. Since there might not be a lot of them. You can manage them manually now. Or you can request this feature in the <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues">issue page</a> if you really need it.</p>
+</li>
+<li>
+<p>Unfortunately, we don’t support customize icon for callout yet. Since it use icon as <code>data-callout</code>. And we also use first field as citation label.</p>
+</li>
+</ol>
+<h2 id="_3-equations-manage-panel-new-in-v1-3-0">3. Equations Manage Panel (New in v1.3.0)</h2>
+<h3 id="_1-open-the-panel">1) Open the Panel</h3>
+<p>You can open the equation mange panel by :</p>
+<ul>
+<li>Command palette: <code>Open Equations Manage Panel</code></li>
+<li>Toolbar icon (if enabled)</li>
+</ul>
+<h3 id="_2-math-renderer-settings">2) Math Renderer Settings</h3>
+<p>By default, the panel uses a <strong>reliable rendering method</strong> that ensures equations display correctly. If you have many equations and experience slow loading, enable <strong>“Use fast math renderer”</strong> in settings (<strong>Settings &gt; Display (Categorical) &gt; Equation Panel &gt; Use fast math renderer in equation panel</strong>). The fast renderer may show empty containers initially, but they’ll appear correctly after scrolling.</p>
+<h3 id="_3-how-to-use-this-panel">3) How to use this panel</h3>
+<p>Equation Manage panel is one of the most powerful feature of v1.3.0, it allows you to cite and search equation fast and easy, <strong>No need to scroll or remember syntax or equation numbers!</strong></p>
+<h4 id="_3-1-usage-of-buttons-on-panel-toolbar">3.1 Usage of buttons on panel toolbar :</h4>
+<p><img src="/projects/obsidian-equation-citator/tutorials/en/img/panel_toolbars.png" alt="Tool bar Image"></p>
+<p>We use the button on <code>outline</code> mode for tutorial, The main panel includes following buttons :</p>
+<ol>
+<li>Preview item select : select between <code>equations</code>, <code>figures</code> and <code>callouts</code> to preview in the panel.</li>
+<li>View mode buttons : Switch between <code>outline</code> view and <code>list</code> view.</li>
+<li>Disable refresh : Disable auto refresh, Lock the <strong>File, Equations and Headings rendered in panel</strong>, but <code>view mode change</code>, <code>filters</code> and <code>search</code> will still work.</li>
+<li>Search : Search equations by content.</li>
+<li>More Options : show / fold subpanel.</li>
+</ol>
+<p>The subpanel includes :</p>
+<ol>
+<li>Show headings only : Only show headings, hide equations (use the panel as an outline!).</li>
+<li>Sort equations (In List mode) : Sort equations by their order in the file, or by their tag name.</li>
+<li>Collapse / Expand all : Collapse or Expand all headings in outline view.</li>
+<li>Show/Hide tags : Show or hide tags in the panel.</li>
+<li>Show all headings / Only show headings with equations.</li>
+<li>Filters :
+<ul>
+<li>1.Show only tagged equations/figures/callouts. (This works for all types of content)</li>
+<li>
+<ol start="2">
+<li>show only boxed equations. (This only works for equations)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="_3-2-drag-and-drop-citations">3.2 Drag and Drop Citations</h4>
+<ol>
+<li><strong>Drag</strong> the item from the panel, <strong>Drop</strong> it into your text where you want the citation, the properly formatted <code>\ref{}</code> citation is automatically inserted</li>
+<li>If you have <strong>multiple files opened in editor</strong>, you can also <strong>drag equations to other files</strong>. The plugin will <strong>automatically create footnotes for cross-file citations</strong>.</li>
+<li>For callouts in panel, we don’t support drag-cite callouts without correct tags (since it will break original prefix), please add tag for it manually.</li>
+</ol>
+<h4 id="_3-3-special-filters">3.3 Special Filters</h4>
+<p>Filters are very useful features for you to manage important equations. Currently we provide 2 filters :</p>
+<ol>
+<li><strong>Tag-only filter</strong>: Show only equations with tags.</li>
+</ol>
+<p>This is added for many derivates need no tags. See <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/105">issue #105</a> for details. But <strong>I suggest to use boxed filter since this still need you to manually tag equations</strong>.</p>
+<p>You may use this with <code>Auto-number tagged equations only</code>. see <a href="/projects/obsidian-equation-citator/tutorials/en/Useful%20Tricks%20%26%20techniques/index.html#_3-only-number-important-equations">en/Useful Tricks &amp; techniques#(3) Only Number Important Equations</a> for details.</p>
+<ol start="2">
+<li><strong>boxed filters</strong>: Show only equations wrapped with <code>\boxed{}</code>. Note for simplicity in this filter it only check if the first non-blank line of equations has <code>\boxed</code>.</li>
+</ol>
+<p>You can use Latex Suite <code>box current equation</code> command to box equations, we also provide a command <code>box current equation</code> in our plugin, so you can just select a equation and run this command to box it</p>
+<blockquote>
+<p>To support <a href="https://github.com/azyarashi/obsidian-typst-mate">typst mode</a> box, this plugin use <code>boxed</code> as default typst box symbol (for <code>typst mate</code> plugin). This can be set at <code>settings &gt; Display (Categorical) &gt; Others &gt; Typst box symbol</code>, see <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/140">feature #140</a> for details.</p>
+</blockquote>
+<p>For some users, they use the first line of multi-line equation as class, we also provide an option to this. Check <code>Settings &gt; Display (Categorical) &gt; Equation Panel &gt; Skip first line when filter boxed equation</code> to enable this feature.</p>
+<pre><code class="language-latex">$$phy
+\boxed{
+E = mc^2
+}
+$$
+</code></pre>
+<h2 id="_4-auto-numbering-system">4. Auto-numbering System</h2>
+<p>Use the command <code>Auto-number current file equations</code> or the toolbar button can automatically number all equations in current file based on heading level.</p>
+<h3 id="_1-some-important-settings">1) Some important settings</h3>
+<p><strong>Numbering Methods:</strong></p>
+<ul>
+<li><strong>Relative</strong>: Numbers based on relative  heading hierarchy (2.1.1, 2.1.2, etc.)</li>
+<li><strong>Absolute</strong>: Auto-number using the absolute heading level (1.1, 1.2 for #, etc.)</li>
+</ul>
+<p><strong>Numbering depth (1-6)</strong> : controls the max level to auto-number <code>(1.1), (1.1.1)</code></p>
+<h3 id="_2-citation-updates-during-auto-numbering">2) Citation Updates During Auto-numbering</h3>
+<p>When auto-numbering runs, all citations are automatically updated to match new numbers. This allows you insert or delete equations any where and no need to worry about renumbering or broken citations.</p>
+<p>But there are 2 settings to resolve the conflict in auto-numbering process:</p>
+<ol>
+<li><strong>Auto delete conflict tag citations</strong> (default: true) : when a tag is renamed into another one, while the old citations for this tag still exist(not modified after auto-numbering), they will be automatically deleted to avoid wrong citations.</li>
+<li><strong>Auto delete unused tag citations</strong> (default: false) :  if a citations is not used, it will be automatically deleted. (Only use this settings if you rely solely on auto-number for tag management).</li>
+</ol>
+<h2 id="_5-pdf-export">5. PDF Export</h2>
+<p>You need to run <code>Make markdown copy to export PDF</code> to export a markdown to ensure the styles are exported correctly.</p>
+<p>Note images may not centered after export, so I recommend you to add a simple snippet  (<a href="https://www.youtube.com/watch?v=ngcocqUPiE8">https://www.youtube.com/watch?v=ngcocqUPiE8</a>), or just download a theme with image centered like <code>Blue Topaz</code></p>
+<h2 id="_6-beta-features">6. Beta Features</h2>
+<p>I strongly recommend you not to use <code>Cite with inline code block in callout</code>. Citations will failed to render inside the callout. Since its a built-in problem for links in obsidian, we won’t fully support writing citations in callouts (Including not auto-update and not auto export).</p>
+<hr>
+<p>Congrats 🎉! You are all ready to use this plugin😄 !</p>
+<p><em>Created for Equation Citator v1.3.4 - For updates and issues, visit the <a href="https://github.com/FRIEDparrot/obsidian-equation-citator">GitHub repository</a></em></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="/projects/obsidian-equation-citator/tutorials/en/2.%20Cross%20File%20Citation%20Feature/index.html">2. Cross File Citation Feature</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#core-features"><span>✨ Core Features</span></a><a href="#before-everything-start"><span>👋🏻 Before Everything start</span></a><a href="#_1-code-block-format"><span>(1) Code block format</span></a><a href="#_2-equation-block"><span>(2) Equation block</span></a><a href="#_3-citing-clarity"><span>(3) Citing Clarity</span></a><a href="#_4-autonumber-only-when-all-contents-correctly-rendered"><span>(4) Autonumber only when all contents correctly rendered</span></a><a href="#how-to-use-settings-tab"><span>⚙️ How to use Settings Tab</span></a><a href="#_1-basic-equation-citations"><span>1. Basic Equation Citations</span></a><a href="#_1-1-creating-and-citing-equations"><span>1.1 Creating and Citing Equations</span></a><a href="#_1-2-multiple-citations"><span>1.2 Multiple Citations</span></a><a href="#_1-3-cross-file-citations"><span>1.3 Cross-file Citations</span></a><a href="#_1-4-interactive-features"><span>1.4 Interactive Features</span></a><a href="#_1-5-rename-equation-tags"><span>1.5 Rename equation tags</span></a><a href="#_2-figure-and-callout-citations-new-in-v1-3-0"><span>2. Figure and Callout Citations (New in v1.3.0)</span></a><a href="#_1-figure-citations"><span>1) Figure Citations</span></a><a href="#_2-callout-citations"><span>2) Callout Citations</span></a><a href="#_3-equations-manage-panel-new-in-v1-3-0"><span>3. Equations Manage Panel (New in v1.3.0)</span></a><a href="#_1-open-the-panel"><span>1) Open the Panel</span></a><a href="#_2-math-renderer-settings"><span>2) Math Renderer Settings</span></a><a href="#_3-how-to-use-this-panel"><span>3) How to use this panel</span></a><a href="#_4-auto-numbering-system"><span>4. Auto-numbering System</span></a><a href="#_1-some-important-settings"><span>1) Some important settings</span></a><a href="#_2-citation-updates-during-auto-numbering"><span>2) Citation Updates During Auto-numbering</span></a><a href="#_5-pdf-export"><span>5. PDF Export</span></a><a href="#_6-beta-features"><span>6. Beta Features</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/en/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/1.%20Get%20Started/index.html" selected>English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20Get%20Started/index.html">简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a>  <a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/en/1.%20Get%20Started/index.html">1. Get Started</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/2.%20Cross%20File%20Citation%20Feature/index.html">2. Cross File Citation Feature</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.1.x/index.html">CHANGELOG 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html">CHANGELOG 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.3.x/index.html">CHANGELOG 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

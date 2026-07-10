@@ -607,8 +607,10 @@
 }
 
 .vp-doc .equation-citator-section-reference {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   max-width: 100%;
+  margin: 16px auto;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--vp-c-divider);

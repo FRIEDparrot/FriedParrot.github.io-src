@@ -155,7 +155,7 @@
               v-for="project in section.projects"
               :key="project.name"
               class="project-card"
-              :href="project.href"
+              :href="withBase(project.href)"
               :target="project.page ? undefined : '_blank'"
               :rel="project.page ? undefined : 'noopener noreferrer'"
             >
@@ -210,6 +210,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { data as projectData } from '../data/projects.data.js'
+import { withBase } from 'vitepress' 
 
 const CACHE_KEY = 'friedparrot.projectMeta.v7'
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000
@@ -363,7 +364,7 @@ function parseBadgeNumber(...values) {
   const match = message.trim().toLowerCase().match(/^([\d,.]+)\s*([kmb])?$/)
   if (!match) return null
 
-  const value = Number(match[1].replace(/,/g, ''))
+  const value = Number(match[1].replaceAll(',', ''))
   if (!Number.isFinite(value)) return null
 
   const multiplier = { k: 1_000, m: 1_000_000, b: 1_000_000_000 }[match[2]] || 1
@@ -507,7 +508,7 @@ const enrichedProjects = computed(() => projects.map((project) => {
     ...project,
     ...meta,
     page: hasPage,
-    href: hasPage ? `/projects/${project.name}` : repoUrl(project)
+    href: hasPage ? `/projects/${project.name}/index.html` : repoUrl(project)
   }
 }))
 

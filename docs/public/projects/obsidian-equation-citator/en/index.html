@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../api/assets/style.css">
+  <link rel="stylesheet" href="../api/assets/highlight.css">
+  <script defer src="../api/assets/main.js"></script>
+  <script async src="../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/en/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        
+        <center><div>
+  <img src="img/Heading_img.png" style="max-height:100px; max-width:65%" alt="Heading Image">
+</div></center>
+<center><div width="100%"><span>
+  <img src="https://img.shields.io/badge/Latest-1.3.5-blue" alt="Release">
+  <img src="https://img.shields.io/github/stars/FRIEDparrot/obsidian-equation-citator?style=flat-square&label=Stars&color=yellow" alt="Stars">
+  <a href="https://obsidian.md/plugins?id=equation-citator">
+  <img src="https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=Downloads&query=%24%5B%22equation-citator%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json" alt="Downloads">
+</a>
+  <img src="https://img.shields.io/badge/License-Apache%202.0-red" alt="License">
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=FRIEDparrot_obsidian-equation-citator&metric=alert_status" alt="Quality Gate">
+</span></div></center>
+<center><h4>A Powerful, Convenient & Elegant Academic Tool for Citation</h4></center>
+<center><b><h3>Thanks for 1.7k downloads😄!</h3></b></center> 
+<hr>
+<p>🚀 <strong>Quick Start</strong>: See <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/tutorials">Quick Start</a> for basic rules, syntax, and most important operations. It only takes &lt; 5 mins but will make everything go smoothly.</p>
+<p>✨ <strong>Complete Features &amp; Updates</strong>: See <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/CHANGELOG.md">Changelog</a> for details.</p>
+<p>📹 <strong>Video Tutorial</strong>: Coming soon if this plugin has 5000 downloads or this repo gets 50 stars.</p>
+<p>📱 <strong>Platform support</strong>: This plugin has been tested on <strong>Windows, Linux, Mac, and Android</strong> (certain functions may be limited on mobile).</p>
+<h2 id="installation">🛠️ Installation</h2>
+<ol>
+<li>
+<p>You can download it from community plugins (<code>Settings</code> &gt; <code>Community plugins</code> &gt; <code>Browse</code> and search for <code>equation-citator</code>).</p>
+</li>
+<li>
+<p>Or you can download <code>main.js</code>, <code>manifest.json</code> and <code>style.css</code> from the latest release page and place them in <code>.obsidian/plugins/equation-citator</code> in your Obsidian vault.</p>
+</li>
+</ol>
+<h2 id="applications-and-usages">👋🏻 Applications &amp; Usages</h2>
+<blockquote class="callout callout-note" data-callout-type="note" data-callout-has-title="">
+<p><strong>This plugin would be pretty useful if</strong>:</p>
+<ul>
+<li>You’re writing academic notes in Obsidian and need to manage numerous equations, figures, and tables efficiently with automatic numbering and cross-references</li>
+<li>You’re drafting research papers or technical documents in Markdown and want LaTeX-style citation with accurate numbering</li>
+<li>You derive equations in your notes and need to reference them throughout your derivation process or across multiple files</li>
+<li>You use Obsidian for school or university notes and want quick navigation to cited content without endless scrolling</li>
+<li>You have figures, tables, or theorem-like content in your notes that requires systematic referencing and organization</li>
+</ul>
+</blockquote>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p><strong>This plugin is NOT designed for</strong>:</p>
+<ul>
+<li>Citing equations or content within PDF files (PDFs are not recognized or processed by the plugin)</li>
+<li>Managing bibliographic references or literature citations (use a dedicated citation management plugin instead)</li>
+<li>Real-time collaborative editing with automatic sync of equation numbers across users</li>
+<li>Processing equations in image files or scanned documents</li>
+</ul>
+</blockquote>
+<h2 id="what-this-plugin-does">✨ What this plugin does</h2>
+<h3 id="_1-auto-number-equations-and-figures-by-heading-level">1. ⚡ Auto-number Equations &amp; Figures by Heading Level</h3>
+<p>One-click auto-numbering support for:</p>
+<ul>
+<li>All equations / tagged equations only</li>
+<li>All figures / tagged figures only</li>
+<li>Full support for <strong>auto-updating citation numbers</strong> after auto-numbering — add or delete equations and figures anywhere without worrying about broken numbering or citations</li>
+<li><strong>Right-click to rename tags</strong> for equations and figures, with all citations updated automatically</li>
+</ul>
+<center><img src="img/auto_number_vid.gif" alt="auto-number" style="zoom: 50%;" /></center>
+<h3 id="_2-cite-equations-figures-tables-and-theorems">2. 🖼️ Cite Equations, Figures, Tables and Theorems</h3>
+<center><img src="img/image_cite_case.png" alt="img-cite-case" style="zoom:100%; max-height: 350px;" /></center> 
+<ul>
+<li>Cite equations with <code>\ref{eq:tag}</code> syntax, with full autocomplete support</li>
+<li>Cite figures by adding a <code>fig:</code> field to the image and using <code>\ref{fig:tag}</code> syntax</li>
+<li>Cite tables and theorems callout citation with <strong>fully configurable prefixes</strong>.</li>
+<li>Support for <strong>Excalidraw images</strong> and <strong>markdown section previews</strong></li>
+<li>Full support on <strong>multiple citation &amp; continuous citation &amp; cross-file citation</strong></li>
+</ul>
+<h3 id="_3-equation-manage-panel-browse-jump-and-cite-by-drag-and-drop">3. 🖥️ Equation Manage Panel — Browse, Jump and Cite by Drag and Drop</h3>
+<ul>
+<li>Browse and cite <strong>equations, figures, and callouts</strong> by <strong>drag and drop</strong> from the manage panel</li>
+<li><strong>Filter and search</strong>, filter boxed equations &amp; tagged equations in panel.</li>
+<li><strong>Drag-drop citations</strong> with all-type, cross-file support</li>
+<li><strong>Right-click to copy</strong> equations directly from the panel or editor popover</li>
+<li><strong>Jump to equations</strong>, figures and callouts directly from the popover and Equation Manage Panel</li>
+</ul>
+<center><img src="img/drag-drop-cite.gif" alt="drag-drop-cite" style="zoom: 50%;" /></center>
+<!-- PLACEHOLDER: gif of switching between equation / figure / callout view in the panel -->
+<h3 id="_4-pdf-export-and-web-documentation-support">4. 📜 PDF Export &amp; Web documentation support</h3>
+<ol>
+<li>Run the command <code>Make markdown copy to export PDF</code> to generate a properly formatted markdown file ready for PDF export.</li>
+</ol>
+<ul>
+<li>Correct citation and reference numbers with configurable citation colors</li>
+<li>Support for <strong>markdown grammar inside title/caption for figures</strong></li>
+</ul>
+<ol start="2">
+<li>You can build your <strong>own website using with live reference feature</strong> with this support.</li>
+</ol>
+<ul>
+<li>To ensure links are correctly resolved, use <code>Path to vault folder</code>.</li>
+<li>Specify a <code>Website notes export folder</code> to build your documentation.</li>
+<li>You can <strong>sync Single file, folders or entire repository</strong> to the desination folder, the citation meta-data can be preserved for rendering the preview on the website.</li>
+<li>We also an <a href="https://www.npmjs.com/package/@friedparrot/equation-citator">npm package</a> to help you to make the elements citable in the website to make your notes to be easily deployed to a website. This can be installed by <code>npm i @friedparrot/equation-citator --save-dev</code>.</li>
+</ul>
+<center><img src="img/webpage-build-example.png" alt="drag-drop-cite" style="zoom: 100%; max-height: 350px;" /></center>
+<h2 id="compatibility-with-other-plugins">🛒 Compatibility with other plugins</h2>
+<p>The following plugins often used for math are tested to be compatible with <code>Equation Citator</code> — you can use them together without any problem.</p>
+<ol>
+<li><a href="https://github.com/zsviczian/obsidian-excalidraw-plugin">Excalidraw</a> — Excalidraw is supported in figure citation preview after v1.3.3; cite an Excalidraw picture by adding a <code>fig</code> field to it just like a normal image.</li>
+<li><a href="https://github.com/azyarashi/obsidian-typst-mate">Typst Mate</a> — supports Typst-style autonumber; enable via <code>Settings &gt; Categorical &gt; Others &gt; Enable typst mode</code>.</li>
+<li><a href="https://github.com/artisticat1/obsidian-latex-suite">Latex Suite</a> — works seamlessly with this plugin; highly recommended for writing long and complex equations quickly.</li>
+<li><a href="https://github.com/tth05/obsidian-completr">Completr</a> — provides better auto-complete for LaTeX syntax.</li>
+<li><a href="https://github.com/joeyuping/quick_latex_obsidian">Quick Latex</a> — provides features like auto-enlarge brackets.</li>
+<li><a href="https://github.com/RyotaUshio/obsidian-math-in-callout">Better math in callouts &amp; blockquotes</a> — use for better math rendering inside callouts.</li>
+<li><a href="https://github.com/RyotaUshio/obsidian-inline-math">No More Flickering Inline Math</a></li>
+</ol>
+<h2 id="disclaimer">🚨 Disclaimer</h2>
+<p>This plugin can edit and update files in your Obsidian vault.</p>
+<p>Although it has been thoroughly tested on multiple versions and used daily on my own vault for several months without data loss, unexpected bugs may still occur — especially when new features are introduced.</p>
+<p>To protect your data, I strongly recommend enabling the “File Recovery” core plugin (or keeping regular backups) before using this plugin.</p>
+<p>While I cannot take responsibility for data loss caused by bugs or unexpected behavior, I take reports seriously and will investigate and fix any critical issues that cause data loss as quickly as possible.</p>
+<h2 id="bug-and-reports">🐛 Bug &amp; Reports</h2>
+<p>If you encounter any bug, please <strong>provide the following information</strong> on the issue page:</p>
+<ol>
+<li>A description of the bug or issue, along with steps to reproduce it.</li>
+<li>The relevant markdown text that triggers the issue.</li>
+<li>Enable debug mode in the settings tab and provide the console log (<code>Ctrl + Shift + I</code> in Obsidian).</li>
+</ol>
+<p>If you have suggestions or questions for this plugin, feel free to leave them on the issue page.</p>
+<blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
+<p>Since this plugin has a cache mechanism for better performance, a normal delay or a non-immediate update is expected cache-related behavior. Wait a few seconds, or re-open the file or restart Obsidian to confirm your issue is not just a cache delay.</p>
+</blockquote>
+<h2 id="support-and-collaboration">💖 Support and Collaboration</h2>
+<p>I developed this plugin as a hobby and use it in my daily work. It’s completely free for everyone to use.</p>
+<ul>
+<li>💖 I would be very glad if anyone can help maintain this plugin (since I’m busy during school time).</li>
+</ul>
+<blockquote class="callout callout-note" data-callout-type="note">
+<p><strong>Contributors and maintainers are always welcome</strong>:
+You can contribute by forking this repo and submitting a PR:</p>
+<ol>
+<li><strong>Please test your code carefully before submitting a PR!</strong></li>
+<li>Add what you have done to <code>CHANGELOG.md</code>. (Use the next patch version number if a new minor version is not planned.)</li>
+<li>We have CI checks before merging — please make sure your code passes all checks.</li>
+</ol>
+<p>For submitting a PR, please commit to the <code>dev-latest</code> branch. This is the latest development branch, and I will always sync my dev branch to it to prevent potential merge conflicts.</p>
+</blockquote>
+<p>Thanks to <a href="https://github.com/azyarashi">@azyarashi</a> for collaboration and substantial improvements to the plugin. I also appreciate all the users who suggested useful new features and enhancements.</p>
+<p>Finally, if you find this plugin helpful, consider buying me a cup of ☕️:</p>
+<center><a href='https://ko-fi.com/Z8Z81N7CMO' target='_blank'><img src="./img/friedparrot-kofi.jpg" width="350px" style="border-radius:15px"></img></a></center>
+
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#installation"><span>🛠️ Installation</span></a><a href="#applications-and-usages"><span>👋🏻 Applications &amp; Usages</span></a><a href="#what-this-plugin-does"><span>✨ What this plugin does</span></a><a href="#_1-auto-number-equations-and-figures-by-heading-level"><span>1. ⚡ Auto-number Equations &amp; Figures by Heading Level</span></a><a href="#_2-cite-equations-figures-tables-and-theorems"><span>2. 🖼️ Cite Equations, Figures, Tables and Theorems</span></a><a href="#_3-equation-manage-panel-browse-jump-and-cite-by-drag-and-drop"><span>3. 🖥️ Equation Manage Panel — Browse, Jump and Cite by Drag and Drop</span></a><a href="#_4-pdf-export-and-web-documentation-support"><span>4. 📜 PDF Export &amp; Web documentation support</span></a><a href="#compatibility-with-other-plugins"><span>🛒 Compatibility with other plugins</span></a><a href="#disclaimer"><span>🚨 Disclaimer</span></a><a href="#bug-and-reports"><span>🐛 Bug &amp; Reports</span></a><a href="#support-and-collaboration"><span>💖 Support and Collaboration</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/en/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/en/index.html" selected>English</option><option value="/projects/obsidian-equation-citator/zh-CN/index.html">简体中文</option></select>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/1.%20Get%20Started/index.html">1. Get Started</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/2.%20Cross%20File%20Citation%20Feature/index.html">2. Cross File Citation Feature</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.1.x/index.html">CHANGELOG 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html">CHANGELOG 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.3.x/index.html">CHANGELOG 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

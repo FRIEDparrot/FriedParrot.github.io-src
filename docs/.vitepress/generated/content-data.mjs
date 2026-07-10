@@ -44,28 +44,6 @@ export const knowledgeBase = [
     "categorySegments": [
       "dev"
     ]
-  },
-  {
-    "title": "Quick Start",
-    "route": "/knowledge-base/Equation-Citator-Tutorial/Quick Start",
-    "tags": [],
-    "categories": [
-      "Equation Citator Tutorial"
-    ],
-    "categorySegments": [
-      "Equation-Citator-Tutorial"
-    ]
-  },
-  {
-    "title": "Useful Tricks and techniques",
-    "route": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks and techniques",
-    "tags": [],
-    "categories": [
-      "Equation Citator Tutorial"
-    ],
-    "categorySegments": [
-      "Equation-Citator-Tutorial"
-    ]
   }
 ]
 
@@ -89,21 +67,6 @@ export const knowledgeBaseSidebar = [
       {
         "text": "project-summary",
         "link": "/knowledge-base/dev/project-summary"
-      }
-    ]
-  },
-  {
-    "text": "Equation Citator Tutorial",
-    "link": "/knowledge-base/Equation-Citator-Tutorial/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "Quick Start",
-        "link": "/knowledge-base/Equation-Citator-Tutorial/Quick Start"
-      },
-      {
-        "text": "Useful Tricks and techniques",
-        "link": "/knowledge-base/Equation-Citator-Tutorial/Useful Tricks and techniques"
       }
     ]
   },

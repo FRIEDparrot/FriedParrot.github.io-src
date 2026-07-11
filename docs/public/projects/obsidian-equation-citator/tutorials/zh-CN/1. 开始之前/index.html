@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="default" lang="zh-CN" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. 开始之前 | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/zh-CN/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>1. 开始之前</h1></div>
+        <p>如果你需要本教程的 Markdown 版本，请点击<a href="/downloads/projects/obsidian-equation-citator/tutorials.zip">此链接</a></p>
+<h2 id="设置面板的使用">设置面板的使用</h2>
+<h3 id="_1-如何使用设置面板">(1) 如何使用设置面板</h3>
+<p>我们有 3 种视图模式以供更好的布局安排：</p>
+<ol>
+<li><strong>简洁模式</strong>（默认）：在 <code>基础</code> 部分显示<strong>常用设置</strong>，其他较少使用的设置位于 <code>高级</code> 选项卡中。你还可以在 <code>自定义显示设置</code> 中配置要显示哪些设置。</li>
+<li><strong>分类模式</strong>（推荐/专业选项）：以不同类别显示所有设置，如果你想查找特定类型的设置，这可能是最清晰的视图。</li>
+<li><strong>列表模式</strong>：此视图<strong>允许你搜索设置</strong>。</li>
+</ol>
+<p><strong>重要</strong>：在简洁模式下你<strong>不会看到所有设置</strong>，你需要在&quot;自定义显示区域&quot;中启用它们，或者<strong>切换到&quot;分类模式&quot;<strong>或</strong>列表模式</strong>才能找到所有设置。</p>
+<blockquote>
+<p>如果你想创建一个与添加新设置相关的 issue，请先检查分类视图并在列表部分搜索，看看该设置是否已经存在。</p>
+</blockquote>
+<h3 id="_2-隐藏设置">(2) 隐藏设置</h3>
+<p>在 <code>分类 &gt; 公式面板 &gt; 在公式面板中使用快速数学渲染器</code> 中有一个<strong>快速数学渲染器选项</strong>。我强烈建议开启此选项，因为它能<strong>大幅提升公式面板的加载速度</strong>。唯一不可避免的 bug 是符号可能加载不完全，但只需简单滚动/跳转即可轻松解决。</p>
+<h2 id="语法规则">语法规则</h2>
+<p>你需要遵循一些简单的规则以确保本插件正常工作。</p>
+<h3 id="_1-代码块格式">(1) 代码块格式</h3>
+<ol>
+<li>代码块：始终使用 3 个反引号作为代码块格式，如下所示（4 和 5 个反引号也支持，但不推荐。6 个反引号可能导致代码块识别错误，因为一行中的 6 个反引号既可以形成行内代码也可以形成代码块）。</li>
+</ol>
+<pre><code class="language-latex">代码块
+</code></pre>
+<h3 id="_2-引用清晰性">(2) 引用清晰性</h3>
+<ol>
+<li>避免在标签或引用中使用 <code>\}</code>（这会导致标签识别错误）。</li>
+<li>使用数字（1, 2, 3, …）作为脚注编号，不要使用字符。</li>
+<li>对于标注（callout），<strong>每一行都应以大于号</strong> <code>&gt;</code> <strong>开头</strong>。没有 <code>&gt;</code> 符号的隐式标注行将被忽略。</li>
+</ol>
+<h3 id="_3-编写公式块">(3) 编写公式块</h3>
+<p>我们的自动编号算法假定<strong>每个公式块都以 <code>$$</code> 在新行开始</strong>，并且公式块的结束行以 <code>$$</code> 结尾。这能提高笔记的解析速度。</p>
+<p>✅ 正确示例：</p>
+<pre><code class="language-latex">%单行公式块格式%
+$$ \Large \boxed{dg = - s dT+v dp } $$  
+
+%多行公式块格式%
+$$   %% 美元符号前只能有空格
+\Large \boxed{dg = - s dT+v dp }
+$$
+
+%或在多行中自由书写公式%
+$$ du = \left(\frac{\partial u}{\partial s}\right)_v ds +\left( \frac{\partial u}{\partial v}\right)_s dv \rightarrow
+\quad \boxed{T = \left( \frac{\partial u}{\partial s}\right)_v, \quad p = - \left(\frac{\partial u}{\partial v} \right)_s} \tag{3.1.1} $$
+</code></pre>
+<p>❌ 不支持的示例：
+第一种情况是在 <code>$$</code> 符号前写文本，然后将闭合 <code>$$</code> 放在新行中：</p>
+<pre><code class="language-Latex">this  is an $$ equation 1 
+$$  % 这将被视为公式的开始，并可能导致自动编号错误
+</code></pre>
+<p>注意，表格中的公式将被自动忽略，不会进行自动编号。</p>
+<pre><code class="language-latex">%% 不要在 $$ 后写文本，这会停止自动编号%%
+$$
+Equation 2
+$$ block  # 公式块后的文本
+</code></pre>
+<p>对于第二种情况，如果你尝试自动编号，会收到通知 <code>检测到第 xxx 行公式块中存在非法的嵌套 $$</code>。你可以启用 <code>设置 &gt; 编辑器 &gt; 行号</code> 来修复它。</p>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p>如果你使用本插件，应遵循以上规则。因未遵循以上规则而导致的问题可能会在不修复的情况下被关闭。</p>
+</blockquote>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#%E8%AE%BE%E7%BD%AE%E9%9D%A2%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8"><span>设置面板的使用</span></a><a href="#_1-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AE%BE%E7%BD%AE%E9%9D%A2%E6%9D%BF"><span>(1) 如何使用设置面板</span></a><a href="#_2-%E9%9A%90%E8%97%8F%E8%AE%BE%E7%BD%AE"><span>(2) 隐藏设置</span></a><a href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span>语法规则</span></a><a href="#_1-%E4%BB%A3%E7%A0%81%E5%9D%97%E6%A0%BC%E5%BC%8F"><span>(1) 代码块格式</span></a><a href="#_2-%E5%BC%95%E7%94%A8%E6%B8%85%E6%99%B0%E6%80%A7"><span>(2) 引用清晰性</span></a><a href="#_3-%E7%BC%96%E5%86%99%E5%85%AC%E5%BC%8F%E5%9D%97"><span>(3) 编写公式块</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

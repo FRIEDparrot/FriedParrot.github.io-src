@@ -45,17 +45,18 @@
   <img src="https://img.shields.io/badge/License-Apache%202.0-red" alt="License">
   <img src="https://sonarcloud.io/api/project_badges/measure?project=FRIEDparrot_obsidian-equation-citator&metric=alert_status" alt="Quality Gate">
 </span></div></center>
+<center><a href="http://172.24.112.1:4173/projects/obsidian-equation-citator/en/index.html">English </a> | <a href="http://172.24.112.1:4173/projects/obsidian-equation-citator/zh-CN/index.html">简体中文</a></center>
 <center><h4>强大、便捷且优雅的学术引用工具</h4></center>
-<center><b><h3>感谢 1.7k 下载😄!</h3></b></center>  
+<center><b><h3>感谢 1.7k 下载😄!</h3></b></center> 
 <hr>
-<p>🚀 <strong>快速入门</strong>：请查阅 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/tutorials">快速入门教程</a>，了解基本规则、语法与核心操作。只需不到 5 分钟，即可顺畅上手。</p>
-<p>✨ <strong>完整功能与更新记录</strong>：详见 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/CHANGELOG.md">更新日志</a>。</p>
+<p>🚀 <strong>快速入门</strong>：我们提供了<strong>详细的</strong> <a href="https://friedparrot.github.io/projects/obsidian-equation-citator/tutorials/en/index.html">网页文档教程</a>，带您了解所有功能（使用插件前请务必查看！）。</p>
+<p>✨ <strong>完整功能与更新记录</strong>：详见 <a href="https://friedparrot.github.io/projects/obsidian-equation-citator/changelogs/en/index.html">更新日志</a>。</p>
 <p>📹 <strong>视频教程</strong>：如果本插件下载量达到 5000 次或仓库获得 50 个 Star，将会录制视频教程。</p>
 <p>📱 <strong>平台支持</strong>：本插件已在 <strong>Windows、Linux、Mac 和 Android</strong> 上完成测试（某些功能在移动端可能受限）。</p>
 <h2 id="安装方式">🛠️ 安装方式</h2>
 <ol>
 <li>
-<p>您可通过社区插件安装此插件（<code>设置</code> &gt; <code>第三方插件</code> &gt; <code>浏览</code>，搜索 <code>equation-citator</code>）。</p>
+<p>您可通过社区插件市场安装（<code>设置</code> &gt; <code>第三方插件</code> &gt; <code>浏览</code>，搜索 <code>equation-citator</code>）。</p>
 </li>
 <li>
 <p>或从最新 Release 页面下载 <code>main.js</code>、<code>manifest.json</code> 和 <code>style.css</code>，放置于 Obsidian 仓库的 <code>.obsidian/plugins/equation-citator</code> 文件夹中。</p>
@@ -65,118 +66,116 @@
 <blockquote class="callout callout-note" data-callout-type="note" data-callout-has-title="">
 <p><strong>以下情况下，本插件会非常有用</strong>：</p>
 <ul>
-<li>在 Obsidian 中撰写学术笔记，需要高效管理大量公式、图表，并支持自动编号与交叉引用</li>
-<li>在 Markdown 中起草论文或技术文档，需要 LaTeX 风格的引用与精确编号</li>
-<li>在笔记中推导公式，需要在同一文件或跨文件中反复引用这些公式</li>
-<li>在学校或大学笔记中使用 Obsidian，希望快速跳转到被引用内容而无需反复滚动</li>
-<li>笔记中包含图片、表格或定理类内容，需要系统化地管理引用与编号</li>
+<li>您在 Obsidian 中撰写学术笔记，需要高效管理大量公式、图表和表格，并支持自动编号与交叉引用</li>
+<li>您在 Markdown 中起草论文或技术文档，需要 LaTeX 风格的引用与精确编号</li>
+<li>您在笔记中推导公式，需要在推导过程中或跨文件中反复引用这些公式</li>
+<li>您在学校或大学笔记中使用 Obsidian，希望快速跳转到被引用内容而无需反复滚动</li>
+<li>您的笔记中包含图片、表格或定理类内容，需要系统化的引用与组织</li>
 </ul>
 </blockquote>
 <blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
 <p><strong>以下情况不适合使用本插件</strong>：</p>
 <ul>
 <li>引用 PDF 文件中的公式或内容（本插件不识别或处理 PDF 文件）</li>
-<li>管理文献引用（请使用专用的文献管理插件）</li>
-<li>多人实时协作编辑并自动同步公式编号</li>
+<li>管理文献引用或参考文献目录（请使用专用的文献管理插件）</li>
 <li>处理图片文件或扫描文档中的公式</li>
 </ul>
 </blockquote>
 <h2 id="功能介绍">✨ 功能介绍</h2>
-<h3 id="_1-按标题层级自动编号公式与图片">1. ⚡ 按标题层级自动编号公式与图片</h3>
+<h3 id="_1-按标题层级自动编号公式与图表">1. ⚡ 按标题层级自动编号公式与图表</h3>
 <p>一键自动编号，支持：</p>
 <ul>
 <li>全部公式 / 仅含标签的公式</li>
-<li>全部图片 / 仅含标签的图片</li>
-<li>自动编号后<strong>自动更新引用编号</strong>——在任意位置增删公式或图片，无需担心编号错乱或引用失效</li>
-<li><strong>右键重命名标签</strong>，所有对应引用将自动同步更新</li>
+<li>全部图表 / 仅含标签的图表</li>
+<li>自动编号后<strong>自动更新引用编号</strong>——在任意位置增删公式或图表，无需担心编号错乱或引用失效</li>
+<li><strong>右键重命名标签</strong>，公式和图表的标签均可重命名，所有对应引用将自动同步更新</li>
 </ul>
 <center><img src="img/auto_number_vid.gif" alt="auto-number" style="zoom: 50%;" /></center>
-<h3 id="_2-引用公式-图片-表格与定理">2. 🖼️ 引用公式、图片、表格与定理</h3>
+<h3 id="_2-引用公式-图表-表格与定理">2. 🖼️ 引用公式、图表、表格与定理</h3>
 <center><img src="img/image_cite_case.png" alt="img-cite-case" style="zoom:100%; max-height: 350px;" /></center> 
 <ul>
-<li>使用 <code>\ref{eq:tag}</code> 语法引用公式，支持完整的自动补全</li>
-<li>在图片语法中添加 <code>fig:</code> 字段，并使用 <code>\ref{fig:tag}</code> 引用图片</li>
-<li>通过 Callout 引用语法引用表格与定理，支持完全自定义的前缀配置</li>
+<li>使用 <code>\ref{eq:tag}</code> 语法引用公式，输入时支持完整的自动补全</li>
+<li>在图片中添加 <code>fig:</code> 字段，并使用 <code>\ref{fig:tag}</code> 语法引用图表</li>
+<li>通过<strong>完全可配置的前缀</strong>引用表格和定理标注</li>
 <li>支持 <strong>Excalidraw 图片</strong>与 <strong>Markdown 章节预览</strong></li>
 <li>完整支持<strong>多项引用 &amp; 连续引用 &amp; 跨文件引用</strong></li>
 </ul>
 <h3 id="_3-公式管理面板-浏览-跳转与拖拽引用">3. 🖥️ 公式管理面板——浏览、跳转与拖拽引用</h3>
 <ul>
-<li>从管理面板中<strong>拖拽</strong> <strong>公式、图片或 Callout</strong> 至编辑器，快速插入引用</li>
-<li><strong>筛选与搜索</strong>：可按&quot;带方框公式&quot;或&quot;含标签公式&quot;进行过滤</li>
+<li>从管理面板中<strong>拖拽公式、图表和标注</strong>至编辑器，快速插入引用</li>
+<li><strong>筛选与搜索</strong>：在面板中筛选框选公式与带标签公式</li>
 <li><strong>拖拽引用</strong>支持全类型与跨文件引用</li>
 <li>在面板或编辑器弹窗中<strong>右键复制</strong>公式</li>
-<li>从弹窗或管理面板中直接<strong>跳转</strong>至公式、图片或 Callout 所在位置</li>
+<li>从弹窗和公式管理面板中直接<strong>跳转至公式、图表和标注</strong></li>
 </ul>
-<center><img src="img/drag-drop-cite.gif" alt="drag-drop-cite" style="zoom: 50%;" /></center>
-<!-- 占位符：面板中切换公式 / 图片 / Callout 视图的 GIF 演示 -->
+<center><img src="img/drag-drop-cite.gif" alt="drag-drop-cite" style="width:600px" /></center>
+<!-- 占位符：面板中切换公式 / 图表 / 标注视图的 GIF 演示 -->
 <h3 id="_4-pdf-导出与网站文档支持">4. 📜 PDF 导出与网站文档支持</h3>
 <ol>
-<li>运行命令 <code>Make markdown copy to export PDF</code>，生成格式正确、可直接用于 PDF 导出的 Markdown 文件。</li>
+<li>运行命令「创建 Markdown 副本以导出 PDF」，生成格式正确、可直接用于 PDF 导出的 Markdown 文件。</li>
 </ol>
 <ul>
 <li>正确的引用与参考编号，支持可配置的引用颜色</li>
 <li>支持<strong>图片标题/描述中的 Markdown 语法</strong></li>
 </ul>
+<center><img src="img/pdf-export-example.png" alt="drag-drop-cite" style="zoom: 100%; max-height: 350px;" /></center>
 <ol start="2">
 <li>您可以使用此功能构建<strong>带有实时引用功能的个人网站</strong>。</li>
 </ol>
 <ul>
-<li>指定一个 <code>网站笔记导出文件夹</code> 来构建您的文档。</li>
+<li>为确保链接正确解析，请使用 <code>Path to vault folder</code>。</li>
+<li>指定一个「网站笔记导出文件夹」来构建您的文档。</li>
 <li>您可以<strong>同步单个文件、文件夹或整个仓库</strong>到目标文件夹，引用元数据将被保留，以便在网站上渲染预览。</li>
+<li>我们还提供了一个 <a href="https://www.npmjs.com/package/@friedparrot/equation-citator">npm 包</a>，帮助您在网站中使元素可引用，让笔记轻松部署到网站。可通过 <code>npm i @friedparrot/equation-citator --save-dev</code> 安装。</li>
 </ul>
-<center><img src="img/webpage-build-example.png" alt="drag-drop-cite" style="zoom: 100%; max-height: 350px;" /></center>
 <h2 id="与其他插件的兼容性">🛒 与其他插件的兼容性</h2>
 <p>以下常用数学类插件已通过与 <code>Equation Citator</code> 的兼容性测试，可放心搭配使用。</p>
 <ol>
-<li><a href="https://github.com/zsviczian/obsidian-excalidraw-plugin">Excalidraw</a> — v1.3.3 后支持在图片引用预览中显示 Excalidraw 图形；像普通图片一样添加 <code>fig</code> 字段即可引用。</li>
-<li><a href="https://github.com/azyarashi/obsidian-typst-mate">Typst Mate</a> — 支持 Typst 风格自动编号；在 <code>设置 &gt; Categorical &gt; Others &gt; 启用 Typst 模式</code> 中开启。</li>
+<li><a href="https://github.com/zsviczian/obsidian-excalidraw-plugin">Excalidraw</a> — v1.3.3 后支持在图表引用预览中显示 Excalidraw；像普通图片一样添加 <code>fig</code> 字段即可引用。</li>
+<li><a href="https://github.com/azyarashi/obsidian-typst-mate">Typst Mate</a> — 支持 Typst 风格自动编号；通过 <code>设置 &gt; 分类 &gt; 其他 &gt; 启用 Typst 模式</code> 开启。</li>
 <li><a href="https://github.com/artisticat1/obsidian-latex-suite">Latex Suite</a> — 与本插件无缝配合，强烈推荐用于快速书写长而复杂的公式。</li>
 <li><a href="https://github.com/tth05/obsidian-completr">Completr</a> — 提供更好的 LaTeX 语法自动补全。</li>
 <li><a href="https://github.com/joeyuping/quick_latex_obsidian">Quick Latex</a> — 提供括号自动放大等功能。</li>
-<li><a href="https://github.com/RyotaUshio/obsidian-math-in-callout">Better math in callouts &amp; blockquotes</a> — 用于在 Callout 中获得更好的数学公式渲染效果。</li>
+<li><a href="https://github.com/RyotaUshio/obsidian-math-in-callout">Better math in callouts &amp; blockquotes</a> — 用于在标注中获得更好的数学公式渲染效果。</li>
 <li><a href="https://github.com/RyotaUshio/obsidian-inline-math">No More Flickering Inline Math</a></li>
 </ol>
 <h2 id="免责声明">🚨 免责声明</h2>
 <p>本插件会对 Obsidian 仓库中的文件进行编辑和更新。</p>
 <p>尽管本插件已在多个版本上经过充分测试，并在我自己的仓库中每日使用数月而未出现数据丢失，但仍可能存在未知 Bug，尤其是在引入新功能时。</p>
-<p>为保护您的数据，强烈建议在使用本插件前启用 Obsidian 的&quot;文件恢复&quot;核心插件，或定期进行手动备份。</p>
+<p>为保护您的数据，强烈建议在使用本插件前启用 Obsidian 的「文件恢复」核心插件（或保持定期备份）。</p>
 <p>虽然我无法对因 Bug 或意外行为导致的数据丢失承担责任，但我会认真对待每一份反馈，并尽快调查和修复导致数据丢失的严重问题。</p>
 <h2 id="问题反馈">🐛 问题反馈</h2>
 <p>如遇到 Bug，请在 Issue 页面<strong>提供以下信息</strong>：</p>
 <ol>
-<li>Bug 的描述及复现步骤。</li>
+<li>Bug 或问题的描述，以及复现步骤。</li>
 <li>触发问题的相关 Markdown 文本。</li>
-<li>在设置中启用调试模式，并提供控制台日志（在 Obsidian 中按 <code>Ctrl + Shift + I</code>）。</li>
+<li>在设置标签页中启用调试模式，并提供控制台日志（在 Obsidian 中按 <code>Ctrl + Shift + I</code>）。</li>
 </ol>
 <p>如有功能建议或使用疑问，也欢迎在 Issue 页面留言。</p>
 <blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
-<p>由于本插件采用缓存机制以提升性能，轻微的延迟或未能即时更新属于正常的缓存行为。请等待几秒钟，或重新打开文件、重启 Obsidian，确认问题并非由缓存延迟引起。</p>
+<p>由于本插件采用缓存机制以提升性能，轻微的延迟或未能即时更新属于正常的缓存行为。请等待几秒钟，或重新打开文件、重启 Obsidian，确认问题并非仅由缓存延迟引起。</p>
 </blockquote>
-<h2 id="支持与协作">💖 支持与协作</h2>
-<p>本插件由我作为业余爱好开发，也用于我的日常工作，对所有人完全免费。</p>
-<ul>
-<li>💖 如果有人能帮助我维护本插件，我将非常感谢（因为我在学习期间时间有限）。</li>
-</ul>
-<blockquote class="callout callout-note" data-callout-type="note">
+<h2 id="协作与支持">💖 协作与支持</h2>
+<p>本插件由我作为业余爱好开发，也用于我的日常工作，对所有人完全免费。由于学期期间较为忙碌，本插件通常每隔几个月更新一次。但问题会被积极关注，插件始终保持活跃维护状态。</p>
+<blockquote class="callout callout-note" data-callout-type="note" data-callout-has-title="">
 <p><strong>欢迎贡献者与维护者加入</strong>：
 您可以通过 Fork 本仓库并提交 PR 来参与贡献：</p>
 <ol>
+<li><strong>提交 PR 时请将代码提交到 <code>dev-latest</code> 分支</strong>。这是最新的开发分支。</li>
 <li><strong>提交 PR 前请务必仔细测试您的代码！</strong></li>
 <li>将您的改动记录添加到 <code>CHANGELOG.md</code> 中。（若未计划新的小版本，请使用下一个补丁版本号。）</li>
 <li>合并前有 CI 检查，请确保您的代码通过所有检查。</li>
 </ol>
-<p>提交 PR 时，请将代码提交到 <code>dev-latest</code> 分支。这是最新的开发分支，我会始终将我的开发分支同步至此，以避免潜在的合并冲突。</p>
 </blockquote>
-<p>感谢 <a href="https://github.com/azyarashi">@azyarashi</a> 对本插件的协作与重要改进，也感谢所有提出宝贵建议和功能需求的用户。</p>
-<p>如果本插件对您有所帮助，欢迎在此处赞助我 ☕️：</p>
+<p>感谢 <a href="https://github.com/azyarashi">@azyarashi</a> 对本插件的协作与重要改进。也感谢所有提出宝贵新功能和增强建议的用户。</p>
+<p>本插件源代码已超过 1.6 万行，这增加了问题解决和维护的复杂度。因此，如果本插件对您确实有帮助，不妨请我喝杯咖啡 ☕️：</p>
 <center><a href='https://ko-fi.com/Z8Z81N7CMO' target='_blank'><img src="./img/friedparrot-kofi.jpg" width="350px" style="border-radius:15px"></img></a></center>
 
       </article>
     </div>
     <div class="col-sidebar">
-      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span>🛠️ 安装方式</span></a><a href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span>👋🏻 适用场景</span></a><a href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span>✨ 功能介绍</span></a><a href="#_1-%E6%8C%89%E6%A0%87%E9%A2%98%E5%B1%82%E7%BA%A7%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7%E5%85%AC%E5%BC%8F%E4%B8%8E%E5%9B%BE%E7%89%87"><span>1. ⚡ 按标题层级自动编号公式与图片</span></a><a href="#_2-%E5%BC%95%E7%94%A8%E5%85%AC%E5%BC%8F-%E5%9B%BE%E7%89%87-%E8%A1%A8%E6%A0%BC%E4%B8%8E%E5%AE%9A%E7%90%86"><span>2. 🖼️ 引用公式、图片、表格与定理</span></a><a href="#_3-%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF-%E6%B5%8F%E8%A7%88-%E8%B7%B3%E8%BD%AC%E4%B8%8E%E6%8B%96%E6%8B%BD%E5%BC%95%E7%94%A8"><span>3. 🖥️ 公式管理面板——浏览、跳转与拖拽引用</span></a><a href="#_4-pdf-%E5%AF%BC%E5%87%BA%E4%B8%8E%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81"><span>4. 📜 PDF 导出与网站文档支持</span></a><a href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E6%8F%92%E4%BB%B6%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7"><span>🛒 与其他插件的兼容性</span></a><a href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span>🚨 免责声明</span></a><a href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span>🐛 问题反馈</span></a><a href="#%E6%94%AF%E6%8C%81%E4%B8%8E%E5%8D%8F%E4%BD%9C"><span>💖 支持与协作</span></a></div></details></div>
-      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/en/index.html">English</option><option value="/projects/obsidian-equation-citator/zh-CN/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20Get%20Started/index.html">1. Get Started</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span>🛠️ 安装方式</span></a><a href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span>👋🏻 适用场景</span></a><a href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span>✨ 功能介绍</span></a><a href="#_1-%E6%8C%89%E6%A0%87%E9%A2%98%E5%B1%82%E7%BA%A7%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7%E5%85%AC%E5%BC%8F%E4%B8%8E%E5%9B%BE%E8%A1%A8"><span>1. ⚡ 按标题层级自动编号公式与图表</span></a><a href="#_2-%E5%BC%95%E7%94%A8%E5%85%AC%E5%BC%8F-%E5%9B%BE%E8%A1%A8-%E8%A1%A8%E6%A0%BC%E4%B8%8E%E5%AE%9A%E7%90%86"><span>2. 🖼️ 引用公式、图表、表格与定理</span></a><a href="#_3-%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF-%E6%B5%8F%E8%A7%88-%E8%B7%B3%E8%BD%AC%E4%B8%8E%E6%8B%96%E6%8B%BD%E5%BC%95%E7%94%A8"><span>3. 🖥️ 公式管理面板——浏览、跳转与拖拽引用</span></a><a href="#_4-pdf-%E5%AF%BC%E5%87%BA%E4%B8%8E%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81"><span>4. 📜 PDF 导出与网站文档支持</span></a><a href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E6%8F%92%E4%BB%B6%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7"><span>🛒 与其他插件的兼容性</span></a><a href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span>🚨 免责声明</span></a><a href="#%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span>🐛 问题反馈</span></a><a href="#%E5%8D%8F%E4%BD%9C%E4%B8%8E%E6%94%AF%E6%8C%81"><span>💖 协作与支持</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/en/index.html">English</option><option value="/projects/obsidian-equation-citator/zh-CN/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
     </div>
   </div>
 </body>

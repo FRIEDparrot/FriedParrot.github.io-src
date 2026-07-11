@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="default" lang="zh-CN" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3. 公式管理面板 | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/zh-CN/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>3. 公式管理面板</h1></div>
+        <h2 id="_1-开始之前">1. 开始之前</h2>
+<h3 id="_1-如何打开面板">1) 如何打开面板</h3>
+<p>你可以通过以下方式打开公式管理面板：</p>
+<ul>
+<li>命令面板：<code>打开公式管理面板</code></li>
+<li>工具栏图标</li>
+</ul>
+<h3 id="_2-使用快速数学渲染器">2) 使用快速数学渲染器</h3>
+<p>默认情况下，面板使用<strong>可靠的渲染方法</strong>来确保公式显示正确。如果你有很多公式并且加载速度较慢，请在设置中启用&quot;在公式面板中使用快速数学渲染器&quot;（<strong>设置 &gt; 显示（分类）&gt; 公式面板 &gt; 在公式面板中使用快速数学渲染器</strong>）。</p>
+<h2 id="_2-面板功能">2. 面板功能</h2>
+<h3 id="_1-面板工具栏按钮的使用">(1) 面板工具栏按钮的使用</h3>
+<p><img src="/projects/obsidian-equation-citator/tutorials/img/toolbar-panel.png" alt="246" width="246"></p>
+<p>我们以 <code>大纲</code> 模式下的按钮为例进行教程讲解，主面板包含以下按钮：</p>
+<ol>
+<li><strong>预览项目</strong>：在 <code>公式</code>、<code>图表</code> 和 <code>标注</code> 之间选择在面板中预览的内容。</li>
+<li><strong>视图模式</strong>：在 <code>大纲</code> 视图和 <code>列表</code> 视图之间切换。</li>
+<li><strong>禁用刷新</strong>：禁用自动刷新，这会锁定<strong>面板中渲染的文件、公式和标题</strong>，但 <code>视图模式切换</code>、<code>筛选器</code> 和 <code>搜索</code> 仍然有效。你可以在以下场景使用此选项：
+<ul>
+<li>对大型文档禁用消耗资源的自动刷新</li>
+<li>锁定公式以便切换到另一个文件进行跨文件引用。</li>
+</ul>
+</li>
+<li><strong>搜索</strong>：按内容搜索公式。</li>
+<li><strong>更多选项</strong>：显示/折叠子面板。</li>
+</ol>
+<p>子面板包括：</p>
+<ol>
+<li><strong>仅显示标题</strong>：只显示标题，隐藏公式（将面板用作大纲！）。</li>
+<li><strong>排序公式（列表模式）</strong>：按公式在文件中的顺序或按标签名称排序。</li>
+<li><strong>全部折叠/全部展开（大纲模式）</strong>：在大纲视图中折叠或展开所有标题。</li>
+<li><strong>显示/隐藏标签</strong>：在面板中显示或隐藏标签。</li>
+<li><strong>显示所有标题</strong>：仅显示包含公式的标题。</li>
+<li><strong>筛选器</strong>：
+<ul>
+<li>
+<ol>
+<li>仅显示<strong>带标签的公式/图表/标注</strong>。（适用于所有类型的内容）</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>仅显示<strong>框选公式</strong>。（仅适用于公式）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="_3-2-拖拽引用">3.2 拖拽引用</h3>
+<ol>
+<li>
+<p>从面板中<strong>拖拽</strong>项目，<strong>放置</strong>到你要引用的文本位置，格式正确的 <code>\ref{}</code> 引用将被自动插入。</p>
+</li>
+<li>
+<p>如果你有<strong>多个编辑器视图</strong>，也可以<strong>跨编辑器拖拽公式</strong>。本插件将<strong>自动解析跨文件引用并为其插入脚注</strong>。</p>
+</li>
+<li>
+<p>对于<strong>没有标签的公式/图片</strong>，你仍然可以将其拖拽到编辑器中，<strong>会弹出一个面板让你为其添加标签</strong>。</p>
+</li>
+<li>
+<p>对于面板中的标注，我们不支持拖拽引用没有标签的标注（因为这会破坏原始前缀），请手动为其添加标签。</p>
+</li>
+</ol>
+<h3 id="_3-3-特殊筛选器">3.3 特殊筛选器</h3>
+<p>筛选器是管理重要公式的非常有用的功能。目前我们提供 2 种筛选器：</p>
+<h4 id="_1-仅标签筛选器">1. 仅标签筛选器</h4>
+<p>仅显示带标签的公式。</p>
+<p>这是为许多不需要标签的推导过程添加的。你可以将此与 <code>仅自动编号带标签的公式</code> 一起使用，以忽略一些<strong>中间推导</strong>的公式。详情参见 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/105">issue #105</a>。但<strong>我建议使用框选筛选器，因为这仍然需要你手动标记公式</strong>，详情参见 <a href="/projects/obsidian-equation-citator/tutorials/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a>。</p>
+<h4 id="_2-框选筛选器">2. 框选筛选器</h4>
+<p>仅显示用 <code>\boxed{}</code> 包裹的公式。注意为简单起见，此筛选器只检查公式的第一行非空行是否包含 <code>\boxed</code>。</p>
+<p>你可以使用 Latex Suite 的 <code>框选当前公式</code> 命令来框选公式，我们插件也提供了 <code>框选当前公式</code> 命令。</p>
+<blockquote>
+<p>为支持 <a href="https://github.com/azyarashi/obsidian-typst-mate">Typst 模式</a>的框选，本插件使用 <code>boxed</code> 作为默认的 Typst 框选符号（用于 <code>Typst Mate</code> 插件）。这可以在 <code>设置 &gt; 显示（分类）&gt; 其他 &gt; Typst 框选符号</code> 中设置，详情参见 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/140">feature #140</a>。</p>
+</blockquote>
+<p>对于某些用户，他们将多行公式的第一行用作类别标记，我们也为此提供了一个选项。勾选 <code>设置 &gt; 显示（分类）&gt; 公式面板 &gt; 筛选框选公式时跳过首行</code> 来启用此功能。</p>
+<pre><code class="language-latex">$$phy
+\boxed{
+E = mc^2
+}
+$$
+</code></pre>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#_1-%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D"><span>1. 开始之前</span></a><a href="#_1-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E9%9D%A2%E6%9D%BF"><span>1) 如何打开面板</span></a><a href="#_2-%E4%BD%BF%E7%94%A8%E5%BF%AB%E9%80%9F%E6%95%B0%E5%AD%A6%E6%B8%B2%E6%9F%93%E5%99%A8"><span>2) 使用快速数学渲染器</span></a><a href="#_2-%E9%9D%A2%E6%9D%BF%E5%8A%9F%E8%83%BD"><span>2. 面板功能</span></a><a href="#_1-%E9%9D%A2%E6%9D%BF%E5%B7%A5%E5%85%B7%E6%A0%8F%E6%8C%89%E9%92%AE%E7%9A%84%E4%BD%BF%E7%94%A8"><span>(1) 面板工具栏按钮的使用</span></a><a href="#_3-2-%E6%8B%96%E6%8B%BD%E5%BC%95%E7%94%A8"><span>3.2 拖拽引用</span></a><a href="#_3-3-%E7%89%B9%E6%AE%8A%E7%AD%9B%E9%80%89%E5%99%A8"><span>3.3 特殊筛选器</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

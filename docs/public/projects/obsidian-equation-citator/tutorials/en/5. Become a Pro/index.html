@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5. Become A Pro | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/en/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>5. Become A Pro</h1></div>
+        <h2 id="_1-some-useful-css-snippets">1. Some Useful CSS snippets</h2>
+<p>I also use these <code>css</code> snippets in my daily-work, you can download them from <a href="%5Cdownloads%5Cprojects%5Cobsidian-equation-citator%5Ccss-snippets.zip">here</a>.</p>
+<ol>
+<li>Copy <code>.css</code> files into your vault: <code>.obsidian/snippets/</code></li>
+<li>Enable it in Obsidian: <code>Settings -&gt; Appearance -&gt; CSS snippets</code></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>File Name</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>triple_line_table.css</code></td>
+<td><strong>Booktabs-style tables (top/mid/bottom rules)</strong>, removes borders/striping, and adds a subtle row hover. (Good for you to screen-shot and past in some report)</td>
+</tr>
+<tr>
+<td><code>better_table_align.css</code></td>
+<td>Centers tables, left-aligns the first column, and centers all remaining columns.</td>
+</tr>
+<tr>
+<td><code>callouts.css</code></td>
+<td>A copy of <a href="https://gist.github.com/LucasOe/0bed268951b90e897002ee1e31479c9c">callout.css</a>. Adds callout color presets via metadata (e.g., <code>|red</code>, <code>|blue</code>) and maps many Lucide icons to callouts by name.</td>
+</tr>
+<tr>
+<td><code>figures_centering.css</code></td>
+<td><strong>(Reading mode only)</strong> Centers images and embeds by making them <code>display: block</code> with auto inline margins.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2-auto-numbering-tricks">2. Auto-numbering tricks</h2>
+<h3 id="_1-ignore-a-heading-from-heading-list">(1) Ignore a heading from heading list</h3>
+<p>This is a common case when you are drafting an essay and there are <strong>several chapters before the first chapter</strong>, like <strong>Abstract</strong> or <strong>Preface</strong>. If you don’t want to share the numbering between <strong>abstract</strong> and the main part, you can <strong>use HTML format for headings</strong>.</p>
+<pre><code class="language-html">&lt;h1&gt; Abstract &lt;/h1&gt;
+</code></pre>
+<p>The above heading will be ignored from the auto-numbering heading list. You can check <code>settings &gt; Basic &gt; Auto number no heading prefix</code> and set it as you need (e.g., <code>A</code>), then the result would just like :</p>
+<pre><code>&lt;h1&gt; Abstract &lt;/h1&gt;
+$$... \tag{A1}$$
+# Chapter1
+$$... \tag{1.1}$$
+</code></pre>
+<h3 id="_2-use-boxed-equation-workflow">(2) Use boxed equation workflow</h3>
+<p>For some people with heavy derivations, they may use <code>Auto number tagged equations only</code> and <code>more options &gt; filters &gt;  filter tagged only items</code>. But this still need manually add tags, so I suggest <strong>boxed equation workflow</strong> here :</p>
+<p>You can use <code>Box current equation</code> to <strong>add <code>\boxed{}</code> to those important equations</strong>. Then in equation panel, use <code>more options &gt; filters &gt; filter boxed equations</code> to arrange them.</p>
+<p>This plugin also support adding box in <strong>typst mode</strong>, by default its <code>&quot;boxed&quot;</code>, which consists with <code>typst-mate</code> (see <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/140">issue #140</a>) <code>Typst box symbol</code></p>
+<h2 id="_2-figure-and-table-citation-tricks">2. Figure &amp; Table Citation Tricks</h2>
+<h3 id="_1-editing-a-table-inside-a-callout-more-easily">(1) Editing a Table Inside a Callout More Easily</h3>
+<p>Editing tables inside callouts can be awkward because each line begins with <code>&gt;</code>. Here is a workflow to simplify that (see also <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/7">feature #7</a>):</p>
+<ol>
+<li>Temporarily remove the quote markers:
+<ul>
+<li>Use <code>Ctrl + Shift</code> + vertical drag (to place multiple cursors).</li>
+<li>Delete the leading <code>&gt;</code> from each table line.</li>
+</ul>
+</li>
+<li>Edit the table normally.</li>
+<li>Re-wrap the table in a callout:
+- Insert a callout (e.g. press <code>Ctrl + Q</code>) to re-add <code>&gt;</code> to all lines.
+- Ensure the callout header line (e.g. <code>&gt; [!note]</code>) is positioned correctly above the table.</li>
+<li>Merge adjoining blocks if they are split.</li>
+</ol>
+<h3 id="_2-better-callout-citation-style">(2) Better callout-citation style</h3>
+<p>We <strong>won’t support auto-number for callouts</strong>, since multiple auto-number type would be messy,</p>
+<p>Instead, I suggest using <strong>Name-aware</strong> numbering,  i.e. <code>table:navdia-rtx-cards</code> <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;navdia-rtx-cards&quot;}]" style="cursor: default; color: #4199e1;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">navdia-rtx-cards</span></span> instead of <code>1.1</code>, so that you won’t need to re-auto-number them. I also suggest using this for theorems and equations within callouts.</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="navdia-rtx-cards" data-callout-type="table" data-callout-has-title="">
+<p>NVIDIA RTX Graphics Card Comparison</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>RTX 3060</th>
+<th>RTX 4060</th>
+<th>RTX 4070</th>
+<th>RTX 4080</th>
+<th>RTX 4090</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>Ampere</td>
+<td>Ada Lovelace</td>
+<td>Ada Lovelace</td>
+<td>Ada Lovelace</td>
+<td>Ada Lovelace</td>
+</tr>
+<tr>
+<td><strong>CUDA Cores</strong></td>
+<td>3,584</td>
+<td>3,072</td>
+<td>5,888</td>
+<td>9,728</td>
+<td>16,384</td>
+</tr>
+<tr>
+<td><strong>VRAM</strong></td>
+<td>12 GB GDDR6</td>
+<td>8 GB GDDR6</td>
+<td>12 GB GDDR6X</td>
+<td>16 GB GDDR6X</td>
+<td>24 GB GDDR6X</td>
+</tr>
+<tr>
+<td><strong>Memory Bus</strong></td>
+<td>192-bit</td>
+<td>128-bit</td>
+<td>192-bit</td>
+<td>256-bit</td>
+<td>384-bit</td>
+</tr>
+<tr>
+<td><strong>Base Clock</strong></td>
+<td>1,320 MHz</td>
+<td>1,830 MHz</td>
+<td>1,920 MHz</td>
+<td>2,205 MHz</td>
+<td>2,235 MHz</td>
+</tr>
+<tr>
+<td><strong>Boost Clock</strong></td>
+<td>1,777 MHz</td>
+<td>2,460 MHz</td>
+<td>2,475 MHz</td>
+<td>2,505 MHz</td>
+<td>2,520 MHz</td>
+</tr>
+<tr>
+<td><strong>Tensor Cores (Gen)</strong></td>
+<td>3rd Gen</td>
+<td>4th Gen</td>
+<td>4th Gen</td>
+<td>4th Gen</td>
+<td>4th Gen</td>
+</tr>
+<tr>
+<td><strong>AV1 Encoding</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Launch Price (MSRP)</strong></td>
+<td>$329</td>
+<td>$299</td>
+<td>$599</td>
+<td>$1,199</td>
+<td>$1,599</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>1080p Gaming</td>
+<td>1080p/1440p</td>
+<td>1440p Gaming</td>
+<td>4K Gaming</td>
+<td>8K/Professional</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="_3-move-equations-and-footnotes-from-one-file-into-another">3. Move Equations and Footnotes from One File into Another</h2>
+<p>When migrating a section (including equations and footnotes) into a larger document while preserving clean numbering, you should follow these steps (a little tedious though).</p>
+<h4 id="step-1-update-footnote-references-before-moving">Step 1. Update Footnote References Before Moving</h4>
+<p>If your source file has footnote definitions like:</p>
+<pre><code>[^2]: Some note referencing [[test article]]
+</code></pre>
+<p>And the target file already uses footnotes up to <code>[^5]</code>, then:</p>
+<ul>
+<li>Rename <code>[^2]</code> → <code>[^6]</code></li>
+<li>Update all inline citation patterns associated with <code>2^{…}</code> if that’s your nested cross-file citation style.</li>
+</ul>
+<p>Efficient search:</p>
+<ul>
+<li>Use <code>Ctrl + H</code> with the search term: <code>2^{</code> , or search the citation format <code>\ref{eq:</code></li>
+<li>Replace carefully with: <code>6^{</code> , update all citations manually.</li>
+</ul>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p>Don’t replace all at once, patterns like <code>2^{100}</code> (exponent expressions) may accidentally match your citation format.</p>
+</blockquote>
+<h4 id="step-2-apply-a-prefix-to-the-equations-in-the-source-file">Step 2. Apply a Prefix to the Equations in the Source File</h4>
+<ol>
+<li>Go to: <code>Settings &gt; Categorial &gt; Auto numbering &gt; Enable auto number prefix</code></li>
+<li>Set a prefix (e.g. <code>M</code>)</li>
+<li>Run auto-numbering in the source file.</li>
+</ol>
+<p>After this, equations become:</p>
+<ul>
+<li><code>M1.1</code>, <code>M1.2</code>, <code>M1.3</code>, …</li>
+</ul>
+<p>This distinguishes migrated equations from native ones in the destination.</p>
+<h4 id="step-3-move-content">Step 3. Move Content</h4>
+<p>Copy or append :</p>
+<ul>
+<li>Any content and prefixed equations</li>
+<li>Updated footnotes</li>
+</ul>
+<p>Paste them into the target file in the desired section.</p>
+<h4 id="step-4-update-backlinks">Step 4. Update Backlinks</h4>
+<p>Open the backlink panel for the original (now empty) file and update references to point to the merged target file if needed (especially if other notes link to the old section).</p>
+<h4 id="step-5-re-run-auto-numbering-and-clean-up">Step 5. Re-run Auto-Numbering and Clean Up</h4>
+<p>In the target file:</p>
+<ol>
+<li>Re-auto-number (if the integration recalculates numbers globally).</li>
+<li>Verify all citations still resolve.</li>
+<li>Delete the original source file if it is fully migrated.</li>
+</ol>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#_1-some-useful-css-snippets"><span>1. Some Useful CSS snippets</span></a><a href="#_2-auto-numbering-tricks"><span>2. Auto-numbering tricks</span></a><a href="#_1-ignore-a-heading-from-heading-list"><span>(1) Ignore a heading from heading list</span></a><a href="#_2-use-boxed-equation-workflow"><span>(2) Use boxed equation workflow</span></a><a href="#_2-figure-and-table-citation-tricks"><span>2. Figure &amp; Table Citation Tricks</span></a><a href="#_1-editing-a-table-inside-a-callout-more-easily"><span>(1) Editing a Table Inside a Callout More Easily</span></a><a href="#_2-better-callout-citation-style"><span>(2) Better callout-citation style</span></a><a href="#_3-move-equations-and-footnotes-from-one-file-into-another"><span>3. Move Equations and Footnotes from One File into Another</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/en/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/5.%20Become%20a%20Pro/index.html" selected>English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20Become%20a%20Pro/index.html">简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/1.%20Before%20We%20Start/index.html">1. Before We Start</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/2.%20Get%20Started/index.html">2. Get Started</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/3.%20Equation%20Manage%20Panel/index.html">3. Equation Manage Panel</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/4.%20Additional%20Features/index.html">4. Additional Features</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/en/5.%20Become%20a%20Pro/index.html">5. Become A Pro</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/6.%20Build%20your%20website%20with%20Live%20Citation%20Feature/index.html">6. Build Your Website With Live Citation Feature</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/Cross%20File%20Citations/index.html">Cross File Citations</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.1.x/index.html">CHANGELOG 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html">CHANGELOG 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.3.x/index.html">CHANGELOG 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

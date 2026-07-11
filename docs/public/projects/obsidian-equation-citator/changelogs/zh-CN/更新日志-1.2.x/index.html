@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="default" lang="zh-CN" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>更新日志 1.2.X | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/zh-CN/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>更新日志 1.2.X</h1></div>
+        <h3 id="版本-1-2-0">版本 1.2.0</h3>
+<p>版本 1.2.0 - 功能改进。</p>
+<p>🐛 已修复的 Bug：</p>
+<ul>
+<li>如果 <code>enableInSourceMode</code> 设置被禁用，自动补全现在不会在源码模式下显示。（在 1.1.0 的发布修订中修复）</li>
+<li>公式自动补全现在会在单行公式块的分隔符后添加空格。</li>
+<li>如果脚注没有提供别名（标签），现在将使用文件名作为别名。</li>
+<li>修复教程中的一些空行问题，并为新功能添加教程。</li>
+<li>重构公式工具函数，将多个函数合并为一个。</li>
+</ul>
+<blockquote>
+<p>发布补丁：提供一个选项来启用/禁用在自动编号公式时更新引用。</p>
+</blockquote>
+<p>✨ 新功能：</p>
+<ol>
+<li>
+<p><strong>链接跳转</strong>：<strong>双击</strong>跳转到公式。<strong>Ctrl + 双击</strong>创建相邻窗口并跳转到公式。（仅支持实时预览模式）</p>
+</li>
+<li>
+<p><strong>重命名标签</strong>：现在可以选择标签并右键重命名。引用将自动更新。</p>
+</li>
+<li>
+<p><strong>公式自动编号</strong>：公式自动编号现在会自动更新相关引用以确保编号一致。</p>
+</li>
+</ol>
+<h3 id="版本-1-2-1">版本 1.2.1</h3>
+<p>版本 1.2.1 - Bug 修复和小改进。</p>
+<p>🐛 已修复的 Bug：</p>
+<ul>
+<li>修复代码块前有空格时自动编号可能无法正常工作的问题</li>
+<li>修复公式跳转问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/6">BUG #6</a>，现在 Ctrl + 双击可以正确跳转。</li>
+<li>当存在多个视图且悬停在非活动视图上时，双击现在也能正确跳转（同样是 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/6">BUG #6</a>）。</li>
+<li>修复在开启「删除未使用标签」时重命名标签可能出现的删除 Bug（同时提高了重命名标签的效率）</li>
+<li>修复自动编号公式时原文件中引用未正确更新的 Bug。</li>
+<li>修复教程中的一些公式引用问题。</li>
+</ul>
+<blockquote>
+<p>发布补丁：修复 Bug——如果显示重复提示，重命名标签会失败</p>
+</blockquote>
+<p>🚀 优化：</p>
+<ul>
+<li>自动编号和标签重命名现在显示已重命名引用的信息。</li>
+</ul>
+<p>✨ 新功能：</p>
+<ul>
+<li><strong>（实验性功能）在标注中使用内联代码块引用</strong>：添加此功能以在标注块中渲染引用。（针对 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/4">Bug #4</a>）。限制请参见<a href="https://github.com/FRIEDparrot/obsidian-equation-citator/blob/master/tutorials/Equation%20Citator%20Tutorial.md">教程</a></li>
+</ul>
+<h3 id="版本-1-2-2">版本 1.2.2</h3>
+<p>版本 1.2.2 - 多项关键 Bug 修复和用户体验的重大改进。</p>
+<p>🐛 已修复的 Bug 和优化：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（关键 Bug 修复）</strong> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/14">Bug #14</a>，现在即使使用单行标签，当前文件也能正确自动编号。（笔记在自动编号后不会再乱成一团😅）</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/15">Bug #15</a>，引用现在会在实时编辑器预览组件中渲染。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/16">Bug #16</a>，自动补全现在能正常工作，不会创建多余的空格</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/17">Bug #17</a>，在中间位置补全时引用建议将正常工作。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复多个相同公式的渲染处理，现在会自动合并，<code>$\ref{eq:1.1.1, 1.1.1, 1.1.2, 1.1.2, 1.1.3, 1.1.4, 1.1.6,  }$</code> 现在应该渲染为 <code>(1.1.1~4), (1.1.6)</code>，而在之前的版本中渲染为 <code>(1.1.1~2), (1.1.2~4), (1.1.6)</code>。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复当 ref 括号和引用前缀之间有空格时引用无法正确渲染的问题（例如 <code>ref{ eq:1.1}</code> 无法正确渲染）</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 PDF 导出问题：Markdown 会添加路径前缀而不是在相同文件夹下创建。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <code>enableAutoNumberGlobalPrefix</code> 设置未被使用，切换它没有效果。现在此设置已移除。</li>
+</ul>
+<p>✨ 新功能：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（重大改进）</strong> 跨文件引用现在支持在引用中使用内部括号（为此进行了大规模重构，PDF 支持和自动补全也已更新以支持此功能）。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 优化教程和 Readme 文件，添加新功能，移除不必要的部分和重复内容。将规则部分从 Readme 移至教程。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（小幅改进）</strong> 优化用户体验：如果在引用后输入空格，插件将停止建议。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（用户体验改进）</strong> 添加插入标签并自动编号的新命令。（允许更轻松地快速插入标签）</li>
+</ul>
+<pre><code class="language-markdown">$\ref{eq:2^{1.1}}$    // 引用中使用内部括号
+</code></pre>
+<h3 id="版本-1-2-3">版本 1.2.3</h3>
+<p>版本 1.2.3 - 改进和一些小 Bug 修复。</p>
+<p>🐛 已修复的 Bug：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/24">Bug #24</a>，现在插入命令通过插入内容来替换选区。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 现在支持更好的脚注识别（以纯脚注格式书写 <code>#</code> 和 <code>^</code>）。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复样式问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/23">glitch #23</a></p>
+</li>
+</ul>
+<p>🚀 改进：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 当标签重复时，自动编号仅更新第一个标签出现的引用，这使得您可以将包含重复标签的部分追加到笔记中，然后正常使用自动编号。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 在公式中插入标签时更精确的标签定位。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 在 Readme 中添加如何安装此插件的教程。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（主要改进）</strong> 在此版本中使用生产模式构建插件（使用 <code>npm run build</code>），减小插件体积并提高性能，插件大小从 593kb 减少到 73kb）</p>
+</li>
+</ul>
+<p>✨ 新功能：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 引用文件上标现在在悬停时会在弹出窗口中渲染脚注。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 在上标弹出窗口渲染中添加对纯文本和网页链接格式脚注的支持</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 在设置标签页中自定义公式弹出窗口的宽度</p>
+</li>
+</ul>
+<p>🛠️ 发布补丁：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 现在禁止在设置中使用大括号 <code>{}</code> 作为分隔符。</li>
+</ul>
+<h3 id="版本-1-2-4">版本 1.2.4</h3>
+<p>版本 1.2.4 - Bug 修复和小改进。</p>
+<p>🐛 已修复的 Bug：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/34">Bug #34</a>，现在 Markdown 导出可以正确处理转义美元符号。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（关键）</strong> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/35">Critical #35</a>，当没有标签可重命名且启用了删除未使用标签时，插件将正常删除未使用的标签😅。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/31">Bug #31</a>，引用现在可以在大纲预览和嵌入链接预览中正确渲染。</p>
+</li>
+</ul>
+<p>🚀 增强：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 添加 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/32">增强 #32</a>，文件上标将在 PDF 导出中渲染为脚注。同时将默认引用颜色更改为与文件上标颜色相同。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 导出 PDF 命令后打开导出的文件。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 将默认公式组件宽度设置为 500px。</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox" checked=""type="checkbox"> 更好的空引用渲染（现在空引用将渲染为 <code>()</code> 而不是 ``）</p>
+</li>
+</ul>
+<p>🛠️ 工具：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 为默认基础分支策略添加 Copilot 指令文件 [copilot]</li>
+</ul>
+<h3 id="版本-1-2-5">版本 1.2.5</h3>
+<p>版本 1.2.5 - Bug 修复和一些改进。</p>
+<p>🐛 已修复的 Bug：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复自动编号功能：在 1.2.4 中，自动编号仍可能错误地推送第二和第三个标签重命名的情况，现在它将始终正确更新仅第一个标签出现。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（关键）</strong> 修复引用更新问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/53">Bug #53</a>，自动编号后当前文件中的引用现在将正确更新。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> <strong>（关键）</strong> 修复引用更新问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/54">Bug #54</a>，删除未使用的引用现在仅影响同一文件的引用。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 在重命名标签组件中按 <code>Enter</code> 键现在将确认重命名标签。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 更好的前缀设置检查（不允许大括号和美元符号或留空），同时美元符号现在在分隔符中被禁止，因为它不安全。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复样式问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/51">#51</a>，添加边距，现在将别名最大渲染宽度限制为 380px。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 PDF 引用颜色的描述 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/49">#49</a></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复转义美元符号问题 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/40">#40</a></li>
+</ul>
+<p>🚀 增强：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 添加增强 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/52">#52</a>，现在默认使用「多引用分隔符 + 空格」（在设置标签页中设置）以获得更好的渲染效果。</li>
+</ul>
+<h3 id="版本-1-2-6">版本 1.2.6</h3>
+<p>版本 1.2.6 - Bug 修复</p>
+<p>🐛 已修复的 Bug：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> （关键）修复 Bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/63">#63</a>，现在连续多个引用可以正确更新</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 Bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/60">#60</a>，在绝对编号方式下，深度不足时自动编号现在能正确编号。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 Bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/56">#56</a>，宽度设置将被正确渲染。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 修复 Bug <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/64">#64</a>，自动补全现在也会解析未闭合的引用并完成它。</li>
+</ul>
+<p>🚀 增强：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 添加增强 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/61">#61</a>，改进连续引用中的自动补全行为。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> 添加增强 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/62">#62</a>，在设置标签页中添加手动清除缓存的选项。</li>
+</ul>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#%E7%89%88%E6%9C%AC-1-2-0"><span>版本 1.2.0</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-1"><span>版本 1.2.1</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-2"><span>版本 1.2.2</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-3"><span>版本 1.2.3</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-4"><span>版本 1.2.4</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-5"><span>版本 1.2.5</span></a><a href="#%E7%89%88%E6%9C%AC-1-2-6"><span>版本 1.2.6</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/changelogs/en/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">English</option><option value="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

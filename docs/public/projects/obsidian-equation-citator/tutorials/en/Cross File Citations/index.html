@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="default" lang="en" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cross File Citations | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/en/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>Cross File Citations</h1></div>
+        <p>This file is create to showcase the cross-file citations in both <strong>repository</strong> and <strong>web-browser</strong> citations.</p>
+<p>We support the equations :</p>
+<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="2.3.1" data-tag="2.3.1"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>e</mi><mi>q</mi></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2.3.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">eq \tag{2.3.1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span><span class="tag"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2.3.1</span></span><span class="mord">)</span></span></span></span></span></span></div></div><p>Figures:</p>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="F1"><p><img src="/projects/obsidian-equation-citator/tutorials/img/Equation%20Citator%20Logo.png" alt="F1"></p>
+</figure><p>and callouts :</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="basic-grammar" data-callout-type="table" data-callout-has-title="">
+<p>Basic grammar for equation Citator</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Syntax</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equation Tag</td>
+<td><code>\tag{label}</code></td>
+<td><code>\tag{2.1}</code></td>
+</tr>
+<tr>
+<td>Equation Cite</td>
+<td><code>$\ref{eq:label}$</code></td>
+<td><code>$\ref{eq:2.1}$</code></td>
+</tr>
+<tr>
+<td>Figure</td>
+<td><code>![Caption|fig:label|desc:text](img)</code></td>
+<td><code>![Graph|fig:3.1](graph.png)</code></td>
+</tr>
+<tr>
+<td>Table</td>
+<td><code>&gt; [!table:label] Title</code></td>
+<td><code>&gt; [!table:3.1] Results</code></td>
+</tr>
+<tr>
+<td>Cross-file</td>
+<td><code>$\ref{eq:footnote^{label}}$</code></td>
+<td><code>$\ref{eq:1^{2.3}}$</code></td>
+</tr>
+<tr>
+<td>Multiple</td>
+<td><code>$\ref{eq:1.1, 2.1}$</code></td>
+<td>cite multiple equations</td>
+</tr>
+<tr>
+<td>Continuous</td>
+<td><code>$\ref{eq:1.1~3}$</code></td>
+<td>Range notation</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/en/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/Cross%20File%20Citations/index.html" selected>English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/Cross%20File%20Citations/index.html">简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/en/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/1.%20Before%20We%20Start/index.html">1. Before We Start</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/2.%20Get%20Started/index.html">2. Get Started</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/3.%20Equation%20Manage%20Panel/index.html">3. Equation Manage Panel</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/4.%20Additional%20Features/index.html">4. Additional Features</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/5.%20Become%20a%20Pro/index.html">5. Become A Pro</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/en/6.%20Build%20your%20website%20with%20Live%20Citation%20Feature/index.html">6. Build Your Website With Live Citation Feature</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/en/Cross%20File%20Citations/index.html">Cross File Citations</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/en/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.1.x/index.html">CHANGELOG 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.2.x/index.html">CHANGELOG 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/en/CHANGELOG-1.3.x/index.html">CHANGELOG 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

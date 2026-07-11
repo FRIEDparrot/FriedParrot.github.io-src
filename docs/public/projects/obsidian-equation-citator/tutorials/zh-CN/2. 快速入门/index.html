@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="default" lang="zh-CN" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2. 快速入门 | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/zh-CN/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>2. 快速入门</h1></div>
+        <h2 id="_1-核心功能概览">1. 核心功能概览</h2>
+<p><strong>公式引用插件（Equation Citator）</strong> 将 Obsidian 转变为一个强大的学术写作环境，支持 <strong>LaTeX 风格的引用</strong>，让仓库内的引用变得前所未有的简单。它包含非常丰富的功能，包括：</p>
+<ul>
+<li><strong>自动编号</strong>：自动为公式/图表编号，所有引用自动更新。</li>
+<li><strong>重命名标签</strong>：你可以重命名特定公式/图表的标签，同时保持引用正确。</li>
+<li><strong>公式、图表和标注引用</strong>：使用 <code>\tag{}</code> 和 <code>\ref{}</code> 标记和引用公式。使用 <code>|fig:1.1|</code> 引用图表，也<strong>支持通过标注引用表格/定理</strong>。使用引用可在任意位置预览和跳转。</li>
+<li><strong>连续引用和跨文件引用</strong>：以紧凑视图引用多个文档中的多个公式。</li>
+<li><strong>引用时自动补全</strong>：在书写 <code>\ref{}</code> 语法时自动补全你要查找的内容。也支持图表/标注的丰富自动补全。</li>
+<li><strong>图表标题</strong>：在图表的元数据中添加 <code>fig:1.1|title:|desc:描述</code> 将自动在图下方渲染。</li>
+<li><strong>公式、图表和标注管理面板</strong>：完整的管理面板，支持列表/大纲视图。</li>
+<li><strong>拖拽引用</strong>：从管理面板拖拽公式。</li>
+<li><strong>PDF 导出</strong>：生成格式正确的文档以供发表。</li>
+<li><strong>网页笔记导出</strong>（v1.3.5+）：将笔记同步到网站构建文件夹。</li>
+</ul>
+<blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
+<p>兼容性
+<strong>Typst Mate 支持</strong>（v1.3.1+）：本插件也支持 <a href="https://github.com/azyarashi/obsidian-typst-mate">Obsidian Typst Mate</a>，你可以设置 <code>设置 &gt; 显示（分类）&gt; 其他 &gt; 启用 Typst 模式</code> 使其兼容 Typst 语法。
+<strong>Excalidraw 支持</strong>（v1.3.3+）：Excalidraw 图表可以像 <code>fig:</code> 一样被引用，并具有正确的预览。</p>
+</blockquote>
+<h2 id="_2-基础引用语法">2. 基础引用语法</h2>
+<p>我们设计本插件是以<strong>简单易用</strong>为目标。 引用的语法总结如下表所示。如果你不需要示例，可以先查看 <a href="#_1-4-交互功能">#1.4 交互功能</a>，然后直接跳转到 <a href="/projects/obsidian-equation-citator/tutorials/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">公式管理面板教程</a>。</p>
+<blockquote class="callout callout-summary" data-callout-type="summary" data-callout-has-title="">
+<p>引用语法表</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>语法</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公式标签</td>
+<td><code>\tag{label}</code></td>
+<td><code>\tag{2.1}</code></td>
+</tr>
+<tr>
+<td>公式引用</td>
+<td><code>$\ref{eq:label}$</code></td>
+<td><code>$\ref{eq:2.1}$</code></td>
+</tr>
+<tr>
+<td>图表</td>
+<td><code>![标题|fig:标签|desc:文本](img)</code></td>
+<td><code>![图表|fig:3.1](graph.png)</code></td>
+</tr>
+<tr>
+<td>表格</td>
+<td><code>&gt; [!table:标签] 标题</code></td>
+<td><code>&gt; [!table:3.1] 结果</code></td>
+</tr>
+<tr>
+<td>跨文件</td>
+<td><code>$\ref{eq:脚注^{标签}}$</code></td>
+<td><code>$\ref{eq:1^{2.3}}$</code></td>
+</tr>
+<tr>
+<td>多重引用</td>
+<td><code>$\ref{eq:1.1, 2.1}$</code></td>
+<td>引用多个公式</td>
+</tr>
+<tr>
+<td>连续引用</td>
+<td><code>$\ref{eq:1.1~3}$</code></td>
+<td>范围表示法</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="_1-1-创建和引用公式">1.1 创建和引用公式</h3>
+<p>使用 <code>\tag{标签}</code> 为任意公式添加标签：</p>
+<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.1" data-tag="1.1"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mstyle mathsize="1.44em"><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow></mstyle></mstyle></mstyle></menclose></mstyle></mtd><mtd width="50%"></mtd><mtd><mtext>(1.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\Large\boxed{E = mc^2} \tag{1.1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.2184em;vertical-align:-0.4896em;"></span><span class="mord sizing reset-size6 size8"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2005em;"><span style="top:-3.5405em;"><span class="pstrut" style="height:3.5405em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8605em;"><span style="top:-3.413em;margin-right:0.0347em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size8 size6 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.2005em;"><span class="pstrut" style="height:3.5405em;"></span><span class="stretchy fbox" style="height:1.5405em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:2.2184em;vertical-align:-0.4896em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.1</span></span><span class="mord">)</span></span></span></span></span></span></div></div><p>要引用此公式，输入 <code>\ref{eq:1.1}</code>，渲染为 <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;}]" style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.1</span>)</span></p>
+<p><strong>快速命令</strong>（使用 Ctrl + P 搜索并添加快捷键😄！）：</p>
+<ul>
+<li><code>在光标位置插入引用</code>：快速插入 <code>\ref{}</code></li>
+<li><code>在光标位置插入公式引用</code>：快速插入 <code>\ref{eq:}</code></li>
+<li><code>在光标位置插入标签并自动编号</code>：当光标位于公式块中时，添加带自动编号的标签。</li>
+</ul>
+<blockquote class="callout callout-tip" data-callout-type="tip" data-callout-has-title="">
+<p><strong>自动补全功能</strong>：只需插入 <code>\ref{eq:}</code> 然后输入，比拖拽引用快得多，因为我们支持所有类型引用的自动补全。</p>
+<p>对于公式，只需在自动补全面板中选择你要插入的内容。</p>
+<p><strong>简洁/丰富自动补全模式</strong>：对于图表和标注，默认只显示标签和标题。你可以通过鼠标悬停在选项上来预览内容。或者你也可以使用 <code>设置 &gt; 引用 &gt; 自动补全中显示完整图片和标注预览</code> 在自动补全选项中显示完整的图片/标注。</p>
+</blockquote>
+<blockquote class="callout callout-warning" data-callout-type="warning" data-callout-has-title="">
+<p>一次引用中<strong>只能引用一种类型</strong>，要么是公式、要么是图表、要么是标注，例如 <code>$\ref{eq:1.1, 1.2}$</code> 或 <code>$\ref{fig:1.1, 1.2}$</code>，它会将 <code>ref{</code> 后面的前缀作为标记引用类型的依据。因此混合引用 <code>\ref{eq:1.1, fig:1.2, table:1.3}</code> 是不允许的。</p>
+</blockquote>
+<h3 id="_1-2-多重-连续引用">1.2 多重/连续引用</h3>
+<p>你可以用逗号引用多个公式，如 <code>$\ref{eq:1.1, 1.2, 1.3}$</code>，渲染为 <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.1~3</span>)</span></p>
+<div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.2" data-tag="1.2"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>F</mi><mo>=</mo><mi>m</mi><mi>a</mi></mrow></mstyle></mstyle></mstyle></menclose></mtd><mtd width="50%"></mtd><mtd><mtext>(1.2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\boxed{F = ma} \tag{1.2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3633em;vertical-align:-0.34em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0233em;"><span style="top:-3.3633em;"><span class="pstrut" style="height:3.3633em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">ma</span></span></span></span></span><span style="top:-3.0233em;"><span class="pstrut" style="height:3.3633em;"></span><span class="stretchy fbox" style="height:1.3633em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.3633em;vertical-align:-0.34em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.2</span></span><span class="mord">)</span></span></span></span></span></span></div></div><div class="equation-citator-target equation-citator-equation" data-ec-kind="eq"  data-ec-tag="1.3" data-tag="1.3"><div class="ec-math-display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>p</mi><mo>=</mo><mi>m</mi><mi>v</mi></mrow></mstyle></mstyle></mstyle></menclose></mtd><mtd width="50%"></mtd><mtd><mtext>(1.3)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\boxed{p = mv} \tag{1.3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.305em;vertical-align:-0.5344em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7706em;"><span style="top:-3.305em;"><span class="pstrut" style="height:3.305em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></span><span style="top:-2.7706em;"><span class="pstrut" style="height:3.305em;"></span><span class="stretchy fbox" style="height:1.305em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5344em;"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.305em;vertical-align:-0.5344em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.3</span></span><span class="mord">)</span></span></span></span></span></span></div></div><p><strong>连续引用</strong>：此功能默认开启。<code>连续引用</code> 会合并引用并将其渲染为 <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.1~3</span>)</span>。我们也可以使用 <code>\ref{eq:1.1~3}</code> <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;},{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.1~3</span>)</span> 作为多个公式的连续引用语法。</p>
+<h3 id="_1-3-跨文件引用">1.3 跨文件引用</h3>
+<p>跨文件引用<strong>依赖 Obsidian 内置的脚注系统</strong>：因此你可以使用以下语法创建脚注：</p>
+<pre><code class="language-markdown">[^1]: [[文档_A|论文-A]]
+[^2]: [[文档_B|报告-B]]
+</code></pre>
+<p>跨文件引用语法：<code>$\ref{eq:脚注^{标签}}$</code>。例如 <span class="equation-citator-citation equation-citator-cite-equation" data-ec-kind="eq" data-ec-refs="[{&quot;file&quot;:&quot;zh-CN/跨文件引用.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;2.3.1&quot;,&quot;local&quot;:&quot;/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html&quot;}]" style="cursor: default; color: #4199e1;">(<span style="text-decoration: none; cursor: pointer; color: #4199e1;">2.3.1</span>)</span><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。跨文件引用也完全支持来自文章 A<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup> 的图表 <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:&quot;zh-CN/跨文件引用.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;F1&quot;,&quot;local&quot;:&quot;/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html&quot;}]" style="cursor: default; color: #4199e1;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">F1</span></span><sup class="footnote-ref"><a href="#fn1" id="fnref1:2">[1:2]</a></sup> 和标注 <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs="[{&quot;file&quot;:&quot;zh-CN/跨文件引用.md&quot;,&quot;crossFile&quot;:&quot;1&quot;,&quot;tag&quot;:&quot;basic-grammar&quot;,&quot;local&quot;:&quot;/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html&quot;}]" style="cursor: default; color: #4199e1;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">basic-grammar</span></span><sup class="footnote-ref"><a href="#fn1" id="fnref1:3">[1:3]</a></sup>。</p>
+<h3 id="_1-4-交互功能">1.4 交互功能</h3>
+<p>交互功能对于快速检查和管理你的公式非常有用，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>编辑器弹窗</th>
+<th>公式面板</th>
+<th>公式</th>
+<th>图表</th>
+<th>标注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>预览</strong>（按住 <code>Ctrl</code> + 悬停）</td>
+<td>✅</td>
+<td>已有</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>跳转到源</strong>（<code>双击</code>）</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>分栏打开并跳转</strong>（<code>Ctrl + 双击</code>）</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>重命名标签</strong>（<code>右键单击</code>标签并选择<strong>重命名标签</strong>）</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>右键复制</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>对于<strong>预览</strong>，你可以通过 <code>设置 &gt; 分类 &gt; 样式 &gt; 预览组件尺寸</code> 设置面板大小。</li>
+<li>对于<strong>分栏打开并跳转</strong>，在预览组件中，如果已经打开了多个编辑器，它将重用现有的相邻编辑器而不是打开新编辑器。但<strong>在公式面板中，它总是会打开一个新编辑器</strong>，以防止重用现有编辑器。</li>
+<li>对于<strong>重命名标签</strong>，选中 <code>\tag{}</code> 来重命名公式标签，选中整个图片 <code>![[image.png|fig:1.1]]</code> 来重命名图表标签。</li>
+<li>对于<strong>右键复制</strong>，你可以在 <code>设置 &gt; 显示（分类）&gt; 公式面板 &gt; 公式组件右键复制内容</code> 中自定义复制的内容，选择是否复制带标签/括号的公式内容。</li>
+</ul>
+<h2 id="_2-图表和标注引用">2. 图表和标注引用</h2>
+<h3 id="_1-图表引用">1) 图表引用</h3>
+<h4 id="_1-语法">1. 语法</h4>
+<p>我们使用增强的图片语法来使图表可引用：</p>
+<pre><code class="language-markdown">%% 我们同时支持 wiki 链接和 markdown 链接格式：
+%%wiki 链接格式%%
+![[James_Lovell.jpg|fig:3.1|desc:描述]]
+
+%%markdown 链接格式%%
+![fig:1.3|title:测试|desc:可选描述](images.png)
+</code></pre>
+<p>我们在<strong>标题</strong>和<strong>描述</strong>中提供<strong>完整的 Markdown 语法支持</strong>，因此你可以在其中书写行内公式。使用 <code>$\ref{fig:1.1}$</code> <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.1&quot;}]" style="cursor: default; color: #4199e1;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.1</span></span> 来<strong>引用以下图表</strong>。</p>
+<p>![[img/A minecraft image.png|fig:1.1|title: 一张 <strong>Minecraft</strong> 图片|desc:这是 $\text{Minecraft}$ 图片的描述|214]]</p>
+<p>请注意，插件<strong>仅在添加了 <code>fig:xx</code> 时才会渲染标题和描述</strong>。如果这与其他插件冲突，你可以在 <code>设置 &gt; 分类 &gt; 样式 &gt; 渲染图片标题和描述</code> 中切换。</p>
+<p><strong>预览组件</strong>中的标题/描述可以在 <code>设置 &gt; 分类 &gt; 样式 &gt; 预览组件中渲染图表信息</code> 中切换。</p>
+<h4 id="_2-支持-excalidraw-和章节预览">2. 支持 Excalidraw 和章节预览</h4>
+<p><code>v1.3.3</code> 之后，我们也可以使用相同的语法引用 <code>excalidraw</code> 图片 <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.2&quot;}]" style="cursor: default; color: #4199e1;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.2</span></span>。</p>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1.2" data-title="Excalidraw 支持功能" data-width="336"><p><img src="/projects/obsidian-equation-citator/tutorials/img/Excalidraw%20Support.png" alt="Excalidraw 支持功能" title="Excalidraw 支持功能" width="336"></p>
+<figcaption class="figure-caption"><span class="figure-title">Excalidraw 支持功能</span></figcaption></figure><p>要正确渲染 <code>excalidraw</code>，需要在 <code>设置 &gt; 显示（分类）&gt; 其他 &gt; 使用 Markdown 渲染器的扩展名</code> 中包含 <code>excalidraw</code> 和 <code>excalidraw.md</code>，其中 <code>excalidraw.md</code> 必须被添加。</p>
+<p><strong>章节引用</strong>：由于外部文件链接视图 <code>![[#1.4 交互功能|fig:1.6]]</code> 的语法与图片相同，当 <code>md</code> 在 <code>使用 Markdown 渲染器的扩展名</code> 设置中时，我们甚至可以引用章节预览 <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.3&quot;}]" style="cursor: default; color: #4199e1;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.3</span></span>。</p>
+<p><a href="#_1-4-交互功能" class="equation-citator-section-reference">Click here to jump to #1.4 交互功能</a></p>
+<h4 id="_3-局限性">3. 局限性</h4>
+<p>本插件不支持为网页链接的 Markdown 格式图片创建标题。但你仍然可以用 <span class="equation-citator-citation equation-citator-cite-figure" data-ec-kind="fig" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;1.4&quot;}]" style="cursor: default; color: #4199e1;">Fig. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">1.4</span></span> 引用它。</p>
+<blockquote>
+<p><strong>为什么不支持</strong>：我们在 <code>.internal-embed image-embed</code> 类中添加标题，而网页链接图片渲染为 <code>&lt;img&gt;</code> 标签，没有这个包装类。在这些图片外部创建元素会在编辑时引发一些问题。你可以简单地将其设为本地图片文件来解决。</p>
+</blockquote>
+<figure class="equation-citator-target equation-citator-figure equation-citator-figure-wrapper" data-ec-kind="fig" data-ec-tag="1.4" data-width="183"><p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJUGwUw60NYwnmZEKiGJtoRXpa56J1Ko0QjA&amp;s" alt="1.4" width="183"></p>
+</figure><h3 id="_2-标注引用">2) 标注引用</h3>
+<h4 id="_1-语法-2">1. 语法</h4>
+<p>本插件支持引用自定义类型的标注，<strong>这为我们引用表格、定理和任何自定义内容提供了灵活性</strong>。</p>
+<p>你可以在 <code>标注引用前缀</code> 设置中<strong>配置自定义前缀</strong>。默认只启用了 <code>table:</code>。</p>
+<p>我们给出一个引用表格的示例：</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="2.1" data-callout-type="table" data-callout-has-title="">
+<p>2024 年 Q4 销售数据</p>
+<table>
+<thead>
+<tr>
+<th>产品</th>
+<th>收入</th>
+<th>增长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部件 A</td>
+<td>$100K</td>
+<td>+15%</td>
+</tr>
+<tr>
+<td>部件 B</td>
+<td>$150K</td>
+<td>+22%</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>使用以下语法引用表格：<code>$\ref{table:2.1}$</code>，渲染为 <span class="equation-citator-citation equation-citator-cite-callout" data-ec-kind="table" data-ec-refs="[{&quot;file&quot;:null,&quot;crossFile&quot;:null,&quot;tag&quot;:&quot;2.1&quot;}]" style="cursor: default; color: #4199e1;">Table. <span style="text-decoration: none; cursor: pointer; color: #4199e1;">2.1</span></span></p>
+<p>标注内的引用必须严格匹配大小写。例如：</p>
+<ul>
+<li>标注标签：<code>&gt; [!NOTE:1]</code></li>
+<li>引用使用：<code>$\ref:{NOTE:1}$</code>（区分大小写）</li>
+</ul>
+<p>所有图表和标注引用支持 <a href="#_1-1-创建和引用公式">#1.1 创建和引用公式</a> 中的语法和交互功能。</p>
+<h4 id="_2-自定义标注颜色">2. 自定义标注颜色</h4>
+<p>我们还支持通过将 <a href="https://gist.github.com/LucasOe/0bed268951b90e897002ee1e31479c9c">callout.css</a> 添加到 <code>设置 &gt; 外观 &gt; CSS 代码片段</code> 来自定义标注颜色，这样你就可以写出像这样漂亮的标注（添加此代码片段后生效）：</p>
+<blockquote class="equation-citator-target equation-citator-callout ec-callout callout callout-table equation-citator-callout-wrapper" data-ec-kind="table" data-ec-callout-kind="table" data-ec-tag="1.1" data-callout-type="table" data-callout-has-title="">
+<p>2024 年 Q4 销售数据</p>
+<p>这是一个红色的标注表格</p>
+<table>
+<thead>
+<tr>
+<th>产品</th>
+<th>收入</th>
+<th>增长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部件 A</td>
+<td>100K</td>
+<td>+15%</td>
+</tr>
+<tr>
+<td>部件 B</td>
+<td>150K</td>
+<td>+22%</td>
+</tr>
+<tr>
+<td>部件 C</td>
+<td>200K</td>
+<td>+33%</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="_3-局限性-2">3. 局限性</h4>
+<ol>
+<li>
+<p>目前插件不支持标注的自动编号和重命名。请查看 <a href="/projects/obsidian-equation-citator/tutorials/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a> 了解如何更好地使用标注引用。</p>
+</li>
+<li>
+<p>遗憾的是，我们目前还不支持为标注自定义图标。因为它使用图标作为 <code>data-callout</code>，而我们也使用第一个字段作为引用标签。</p>
+</li>
+</ol>
+<h2 id="_3-使用自动编号系统">3. 使用自动编号系统</h2>
+<p>你可以基于标题级别自动为当前文件中的所有公式/图表编号：</p>
+<ul>
+<li>使用命令 <code>自动编号当前文件公式</code> / <code>自动编号当前文件图表</code></li>
+<li>使用工具栏按钮</li>
+</ul>
+<h3 id="_1-自动编号方式和深度">1) 自动编号方式和深度</h3>
+<p>你可以在 <code>设置 &gt; 分类 &gt; 自动编号</code> 中自定义 <code>自动编号方式</code> 和 <code>自动编号深度</code>。</p>
+<p><strong>自动编号方式：</strong></p>
+<ul>
+<li><strong>相对</strong>：基于相对标题层级编号（2.1.1、2.1.2 等）</li>
+<li><strong>绝对</strong>：使用绝对标题级别进行自动编号（# 对应 1.1、1.2 等）</li>
+</ul>
+<p><strong>编号深度（1-6）</strong>：控制自动编号的最大级别 <code>(1.1)、(1.1.1)</code></p>
+<p><strong>自动编号全局前缀</strong>：如果你正在撰写一本书的特定章节，可以使用此设置。你可以将其设置为 <code>5.</code>，这样在第 1 节中，公式将显示为 <code>\tag{5.1.4}</code>。</p>
+<h3 id="_2-自动编号期间的引用更新">2) 自动编号期间的引用更新</h3>
+<p>当自动编号运行时，<strong>所有引用都会自动更新以匹配新的编号</strong>。这使你可以在任意位置插入或删除公式，无需担心重新编号或引用断裂。</p>
+<p>在自动编号过程中解决冲突有 2 个设置：</p>
+<ol>
+<li><strong>自动删除冲突的标签引用</strong>（默认：开启）：当一个标签被重命名为另一个标签，而该标签的旧引用仍然存在（在自动编号后未被修改），它们将被自动删除以避免错误引用。</li>
+<li><strong>自动删除未使用的标签引用</strong>（默认：关闭）：如果引用未被使用，它将被自动删除。（仅当你完全依赖自动编号进行标签管理时才使用此设置）。</li>
+</ol>
+<h3 id="_3-排除特定标签的公式">3) 排除特定标签的公式</h3>
+<p>标注中的公式默认不会包含在自动编号系统中。因此，要防止公式被自动编号，你应该将其放入标注中（参见 <a href="https://github.com/FRIEDparrot/obsidian-equation-citator/issues/166">#166</a>）。</p>
+<blockquote class="callout callout-note" data-callout-type="note" data-callout-has-title="">
+<p>此公式将被排除在自动编号系统之外：
+$$\iiint \nabla \cdot A dx = \iint A \cdot \vec{n} dS$$</p>
+</blockquote>
+<p>你仍然可以通过 <code>设置 &gt; 分类 &gt; 自动编号 &gt; 标注内公式自动编号</code> 来包含标注中的公式。</p>
+<h3 id="_4-仅对重要公式编号">4) 仅对重要公式编号</h3>
+<p>如果文件中包含许多推导步骤，但你只想为你打算引用的少数关键公式分配编号：</p>
+<ol>
+<li>启用选项：
+<ul>
+<li><code>设置 &gt; 分类 &gt; 仅自动编号带标签的公式</code></li>
+</ul>
+</li>
+<li>为你关心的公式手动添加标签：
+<ul>
+<li>在末尾：使用你的快捷键（例如&quot;在光标位置插入标签并自动编号&quot;）。</li>
+<li>在表达式中间：先插入 <code>\tag{A}</code> 或其他临时标签，然后运行自动编号。</li>
+</ul>
+</li>
+</ol>
+<p>对于我的工作流程，我建议对重要公式使用 <code>\boxed</code>。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="/projects/obsidian-equation-citator/tutorials/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">2. 跨文件引用功能</a> <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a> <a href="#fnref1:2" class="footnote-backref">↩︎</a> <a href="#fnref1:3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#_1-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%A6%82%E8%A7%88"><span>1. 核心功能概览</span></a><a href="#_2-%E5%9F%BA%E7%A1%80%E5%BC%95%E7%94%A8%E8%AF%AD%E6%B3%95"><span>2. 基础引用语法</span></a><a href="#_1-1-%E5%88%9B%E5%BB%BA%E5%92%8C%E5%BC%95%E7%94%A8%E5%85%AC%E5%BC%8F"><span>1.1 创建和引用公式</span></a><a href="#_1-2-%E5%A4%9A%E9%87%8D-%E8%BF%9E%E7%BB%AD%E5%BC%95%E7%94%A8"><span>1.2 多重/连续引用</span></a><a href="#_1-3-%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span>1.3 跨文件引用</span></a><a href="#_1-4-%E4%BA%A4%E4%BA%92%E5%8A%9F%E8%83%BD"><span>1.4 交互功能</span></a><a href="#_2-%E5%9B%BE%E8%A1%A8%E5%92%8C%E6%A0%87%E6%B3%A8%E5%BC%95%E7%94%A8"><span>2. 图表和标注引用</span></a><a href="#_1-%E5%9B%BE%E8%A1%A8%E5%BC%95%E7%94%A8"><span>1) 图表引用</span></a><a href="#_2-%E6%A0%87%E6%B3%A8%E5%BC%95%E7%94%A8"><span>2) 标注引用</span></a><a href="#_3-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7%E7%B3%BB%E7%BB%9F"><span>3. 使用自动编号系统</span></a><a href="#_1-%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7%E6%96%B9%E5%BC%8F%E5%92%8C%E6%B7%B1%E5%BA%A6"><span>1) 自动编号方式和深度</span></a><a href="#_2-%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7%E6%9C%9F%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%E6%9B%B4%E6%96%B0"><span>2) 自动编号期间的引用更新</span></a><a href="#_3-%E6%8E%92%E9%99%A4%E7%89%B9%E5%AE%9A%E6%A0%87%E7%AD%BE%E7%9A%84%E5%85%AC%E5%BC%8F"><span>3) 排除特定标签的公式</span></a><a href="#_4-%E4%BB%85%E5%AF%B9%E9%87%8D%E8%A6%81%E5%85%AC%E5%BC%8F%E7%BC%96%E5%8F%B7"><span>4) 仅对重要公式编号</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

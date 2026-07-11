@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="default" lang="zh-CN" data-base="../../../api/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6. 使用实时引用功能构建网站 | Equation Citator v1.3.5 Documentation</title>
+  <meta name="description" content="Documentation for Equation Citator">
+  <link rel="stylesheet" href="../../../api/assets/style.css">
+  <link rel="stylesheet" href="../../../api/assets/highlight.css">
+  <script defer src="../../../api/assets/main.js"></script>
+  <script async src="../../../api/assets/icons.js" id="tsd-icons-script"></script>
+  <script async src="../../../api/assets/search.js" id="tsd-search-script"></script>
+  <script type="module">
+    import { install } from "../../../assets/equation-citator/runtime.js";
+    install();
+  </script>
+  <link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../../api/assets/typedoc-github-style.css">
+  <link rel="stylesheet" href="../../../assets/docs-site.css">
+</head>
+<body class="ec-docs-page">
+  <script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script>
+  <header class="tsd-page-toolbar">
+    <div class="tsd-toolbar-contents container">
+      <div class="ec-toolbar-spacer" aria-hidden="true"></div>
+      <a href="/projects/obsidian-equation-citator/zh-CN/index.html" class="title ec-site-title">Equation Citator v1.3.5 Documentation</a>
+      <div id="tsd-toolbar-links"><div class="ec-toolbar-links" aria-label="Primary"><a class="ec-toolbar-link ec-toolbar-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a><a class="ec-toolbar-link" href="/projects/obsidian-equation-citator/api/index.html">API</a><a class="ec-toolbar-link" href="https://friedparrot.github.io/" target="_blank" rel="noopener noreferrer">My Website</a></div></div>
+      <button id="tsd-search-trigger" class="tsd-widget" aria-label="Search">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../../../api/assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search">  <input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100">  <ul role="listbox" id="tsd-search-results"></ul>  <div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog>
+    </div>
+  </header>
+  <div class="container container-main">
+    <div class="col-content">
+      <article class="tsd-panel tsd-typography ec-docs-article">
+        <div class="tsd-page-title"><h1>6. 使用实时引用功能构建网站</h1></div>
+        <p>关于使用 <code>公式引用插件</code> 构建具有实时引用功能的完整网站，可以直接在<a href="https://friedparrot.github.io/projects/obsidian-equation-citator/tutorials/en/1.%20Get%20Started/index.html">网站文档教程</a>中找到示例，完整网站的源代码请查看<a href="https://github.com/FRIEDparrot/FriedParrot.github.io-src">网站源代码</a>。</p>
+<h2 id="_1-简介">1. 简介</h2>
+<h3 id="_1-如何构建带引用功能的网页笔记仓库">(1) 如何构建带引用功能的网页笔记仓库？</h3>
+<p>我们在 <code>v1.3.5 版本</code> 中添加了对<strong>网页笔记支持</strong>。由于<strong>构建一个支持所有多重/连续引用和跨文件预览功能的 Markdown-it 扩展并非易事</strong>，就像 <code>公式引用插件</code> 一样。在基于网页的笔记导出中，我们可以使用元素渲染的引用，这需要 <b><mark style="background: transparent; color: red">批量导出带有引用元数据的 Markdown 文件</mark></b>。</p>
+<p>我们的解决方案是<strong>指定一个网页笔记导出文件夹</strong>，并提供<strong>批量导出命令</strong>将笔记同步到网页笔记文件夹中。要指定它，请使用 <code>设置 &gt; 分类 &gt; PDF 导出 &gt; 网站笔记导出文件夹</code>。在设置为导出文件夹之前，你应该确保该文件夹是空的。</p>
+<p>为确保路径正确解析，请确保所有链接 <mark style="background: transparent; color: red">使用相对于仓库文件夹的相对路径</mark>。这在 <code>设置 &gt; 文件与链接 &gt; 新链接格式</code> 中设置。如果你使用最短路径，则需要更新所有链接。</p>
+<p><img src="/projects/obsidian-equation-citator/tutorials/img/new%20link%20format%20settings.png" alt="img/new link format settings.png"></p>
+<h3 id="_2-运行批量导出之前">(2) 运行批量导出之前</h3>
+<p>要<strong>确保元数据被保留</strong>，请仔细检查 <code>设置 &gt; 分类 &gt; PDF 导出</code> 下的设置：</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <code>导出的 Markdown 中注入引用元数据</code> <mark style="background: transparent; color: red">必须选中，以确保必要的元数据被注入到导出的元素中</mark></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <code>PDF 中添加图片标题</code> 和 <code>PDF 中添加图片描述</code> 通常应取消选中。因为最好单独指定标题/描述渲染的样式。</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <code>PDF 保留图片间距</code> 通常应选中，因为许多 Markdown-it 渲染器会将图片与附近文本渲染为同一行。</li>
+</ul>
+<p>在导出到网站的过程中，我们<strong>只导出 Markdown 文件及其引用的附件</strong>。</p>
+<p>还有另外 2 个设置：</p>
+<ul>
+<li><strong>直接复制的 Markdown 文件模式</strong>：我们使用 <code>$\ref{}$</code> 语法解析图片和引用。但对于像 <code>excalidraw</code> Markdown 这样的文件，这些文件不应该被处理。因此我们可以指定需要直接复制的 Markdown 文件格式。</li>
+<li><strong>排除的网站笔记文件夹</strong>：对于一些辅助文件夹，如果你不想一起导出它们，可以指定不需要导出的文件夹。然而，默认情况下，如果有链接指向被排除的文件夹，其中的文件将被视为附件并仍然被导出。因此，你可以对特定文件夹开启 <code>完全忽略链接文件</code>，以在存在链接时忽略这些文件夹中的文件。</li>
+</ul>
+<p>然后，你可以将 <mark style="background: transparent; color: red">一个文件/一个文件夹/整个仓库</mark> 同步到目标网站导出文件夹。</p>
+<ul>
+<li>运行命令 <code>同步仓库到网站笔记文件夹</code> 以批量导出仓库中的所有笔记。</li>
+<li>如果你的仓库太大，只想同步一个文件，运行命令 <code>同步当前文件到网站笔记文件夹</code>。</li>
+<li>在 <code>文件</code> 树中右键单击文件夹/文件，选择 <code>同步文件/文件夹到网站笔记文件夹</code>。</li>
+</ul>
+<p>导出时，本插件将创建一个 <code>.equation-citator-export-index.json</code> 文件来跟踪已导出的文件。不在该列表中的文件在下次导出时不会被删除。</p>
+<h3 id="_3-使用-npm-包解析引用">(3) 使用 <code>npm</code> 包解析引用</h3>
+<p>为解析元数据，我们构建了一个 <a href="https://www.npmjs.com/package/@friedparrot/equation-citator">npm 包</a> 来解析链接并将预览注入到网页中。此包包含 <code>Markdown-it 插件</code> 和 <code>运行时扩展</code>。此包为你提供以下功能：</p>
+<ul>
+<li>
+<p><strong>Markdown-it 子包</strong></p>
+<ul>
+<li>Markdown-it 的构建时集成。</li>
+<li>为公式、图表和标注添加包装器和目标元数据。</li>
+<li>从公式标签或注入的元数据生成稳定的 ID。</li>
+<li>解析 Obsidian 链接、嵌入和跨文件引用 URL。</li>
+</ul>
+</li>
+<li>
+<p><strong>运行时子包</strong></p>
+<ul>
+<li>用于交互式引用的浏览器运行时。</li>
+<li>在页面加载后分配稳定的目标 ID。</li>
+<li>解析同页和跨文件引用目标。</li>
+<li>提供悬停预览、预览导航和跳转到目标的行为。</li>
+</ul>
+</li>
+</ul>
+<p>注意兼容性：<strong>equation-citator-webnote</strong>（<code>npm</code> 包）<code>v1.3.xx</code> 与 <strong>obsidian-equation-citator</strong> <code>v1.3.x</code> 兼容。</p>
+<p>你可以通过以下方式安装：</p>
+<pre><code class="language-sh">npm i @friedparrot/equation-citator
+</code></pre>
+<p>你需要使用以下内容：</p>
+<pre><code class="language-ts">md.use(equationCitatorMarkdownIt, {
+  pathMapping: [
+    // 仓库的网站链接路径 - 相对于项目文件夹的绝对仓库路径
+    { 'your-website.com/knowledge-base': 'docs/knowledge-base' }
+  ]
+})
+</code></pre>
+<p>我们注意到你可能还需要确保选项 <code>logEmbedLinkRemapping: true</code> 以<strong>确保所有图片链接正确</strong>。</p>
+<p><code>runtime.js</code> 和 <code>runtime.js.map</code> 文件应在构建网站时复制到资源目录中。</p>
+<p>此外，由于此包具有自动 ID 生成和链接映射功能，在网站构建过程中我们需要使用以下规则：</p>
+<ol>
+<li>对于 Markdown 的网页 <code>url</code>，使用转义链接：<code>/tutorials/en/2.%20Get%20Started/index.html#_1-4-interactive-features</code></li>
+<li>对于标题的 <code>id</code> 生成，我们暴露了一个 <code>buildHeadingId</code> 函数，你可以通过以下方式使用：</li>
+</ol>
+<pre><code class="language-ts">import { buildHeadingId } from 'equation-citator'
+
+const id = buildHeadingId('我的标题')
+</code></pre>
+      </article>
+    </div>
+    <div class="col-sidebar">
+      <div class="page-menu"><div class="tsd-theme-toggle">  <label class="settings-label" for="tsd-theme">Theme</label>  <select id="tsd-theme">    <option value="os">OS</option>    <option value="light">Light</option>    <option value="dark">Dark</option>  </select></div><details open class="tsd-accordion tsd-page-navigation">  <summary class="tsd-accordion-summary">    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-chevronDown"></use></svg>    <h3>On This Page</h3>  </summary>  <div class="tsd-accordion-details"><a href="#_1-%E7%AE%80%E4%BB%8B"><span>1. 简介</span></a><a href="#_1-%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E5%B8%A6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AC%94%E8%AE%B0%E4%BB%93%E5%BA%93"><span>(1) 如何构建带引用功能的网页笔记仓库？</span></a><a href="#_2-%E8%BF%90%E8%A1%8C%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA%E4%B9%8B%E5%89%8D"><span>(2) 运行批量导出之前</span></a><a href="#_3-%E4%BD%BF%E7%94%A8-npm-%E5%8C%85%E8%A7%A3%E6%9E%90%E5%BC%95%E7%94%A8"><span>(3) 使用 `npm` 包解析引用</span></a></div></details></div>
+      <div class="site-menu"><nav class="tsd-navigation ec-docs-sidebar">  <a class="ec-brand" href="/projects/obsidian-equation-citator/zh-CN/index.html">    <span class="ec-brand-mark">      <img class="ec-brand-logo ec-brand-logo-light" src="../../../assets/logo-light.png" alt="Equation Citator logo">      <img class="ec-brand-logo ec-brand-logo-dark" src="../../../assets/logo-dark.png" alt="Equation Citator logo">    </span>    <div class="ec-brand-copy"><span class="ec-brand-title">Equation Citator</span><span class="ec-brand-subtitle">Documentation</span></div>  </a>  <section class="ec-sidebar-meta">    <label class="ec-sidebar-group-title" for="ec-language-select">Language</label>    <select class="ec-language-select" id="ec-language-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value"><option value="/projects/obsidian-equation-citator/tutorials/en/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">English</option><option value="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html" selected>简体中文</option></select>  </section><section class="ec-sidebar-group ec-sidebar-group-active">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/index.html">Tutorials</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/1.%20%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/index.html">1. 开始之前</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/2.%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">2. 快速入门</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/3.%20%E5%85%AC%E5%BC%8F%E7%AE%A1%E7%90%86%E9%9D%A2%E6%9D%BF/index.html">3. 公式管理面板</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/4.%20%E9%99%84%E5%8A%A0%E5%8A%9F%E8%83%BD/index.html">4. 附加功能</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/5.%20%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/index.html">5. 进阶技巧</a><a class="ec-nav-link ec-nav-link-active" href="/projects/obsidian-equation-citator/tutorials/zh-CN/6.%20%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%97%B6%E5%BC%95%E7%94%A8%E5%8A%9F%E8%83%BD%E6%9E%84%E5%BB%BA%E7%BD%91%E7%AB%99/index.html">6. 使用实时引用功能构建网站</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/tutorials/zh-CN/%E8%B7%A8%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8/index.html">跨文件引用</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/index.html">ChangeLogs</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.1.x/index.html">更新日志 1.1.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.2.x/index.html">更新日志 1.2.X</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/changelogs/zh-CN/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-1.3.x/index.html">更新日志 1.3.X</a></section><section class="ec-sidebar-group">  <a class="ec-sidebar-group-title ec-sidebar-group-title-link" href="/projects/obsidian-equation-citator/api/index.html">API Documentation</a>  <a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/modules.html">Module index</a><a class="ec-nav-link" href="/projects/obsidian-equation-citator/api/hierarchy.html">Type hierarchy</a></section></nav></div>
+    </div>
+  </div>
+</body>
+</html>

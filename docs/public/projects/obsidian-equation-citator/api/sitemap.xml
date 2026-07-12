@@ -2,1426 +2,1426 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/index.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/hierarchy.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/api_updateChecking.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/api_updateChecking.isUpdateAvailable.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_baseCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_baseCache.BaseCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_baseCache.BaseCacheSimple.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/cache_baseCache.CachedData.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_calloutCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_calloutCache.CalloutCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_citationCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_citationCache.CitationCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_equationCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_equationCache.EquationCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_footnoteCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_footnoteCache.FootNoteCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_imageCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_imageCache.ImageCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/cache_lineHashCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/cache_lineHashCache.LineHashCache.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/cache_lineHashCache.LineHash.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/cache_lineHashCache.findLineHashLocation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/cache_lineHashCache.testLineHash.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/commands_command_list.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/commands_command_list.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/debug_debugger.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/debug_debugger.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/export_pdf_export.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/export_pdf_export.CitationSpanMetadataOptions.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/export_pdf_export.ExportCitationRef.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/export_pdf_export.ReplaceCitationsInMarkdownOptions.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/export_pdf_export.SpanStyles.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/export_pdf_export.flattenCitationRefs.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/export_pdf_export.generateCitationSpans.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/export_pdf_export.makePrintMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/export_pdf_export.replaceCitationsInMarkdownWithSpan.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/func_autoNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_autoNumber.assemblyCitationUpdateMessage.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_autoNumber.autoNumberCurrentFileEquations.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_autoNumber.autoNumberCurrentFileFigures.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_autoNumber.insertAutoNumberTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/func_equations_helper.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_equations_helper.boxSelectedEquation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/func_exportMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_exportMarkdown.exportCurrentMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_exportMarkdown.makeExportedMarkdownForPdf.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/func_syncWebsiteNotes.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_syncWebsiteNotes.isWebsiteNotesSyncTargetReady.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_syncWebsiteNotes.syncCurrentFileToWebsiteNotesFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_syncWebsiteNotes.syncFileToWebsiteNotesFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_syncWebsiteNotes.syncFolderToWebsiteNotesFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/func_syncWebsiteNotes.syncRepositoryToWebsiteNotesFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/handlers_rightButtonHandler.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/handlers_rightButtonHandler.registerRightClickHandler.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/i18n_getLocale.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/i18n_getLocale.LocaleKey.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/i18n_getLocale.PluginLocale.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/i18n_getLocale.getLocale.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/i18n_getLocale.t.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/i18n_locales_en.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/i18n_locales_en.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/i18n_locales_zh-CN.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/i18n_locales_zh-CN.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/main.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/main.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/services_callout_services.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/services_callout_services.CalloutServices.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/services_callout_services.RenderedCallout.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/services_equation_services.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/services_equation_services.EquationServices.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/services_equation_services.RenderedEquation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/services_equation_services.AddEquationTagResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/services_fig_tag_service.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/services_fig_tag_service.FigureTagService.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/services_fig_tag_service.AddFigureTagResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/services_figure_services.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/services_figure_services.FigureServices.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/services_figure_services.RenderedFigure.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/services_tag_service.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/services_tag_service.TagService.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/services_tag_service.TagRenamePair.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/services_tag_service.TagRenameResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/services_tag_service.FileCitationChangeMap.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_defaultSettings.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_defaultSettings.CalloutCitationPrefix.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_defaultSettings.EquationCitatorSettings.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_defaultSettings.SettingsMetadata.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_defaultSettings.WebsiteNotesExcludedFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_defaultSettings.DEFAULT_SETTINGS.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_defaultSettings.SETTINGS_METADATA.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_extensions_customizePanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_extensions_customizePanel.createCustomizePanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_extensions_foldablePanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_extensions_foldablePanel.createFoldablePanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_extensions_subPanelToggle.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_extensions_subPanelToggle.addSubPanelToggle.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_autoNumberSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_autoNumberSettingsTab.AutoNumberSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_autoNumberSettingsTab.addAutoNumberSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_cacheSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_cacheSettingsTab.CacheSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_cacheSettingsTab.addCacheSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_citationSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_citationSettingsTab.CitationSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_citationSettingsTab.addCitationSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_equationPanelSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_equationPanelSettingsTab.EquationPanelSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_equationPanelSettingsTab.addEquationPanelSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_otherSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_otherSettingsTab.OtherSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_otherSettingsTab.addOtherSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_pdfExportSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_pdfExportSettingsTab.PdfExportSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_pdfExportSettingsTab.addPdfExportSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_pages_styleSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_pages_styleSettingsTab.StyleSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_pages_styleSettingsTab.addStyleSettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_settingsHelper.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_settingsHelper.SettingsCategory.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_settingsHelper.getAllSettingsByCategory.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_settingsHelper.getSettingDisplayName.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_settingsHelper.isValidSettingKey.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_SettingsTab.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/enums/settings_SettingsTab.SettingsDisplayMode.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/settings_SettingsTab.SettingsTabView.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/settings_SettingsTab.UserSettingGroupConfig.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_SettingsTab.cleanUpStyles.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_SettingsTab.loadStyles.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/settings_SettingsTab.resetStyles.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_styleManagers_calloutTabManager.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/settings_styleManagers_calloutTabManager.CalloutTableStyleManager.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/settings_styleManagers_widgetSizeManager.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/enums/settings_styleManagers_widgetSizeManager.WidgetSize.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/settings_styleManagers_widgetSizeManager.WidgetSizeManager.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/settings_styleManagers_widgetSizeManager.WIDGET_SIZE_LABELS.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/types_global.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/types_timeout.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/types_timeout.Timeout.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_modals_optionsModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_modals_optionsModal.OptionsModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_modals_optionsModal.PromiseOptionsModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/ui_modals_optionsModal.ModalOption.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_modals_tagInputModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_modals_tagInputModal.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_modals_tagRenameModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_modals_tagRenameModal.TagRenameModal.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_box_filters.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_box_filters.boxedEquationFilter.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_drag_drop_handler.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_panels_equationManagePanel_drag_drop_handler.EquationPanelDragDropHandler.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_mainPanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_panels_equationManagePanel_mainPanel.EquationArrangePanel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/ui_panels_equationManagePanel_mainPanel.EQUATION_MANAGE_PANEL_TYPE.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_outline_view_renderer.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/ui_panels_equationManagePanel_outline_view_renderer.EquationPanelOutlineViewRenderer.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_panelItemTypes.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/ui_panels_equationManagePanel_panelItemTypes.PanelItemGroup.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/ui_panels_equationManagePanel_panelItemTypes.PanelItem.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/ui_panels_equationManagePanel_panelItemTypes.SortType.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/ui_panels_equationManagePanel_panelItemTypes.ViewMode.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_panelItemTypes.getItemLine.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_panelItemTypes.getItemLineRange.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_panelItemTypes.getItemSearchableContent.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_panelItemTypes.getItemTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_panelItemTypes.isItemInQuote.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_panels_equationManagePanel_toolbar.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_toolbar.renderToolbar.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_panels_equationManagePanel_toolbar.setToolbarDefaultState.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/ui_ribbon.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/ui_ribbon.default.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_core_auto_number_core.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/enums/utils_core_auto_number_core.AutoNumberingType.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_core.AutoNumberConfigs.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_core.AutoNumberingState.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_core.AutoNumberProceedResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_core.CodeAndHeadingLineProcessResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_core.generateNewTagForAutoNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_core.generateNextTagForAutoNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_core.processCodeBlockAndHeading.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_core_auto_number_equations.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_equations.EquationAutoNumberConfigs.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_equations.autoNumberEquations.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_equations.detectIllegalEquation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_equations.getEqAutoNumberInCursor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_core_auto_number_figures.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_auto_number_figures.FigAutoNumberConfigs.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_figures.addTagToImage.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_auto_number_figures.autoNumberFigures.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_core_citation_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_core_citation_utils.CitationRef.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.buildCrossFileCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.combineContinuousCitationTags.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.extractAutoCompleteInputTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.extractCommonPrefix.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.extractLastNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.parseCitationsInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.splitContinuousCitationTags.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_citation_utils.splitFileCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_core_footnote_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_core_footnote_utils.checkFootnoteExists.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_array_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_array_utils.find_array.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_desktop_fs_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_misc_desktop_fs_utils.NodeFileSystemModules.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_desktop_fs_utils.getNodeFileSystemModules.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_desktop_fs_utils.isPathInsideOrEqual.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_desktop_fs_utils.normalizeAbsolutePathForComparison.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_desktop_fs_utils.removeExternalExportPath.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_desktop_fs_utils.resolvePathInsideFolder.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_equation_copy.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_equation_copy.copyEquationToClipboard.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_file_pattern_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_file_pattern_utils.fileNameMatchesMarkdownPatterns.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_file_pattern_utils.normalizeMarkdownFilePattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_file_pattern_utils.wildcardPatternToRegExp.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_fileLink_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_fileLink_utils.resolveBackLinks.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_fileLink_utils.resolveForwardLinks.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_fileProcessor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/utils_misc_fileProcessor.MarkdownFileProcessor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_fileProcessor.isMarkdownFilePath.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_hash_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_hash_utils.fastHash.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_hash_utils.fnv1aHash.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_hash_utils.hashEquations.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_hash_utils.hashPanelItems.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_misc_mathjax_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_misc_mathjax_utils.forceMathRefresh.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_parsers_callout_parser.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_callout_parser.CalloutMatch.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_callout_parser.parseAllCalloutsFromMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_callout_parser.parseFirstCalloutInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_parsers_equation_parser.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_equation_parser.EquationMatch.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_equation_parser.EquationParseResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_equation_parser.extractLastNumberFromTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_equation_parser.extractPrefixBeforeLastNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_equation_parser.parseEquationsInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_equation_parser.parseEquationTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_equation_parser.parseFirstEquationInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_parsers_footnote_parser.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_footnote_parser.FootNote.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_footnote_parser.parseFootnoteInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_parsers_heading_parser.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_heading_parser.Heading.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_heading_parser.parseHeadingsInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_heading_parser.relativeHeadingLevel.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_parsers_image_parser.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_parsers_image_parser.ImageMatch.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/utils_parsers_image_parser.ImageType.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_image_parser.IsExcalidrawFile.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_image_parser.parseAllImagesFromMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_image_parser.parseFirstImageInMarkdown.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_parsers_image_parser.parseImageLine.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_string_processing_regexp_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_string_processing_regexp_utils.RefMatch.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.calloutPattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.CITATION_PADDING.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.codeBlockStartRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.equationBlockBracePattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.equationBlockEndPattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.equationBlockEndPatternWithWhiteSpace.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.equationBlockStartPattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.equationBlockStartPatternWithWhiteSpace.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.footnoteRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.headingRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.inlineMathPattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.markdownImagePattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.pureBarelinkFootnoteRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.pureFlinkFootnoteRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.pureWeblinkFootnoteRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.singleLineEqBlockPattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_regexp_utils.weblinkImagePattern.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.createCitationString.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.createEquationTagRegex.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.createEquationTagString.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.escapeRegExp.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.isCodeBlockToggle.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.isValidCitationForm.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.matchCitationsInLine.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_regexp_utils.matchNestedCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_string_processing_string_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_string_processing_string_utils.MarkdownLineEnvironment.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/utils_string_processing_string_utils.QuoteLineMatch.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_string_processing_string_utils.DISABLED_DELIMITER.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.containSafeCharAndNotBlank.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.escapeString.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.findLastUnescapedDollar.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.isInInlineCodeEnvironment.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.isInInlineMathEnvironment.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.parseMarkdownLine.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.processQuoteLine.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.removeBraces.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.removeInlineCodeBlocks.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.removePairedBraces.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.validateDelimiter.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.validateDisplayFormat.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.validateLetterPrefix.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_string_processing_string_utils.validateNumber.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_drag_drop_event.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/variables/utils_workspace_drag_drop_event.dropCursorField.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_drag_drop_event.clearDragCursor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_drag_drop_event.drawCursorAtDragPosition.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_drag_drop_event.getEditorDropLocation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_equation_navigation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_equation_navigation.openFileAndScrollToEquation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_equation_navigation.scrollToEquationByTag.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_get_evt_view.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_get_evt_view.getMarkdownViewFromElement.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_get_evt_view.getMarkdownViewFromEvent.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_insertTextOnCursor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_insertTextOnCursor.insertTextWithCursorOffset.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_invokePanelView.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_invokePanelView.invokeView.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/utils_workspace_workspace_utils.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_workspace_utils.getLeafByElement.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/utils_workspace_workspace_utils.isSourceMode.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_auto_complete_suggest.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_auto_complete_suggest.AutoCompleteSuggest.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/views_auto_complete_suggest.CitationParseResult.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/views_auto_complete_suggest.UnfinishedCitationItem.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/views_auto_complete_suggest.CitationItem.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/types/views_auto_complete_suggest.CitationType.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_popovers_callout_citation_popover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_popovers_callout_citation_popover.CalloutCitationPopover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_popovers_callout_citation_popover.renderCalloutWrapper.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_popovers_citation_popover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_popovers_citation_popover.CitationPopover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_popovers_citation_popover.TargetElComponent.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_popovers_citation_popover.renderEquationWrapper.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_popovers_figure_citation_popover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_popovers_figure_citation_popover.FigureCitationPopover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_popovers_figure_citation_popover.renderFigureWrapper.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_popovers_file_superscript_popover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_popovers_file_superscript_popover.FileSuperScriptPopover.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_callout_citation_render.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_callout_citation_render.renderCalloutCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_callout_citation_widget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_widgets_callout_citation_widget.CalloutCitationWidget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_citation_render.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_widgets_citation_render.EquationCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/interfaces/views_widgets_citation_render.EditorSelectionInfo.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_citation_render.calloutCitationPostProcessor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_citation_render.createMathCitationExtension.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_citation_render.mathCitationPostProcessor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_citation_widget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_widgets_citation_widget.CitationWidget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_citation_widget.renderEquationCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_figure_citation_render.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_figure_citation_render.renderFigureCitation.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_figure_citation_widget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/classes/views_widgets_figure_citation_widget.FigureCitationWidget.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/modules/views_widgets_image_caption_extension.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_image_caption_extension.createImageCaptionExtension.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 	<url>
 		<loc>https://friedparrot.github.io/obsidian-equation-citator/functions/views_widgets_image_caption_extension.imageCaptionPostProcessor.html</loc>
-		<lastmod>2026-07-11T10:55:33.141Z</lastmod>
+		<lastmod>2026-07-12T13:50:05.078Z</lastmod>
 	</url>
 </urlset>

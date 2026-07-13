@@ -1,7 +1,0 @@
-<!-- AUTO-GENERATED: knowledge-base-listing -->
-# #algorithms/KMP
-
-## Notes
-
-- [KMP algorithm for sub-sequence-search](/knowledge-base/Algorithms/KMP%20algorithm%20for%20sub-sequence-search)
-

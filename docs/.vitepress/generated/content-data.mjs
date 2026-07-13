@@ -1,5 +1,24 @@
 export const knowledgeBase = [
   {
+    "title": "1. Sigma-algebra and Lebesgue measure",
+    "route": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure",
+    "tags": [
+      "#math/sigma-algebra",
+      "math/axiom-of-choice",
+      "math/caratheodory-criterion",
+      "math/lebesgue-measure",
+      "math/vitali-set"
+    ],
+    "categories": [
+      "📐 Advanced Mathematics",
+      "combinatorics"
+    ],
+    "categorySegments": [
+      "📐 Advanced Mathematics",
+      "combinatorics"
+    ]
+  },
+  {
     "title": "KMP algorithm for sub-sequence-search",
     "route": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search",
     "tags": [
@@ -11,24 +30,6 @@ export const knowledgeBase = [
     ],
     "categorySegments": [
       "Algorithms"
-    ]
-  },
-  {
-    "title": "obsidian-links",
-    "route": "/knowledge-base/knowledge/ai/obsidian-links",
-    "tags": [
-      "ai",
-      "knowledge",
-      "notes",
-      "wiki"
-    ],
-    "categories": [
-      "knowledge",
-      "ai"
-    ],
-    "categorySegments": [
-      "knowledge",
-      "ai"
     ]
   },
   {
@@ -48,6 +49,24 @@ export const knowledgeBase = [
 ]
 
 export const knowledgeBaseSidebar = [
+  {
+    "text": "📐 Advanced Mathematics",
+    "link": "/knowledge-base/%F0%9F%93%90%20Advanced%20Mathematics/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "combinatorics",
+        "link": "/knowledge-base/%F0%9F%93%90%20Advanced%20Mathematics/combinatorics/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      }
+    ]
+  },
   {
     "text": "Algorithms",
     "link": "/knowledge-base/Algorithms/",
@@ -69,36 +88,25 @@ export const knowledgeBaseSidebar = [
         "link": "/knowledge-base/dev/project-summary"
       }
     ]
-  },
-  {
-    "text": "knowledge",
-    "link": "/knowledge-base/knowledge/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "ai",
-        "link": "/knowledge-base/knowledge/ai/",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "obsidian-links",
-            "link": "/knowledge-base/knowledge/ai/obsidian-links"
-          }
-        ]
-      }
-    ]
   }
 ]
 
 export const knowledgeBaseTagSidebar = [
   {
-    "text": "ai",
-    "link": "/knowledge-base/_tags/ai/",
+    "text": "#math",
+    "link": "/knowledge-base/_tags/%23math/",
     "collapsed": true,
     "items": [
       {
-        "text": "obsidian-links",
-        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+        "text": "sigma-algebra",
+        "link": "/knowledge-base/_tags/%23math/sigma-algebra/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
       }
     ]
   },
@@ -132,24 +140,53 @@ export const knowledgeBaseTagSidebar = [
     ]
   },
   {
-    "text": "knowledge",
-    "link": "/knowledge-base/_tags/knowledge/",
+    "text": "math",
+    "link": "/knowledge-base/_tags/math/",
     "collapsed": true,
     "items": [
       {
-        "text": "obsidian-links",
-        "link": "/knowledge-base/knowledge/ai/obsidian-links"
-      }
-    ]
-  },
-  {
-    "text": "notes",
-    "link": "/knowledge-base/_tags/notes/",
-    "collapsed": true,
-    "items": [
+        "text": "axiom-of-choice",
+        "link": "/knowledge-base/_tags/math/axiom-of-choice/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
       {
-        "text": "obsidian-links",
-        "link": "/knowledge-base/knowledge/ai/obsidian-links"
+        "text": "caratheodory-criterion",
+        "link": "/knowledge-base/_tags/math/caratheodory-criterion/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
+      {
+        "text": "lebesgue-measure",
+        "link": "/knowledge-base/_tags/math/lebesgue-measure/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
+      {
+        "text": "vitali-set",
+        "link": "/knowledge-base/_tags/math/vitali-set/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
       }
     ]
   },
@@ -172,17 +209,6 @@ export const knowledgeBaseTagSidebar = [
       {
         "text": "KMP algorithm for sub-sequence-search",
         "link": "/knowledge-base/Algorithms/KMP algorithm for sub-sequence-search"
-      }
-    ]
-  },
-  {
-    "text": "wiki",
-    "link": "/knowledge-base/_tags/wiki/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "obsidian-links",
-        "link": "/knowledge-base/knowledge/ai/obsidian-links"
       }
     ]
   }
@@ -216,12 +242,13 @@ export const postsSidebar = [
 export const postsTagSidebar = []
 
 export const tags = [
-  "ai",
+  "#math/sigma-algebra",
   "algorithms/KMP",
   "docs",
-  "knowledge",
-  "notes",
+  "math/axiom-of-choice",
+  "math/caratheodory-criterion",
+  "math/lebesgue-measure",
+  "math/vitali-set",
   "projects",
-  "sequence-search",
-  "wiki"
+  "sequence-search"
 ]

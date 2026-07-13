@@ -6,6 +6,7 @@
 - [#math/axiom-of-choice](axiom-of-choice/)
 - [#math/caratheodory-criterion](caratheodory-criterion/)
 - [#math/lebesgue-measure](lebesgue-measure/)
+- [#math/sigma-algebra](sigma-algebra/)
 - [#math/vitali-set](vitali-set/)
 
 ## Notes

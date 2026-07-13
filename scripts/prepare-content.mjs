@@ -55,7 +55,7 @@ function parseTags(frontmatter, body) {
   const frontmatterTags = frontmatter.match(/(?:^|\n)tags:\s*\[([^\]]*)\]/m)
   if (frontmatterTags?.[1]) {
     for (const tag of frontmatterTags[1].split(',')) {
-      const cleaned = tag.trim().replace(/^['"]|['"]$/g, '')
+      const cleaned = cleanTag(tag)
       if (cleaned) tags.add(cleaned)
     }
   }
@@ -63,7 +63,7 @@ function parseTags(frontmatter, body) {
   const blockTags = frontmatter.match(/(?:^|\n)tags:\s*\n((?:\s+-\s*.+(?:\n|$))+)/m)
   if (blockTags?.[1]) {
     for (const tag of blockTags[1].split('\n')) {
-      const cleaned = tag.replace(/^\s+-\s*/, '').trim().replace(/^['"]|['"]$/g, '')
+      const cleaned = cleanTag(tag.replace(/^\s+-\s*/, ''))
       if (cleaned) tags.add(cleaned)
     }
   }
@@ -75,6 +75,10 @@ function parseTags(frontmatter, body) {
   }
 
   return [...tags].sort((a, b) => a.localeCompare(b))
+}
+
+function cleanTag(tag = '') {
+  return tag.trim().replace(/^['"]|['"]$/g, '').replace(/^#/, '')
 }
 
 function parseTitle(frontmatter, body, filename) {

@@ -3,10 +3,10 @@ export const knowledgeBase = [
     "title": "1. Sigma-algebra and Lebesgue measure",
     "route": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure",
     "tags": [
-      "#math/sigma-algebra",
       "math/axiom-of-choice",
       "math/caratheodory-criterion",
       "math/lebesgue-measure",
+      "math/sigma-algebra",
       "math/vitali-set"
     ],
     "categories": [
@@ -93,24 +93,6 @@ export const knowledgeBaseSidebar = [
 
 export const knowledgeBaseTagSidebar = [
   {
-    "text": "#math",
-    "link": "/knowledge-base/_tags/%23math/",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "sigma-algebra",
-        "link": "/knowledge-base/_tags/%23math/sigma-algebra/",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "1. Sigma-algebra and Lebesgue measure",
-            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "text": "algorithms",
     "link": "/knowledge-base/_tags/algorithms/",
     "collapsed": true,
@@ -169,6 +151,17 @@ export const knowledgeBaseTagSidebar = [
       {
         "text": "lebesgue-measure",
         "link": "/knowledge-base/_tags/math/lebesgue-measure/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Sigma-algebra and Lebesgue measure",
+            "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
+      {
+        "text": "sigma-algebra",
+        "link": "/knowledge-base/_tags/math/sigma-algebra/",
         "collapsed": true,
         "items": [
           {
@@ -242,12 +235,12 @@ export const postsSidebar = [
 export const postsTagSidebar = []
 
 export const tags = [
-  "#math/sigma-algebra",
   "algorithms/KMP",
   "docs",
   "math/axiom-of-choice",
   "math/caratheodory-criterion",
   "math/lebesgue-measure",
+  "math/sigma-algebra",
   "math/vitali-set",
   "projects",
   "sequence-search"

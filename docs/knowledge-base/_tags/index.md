@@ -3,7 +3,6 @@
 
 ## Tags
 
-- [#math](%23math/)
 - [#algorithms](algorithms/)
 - [#docs](docs/)
 - [#math](math/)

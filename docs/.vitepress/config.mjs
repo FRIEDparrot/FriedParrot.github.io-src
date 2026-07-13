@@ -36,7 +36,7 @@ function splitFrontmatter(source) {
 }
 
 function cleanFrontmatterTag(tag = '') {
-  return tag.trim().replace(QUOTED_VALUE_BOUNDARY_PATTERN, '')
+  return tag.trim().replace(QUOTED_VALUE_BOUNDARY_PATTERN, '').replace(/^#/, '')
 }
 
 function parseTags(frontmatterContent = '') {
@@ -97,7 +97,7 @@ function normalizeTags(value) {
 
   const cleanedTags = value
     .filter((tag) => typeof tag === 'string' && tag.trim())
-    .map((tag) => tag.trim())
+    .map((tag) => cleanFrontmatterTag(tag))
 
   return [...new Set(cleanedTags)].sort((a, b) => a.localeCompare(b))
 }

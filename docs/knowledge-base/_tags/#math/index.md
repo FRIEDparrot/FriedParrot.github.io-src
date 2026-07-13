@@ -1,9 +1,9 @@
-<!-- AUTO-GENERATED: knowledge-base-listing -->
-# ##math
+<!-- AUTO-GENERATED: content-listing -->
+# #math
 
 ## Tags
 
-- [##math/sigma-algebra](sigma-algebra/)
+- [#math/sigma-algebra](sigma-algebra/)
 
 ## Notes
 

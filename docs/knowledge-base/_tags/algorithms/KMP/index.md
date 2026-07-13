@@ -1,4 +1,4 @@
-<!-- AUTO-GENERATED: knowledge-base-listing -->
+<!-- AUTO-GENERATED: content-listing -->
 # #algorithms/KMP
 
 ## Notes

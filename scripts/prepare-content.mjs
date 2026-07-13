@@ -9,7 +9,8 @@ const tagsRoot = path.join(docsRoot, 'tags')
 const knowledgeBaseTagsRoot = path.join(knowledgeBaseRoot, '_tags')
 const generatedDir = path.join(docsRoot, '.vitepress', 'generated')
 const generatedModulePath = path.join(generatedDir, 'content-data.mjs')
-const generatedListingMarker = '<!-- AUTO-GENERATED: knowledge-base-listing -->'
+const generatedListingMarker = '<!-- AUTO-GENERATED: content-listing -->'
+const legacyKnowledgeBaseListingMarker = '<!-- AUTO-GENERATED: knowledge-base-listing -->'
 
 fs.mkdirSync(generatedDir, { recursive: true })
 
@@ -133,6 +134,10 @@ function markdownLinkTarget(link) {
   return link.split('/').map((segment) => encodeURIComponent(segment)).join('/')
 }
 
+function tagLabel(segments) {
+  return segments.join('/').startsWith('#') ? segments.join('/') : `#${segments.join('/')}`
+}
+
 function makeSidebar(postsList, routeRoot) {
   const root = {}
 
@@ -242,11 +247,31 @@ const allTags = [...tagsMap.keys()].sort((a, b) => a.localeCompare(b))
 function writeIfGeneratedOrMissing(filePath, content) {
   if (fs.existsSync(filePath)) {
     const existing = fs.readFileSync(filePath, 'utf8')
-    if (!existing.startsWith(generatedListingMarker)) return
+    if (!isGeneratedListing(existing)) return
   }
 
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
   fs.writeFileSync(filePath, content)
+}
+
+function isGeneratedListing(content) {
+  return content.startsWith(generatedListingMarker) || content.startsWith(legacyKnowledgeBaseListingMarker)
+}
+
+// Remove generated folder landing pages before rebuilding them so deleted notes cannot leave stale routes behind.
+function removeIndexPages(rootDir) {
+  if (!fs.existsSync(rootDir)) return
+
+  for (const entry of fs.readdirSync(rootDir, { withFileTypes: true })) {
+    const fullPath = path.join(rootDir, entry.name)
+
+    if (entry.isDirectory()) {
+      if (['assets', '.obsidian', '.git'].includes(entry.name)) continue
+      removeIndexPages(fullPath)
+    } else if (entry.isFile() && entry.name === 'index.md') {
+      fs.rmSync(fullPath, { force: true })
+    }
+  }
 }
 
 function listDirectCategoryPosts(postsList, segments) {
@@ -268,7 +293,7 @@ function listDirectCategorySubfolders(postsList, segments) {
   return [...folders].sort((a, b) => a.localeCompare(b))
 }
 
-function writeKnowledgeBaseFolderPages(postsList) {
+function writeFolderPages(postsList, rootDir) {
   const folderKeys = new Set()
 
   for (const post of postsList) {
@@ -300,20 +325,20 @@ function writeKnowledgeBaseFolderPages(postsList) {
       lines.push('')
     }
 
-    writeIfGeneratedOrMissing(path.join(knowledgeBaseRoot, ...segments, 'index.md'), `${lines.join('\n')}\n`)
+    writeIfGeneratedOrMissing(path.join(rootDir, ...segments, 'index.md'), `${lines.join('\n')}\n`)
   }
 }
 
-function writeKnowledgeBaseIndex(postsList) {
+function writeSectionIndex(postsList, rootDir, title, description) {
   const subfolders = listDirectCategorySubfolders(postsList, [])
   const unclassifiedPosts = postsList
     .filter((post) => post.categorySegments.length === 0)
     .sort((a, b) => a.title.localeCompare(b.title))
   const lines = [
     generatedListingMarker,
-    '# Knowledge Base',
+    `# ${title}`,
     '',
-    'Browse knowledge base notes from the left sidebar by folder or tag.',
+    description,
     ''
   ]
 
@@ -333,7 +358,7 @@ function writeKnowledgeBaseIndex(postsList) {
     lines.push('')
   }
 
-  fs.writeFileSync(path.join(knowledgeBaseRoot, 'index.md'), `${lines.join('\n')}\n`)
+  fs.writeFileSync(path.join(rootDir, 'index.md'), `${lines.join('\n')}\n`)
 }
 
 function tagSegments(tag) {
@@ -366,6 +391,20 @@ function listTagPosts(postsList, segments) {
 
 function writeKnowledgeBaseTagPages(postsList) {
   fs.rmSync(knowledgeBaseTagsRoot, { recursive: true, force: true })
+  const rootSubfolders = listDirectTagSubfolders(allTags, [])
+  const rootLines = [generatedListingMarker, '# Tags', '']
+
+  if (rootSubfolders.length) {
+    rootLines.push('## Tags', '')
+    for (const folder of rootSubfolders) {
+      rootLines.push(`- [${tagLabel([folder])}](${markdownLinkTarget(`${folder}/`)})`)
+    }
+    rootLines.push('')
+  }
+
+  fs.mkdirSync(knowledgeBaseTagsRoot, { recursive: true })
+  fs.writeFileSync(path.join(knowledgeBaseTagsRoot, 'index.md'), `${rootLines.join('\n')}\n`)
+
   const tagKeys = new Set()
 
   for (const tag of allTags) {
@@ -379,12 +418,12 @@ function writeKnowledgeBaseTagPages(postsList) {
     const segments = key.split('/').filter(Boolean)
     const subfolders = listDirectTagSubfolders(allTags, segments)
     const posts = listTagPosts(postsList, segments)
-    const lines = [generatedListingMarker, `# #${segments.join('/')}`, '']
+    const lines = [generatedListingMarker, `# ${tagLabel(segments)}`, '']
 
     if (subfolders.length) {
       lines.push('## Tags', '')
       for (const folder of subfolders) {
-        lines.push(`- [#${segments.concat(folder).join('/')}](${markdownLinkTarget(`${folder}/`)})`)
+        lines.push(`- [${tagLabel(segments.concat(folder))}](${markdownLinkTarget(`${folder}/`)})`)
       }
       lines.push('')
     }
@@ -408,8 +447,12 @@ function removeGeneratedTagPages() {
 }
 
 removeGeneratedTagPages()
-writeKnowledgeBaseIndex(knowledgeBase)
-writeKnowledgeBaseFolderPages(knowledgeBase)
+removeIndexPages(knowledgeBaseRoot)
+removeIndexPages(postsRoot)
+writeSectionIndex(knowledgeBase, knowledgeBaseRoot, 'Knowledge Base', 'Browse knowledge base notes from the left sidebar by folder or tag.')
+writeFolderPages(knowledgeBase, knowledgeBaseRoot)
+writeSectionIndex(posts, postsRoot, 'Posts', 'Browse posts from the left sidebar by folder or tag.')
+writeFolderPages(posts, postsRoot)
 writeKnowledgeBaseTagPages(knowledgeBase)
 
 const moduleContent = `export const knowledgeBase = ${JSON.stringify(knowledgeBase, null, 2)}\n\nexport const knowledgeBaseSidebar = ${JSON.stringify(knowledgeBaseSidebar, null, 2)}\n\nexport const knowledgeBaseTagSidebar = ${JSON.stringify(knowledgeBaseTagSidebar, null, 2)}\n\nexport const posts = ${JSON.stringify(posts, null, 2)}\n\nexport const postsSidebar = ${JSON.stringify(postsSidebar, null, 2)}\n\nexport const postsTagSidebar = ${JSON.stringify(postsTagSidebar, null, 2)}\n\nexport const tags = ${JSON.stringify(allTags, null, 2)}\n`

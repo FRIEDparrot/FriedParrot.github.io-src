@@ -1,5 +1,5 @@
-<!-- AUTO-GENERATED: knowledge-base-listing -->
-# ##math/sigma-algebra
+<!-- AUTO-GENERATED: content-listing -->
+# #math/sigma-algebra
 
 ## Notes
 

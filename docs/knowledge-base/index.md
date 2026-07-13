@@ -1,4 +1,4 @@
-<!-- AUTO-GENERATED: knowledge-base-listing -->
+<!-- AUTO-GENERATED: content-listing -->
 # Knowledge Base
 
 Browse knowledge base notes from the left sidebar by folder or tag.

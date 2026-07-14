@@ -1,5 +1,39 @@
 export const knowledgeBase = [
   {
+    "title": "1. Karush–Kuhn–Tucker (KKT) conditions",
+    "route": "/knowledge-base/📐 Advanced Mathematics/optimum-theories/1. Karush–Kuhn–Tucker (KKT) conditions",
+    "tags": [
+      "math/KKT-condition",
+      "optimum-condition"
+    ],
+    "categories": [
+      "📐 Advanced Mathematics",
+      "optimum theories"
+    ],
+    "categorySegments": [
+      "📐 Advanced Mathematics",
+      "optimum-theories"
+    ]
+  },
+  {
+    "title": "1. Markov-decision-process",
+    "route": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process",
+    "tags": [
+      "math/counting-measure",
+      "math/markov-decision-process",
+      "math/optimization-policy",
+      "math/Reinforcement-learning/Bellman-equation"
+    ],
+    "categories": [
+      "📐 Advanced Mathematics",
+      "random process"
+    ],
+    "categorySegments": [
+      "📐 Advanced Mathematics",
+      "random-process"
+    ]
+  },
+  {
     "title": "1. Sigma-algebra and Lebesgue measure",
     "route": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure",
     "tags": [
@@ -62,6 +96,28 @@ export const knowledgeBaseSidebar = [
           {
             "text": "1. Sigma-algebra and Lebesgue measure",
             "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
+      {
+        "text": "optimum theories",
+        "link": "/knowledge-base/%F0%9F%93%90%20Advanced%20Mathematics/optimum-theories/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Karush–Kuhn–Tucker (KKT) conditions",
+            "link": "/knowledge-base/📐 Advanced Mathematics/optimum-theories/1. Karush–Kuhn–Tucker (KKT) conditions"
+          }
+        ]
+      },
+      {
+        "text": "random process",
+        "link": "/knowledge-base/%F0%9F%93%90%20Advanced%20Mathematics/random-process/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Markov-decision-process",
+            "link": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process"
           }
         ]
       }
@@ -149,6 +205,28 @@ export const knowledgeBaseTagSidebar = [
         ]
       },
       {
+        "text": "counting-measure",
+        "link": "/knowledge-base/_tags/math/counting-measure/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Markov-decision-process",
+            "link": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process"
+          }
+        ]
+      },
+      {
+        "text": "KKT-condition",
+        "link": "/knowledge-base/_tags/math/KKT-condition/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Karush–Kuhn–Tucker (KKT) conditions",
+            "link": "/knowledge-base/📐 Advanced Mathematics/optimum-theories/1. Karush–Kuhn–Tucker (KKT) conditions"
+          }
+        ]
+      },
+      {
         "text": "lebesgue-measure",
         "link": "/knowledge-base/_tags/math/lebesgue-measure/",
         "collapsed": true,
@@ -156,6 +234,46 @@ export const knowledgeBaseTagSidebar = [
           {
             "text": "1. Sigma-algebra and Lebesgue measure",
             "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
+          }
+        ]
+      },
+      {
+        "text": "markov-decision-process",
+        "link": "/knowledge-base/_tags/math/markov-decision-process/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Markov-decision-process",
+            "link": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process"
+          }
+        ]
+      },
+      {
+        "text": "optimization-policy",
+        "link": "/knowledge-base/_tags/math/optimization-policy/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "1. Markov-decision-process",
+            "link": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process"
+          }
+        ]
+      },
+      {
+        "text": "Reinforcement-learning",
+        "link": "/knowledge-base/_tags/math/Reinforcement-learning/",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "Bellman-equation",
+            "link": "/knowledge-base/_tags/math/Reinforcement-learning/Bellman-equation/",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "1. Markov-decision-process",
+                "link": "/knowledge-base/📐 Advanced Mathematics/random-process/1. Markov-decision-process"
+              }
+            ]
           }
         ]
       },
@@ -180,6 +298,17 @@ export const knowledgeBaseTagSidebar = [
             "link": "/knowledge-base/📐 Advanced Mathematics/combinatorics/1. Sigma-algebra and Lebesgue measure"
           }
         ]
+      }
+    ]
+  },
+  {
+    "text": "optimum-condition",
+    "link": "/knowledge-base/_tags/optimum-condition/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "1. Karush–Kuhn–Tucker (KKT) conditions",
+        "link": "/knowledge-base/📐 Advanced Mathematics/optimum-theories/1. Karush–Kuhn–Tucker (KKT) conditions"
       }
     ]
   },
@@ -239,9 +368,15 @@ export const tags = [
   "docs",
   "math/axiom-of-choice",
   "math/caratheodory-criterion",
+  "math/counting-measure",
+  "math/KKT-condition",
   "math/lebesgue-measure",
+  "math/markov-decision-process",
+  "math/optimization-policy",
+  "math/Reinforcement-learning/Bellman-equation",
   "math/sigma-algebra",
   "math/vitali-set",
+  "optimum-condition",
   "projects",
   "sequence-search"
 ]
